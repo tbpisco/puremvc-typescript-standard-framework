@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.patterns.facade
+module puremvc
 {
 	"use strict";
 
@@ -44,19 +44,19 @@ module org.puremvc.typescript.patterns.facade
 	 *		public static const GO_COMMAND:String = "go";
 	 * 		
 	 *		// Override Singleton Factory method 
-	 *		public static function getInstance() : MyFacade {
+	 *		public static getInstance() : MyFacade {
 	 *			if (instance == null) instance = new MyFacade();
 	 *			return instance as MyFacade;
 	 *		}
 	 * 		
 	 *		// optional initialization hook for Facade
-	 *		override public function initializeFacade() : void {
+	 *		override public initializeFacade() : void {
 	 *			super.initializeFacade();
 	 *			// do any special subclass initialization here
 	 *		}
 	 *	
 	 *		// optional initialization hook for Controller
-	 *		override public function initializeController() : void {
+	 *		override public initializeController() : void {
 	 *			// call super to use the PureMVC Controller Singleton. 
 	 *			super.initializeController();
 	 * 
@@ -71,7 +71,7 @@ module org.puremvc.typescript.patterns.facade
 	 *		}
 	 *	
 	 *		// optional initialization hook for Model
-	 *		override public function initializeModel() : void {
+	 *		override public initializeModel() : void {
 	 *			// call super to use the PureMVC Model Singleton. 
 	 *			super.initializeModel();
 	 * 
@@ -95,7 +95,7 @@ module org.puremvc.typescript.patterns.facade
 	 *		}
 	 *	
 	 *		// optional initialization hook for View
-	 *		override public function initializeView() : void {
+	 *		override public initializeView() : void {
 	 *			// call super to use the PureMVC View Singleton. 
 	 *			super.initializeView();
 	 * 
@@ -158,7 +158,7 @@ module org.puremvc.typescript.patterns.facade
 		 * subclass to do any subclass specific initializations. Be
 		 * sure to call <code>super.initializeFacade()</code>, though.</P>
 		 */
-		protected function initializeFacade(  ):void {
+		protected initializeFacade(  ):void {
 			initializeModel();
 			initializeController();
 			initializeView();
@@ -169,7 +169,7 @@ module org.puremvc.typescript.patterns.facade
 		 * 
 		 * @return the Singleton instance of the Facade
 		 */
-		public static function getInstance():IFacade {
+		public static getInstance():IFacade {
 			if (instance == null) instance = new Facade( );
 			return instance;
 		}
@@ -190,7 +190,7 @@ module org.puremvc.typescript.patterns.facade
 		 * method, then register <code>Command</code>s.
 		 * </P>
 		 */
-		protected function initializeController( ):void {
+		protected initializeController( ):void {
 			if ( controller != null ) return;
 			controller = Controller.getInstance();
 		}
@@ -218,7 +218,7 @@ module org.puremvc.typescript.patterns.facade
 		 * the <code>Facade</code> during their construction. 
 		 * </P>
 		 */
-		protected function initializeModel( ):void {
+		protected initializeModel( ):void {
 			if ( model != null ) return;
 			model = Model.getInstance();
 		}
@@ -246,7 +246,7 @@ module org.puremvc.typescript.patterns.facade
 		 * to the <code>Facade</code> during their construction. 
 		 * </P>
 		 */
-		protected function initializeView( ):void {
+		protected initializeView( ):void {
 			if ( view != null ) return;
 			view = View.getInstance();
 		}
@@ -257,7 +257,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param notificationName the name of the <code>INotification</code> to associate the <code>ICommand</code> with
 		 * @param commandClassRef a reference to the Class of the <code>ICommand</code>
 		 */
-		public function registerCommand( notificationName:String, commandClassRef:Class ):void 
+		public registerCommand( notificationName:String, commandClassRef:Class ):void
 		{
 			controller.registerCommand( notificationName, commandClassRef );
 		}
@@ -267,7 +267,7 @@ module org.puremvc.typescript.patterns.facade
 		 * 
 		 * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
 		 */
-		public function removeCommand( notificationName:String ):void 
+		public removeCommand( notificationName:String ):void
 		{
 			controller.removeCommand( notificationName );
 		}
@@ -278,7 +278,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param notificationName
 		 * @return whether a Command is currently registered for the given <code>notificationName</code>.
 		 */
-		public function hasCommand( notificationName:String ) : Boolean
+		public hasCommand( notificationName:String ) : Boolean
 		{
 			return controller.hasCommand(notificationName);
 		}
@@ -289,7 +289,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param proxyName the name of the <code>IProxy</code>.
 		 * @param proxy the <code>IProxy</code> instance to be registered with the <code>Model</code>.
 		 */
-		public function registerProxy ( proxy:IProxy ):void	
+		public registerProxy ( proxy:IProxy ):void
 		{
 			model.registerProxy ( proxy );	
 		}
@@ -300,7 +300,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param proxyName the name of the proxy to be retrieved.
 		 * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
 		 */
-		public function retrieveProxy ( proxyName:String ):IProxy 
+		public retrieveProxy ( proxyName:String ):IProxy
 		{
 			return model.retrieveProxy ( proxyName );	
 		}
@@ -311,7 +311,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param proxyName the <code>IProxy</code> to remove from the <code>Model</code>.
 		 * @return the <code>IProxy</code> that was removed from the <code>Model</code>
 		 */
-		public function removeProxy ( proxyName:String ):IProxy 
+		public removeProxy ( proxyName:String ):IProxy
 		{
 			var proxy:IProxy;
 			if ( model != null ) proxy = model.removeProxy ( proxyName );	
@@ -324,7 +324,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param proxyName
 		 * @return whether a Proxy is currently registered with the given <code>proxyName</code>.
 		 */
-		public function hasProxy( proxyName:String ) : Boolean
+		public hasProxy( proxyName:String ) : Boolean
 		{
 			return model.hasProxy( proxyName );
 		}
@@ -335,7 +335,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param mediatorName the name to associate with this <code>IMediator</code>
 		 * @param mediator a reference to the <code>IMediator</code>
 		 */
-		public function registerMediator( mediator:IMediator ):void 
+		public registerMediator( mediator:IMediator ):void
 		{
 			if ( view != null ) view.registerMediator( mediator );
 		}
@@ -346,7 +346,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param mediatorName
 		 * @return the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
 		 */
-		public function retrieveMediator( mediatorName:String ):IMediator 
+		public retrieveMediator( mediatorName:String ):IMediator
 		{
 			return view.retrieveMediator( mediatorName ) as IMediator;
 		}
@@ -357,7 +357,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param mediatorName name of the <code>IMediator</code> to be removed.
 		 * @return the <code>IMediator</code> that was removed from the <code>View</code>
 		 */
-		public function removeMediator( mediatorName:String ) : IMediator 
+		public removeMediator( mediatorName:String ) : IMediator
 		{
 			var mediator:IMediator;
 			if ( view != null ) mediator = view.removeMediator( mediatorName );			
@@ -370,7 +370,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param mediatorName
 		 * @return whether a Mediator is registered with the given <code>mediatorName</code>.
 		 */
-		public function hasMediator( mediatorName:String ) : Boolean
+		public hasMediator( mediatorName:String ) : Boolean
 		{
 			return view.hasMediator( mediatorName );
 		}
@@ -385,7 +385,7 @@ module org.puremvc.typescript.patterns.facade
 		 * @param body the body of the notification (optional)
 		 * @param type the type of the notification (optional)
 		 */ 
-		public function sendNotification( notificationName:String, body:Object=null, type:String=null ):void 
+		public sendNotification( notificationName:String, body:Object=null, type:String=null ):void
 		{
 			notifyObservers( new Notification( notificationName, body, type ) );
 		}
@@ -403,7 +403,7 @@ module org.puremvc.typescript.patterns.facade
 		 * 
 		 * @param notification the <code>INotification</code> to have the <code>View</code> notify <code>Observers</code> of.
 		 */
-		public function notifyObservers ( notification:INotification ):void {
+		public notifyObservers ( notification:INotification ):void {
 			if ( view != null ) view.notifyObservers( notification );
 		}
 

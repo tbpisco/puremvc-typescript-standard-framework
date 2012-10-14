@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.interfaces
+module puremvc
 {
 	
 	/**
@@ -56,17 +56,17 @@ module org.puremvc.typescript.interfaces
 	 * 
 	 * public class MyMediator extends Mediator implements IMediator {
 	 * 
-	 * 		public function MyComboMediator( viewComponent:Object ) {
+	 * 		public MyComboMediator( viewComponent:Object ) {
 	 * 			super( viewComponent );
 	 * 			combo.addEventListener( Event.CHANGE, onChange );
 	 * 		}
 	 * 		
-	 * 		override public function listNotificationInterests():Array {
+	 * 		override public listNotificationInterests():Array {
 	 * 				return [ MyFacade.SET_SELECTION, 
 	 * 						 MyFacade.SET_DATAPROVIDER ];
 	 * 		}
 	 * 
-	 * 		override public function handleNotification( notification:INotification ):void {
+	 * 		override public handleNotification( notification:INotification ):void {
 	 * 				switch ( notification.getName() ) {
 	 * 					case MyFacade.SET_SELECTION:
 	 * 						setSelection(notification);
@@ -78,18 +78,18 @@ module org.puremvc.typescript.interfaces
 	 * 		}
 	 * 
 	 * 		// Set the data provider of the combo box
-	 * 		protected function setDataProvider( notification:INotification ):void {
+	 * 		protected setDataProvider( notification:INotification ):void {
 	 * 			combo.dataProvider = notification.getBody() as Array;
 	 * 		}
 	 * 
 	 * 		// Invoked when the combo box dispatches a change event, we send a
 	 *      // notification with the
-	 * 		protected function onChange(event:ListEvent):void {
+	 * 		protected onChange(event:ListEvent):void {
 	 * 			sendNotification( MyFacade.MYCOMBO_CHANGED, this );
 	 * 		}
 	 * 
 	 * 		// A private getter for accessing the view object by class
-	 *      protected function get combo():ComboBox  {
+	 *      protected get combo():ComboBox  {
 	 *         return view as ComboBox;
 	 *      }
 	 * 
@@ -98,7 +98,7 @@ module org.puremvc.typescript.interfaces
 	 * 
 	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
-	public interface IMediator
+	interface IMediator
 	{
 		
 		/**
@@ -106,45 +106,45 @@ module org.puremvc.typescript.interfaces
 		 * 
 		 * @return the <code>IMediator</code> instance name
 		 */
-		function getMediatorName():String;
+		getMediatorName():String;
 		
 		/**
 		 * Get the <code>IMediator</code>'s view component.
 		 * 
 		 * @return Object the view component
 		 */
-		function getViewComponent():Object;
+		getViewComponent():Object;
 
 		/**
 		 * Set the <code>IMediator</code>'s view component.
 		 * 
 		 * @param Object the view component
 		 */
-		function setViewComponent( viewComponent:Object ):void;
+		setViewComponent( viewComponent:Object ):void;
 		
 		/**
 		 * List <code>INotification</code> interests.
 		 * 
 		 * @return an <code>Array</code> of the <code>INotification</code> names this <code>IMediator</code> has an interest in.
 		 */
-		function listNotificationInterests( ):Array;
+		listNotificationInterests( ):Array;
 		
 		/**
 		 * Handle an <code>INotification</code>.
 		 * 
 		 * @param notification the <code>INotification</code> to be handled
 		 */
-		function handleNotification( notification:INotification ):void;
+		handleNotification( notification:INotification ):void;
 		
 		/**
 		 * Called by the View when the Mediator is registered
 		 */ 
-		function onRegister( ):void;
+		onRegister( ):void;
 
 		/**
 		 * Called by the View when the Mediator is removed
 		 */ 
-		function onRemove( ):void;
+		onRemove( ):void;
 		
 	}
 }

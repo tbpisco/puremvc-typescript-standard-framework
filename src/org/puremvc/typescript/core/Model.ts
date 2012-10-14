@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.core
+module puremvc
 {
 	"use strict";
 
@@ -68,7 +68,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * @return void
 		 */
-		protected function initializeModel(  ) : void 
+		protected initializeModel(  ) : void
 		{
 		}
 				
@@ -77,7 +77,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * @return the Singleton instance
 		 */
-		public static function getInstance() : IModel 
+		public static getInstance() : IModel
 		{
 			if (instance == null) instance = new Model( );
 			return instance;
@@ -88,7 +88,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * @param proxy an <code>IProxy</code> to be held by the <code>Model</code>.
 		 */
-		public function registerProxy( proxy:IProxy ) : void
+		public registerProxy( proxy:IProxy ) : void
 		{
 			proxyMap[ proxy.getProxyName() ] = proxy;
 			proxy.onRegister();
@@ -100,7 +100,7 @@ module org.puremvc.typescript.core
 		 * @param proxyName
 		 * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
 		 */
-		public function retrieveProxy( proxyName:String ) : IProxy
+		public retrieveProxy( proxyName:String ) : IProxy
 		{
 			return proxyMap[ proxyName ];
 		}
@@ -111,7 +111,7 @@ module org.puremvc.typescript.core
 		 * @param proxyName
 		 * @return whether a Proxy is currently registered with the given <code>proxyName</code>.
 		 */
-		public function hasProxy( proxyName:String ) : Boolean
+		public hasProxy( proxyName:String ) : Boolean
 		{
 			return proxyMap[ proxyName ] != null;
 		}
@@ -122,7 +122,7 @@ module org.puremvc.typescript.core
 		 * @param proxyName name of the <code>IProxy</code> instance to be removed.
 		 * @return the <code>IProxy</code> that was removed from the <code>Model</code>
 		 */
-		public function removeProxy( proxyName:String ) : IProxy
+		public removeProxy( proxyName:String ) : IProxy
 		{
 			var proxy:IProxy = proxyMap [ proxyName ] as IProxy;
 			if ( proxy ) 

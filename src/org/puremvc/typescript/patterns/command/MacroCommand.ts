@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.patterns.command 
+module puremvc
 {
 	"use strict";
 
@@ -69,7 +69,7 @@ module org.puremvc.typescript.patterns.command
 		 * 
 		 * <listing>
 		 *		// Initialize MyMacroCommand
-		 *		override protected function initializeMacroCommand( ) : void
+		 *		override protected initializeMacroCommand( ) : void
 		 *		{
 		 *			addSubCommand( com.me.myapp.controller.FirstCommand );
 		 *			addSubCommand( com.me.myapp.controller.SecondCommand );
@@ -81,7 +81,7 @@ module org.puremvc.typescript.patterns.command
 		 * Note that <i>SubCommand</i>s may be any <code>ICommand</code> implementor,
 		 * <code>MacroCommand</code>s or <code>SimpleCommands</code> are both acceptable.
 		 */
-		protected function initializeMacroCommand():void
+		protected initializeMacroCommand():void
 		{
 		}
 		
@@ -94,7 +94,7 @@ module org.puremvc.typescript.patterns.command
 		 * 
 		 * @param commandClassRef a reference to the <code>Class</code> of the <code>ICommand</code>.
 		 */
-		protected function addSubCommand( commandClassRef:Class ): void
+		protected addSubCommand( commandClassRef:Class ): void
 		{
 			subCommands.push(commandClassRef);
 		}
@@ -108,7 +108,7 @@ module org.puremvc.typescript.patterns.command
 		 * 
 		 * @param notification the <code>INotification</code> object to be passsed to each <i>SubCommand</i>.
 		 */
-		public final function execute( notification:INotification ) : void
+		public final execute( notification:INotification ) : void
 		{
 			while ( subCommands.length > 0) {
 				var commandClassRef : Class = subCommands.shift();

@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.interfaces
+module puremvc
 {
 	/**
 	 * The interface definition for a PureMVC Notification.
@@ -39,38 +39,37 @@ module org.puremvc.typescript.interfaces
 	 * @see org.puremvc.typescript.interfaces.IView IView
 	 * @see org.puremvc.typescript.interfaces.IObserver IObserver
 	 */
-	public interface INotification
+	interface INotification
 	{
-		
 		/**
 		 * Get the name of the <code>INotification</code> instance. 
 		 * No setter, should be set by constructor only
 		 */
-		function getName():String;
+		getName():string;
 
 		/**
 		 * Set the body of the <code>INotification</code> instance
 		 */
-		function setBody( body:Object ):void;
+		setBody( body:Object ):void;
 		
 		/**
 		 * Get the body of the <code>INotification</code> instance
 		 */
-		function getBody():Object;
+		getBody():Object;
 		
 		/**
 		 * Set the type of the <code>INotification</code> instance
 		 */
-		function setType( type:String ):void;
+		setType( type:string ):void;
 		
 		/**
 		 * Get the type of the <code>INotification</code> instance
 		 */
-		function getType():String;
+		getType():string;
 
 		/**
 		 * Get the string representation of the <code>INotification</code> instance
 		 */
-		function toString():String;
+		toString():string;
 	}
 }

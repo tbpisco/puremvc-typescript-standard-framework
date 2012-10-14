@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.core
+module puremvc
 {
 	"use strict";
 
@@ -78,7 +78,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * <listing>
 		 *		// ensure that the Controller is talking to my IView implementation
-		 *		override public function initializeController(  ) : void 
+		 *		override public initializeController(  ) : void
 		 *		{
 		 *			view = MyView.getInstance();
 		 *		}
@@ -86,7 +86,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * @return void
 		 */
-		protected function initializeController(  ) : void 
+		protected initializeController(  ) : void
 		{
 			view = View.getInstance();
 		}
@@ -96,7 +96,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * @return the Singleton instance of <code>Controller</code>
 		 */
-		public static function getInstance() : IController
+		public static getInstance() : IController
 		{
 			if ( instance == null ) instance = new Controller( );
 			return instance;
@@ -108,7 +108,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * @param note an <code>INotification</code>
 		 */
-		public function executeCommand( note : INotification ) : void
+		public executeCommand( note : INotification ) : void
 		{
 			var commandClassRef : Class = commandMap[ note.getName() ];
 			if ( commandClassRef == null ) return;
@@ -132,7 +132,7 @@ module org.puremvc.typescript.core
 		 * @param notificationName the name of the <code>INotification</code>
 		 * @param commandClassRef the <code>Class</code> of the <code>ICommand</code>
 		 */
-		public function registerCommand( notificationName : String, commandClassRef : Class ) : void
+		public registerCommand( notificationName : String, commandClassRef : Class ) : void
 		{
 			if ( commandMap[ notificationName ] == null ) {
 				view.registerObserver( notificationName, new Observer( executeCommand, this ) );
@@ -146,7 +146,7 @@ module org.puremvc.typescript.core
 		 * @param notificationName
 		 * @return whether a Command is currently registered for the given <code>notificationName</code>.
 		 */
-		public function hasCommand( notificationName:String ) : Boolean
+		public hasCommand( notificationName:String ) : Boolean
 		{
 			return commandMap[ notificationName ] != null;
 		}
@@ -156,7 +156,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
 		 */
-		public function removeCommand( notificationName : String ) : void
+		public removeCommand( notificationName : String ) : void
 		{
 			// if the Command is registered...
 			if ( hasCommand( notificationName ) )

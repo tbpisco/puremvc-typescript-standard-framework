@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.patterns.proxy
+module puremvc
 {
 	"use strict";
 
@@ -51,7 +51,7 @@ module org.puremvc.typescript.patterns.proxy
 		/**
 		 * Get the proxy name
 		 */
-		public function getProxyName():String 
+		public getProxyName():String
 		{
 			return proxyName;
 		}		
@@ -59,7 +59,7 @@ module org.puremvc.typescript.patterns.proxy
 		/**
 		 * Set the data object
 		 */
-		public function setData( data:Object ):void 
+		public setData( data:Object ):void
 		{
 			this.data = data;
 		}
@@ -67,7 +67,7 @@ module org.puremvc.typescript.patterns.proxy
 		/**
 		 * Get the data object
 		 */
-		public function getData():Object 
+		public getData():Object
 		{
 			return data;
 		}		
@@ -75,12 +75,12 @@ module org.puremvc.typescript.patterns.proxy
 		/**
 		 * Called by the Model when the Proxy is registered
 		 */ 
-		public function onRegister( ):void {}
+		public onRegister( ):void {}
 
 		/**
 		 * Called by the Model when the Proxy is removed
 		 */ 
-		public function onRemove( ):void {}
+		public onRemove( ):void {}
 		
 		
 		// the proxy name

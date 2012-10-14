@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.patterns.observer
+module puremvc
 {
 	"use strict";
 
@@ -44,7 +44,7 @@ module org.puremvc.typescript.patterns.observer
 		 * @param notifyMethod the notification method of the interested object
 		 * @param notifyContext the notification context of the interested object
 		 */
-		public function Observer( notifyMethod:Function, notifyContext:Object ) 
+		public Observer( notifyMethod:Function, notifyContext:Object )
 		{
 			setNotifyMethod( notifyMethod );
 			setNotifyContext( notifyContext );
@@ -58,7 +58,7 @@ module org.puremvc.typescript.patterns.observer
 		 * 
 		 * @param notifyMethod the notification (callback) method of the interested object.
 		 */
-		public function setNotifyMethod( notifyMethod:Function ):void
+		public setNotifyMethod( notifyMethod:Function ):void
 		{
 			notify = notifyMethod;
 		}
@@ -68,7 +68,7 @@ module org.puremvc.typescript.patterns.observer
 		 * 
 		 * @param notifyContext the notification context (this) of the interested object.
 		 */
-		public function setNotifyContext( notifyContext:Object ):void
+		public setNotifyContext( notifyContext:Object ):void
 		{
 			context = notifyContext;
 		}
@@ -78,7 +78,7 @@ module org.puremvc.typescript.patterns.observer
 		 * 
 		 * @return the notification (callback) method of the interested object.
 		 */
-		private function getNotifyMethod():Function
+		private getNotifyMethod():Function
 		{
 			return notify;
 		}
@@ -88,7 +88,7 @@ module org.puremvc.typescript.patterns.observer
 		 * 
 		 * @return the notification context (<code>this</code>) of the interested object.
 		 */
-		private function getNotifyContext():Object
+		private getNotifyContext():Object
 		{
 			return context;
 		}
@@ -98,7 +98,7 @@ module org.puremvc.typescript.patterns.observer
 		 * 
 		 * @param notification the <code>INotification</code> to pass to the interested object's notification method.
 		 */
-		public function notifyObserver( notification:INotification ):void
+		public notifyObserver( notification:INotification ):void
 		{
 			this.getNotifyMethod().apply(this.getNotifyContext(),[notification]);
 		}
@@ -109,7 +109,7 @@ module org.puremvc.typescript.patterns.observer
 		 * @param object the object to compare
 		 * @return boolean indicating if the object and the notification context are the same
 		 */
-		 public function compareNotifyContext( object:Object ):Boolean
+		 public compareNotifyContext( object:Object ):Boolean
 		 {
 		 	return object === this.context;
 		 }		

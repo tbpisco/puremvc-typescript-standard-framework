@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.patterns.observer
+module puremvc
 {
 	"use strict";
 
@@ -47,7 +47,7 @@ module org.puremvc.typescript.patterns.observer
 		 * @param body the body of the notification (optional)
 		 * @param type the type of the notification (optional)
 		 */ 
-		public function sendNotification( notificationName:String, body:Object=null, type:String=null ):void 
+		public sendNotification( notificationName:String, body:Object=null, type:String=null ):void
 		{
 			facade.sendNotification( notificationName, body, type );
 		}

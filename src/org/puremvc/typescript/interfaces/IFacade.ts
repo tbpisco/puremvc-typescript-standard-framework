@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.interfaces
+module puremvc
 {
 
 	/**
@@ -24,7 +24,7 @@ module org.puremvc.typescript.interfaces
 	 * @see org.puremvc.typescript.interfaces.ICommand ICommand
 	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
-	public interface IFacade extends INotifier
+	interface IFacade extends INotifier
 	{
 
 		/**
@@ -32,7 +32,7 @@ module org.puremvc.typescript.interfaces
 		 * 
 		 * @param proxy the <code>IProxy</code> to be registered with the <code>Model</code>.
 		 */
-		function registerProxy( proxy:IProxy ) : void;
+		registerProxy( proxy:IProxy ) : void;
 
 		/**
 		 * Retrieve a <code>IProxy</code> from the <code>Model</code> by name.
@@ -40,7 +40,7 @@ module org.puremvc.typescript.interfaces
 		 * @param proxyName the name of the <code>IProxy</code> instance to be retrieved.
 		 * @return the <code>IProxy</code> previously regisetered by <code>proxyName</code> with the <code>Model</code>.
 		 */
-		function retrieveProxy( proxyName:String ) : IProxy;
+		retrieveProxy( proxyName:String ) : IProxy;
 		
 		/**
 		 * Remove an <code>IProxy</code> instance from the <code>Model</code> by name.
@@ -48,7 +48,7 @@ module org.puremvc.typescript.interfaces
 		 * @param proxyName the <code>IProxy</code> to remove from the <code>Model</code>.
 		 * @return the <code>IProxy</code> that was removed from the <code>Model</code>
 		 */
-		function removeProxy( proxyName:String ) : IProxy;
+		removeProxy( proxyName:String ) : IProxy;
 
 		/**
 		 * Check if a Proxy is registered
@@ -56,7 +56,7 @@ module org.puremvc.typescript.interfaces
 		 * @param proxyName
 		 * @return whether a Proxy is currently registered with the given <code>proxyName</code>.
 		 */
-		function hasProxy( proxyName:String ) : Boolean;
+		hasProxy( proxyName:String ) : Boolean;
 
 		/**
 		 * Register an <code>ICommand</code> with the <code>Controller</code>.
@@ -64,14 +64,14 @@ module org.puremvc.typescript.interfaces
 		 * @param noteName the name of the <code>INotification</code> to associate the <code>ICommand</code> with.
 		 * @param commandClassRef a reference to the <code>Class</code> of the <code>ICommand</code>.
 		 */
-		function registerCommand( noteName : String, commandClassRef : Class ) : void;
+		registerCommand( noteName : String, commandClassRef : Class ) : void;
 		
 		/**
 		 * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping from the Controller.
 		 * 
 		 * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
 		 */
-		function removeCommand( notificationName:String ): void;
+		removeCommand( notificationName:String ): void;
 
 		/**
 		 * Check if a Command is registered for a given Notification 
@@ -79,14 +79,14 @@ module org.puremvc.typescript.interfaces
 		 * @param notificationName
 		 * @return whether a Command is currently registered for the given <code>notificationName</code>.
 		 */
-		function hasCommand( notificationName:String ) : Boolean;
+		hasCommand( notificationName:String ) : Boolean;
 		
 		/**
 		 * Register an <code>IMediator</code> instance with the <code>View</code>.
 		 * 
 		 * @param mediator a reference to the <code>IMediator</code> instance
 		 */
-		function registerMediator( mediator:IMediator ) : void;
+		registerMediator( mediator:IMediator ) : void;
 
 		/**
 		 * Retrieve an <code>IMediator</code> instance from the <code>View</code>.
@@ -94,7 +94,7 @@ module org.puremvc.typescript.interfaces
 		 * @param mediatorName the name of the <code>IMediator</code> instance to retrievve
 		 * @return the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
 		 */
-		function retrieveMediator( mediatorName:String ) : IMediator;
+		retrieveMediator( mediatorName:String ) : IMediator;
 
 		/**
 		 * Remove a <code>IMediator</code> instance from the <code>View</code>.
@@ -102,7 +102,7 @@ module org.puremvc.typescript.interfaces
 		 * @param mediatorName name of the <code>IMediator</code> instance to be removed.
 		 * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
 		 */
-		function removeMediator( mediatorName:String ) : IMediator;
+		removeMediator( mediatorName:String ) : IMediator;
 		
 		/**
 		 * Check if a Mediator is registered or not
@@ -110,7 +110,7 @@ module org.puremvc.typescript.interfaces
 		 * @param mediatorName
 		 * @return whether a Mediator is registered with the given <code>mediatorName</code>.
 		 */
-		function hasMediator( mediatorName:String ) : Boolean;
+		hasMediator( mediatorName:String ) : Boolean;
 
 		/**
 		 * Notify the <code>IObservers</code> for a particular <code>INotification</code>.
@@ -126,6 +126,6 @@ module org.puremvc.typescript.interfaces
 		 * 
 		 * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
 		 */
-		function notifyObservers( note:INotification ) : void;
+		notifyObservers( note:INotification ) : void;
 	}
 }

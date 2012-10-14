@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.patterns.mediator
+module puremvc
 {
 	import org.puremvc.typescript.interfaces.*;
 	import org.puremvc.typescript.patterns.observer.*;
@@ -32,7 +32,7 @@ module org.puremvc.typescript.patterns.mediator
 		/**
 		 * Constructor.
 		 */
-		public function Mediator( mediatorName:String=null, viewComponent:Object=null ) {
+		public Mediator( mediatorName:String=null, viewComponent:Object=null ) {
 			this.mediatorName = (mediatorName != null)?mediatorName:NAME; 
 			this.viewComponent = viewComponent;	
 		}
@@ -41,7 +41,7 @@ module org.puremvc.typescript.patterns.mediator
 		 * Get the name of the <code>Mediator</code>.
 		 * @return the Mediator name
 		 */		
-		public function getMediatorName():String 
+		public getMediatorName():String
 		{	
 			return mediatorName;
 		}
@@ -51,7 +51,7 @@ module org.puremvc.typescript.patterns.mediator
 		 * 
 		 * @param Object the view component
 		 */
-		public function setViewComponent( viewComponent:Object ):void 
+		public setViewComponent( viewComponent:Object ):void
 		{
 			this.viewComponent = viewComponent;
 		}
@@ -65,7 +65,7 @@ module org.puremvc.typescript.patterns.mediator
 		 * object to a type, like this:</P>
 		 * 
 		 * <listing>
-		 *		private function get comboBox : mx.controls.ComboBox 
+		 *		private get comboBox : mx.controls.ComboBox
 		 *		{
 		 *			return viewComponent as mx.controls.ComboBox;
 		 *		}
@@ -73,7 +73,7 @@ module org.puremvc.typescript.patterns.mediator
 		 * 
 		 * @return the view component
 		 */		
-		public function getViewComponent():Object
+		public getViewComponent():Object
 		{	
 			return viewComponent;
 		}
@@ -84,7 +84,7 @@ module org.puremvc.typescript.patterns.mediator
 		 * 
 		 * @return Array the list of <code>INotification</code> names 
 		 */
-		public function listNotificationInterests():Array 
+		public listNotificationInterests():Array
 		{
 			return [ ];
 		}
@@ -97,17 +97,17 @@ module org.puremvc.typescript.patterns.mediator
 		 * with one 'case' entry per <code>INotification</code>
 		 * the <code>Mediator</code> is interested in.
 		 */ 
-		public function handleNotification( notification:INotification ):void {}
+		public handleNotification( notification:INotification ):void {}
 		
 		/**
 		 * Called by the View when the Mediator is registered
 		 */ 
-		public function onRegister( ):void {}
+		public onRegister( ):void {}
 
 		/**
 		 * Called by the View when the Mediator is removed
 		 */ 
-		public function onRemove( ):void {}
+		public onRemove( ):void {}
 
 		// the mediator name
 		protected var mediatorName:String;

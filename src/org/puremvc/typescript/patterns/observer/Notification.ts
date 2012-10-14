@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.patterns.observer
+module puremvc
 {
 	"use strict";
 
@@ -65,7 +65,7 @@ module org.puremvc.typescript.patterns.observer
 		 * 
 		 * @return the name of the <code>Notification</code> instance.
 		 */
-		public function getName():String
+		public getName():String
 		{
 			return name;
 		}
@@ -73,7 +73,7 @@ module org.puremvc.typescript.patterns.observer
 		/**
 		 * Set the body of the <code>Notification</code> instance.
 		 */
-		public function setBody( body:Object ):void
+		public setBody( body:Object ):void
 		{
 			this.body = body;
 		}
@@ -83,7 +83,7 @@ module org.puremvc.typescript.patterns.observer
 		 * 
 		 * @return the body object. 
 		 */
-		public function getBody():Object
+		public getBody():Object
 		{
 			return body;
 		}
@@ -91,7 +91,7 @@ module org.puremvc.typescript.patterns.observer
 		/**
 		 * Set the type of the <code>Notification</code> instance.
 		 */
-		public function setType( type:String ):void
+		public setType( type:String ):void
 		{
 			this.type = type;
 		}
@@ -101,7 +101,7 @@ module org.puremvc.typescript.patterns.observer
 		 * 
 		 * @return the type  
 		 */
-		public function getType():String
+		public getType():String
 		{
 			return type;
 		}
@@ -111,7 +111,7 @@ module org.puremvc.typescript.patterns.observer
 		 * 
 		 * @return the string representation of the <code>Notification</code> instance.
 		 */
-		public function toString():String
+		public toString():String
 		{
 			var msg:String = "Notification Name: "+getName();
 			msg += "\nBody:"+(( body == null )?"null":body.toString());

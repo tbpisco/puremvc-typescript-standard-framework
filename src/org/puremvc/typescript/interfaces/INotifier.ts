@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.interfaces
+module puremvc
 {
 	/**
 	 * The interface definition for a PureMVC Notifier.
@@ -27,7 +27,7 @@ module org.puremvc.typescript.interfaces
 	 * @see org.puremvc.typescript.interfaces.IFacade IFacade
 	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
-	public interface INotifier
+	interface INotifier
 	{
 		/**
 		 * Send a <code>INotification</code>.
@@ -40,7 +40,7 @@ module org.puremvc.typescript.interfaces
 		 * @param body the body of the notification (optional)
 		 * @param type the type of the notification (optional)
 		 */ 
-		function sendNotification( notificationName:String, body:Object=null, type:String=null ):void; 
+		sendNotification( notificationName:String, body:Object=null, type:String=null ):void;
 		
 	}
 }

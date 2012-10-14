@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.interfaces
+module puremvc
 {
 	/**
 	 * The interface definition for a PureMVC Controller.
@@ -26,7 +26,7 @@ module org.puremvc.typescript.interfaces
 	 * @see org.puremvc.typescript.interfaces INotification
 	 * @see org.puremvc.typescript.interfaces ICommand
 	 */
-	public interface IController
+	interface IController
 	{
 
 		/**
@@ -36,7 +36,7 @@ module org.puremvc.typescript.interfaces
 		 * @param notificationName the name of the <code>INotification</code>
 		 * @param commandClassRef the Class of the <code>ICommand</code>
 		 */
-		function registerCommand( notificationName : String, commandClassRef : Class ) : void;
+		registerCommand( notificationName : String, commandClassRef : Class ) : void;
 		
 		/**
 		 * Execute the <code>ICommand</code> previously registered as the
@@ -44,14 +44,14 @@ module org.puremvc.typescript.interfaces
 		 * 
 		 * @param notification the <code>INotification</code> to execute the associated <code>ICommand</code> for
 		 */
-		function executeCommand( notification : INotification ) : void;
+		executeCommand( notification : INotification ) : void;
 
 		/**
 		 * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping.
 		 * 
 		 * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
 		 */
-		function removeCommand( notificationName : String ):void;
+		removeCommand( notificationName : String ):void;
 
 		/**
 		 * Check if a Command is registered for a given Notification 
@@ -59,6 +59,6 @@ module org.puremvc.typescript.interfaces
 		 * @param notificationName
 		 * @return whether a Command is currently registered for the given <code>notificationName</code>.
 		 */
-		function hasCommand( notificationName:String ) : Boolean;
+		hasCommand( notificationName:String ) : Boolean;
 	}
 }

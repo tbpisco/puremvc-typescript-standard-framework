@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.core
+module puremvc
 {
 	"use strict";
 
@@ -62,7 +62,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * @return void
 		 */
-		protected function initializeView(  ) : void 
+		protected initializeView(  ) : void
 		{
 		}
 	
@@ -71,7 +71,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * @return the Singleton instance of <code>View</code>
 		 */
-		public static function getInstance() : IView 
+		public static getInstance() : IView
 		{
 			if ( instance == null ) instance = new View( );
 			return instance;
@@ -84,7 +84,7 @@ module org.puremvc.typescript.core
 		 * @param notificationName the name of the <code>INotifications</code> to notify this <code>IObserver</code> of
 		 * @param observer the <code>IObserver</code> to register
 		 */
-		public function registerObserver ( notificationName:String, observer:IObserver ) : void
+		public registerObserver ( notificationName:String, observer:IObserver ) : void
 		{
 			var observers:Array = observerMap[ notificationName ];
 			if( observers ) {
@@ -104,7 +104,7 @@ module org.puremvc.typescript.core
 		 * 
 		 * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
 		 */
-		public function notifyObservers( notification:INotification ) : void
+		public notifyObservers( notification:INotification ) : void
 		{
 			if( observerMap[ notification.getName() ] != null ) {
 				
@@ -134,7 +134,7 @@ module org.puremvc.typescript.core
 		 * @param notificationName which observer list to remove from 
 		 * @param notifyContext remove the observer with this object as its notifyContext
 		 */
-		public function removeObserver( notificationName:String, notifyContext:Object ):void
+		public removeObserver( notificationName:String, notifyContext:Object ):void
 		{
 			// the observer list for the notification under inspection
 			var observers:Array = observerMap[ notificationName ] as Array;
@@ -174,7 +174,7 @@ module org.puremvc.typescript.core
 		 * @param mediatorName the name to associate with this <code>IMediator</code> instance
 		 * @param mediator a reference to the <code>IMediator</code> instance
 		 */
-		public function registerMediator( mediator:IMediator ) : void
+		public registerMediator( mediator:IMediator ) : void
 		{
 			// do not allow re-registration (you must to removeMediator fist)
 			if ( mediatorMap[ mediator.getMediatorName() ] != null ) return;
@@ -208,7 +208,7 @@ module org.puremvc.typescript.core
 		 * @param mediatorName the name of the <code>IMediator</code> instance to retrieve.
 		 * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
 		 */
-		public function retrieveMediator( mediatorName:String ) : IMediator
+		public retrieveMediator( mediatorName:String ) : IMediator
 		{
 			return mediatorMap[ mediatorName ];
 		}
@@ -219,7 +219,7 @@ module org.puremvc.typescript.core
 		 * @param mediatorName name of the <code>IMediator</code> instance to be removed.
 		 * @return the <code>IMediator</code> that was removed from the <code>View</code>
 		 */
-		public function removeMediator( mediatorName:String ) : IMediator
+		public removeMediator( mediatorName:String ) : IMediator
 		{
 			// Retrieve the named mediator
 			var mediator:IMediator = mediatorMap[ mediatorName ] as IMediator;
@@ -251,7 +251,7 @@ module org.puremvc.typescript.core
 		 * @param mediatorName
 		 * @return whether a Mediator is registered with the given <code>mediatorName</code>.
 		 */
-		public function hasMediator( mediatorName:String ) : Boolean
+		public hasMediator( mediatorName:String ) : Boolean
 		{
 			return mediatorMap[ mediatorName ] != null;
 		}

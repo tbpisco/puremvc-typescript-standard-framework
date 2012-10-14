@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.interfaces
+module puremvc
 {
 	
 	/**
@@ -24,7 +24,7 @@ module org.puremvc.typescript.interfaces
 	 * <LI>Encapsulate interaction with local or remote services used to fetch and persist model data.</LI>
 	 * </UL>
 	 */
-	public interface IProxy
+	interface IProxy
 	{
 		
 		/**
@@ -32,30 +32,30 @@ module org.puremvc.typescript.interfaces
 		 * 
 		 * @return the Proxy instance name
 		 */
-		function getProxyName():String;
+		getProxyName():String;
 		
 		/**
 		 * Set the data object
 		 * 
 		 * @param data the data object
 		 */
-		function setData( data:Object ):void;
+		setData( data:Object ):void;
 		
 		/**
 		 * Get the data object
 		 * 
 		 * @return the data as type Object
 		 */
-		function getData():Object; 
+		getData():Object;
 		
 		/**
 		 * Called by the Model when the Proxy is registered
 		 */ 
-		function onRegister( ):void;
+		onRegister( ):void;
 
 		/**
 		 * Called by the Model when the Proxy is removed
 		 */ 
-		function onRemove( ):void;
+		onRemove( ):void;
 	}
 }

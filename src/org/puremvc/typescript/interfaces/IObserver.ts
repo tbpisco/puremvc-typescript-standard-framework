@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.interfaces
+module puremvc
 {
 	
 	/**
@@ -44,7 +44,7 @@ module org.puremvc.typescript.interfaces
 	 * @see org.puremvc.typescript.interfaces.IView IView
 	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
-	public interface IObserver
+	interface IObserver
 	{
 		/**
 		 * Set the notification method.
@@ -54,21 +54,21 @@ module org.puremvc.typescript.interfaces
 		 * 
 		 * @param notifyMethod the notification (callback) method of the interested object
 		 */
-		function setNotifyMethod( notifyMethod:Function ):void;
+		setNotifyMethod( notifyMethod:Function ):void;
 		
 		/**
 		 * Set the notification context.
 		 * 
 		 * @param notifyContext the notification context (this) of the interested object
 		 */
-		function setNotifyContext( notifyContext:Object ):void;
+		setNotifyContext( notifyContext:Object ):void;
 		
 		/**
 		 * Notify the interested object.
 		 * 
 		 * @param notification the <code>INotification</code> to pass to the interested object's notification method
 		 */
-		function notifyObserver( notification:INotification ):void;
+		notifyObserver( notification:INotification ):void;
 		
 		/**
 		 * Compare the given object to the notificaiton context object.
@@ -76,6 +76,6 @@ module org.puremvc.typescript.interfaces
 		 * @param object the object to compare.
 		 * @return boolean indicating if the notification context and the object are the same.
 		 */
-		function compareNotifyContext( object:Object ):Boolean;
+		compareNotifyContext( object:Object ):boolean;
 	}
 }

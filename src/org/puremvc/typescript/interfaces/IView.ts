@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module org.puremvc.typescript.interfaces
+module puremvc
 {
 	
 	/**
@@ -26,7 +26,7 @@ module org.puremvc.typescript.interfaces
 	 * @see org.puremvc.typescript.interfaces.IObserver IObserver
 	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
-	public interface IView 
+	interface IView
 	{
 		
 		/**
@@ -36,7 +36,7 @@ module org.puremvc.typescript.interfaces
 		 * @param notificationName the name of the <code>INotifications</code> to notify this <code>IObserver</code> of
 		 * @param observer the <code>IObserver</code> to register
 		 */
-		function registerObserver( notificationName:String, observer:IObserver ) : void;
+		registerObserver( notificationName:String, observer:IObserver ) : void;
 
 		/**
 		 * Remove a group of observers from the observer list for a given Notification name.
@@ -44,7 +44,7 @@ module org.puremvc.typescript.interfaces
 		 * @param notificationName which observer list to remove from 
 		 * @param notifyContext removed the observers with this object as their notifyContext
 		 */
-		function removeObserver( notificationName:String, notifyContext:Object ):void;
+		removeObserver( notificationName:String, notifyContext:Object ):void;
 
 		/**
 		 * Notify the <code>IObservers</code> for a particular <code>INotification</code>.
@@ -56,7 +56,7 @@ module org.puremvc.typescript.interfaces
 		 * 
 		 * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
 		 */
-		function notifyObservers( note:INotification ) : void;
+		notifyObservers( note:INotification ) : void;
 
 		/**
 		 * Register an <code>IMediator</code> instance with the <code>View</code>.
@@ -75,7 +75,7 @@ module org.puremvc.typescript.interfaces
 		 * @param mediatorName the name to associate with this <code>IMediator</code> instance
 		 * @param mediator a reference to the <code>IMediator</code> instance
 		 */
-		function registerMediator( mediator:IMediator ) : void;
+		registerMediator( mediator:IMediator ) : void;
 
 		/**
 		 * Retrieve an <code>IMediator</code> from the <code>View</code>.
@@ -83,7 +83,7 @@ module org.puremvc.typescript.interfaces
 		 * @param mediatorName the name of the <code>IMediator</code> instance to retrieve.
 		 * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
 		 */
-		function retrieveMediator( mediatorName:String ) : IMediator;
+		retrieveMediator( mediatorName:String ) : IMediator;
 
 		/**
 		 * Remove an <code>IMediator</code> from the <code>View</code>.
@@ -91,7 +91,7 @@ module org.puremvc.typescript.interfaces
 		 * @param mediatorName name of the <code>IMediator</code> instance to be removed.
 		 * @return the <code>IMediator</code> that was removed from the <code>View</code>
 		 */
-		function removeMediator( mediatorName:String ) : IMediator;
+		removeMediator( mediatorName:String ) : IMediator;
 		
 		/**
 		 * Check if a Mediator is registered or not
@@ -99,7 +99,7 @@ module org.puremvc.typescript.interfaces
 		 * @param mediatorName
 		 * @return whether a Mediator is registered with the given <code>mediatorName</code>.
 		 */
-		function hasMediator( mediatorName:String ) : Boolean;
+		hasMediator( mediatorName:String ) : Boolean;
 		
 	}
 	
