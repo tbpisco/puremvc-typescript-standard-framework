@@ -2,12 +2,12 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.core
+package org.puremvc.typescript.core
 {
 	"use strict";
 
-	import org.puremvc.as3.interfaces.*;
-	import org.puremvc.as3.patterns.observer.Observer;
+	import org.puremvc.typescript.interfaces.*;
+	import org.puremvc.typescript.patterns.observer.Observer;
 
 	/**
 	 * A Singleton <code>IView</code> implementation.
@@ -24,9 +24,9 @@ package org.puremvc.as3.core
 	 * <LI>Notifying the <code>IObservers</code> of a given <code>INotification</code> when it broadcast.</LI>
 	 * </UL>
 	 * 
-	 * @see org.puremvc.as3.patterns.mediator.Mediator Mediator
-	 * @see org.puremvc.as3.patterns.observer.Observer Observer
-	 * @see org.puremvc.as3.patterns.observer.Notification Notification
+	 * @see org.puremvc.typescript.patterns.mediator.Mediator Mediator
+	 * @see org.puremvc.typescript.patterns.observer.Observer Observer
+	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
 	 */
 	public class View implements IView
 	{

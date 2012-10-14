@@ -2,12 +2,12 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.patterns.command 
+package org.puremvc.typescript.patterns.command 
 {
 	"use strict";
 
-	import org.puremvc.as3.interfaces.*;
-	import org.puremvc.as3.patterns.observer.Notifier;
+	import org.puremvc.typescript.interfaces.*;
+	import org.puremvc.typescript.patterns.observer.Notifier;
 	
 	/**
 	 * A base <code>ICommand</code> implementation.
@@ -16,9 +16,9 @@ package org.puremvc.as3.patterns.command
 	 * Your subclass should override the <code>execute</code> 
 	 * method where your business logic will handle the <code>INotification</code>. </P>
 	 * 
-	 * @see org.puremvc.as3.core.controller.Controller Controller
-	 * @see org.puremvc.as3.patterns.observer.Notification Notification
-	 * @see org.puremvc.as3.patterns.command.MacroCommand MacroCommand
+	 * @see org.puremvc.typescript.core.controller.Controller Controller
+	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
+	 * @see org.puremvc.typescript.patterns.command.MacroCommand MacroCommand
 	 */
 	public class SimpleCommand
 		extends Notifier

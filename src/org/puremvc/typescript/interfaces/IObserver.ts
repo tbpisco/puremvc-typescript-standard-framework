@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.interfaces
+package org.puremvc.typescript.interfaces
 {
 	
 	/**
@@ -41,8 +41,8 @@ package org.puremvc.as3.interfaces
 	 * in an object implementing the <code>INotification</code> interface, such
 	 * as a subclass of <code>Notification</code>.</P>
 	 * 
-	 * @see org.puremvc.as3.interfaces.IView IView
-	 * @see org.puremvc.as3.interfaces.INotification INotification
+	 * @see org.puremvc.typescript.interfaces.IView IView
+	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
 	public interface IObserver
 	{

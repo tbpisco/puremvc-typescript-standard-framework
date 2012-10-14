@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.interfaces
+package org.puremvc.typescript.interfaces
 {
 	/**
 	 * The interface definition for a PureMVC Notifier.
@@ -24,8 +24,8 @@ package org.puremvc.as3.interfaces
 	 * classes have frequent <code>Facade</code> interactions and usually require
 	 * access to the facade anyway.</P>
 	 * 
-	 * @see org.puremvc.as3.interfaces.IFacade IFacade
-	 * @see org.puremvc.as3.interfaces.INotification INotification
+	 * @see org.puremvc.typescript.interfaces.IFacade IFacade
+	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
 	public interface INotifier
 	{

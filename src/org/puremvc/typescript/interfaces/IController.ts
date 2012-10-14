@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.interfaces
+package org.puremvc.typescript.interfaces
 {
 	/**
 	 * The interface definition for a PureMVC Controller.
@@ -23,8 +23,8 @@ package org.puremvc.as3.interfaces
 	 * method, passing in the <code>INotification</code>.</LI> 
 	 * </UL>
 	 *
-	 * @see org.puremvc.as3.interfaces INotification
-	 * @see org.puremvc.as3.interfaces ICommand
+	 * @see org.puremvc.typescript.interfaces INotification
+	 * @see org.puremvc.typescript.interfaces ICommand
 	 */
 	public interface IController
 	{

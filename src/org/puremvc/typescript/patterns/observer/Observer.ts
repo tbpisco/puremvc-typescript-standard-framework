@@ -2,11 +2,11 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.patterns.observer
+package org.puremvc.typescript.patterns.observer
 {
 	"use strict";
 
-	import org.puremvc.as3.interfaces.*;
+	import org.puremvc.typescript.interfaces.*;
 
 	/**
 	 * A base <code>IObserver</code> implementation.
@@ -25,8 +25,8 @@ package org.puremvc.as3.patterns.observer
 	 * <LI>Provide a method for notifying the interested object.</LI>
 	 * </UL>
 	 * 
-	 * @see org.puremvc.as3.core.view.View View
-	 * @see org.puremvc.as3.patterns.observer.Notification Notification
+	 * @see org.puremvc.typescript.core.view.View View
+	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
 	 */
 	public class Observer
 		implements IObserver

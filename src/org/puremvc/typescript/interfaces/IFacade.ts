@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.interfaces
+package org.puremvc.typescript.interfaces
 {
 
 	/**
@@ -18,11 +18,11 @@ package org.puremvc.as3.interfaces
 	 * the core MVC actors (Model, View, Controller) and
 	 * the rest of your application.</P>
 	 * 
-	 * @see org.puremvc.as3.interfaces.IModel IModel
-	 * @see org.puremvc.as3.interfaces.IView IView
-	 * @see org.puremvc.as3.interfaces.IController IController
-	 * @see org.puremvc.as3.interfaces.ICommand ICommand
-	 * @see org.puremvc.as3.interfaces.INotification INotification
+	 * @see org.puremvc.typescript.interfaces.IModel IModel
+	 * @see org.puremvc.typescript.interfaces.IView IView
+	 * @see org.puremvc.typescript.interfaces.IController IController
+	 * @see org.puremvc.typescript.interfaces.ICommand ICommand
+	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
 	public interface IFacade extends INotifier
 	{

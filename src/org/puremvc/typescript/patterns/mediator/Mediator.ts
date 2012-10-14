@@ -2,16 +2,16 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.patterns.mediator
+package org.puremvc.typescript.patterns.mediator
 {
-	import org.puremvc.as3.interfaces.*;
-	import org.puremvc.as3.patterns.observer.*;
-	import org.puremvc.as3.patterns.facade.Facade;
+	import org.puremvc.typescript.interfaces.*;
+	import org.puremvc.typescript.patterns.observer.*;
+	import org.puremvc.typescript.patterns.facade.Facade;
 	
 	/**
 	 * A base <code>IMediator</code> implementation. 
 	 * 
-	 * @see org.puremvc.as3.core.view.View View
+	 * @see org.puremvc.typescript.core.view.View View
 	 */
 	public class Mediator
 		extends Notifier

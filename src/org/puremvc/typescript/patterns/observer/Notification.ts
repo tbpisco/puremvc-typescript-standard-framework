@@ -2,11 +2,11 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.patterns.observer
+package org.puremvc.typescript.patterns.observer
 {
 	"use strict";
 
-	import org.puremvc.as3.interfaces.*;
+	import org.puremvc.typescript.interfaces.*;
 	
 	/**
 	 * A base <code>INotification</code> implementation.
@@ -40,7 +40,7 @@ package org.puremvc.as3.patterns.observer
 	 * parent/child relationship in order to communicate with one another
 	 * using <code>Notification</code>s.
 	 * 
-	 * @see org.puremvc.as3.patterns.observer.Observer Observer
+	 * @see org.puremvc.typescript.patterns.observer.Observer Observer
 	 * 
 	 */
 	public class Notification implements INotification

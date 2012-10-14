@@ -2,13 +2,13 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.patterns.proxy
+package org.puremvc.typescript.patterns.proxy
 {
 	"use strict";
 
-	import org.puremvc.as3.interfaces.*;
-	import org.puremvc.as3.patterns.observer.*;
-	import org.puremvc.as3.patterns.facade.Facade;
+	import org.puremvc.typescript.interfaces.*;
+	import org.puremvc.typescript.patterns.observer.*;
+	import org.puremvc.typescript.patterns.facade.Facade;
 	
 	/**
 	 * A base <code>IProxy</code> implementation. 
@@ -29,7 +29,7 @@ package org.puremvc.as3.patterns.proxy
 	 * <code>Proxy</code> and listening for a <code>Notification</code> to be sent 
 	 * when the <code>Proxy</code> has retrieved the data from the service. </P>
 	 * 
-	 * @see org.puremvc.as3.core.model.Model Model
+	 * @see org.puremvc.typescript.core.model.Model Model
 	 */
 	public class Proxy
 		extends Notifier

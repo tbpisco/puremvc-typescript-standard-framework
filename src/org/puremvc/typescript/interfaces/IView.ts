@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.interfaces
+package org.puremvc.typescript.interfaces
 {
 	
 	/**
@@ -22,9 +22,9 @@ package org.puremvc.as3.interfaces
 	 * <LI>Notifying the <code>IObservers</code> of a given <code>INotification</code> when it broadcast.</LI>
 	 * </UL>
 	 * 
-	 * @see org.puremvc.as3.interfaces.IMediator IMediator
-	 * @see org.puremvc.as3.interfaces.IObserver IObserver
-	 * @see org.puremvc.as3.interfaces.INotification INotification
+	 * @see org.puremvc.typescript.interfaces.IMediator IMediator
+	 * @see org.puremvc.typescript.interfaces.IObserver IObserver
+	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
 	public interface IView 
 	{

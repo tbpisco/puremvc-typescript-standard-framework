@@ -2,12 +2,12 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.patterns.observer
+package org.puremvc.typescript.patterns.observer
 {
 	"use strict";
 
-	import org.puremvc.as3.interfaces.*;
-	import org.puremvc.as3.patterns.facade.Facade;
+	import org.puremvc.typescript.interfaces.*;
+	import org.puremvc.typescript.patterns.facade.Facade;
 	
 	/**
 	 * A Base <code>INotifier</code> implementation.
@@ -28,11 +28,11 @@ package org.puremvc.as3.patterns.observer
 	 * classes have frequent <code>Facade</code> interactions and usually require
 	 * access to the facade anyway.</P>
 	 * 
-	 * @see org.puremvc.as3.patterns.facade.Facade Facade
-	 * @see org.puremvc.as3.patterns.mediator.Mediator Mediator
-	 * @see org.puremvc.as3.patterns.proxy.Proxy Proxy
-	 * @see org.puremvc.as3.patterns.command.SimpleCommand SimpleCommand
-	 * @see org.puremvc.as3.patterns.command.MacroCommand MacroCommand
+	 * @see org.puremvc.typescript.patterns.facade.Facade Facade
+	 * @see org.puremvc.typescript.patterns.mediator.Mediator Mediator
+	 * @see org.puremvc.typescript.patterns.proxy.Proxy Proxy
+	 * @see org.puremvc.typescript.patterns.command.SimpleCommand SimpleCommand
+	 * @see org.puremvc.typescript.patterns.command.MacroCommand MacroCommand
 	 */
 	public class Notifier
 		implements INotifier

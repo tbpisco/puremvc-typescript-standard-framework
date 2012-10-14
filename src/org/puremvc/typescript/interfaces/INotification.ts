@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.interfaces
+package org.puremvc.typescript.interfaces
 {
 	/**
 	 * The interface definition for a PureMVC Notification.
@@ -36,8 +36,8 @@ package org.puremvc.as3.interfaces
 	 * parent/child relationship in order to communicate with one another
 	 * using <code>Notification</code>s.
 	 * 
-	 * @see org.puremvc.as3.interfaces.IView IView
-	 * @see org.puremvc.as3.interfaces.IObserver IObserver
+	 * @see org.puremvc.typescript.interfaces.IView IView
+	 * @see org.puremvc.typescript.interfaces.IObserver IObserver
 	 */
 	public interface INotification
 	{

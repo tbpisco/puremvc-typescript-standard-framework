@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.interfaces
+package org.puremvc.typescript.interfaces
 {
 	
 	/**
@@ -43,9 +43,9 @@ package org.puremvc.as3.interfaces
 	 * A concrete IMediator implementor usually looks something like this:</P>
 	 * 
 	 * <listing>
-	 *	import org.puremvc.as3.patterns.mediator.~~;
-	 *	import org.puremvc.as3.patterns.observer.~~;
-	 *	import org.puremvc.as3.core.view.~~;
+	 *	import org.puremvc.typescript.patterns.mediator.~~;
+	 *	import org.puremvc.typescript.patterns.observer.~~;
+	 *	import org.puremvc.typescript.core.view.~~;
 	 * 
 	 *	import com.me.myapp.model.~~;
 	 *	import com.me.myapp.view.~~;
@@ -96,7 +96,7 @@ package org.puremvc.as3.interfaces
 	 * }
 	 * </listing>
 	 * 
-	 * @see org.puremvc.as3.interfaces.INotification INotification
+	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
 	public interface IMediator
 	{

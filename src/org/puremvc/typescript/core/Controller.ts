@@ -2,13 +2,13 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.core
+package org.puremvc.typescript.core
 {
 	"use strict";
 
-	import org.puremvc.as3.core.*;
-	import org.puremvc.as3.interfaces.*;
-	import org.puremvc.as3.patterns.observer.*;
+	import org.puremvc.typescript.core.*;
+	import org.puremvc.typescript.interfaces.*;
+	import org.puremvc.typescript.patterns.observer.*;
 	
 	/**
 	 * A Singleton <code>IController</code> implementation.
@@ -37,11 +37,11 @@ package org.puremvc.as3.core
 	 * and use its <code>initializeController</code> method to add your 
 	 * registrations. 
 	 * 
-	 * @see org.puremvc.as3.core.view.View View
-	 * @see org.puremvc.as3.patterns.observer.Observer Observer
-	 * @see org.puremvc.as3.patterns.observer.Notification Notification
-	 * @see org.puremvc.as3.patterns.command.SimpleCommand SimpleCommand
-	 * @see org.puremvc.as3.patterns.command.MacroCommand MacroCommand
+	 * @see org.puremvc.typescript.core.view.View View
+	 * @see org.puremvc.typescript.patterns.observer.Observer Observer
+	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
+	 * @see org.puremvc.typescript.patterns.command.SimpleCommand SimpleCommand
+	 * @see org.puremvc.typescript.patterns.command.MacroCommand MacroCommand
 	 */
 	public class Controller implements IController
 	{

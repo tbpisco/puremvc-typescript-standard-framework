@@ -2,13 +2,13 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.patterns.facade
+package org.puremvc.typescript.patterns.facade
 {
 	"use strict";
 
-	import org.puremvc.as3.core.*;
-	import org.puremvc.as3.interfaces.*;
-	import org.puremvc.as3.patterns.observer.Notification;
+	import org.puremvc.typescript.core.*;
+	import org.puremvc.typescript.interfaces.*;
+	import org.puremvc.typescript.patterns.observer.Notification;
 
 	/**
 	 * A base Singleton <code>IFacade</code> implementation.
@@ -29,7 +29,7 @@ package org.puremvc.as3.patterns.facade
 	 * <P>
  	 * Example usage:
 	 * <listing>
-	 *	import org.puremvc.as3.patterns.facade.&lowast;;
+	 *	import org.puremvc.typescript.patterns.facade.&lowast;;
 	 * 
 	 *	import com.me.myapp.model.~~;
 	 *	import com.me.myapp.view.~~;
@@ -119,14 +119,14 @@ package org.puremvc.as3.patterns.facade
 	 *	}
 	 * </listing>
 	 * 
-	 * @see org.puremvc.as3.core.model.Model Model
-	 * @see org.puremvc.as3.core.view.View View
-	 * @see org.puremvc.as3.core.controller.Controller Controller
-	 * @see org.puremvc.as3.patterns.observer.Notification Notification
-	 * @see org.puremvc.as3.patterns.mediator.Mediator Mediator
-	 * @see org.puremvc.as3.patterns.proxy.Proxy Proxy
-	 * @see org.puremvc.as3.patterns.command.SimpleCommand SimpleCommand
-	 * @see org.puremvc.as3.patterns.command.MacroCommand MacroCommand
+	 * @see org.puremvc.typescript.core.model.Model Model
+	 * @see org.puremvc.typescript.core.view.View View
+	 * @see org.puremvc.typescript.core.controller.Controller Controller
+	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
+	 * @see org.puremvc.typescript.patterns.mediator.Mediator Mediator
+	 * @see org.puremvc.typescript.patterns.proxy.Proxy Proxy
+	 * @see org.puremvc.typescript.patterns.command.SimpleCommand SimpleCommand
+	 * @see org.puremvc.typescript.patterns.command.MacroCommand MacroCommand
 	 */
 	public class Facade
 		implements IFacade

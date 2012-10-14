@@ -2,11 +2,11 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.core
+package org.puremvc.typescript.core
 {
 	"use strict";
 
-	import org.puremvc.as3.interfaces.*;
+	import org.puremvc.typescript.interfaces.*;
 	
 	/**
 	 * A Singleton <code>IModel</code> implementation.
@@ -31,8 +31,8 @@ package org.puremvc.as3.core
 	 * instances once the <code>Facade</code> has initialized the Core 
 	 * actors.</p>
 	 *
-	 * @see org.puremvc.as3.patterns.proxy.Proxy Proxy
-	 * @see org.puremvc.as3.interfaces.IProxy IProxy
+	 * @see org.puremvc.typescript.patterns.proxy.Proxy Proxy
+	 * @see org.puremvc.typescript.interfaces.IProxy IProxy
 	 */
 	public class Model
 		implements IModel

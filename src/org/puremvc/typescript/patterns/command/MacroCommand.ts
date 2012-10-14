@@ -2,12 +2,12 @@
  PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.as3.patterns.command 
+package org.puremvc.typescript.patterns.command 
 {
 	"use strict";
 
-	import org.puremvc.as3.interfaces.*;
-	import org.puremvc.as3.patterns.observer.*;
+	import org.puremvc.typescript.interfaces.*;
+	import org.puremvc.typescript.patterns.observer.*;
 	
 	/**
 	 * A base <code>ICommand</code> implementation that executes other <code>ICommand</code>s.
@@ -32,9 +32,9 @@ package org.puremvc.as3.patterns.command
 	 * 
 	 * <P>
 	 * 
-	 * @see org.puremvc.as3.core.controller.Controller Controller
-	 * @see org.puremvc.as3.patterns.observer.Notification Notification
-	 * @see org.puremvc.as3.patterns.command.SimpleCommand SimpleCommand
+	 * @see org.puremvc.typescript.core.controller.Controller Controller
+	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
+	 * @see org.puremvc.typescript.patterns.command.SimpleCommand SimpleCommand
 	 */
 	public class MacroCommand extends Notifier implements ICommand, INotifier
 	{
