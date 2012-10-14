@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="YUICompression" basedir=".." default="ConcatenateAndCompress">
+
+    <target name="ConcatenateAndCompress" description="Concatenate and minifiy a set of files">
+
+        <taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
+            <classpath>
+                <pathelement path="${basedir}/build/lib/yuicompressor/yuicompressor-2.4.2.jar"/>
+                <pathelement path="${basedir}/build/lib/yuiant/yuiant.jar"/>
+            </classpath>
+        </taskdef>
+
+        <delete>
+			<fileset dir="${basedir}/bin/">
+				<include name="*.js" />
+			</fileset>
+        </delete>
+
+        <exec executable="C:\Documents and Settings\Textorm\Application Data\npm\tsc.cmd">
+            <arg value="@build/compile.list"/>
+        </exec>
+
+        <yuicompress
+			charset="UTF-8"
+			linebreak="500"
+			warn="false"
+			munge="yes"
+			preserveallsemicolons="false"
+			preservestringlitterals="false"
+			outputfolder="${basedir}/bin/"
+			outputsuffix="-min"
+		>
+            <fileset dir="${basedir}/bin/">
+                <include name="**/*.js"/>
+            </fileset>
+        </yuicompress>
+
+    </target>
+
+</project>
