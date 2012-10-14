@@ -24,7 +24,8 @@ module puremvc
 	 * @see org.puremvc.typescript.interfaces.ICommand ICommand
 	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
-	interface IFacade extends INotifier
+	export interface IFacade
+		extends INotifier
 	{
 
 		/**
@@ -32,7 +33,7 @@ module puremvc
 		 * 
 		 * @param proxy the <code>IProxy</code> to be registered with the <code>Model</code>.
 		 */
-		registerProxy( proxy:IProxy ) : void;
+		registerProxy( proxy:IProxy ):void;
 
 		/**
 		 * Retrieve a <code>IProxy</code> from the <code>Model</code> by name.
@@ -40,7 +41,7 @@ module puremvc
 		 * @param proxyName the name of the <code>IProxy</code> instance to be retrieved.
 		 * @return the <code>IProxy</code> previously regisetered by <code>proxyName</code> with the <code>Model</code>.
 		 */
-		retrieveProxy( proxyName:String ) : IProxy;
+		retrieveProxy( proxyName:string ):IProxy;
 		
 		/**
 		 * Remove an <code>IProxy</code> instance from the <code>Model</code> by name.
@@ -48,7 +49,7 @@ module puremvc
 		 * @param proxyName the <code>IProxy</code> to remove from the <code>Model</code>.
 		 * @return the <code>IProxy</code> that was removed from the <code>Model</code>
 		 */
-		removeProxy( proxyName:String ) : IProxy;
+		removeProxy( proxyName:string ):IProxy;
 
 		/**
 		 * Check if a Proxy is registered
@@ -56,7 +57,7 @@ module puremvc
 		 * @param proxyName
 		 * @return whether a Proxy is currently registered with the given <code>proxyName</code>.
 		 */
-		hasProxy( proxyName:String ) : Boolean;
+		hasProxy( proxyName:string ):Boolean;
 
 		/**
 		 * Register an <code>ICommand</code> with the <code>Controller</code>.
@@ -64,14 +65,14 @@ module puremvc
 		 * @param noteName the name of the <code>INotification</code> to associate the <code>ICommand</code> with.
 		 * @param commandClassRef a reference to the <code>Class</code> of the <code>ICommand</code>.
 		 */
-		registerCommand( noteName : String, commandClassRef : Class ) : void;
+		registerCommand( noteName:string, commandClassRef:Function ):void;
 		
 		/**
 		 * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping from the Controller.
 		 * 
 		 * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
 		 */
-		removeCommand( notificationName:String ): void;
+		removeCommand( notificationName:string ): void;
 
 		/**
 		 * Check if a Command is registered for a given Notification 
@@ -79,14 +80,14 @@ module puremvc
 		 * @param notificationName
 		 * @return whether a Command is currently registered for the given <code>notificationName</code>.
 		 */
-		hasCommand( notificationName:String ) : Boolean;
+		hasCommand( notificationName:string ):Boolean;
 		
 		/**
 		 * Register an <code>IMediator</code> instance with the <code>View</code>.
 		 * 
 		 * @param mediator a reference to the <code>IMediator</code> instance
 		 */
-		registerMediator( mediator:IMediator ) : void;
+		registerMediator( mediator:IMediator ):void;
 
 		/**
 		 * Retrieve an <code>IMediator</code> instance from the <code>View</code>.
@@ -94,7 +95,7 @@ module puremvc
 		 * @param mediatorName the name of the <code>IMediator</code> instance to retrievve
 		 * @return the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
 		 */
-		retrieveMediator( mediatorName:String ) : IMediator;
+		retrieveMediator( mediatorName:string ):IMediator;
 
 		/**
 		 * Remove a <code>IMediator</code> instance from the <code>View</code>.
@@ -102,7 +103,7 @@ module puremvc
 		 * @param mediatorName name of the <code>IMediator</code> instance to be removed.
 		 * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
 		 */
-		removeMediator( mediatorName:String ) : IMediator;
+		removeMediator( mediatorName:string ):IMediator;
 		
 		/**
 		 * Check if a Mediator is registered or not
@@ -110,7 +111,7 @@ module puremvc
 		 * @param mediatorName
 		 * @return whether a Mediator is registered with the given <code>mediatorName</code>.
 		 */
-		hasMediator( mediatorName:String ) : Boolean;
+		hasMediator( mediatorName:string ):Boolean;
 
 		/**
 		 * Notify the <code>IObservers</code> for a particular <code>INotification</code>.
@@ -126,6 +127,6 @@ module puremvc
 		 * 
 		 * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
 		 */
-		notifyObservers( note:INotification ) : void;
+		notifyObservers( note:INotification ):void;
 	}
 }

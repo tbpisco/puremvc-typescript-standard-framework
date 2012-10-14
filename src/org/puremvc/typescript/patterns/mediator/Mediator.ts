@@ -27,12 +27,12 @@ module puremvc
 		 * one specific control or group controls and so,
 		 * will not have a need to be dynamically named.</P>
 		 */
-		public static const NAME:String = 'Mediator';
+		public static const NAME:string = 'Mediator';
 		
 		/**
 		 * Constructor.
 		 */
-		public Mediator( mediatorName:String=null, viewComponent:Object=null ) {
+		public Mediator( mediatorName:string=null, viewComponent:Object=null ) {
 			this.mediatorName = (mediatorName != null)?mediatorName:NAME; 
 			this.viewComponent = viewComponent;	
 		}
@@ -41,7 +41,7 @@ module puremvc
 		 * Get the name of the <code>Mediator</code>.
 		 * @return the Mediator name
 		 */		
-		public getMediatorName():String
+		public getMediatorName():string
 		{	
 			return mediatorName;
 		}
@@ -65,7 +65,7 @@ module puremvc
 		 * object to a type, like this:</P>
 		 * 
 		 * <listing>
-		 *		private get comboBox : mx.controls.ComboBox
+		 *		private get comboBox:mx.controls.ComboBox
 		 *		{
 		 *			return viewComponent as mx.controls.ComboBox;
 		 *		}
@@ -110,7 +110,7 @@ module puremvc
 		public onRemove( ):void {}
 
 		// the mediator name
-		protected var mediatorName:String;
+		protected var mediatorName:string;
 
 		// The view component
 		protected var viewComponent:Object;

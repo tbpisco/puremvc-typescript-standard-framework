@@ -26,7 +26,7 @@ module puremvc
 	 * @see org.puremvc.typescript.interfaces.IObserver IObserver
 	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
-	interface IView
+	export interface IView
 	{
 		
 		/**
@@ -36,7 +36,7 @@ module puremvc
 		 * @param notificationName the name of the <code>INotifications</code> to notify this <code>IObserver</code> of
 		 * @param observer the <code>IObserver</code> to register
 		 */
-		registerObserver( notificationName:String, observer:IObserver ) : void;
+		registerObserver( notificationName:string, observer:IObserver ):void;
 
 		/**
 		 * Remove a group of observers from the observer list for a given Notification name.
@@ -44,7 +44,7 @@ module puremvc
 		 * @param notificationName which observer list to remove from 
 		 * @param notifyContext removed the observers with this object as their notifyContext
 		 */
-		removeObserver( notificationName:String, notifyContext:Object ):void;
+		removeObserver( notificationName:string, notifyContext:Object ):void;
 
 		/**
 		 * Notify the <code>IObservers</code> for a particular <code>INotification</code>.
@@ -56,7 +56,7 @@ module puremvc
 		 * 
 		 * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
 		 */
-		notifyObservers( note:INotification ) : void;
+		notifyObservers( note:INotification ):void;
 
 		/**
 		 * Register an <code>IMediator</code> instance with the <code>View</code>.
@@ -75,7 +75,7 @@ module puremvc
 		 * @param mediatorName the name to associate with this <code>IMediator</code> instance
 		 * @param mediator a reference to the <code>IMediator</code> instance
 		 */
-		registerMediator( mediator:IMediator ) : void;
+		registerMediator( mediator:IMediator ):void;
 
 		/**
 		 * Retrieve an <code>IMediator</code> from the <code>View</code>.
@@ -83,7 +83,7 @@ module puremvc
 		 * @param mediatorName the name of the <code>IMediator</code> instance to retrieve.
 		 * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
 		 */
-		retrieveMediator( mediatorName:String ) : IMediator;
+		retrieveMediator( mediatorName:string ):IMediator;
 
 		/**
 		 * Remove an <code>IMediator</code> from the <code>View</code>.
@@ -91,7 +91,7 @@ module puremvc
 		 * @param mediatorName name of the <code>IMediator</code> instance to be removed.
 		 * @return the <code>IMediator</code> that was removed from the <code>View</code>
 		 */
-		removeMediator( mediatorName:String ) : IMediator;
+		removeMediator( mediatorName:string ):IMediator;
 		
 		/**
 		 * Check if a Mediator is registered or not
@@ -99,7 +99,7 @@ module puremvc
 		 * @param mediatorName
 		 * @return whether a Mediator is registered with the given <code>mediatorName</code>.
 		 */
-		hasMediator( mediatorName:String ) : Boolean;
+		hasMediator( mediatorName:string ):Boolean;
 		
 	}
 	

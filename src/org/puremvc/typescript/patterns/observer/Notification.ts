@@ -5,8 +5,6 @@
 module puremvc
 {
 	"use strict";
-
-	import org.puremvc.typescript.interfaces.*;
 	
 	/**
 	 * A base <code>INotification</code> implementation.
@@ -43,7 +41,8 @@ module puremvc
 	 * @see org.puremvc.typescript.patterns.observer.Observer Observer
 	 * 
 	 */
-	public class Notification implements INotification
+	class Notification
+		implements INotification
 	{
 		
 		/**
@@ -53,7 +52,7 @@ module puremvc
 		 * @param body the <code>Notification</code> body. (optional)
 		 * @param type the type of the <code>Notification</code> (optional)
 		 */
-		constructor( name:String, body:Object=null, type:String=null )
+		constructor( name:string, body:Object, type:string )
 		{
 			this.name = name;
 			this.body = body;
@@ -65,9 +64,9 @@ module puremvc
 		 * 
 		 * @return the name of the <code>Notification</code> instance.
 		 */
-		public getName():String
+		public getName():string
 		{
-			return name;
+			return this.name;
 		}
 		
 		/**
@@ -85,13 +84,13 @@ module puremvc
 		 */
 		public getBody():Object
 		{
-			return body;
+			return this.body;
 		}
 		
 		/**
 		 * Set the type of the <code>Notification</code> instance.
 		 */
-		public setType( type:String ):void
+		public setType( type:string ):void
 		{
 			this.type = type;
 		}
@@ -101,9 +100,9 @@ module puremvc
 		 * 
 		 * @return the type  
 		 */
-		public getType():String
+		public getType():string
 		{
-			return type;
+			return this.type;
 		}
 
 		/**
@@ -111,20 +110,22 @@ module puremvc
 		 * 
 		 * @return the string representation of the <code>Notification</code> instance.
 		 */
-		public toString():String
+		public toString():string
 		{
-			var msg:String = "Notification Name: "+getName();
-			msg += "\nBody:"+(( body == null )?"null":body.toString());
-			msg += "\nType:"+(( type == null )?"null":type);
+			var msg:string = "Notification Name: " + this.getName();
+			msg += "\nBody:" + (( this.body == null ) ? "null" : this.body.toString());
+			msg += "\nType:" + (( this.type == null ) ? "null" : this.type);
 			return msg;
 		}
 		
 		// the name of the notification instance
-		private var name			: String;
+		private name:string;
+
 		// the type of the notification instance
-		private var type			: String;
+		private type:string;
+
 		// the body of the notification instance
-		private var body			: Object;
+		private body:Object;
 		
 	}
 }

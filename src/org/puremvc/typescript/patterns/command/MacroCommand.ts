@@ -69,7 +69,7 @@ module puremvc
 		 * 
 		 * <listing>
 		 *		// Initialize MyMacroCommand
-		 *		override protected initializeMacroCommand( ) : void
+		 *		override protected initializeMacroCommand( ):void
 		 *		{
 		 *			addSubCommand( com.me.myapp.controller.FirstCommand );
 		 *			addSubCommand( com.me.myapp.controller.SecondCommand );
@@ -108,11 +108,11 @@ module puremvc
 		 * 
 		 * @param notification the <code>INotification</code> object to be passsed to each <i>SubCommand</i>.
 		 */
-		public final execute( notification:INotification ) : void
+		public final execute( notification:INotification ):void
 		{
 			while ( subCommands.length > 0) {
-				var commandClassRef : Class = subCommands.shift();
-				var commandInstance : ICommand = new commandClassRef();
+				var commandClassRef:Class = subCommands.shift();
+				var commandInstance:ICommand = new commandClassRef();
 				commandInstance.execute( notification );
 			}
 		}

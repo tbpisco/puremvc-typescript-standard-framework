@@ -5,9 +5,6 @@
 module puremvc
 {
 	"use strict";
-
-	import org.puremvc.typescript.interfaces.*;
-	import org.puremvc.typescript.patterns.observer.Notifier;
 	
 	/**
 	 * A base <code>ICommand</code> implementation.
@@ -22,7 +19,7 @@ module puremvc
 	 */
 	public class SimpleCommand
 		extends Notifier
-		implements ICommand, INotifier 
+		implements ICommand, INotifier
 	{
 		
 		/**
@@ -36,7 +33,7 @@ module puremvc
 		 * 
 		 * @param notification the <code>INotification</code> to handle.
 		 */
-		public execute( notification:INotification ) : void
+		public execute( notification:INotification ):void
 		{
 			
 		}

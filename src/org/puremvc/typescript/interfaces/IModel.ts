@@ -19,7 +19,7 @@ module puremvc
 	 * <LI>Provide methods for registering, retrieving, and removing <code>IProxy</code> instances</LI>
 	 * </UL>
 	 */
-	interface IModel
+	export interface IModel
 	{
 		/**
 		 * Register an <code>IProxy</code> instance with the <code>Model</code>.
@@ -27,7 +27,7 @@ module puremvc
 		 * @param proxyName the name to associate with this <code>IProxy</code> instance.
 		 * @param proxy an object reference to be held by the <code>Model</code>.
 		 */
-		registerProxy( proxy:IProxy ) : void;
+		registerProxy( proxy:IProxy ):void;
 
 		/**
 		 * Retrieve an <code>IProxy</code> instance from the Model.
@@ -35,7 +35,7 @@ module puremvc
 		 * @param proxyName
 		 * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
 		 */
-		retrieveProxy( proxyName:String ) : IProxy;
+		retrieveProxy( proxyName:string ):IProxy;
 
 		/**
 		 * Remove an <code>IProxy</code> instance from the Model.
@@ -43,7 +43,7 @@ module puremvc
 		 * @param proxyName name of the <code>IProxy</code> instance to be removed.
 		 * @return the <code>IProxy</code> that was removed from the <code>Model</code>
 		 */
-		removeProxy( proxyName:String ) : IProxy;
+		removeProxy( proxyName:string ):IProxy;
 
 		/**
 		 * Check if a Proxy is registered
@@ -51,7 +51,7 @@ module puremvc
 		 * @param proxyName
 		 * @return whether a Proxy is currently registered with the given <code>proxyName</code>.
 		 */
-		hasProxy( proxyName:String ) : Boolean;
+		hasProxy( proxyName:string ):Boolean;
 
 	}
 }

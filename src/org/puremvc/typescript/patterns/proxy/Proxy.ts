@@ -36,12 +36,12 @@ module puremvc
 		implements IProxy, INotifier
 	{
 
-		public static var NAME:String = 'Proxy';
+		public static var NAME:string = 'Proxy';
 		
 		/**
 		 * Constructor
 		 */
-		constructor( proxyName:String=null, data:Object=null ) 
+		constructor( proxyName:string=null, data:Object=null )
 		{
 			
 			this.proxyName = (proxyName != null)?proxyName:NAME; 
@@ -51,7 +51,7 @@ module puremvc
 		/**
 		 * Get the proxy name
 		 */
-		public getProxyName():String
+		public getProxyName():string
 		{
 			return proxyName;
 		}		
@@ -84,7 +84,7 @@ module puremvc
 		
 		
 		// the proxy name
-		protected var proxyName:String;
+		protected var proxyName:string;
 		
 		// the data object
 		protected var data:Object;

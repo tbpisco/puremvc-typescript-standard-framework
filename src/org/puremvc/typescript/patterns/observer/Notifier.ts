@@ -5,9 +5,6 @@
 module puremvc
 {
 	"use strict";
-
-	import org.puremvc.typescript.interfaces.*;
-	import org.puremvc.typescript.patterns.facade.Facade;
 	
 	/**
 	 * A Base <code>INotifier</code> implementation.
@@ -47,7 +44,7 @@ module puremvc
 		 * @param body the body of the notification (optional)
 		 * @param type the type of the notification (optional)
 		 */ 
-		public sendNotification( notificationName:String, body:Object=null, type:String=null ):void
+		public sendNotification( notificationName:string, body:Object, type:string ):void
 		{
 			facade.sendNotification( notificationName, body, type );
 		}

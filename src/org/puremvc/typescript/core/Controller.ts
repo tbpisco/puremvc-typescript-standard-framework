@@ -78,7 +78,7 @@ module puremvc
 		 * 
 		 * <listing>
 		 *		// ensure that the Controller is talking to my IView implementation
-		 *		override public initializeController(  ) : void
+		 *		override public initializeController(  ):void
 		 *		{
 		 *			view = MyView.getInstance();
 		 *		}
@@ -86,7 +86,7 @@ module puremvc
 		 * 
 		 * @return void
 		 */
-		protected initializeController(  ) : void
+		protected initializeController(  ):void
 		{
 			view = View.getInstance();
 		}
@@ -96,7 +96,7 @@ module puremvc
 		 * 
 		 * @return the Singleton instance of <code>Controller</code>
 		 */
-		public static getInstance() : IController
+		public static getInstance():IController
 		{
 			if ( instance == null ) instance = new Controller( );
 			return instance;
@@ -108,12 +108,12 @@ module puremvc
 		 * 
 		 * @param note an <code>INotification</code>
 		 */
-		public executeCommand( note : INotification ) : void
+		public executeCommand( note:INotification ):void
 		{
-			var commandClassRef : Class = commandMap[ note.getName() ];
+			var commandClassRef:Class = commandMap[ note.getName() ];
 			if ( commandClassRef == null ) return;
 
-			var commandInstance : ICommand = new commandClassRef();
+			var commandInstance:ICommand = new commandClassRef();
 			commandInstance.execute( note );
 		}
 
@@ -132,7 +132,7 @@ module puremvc
 		 * @param notificationName the name of the <code>INotification</code>
 		 * @param commandClassRef the <code>Class</code> of the <code>ICommand</code>
 		 */
-		public registerCommand( notificationName : String, commandClassRef : Class ) : void
+		public registerCommand( notificationName:string, commandClassRef:Class ):void
 		{
 			if ( commandMap[ notificationName ] == null ) {
 				view.registerObserver( notificationName, new Observer( executeCommand, this ) );
@@ -146,7 +146,7 @@ module puremvc
 		 * @param notificationName
 		 * @return whether a Command is currently registered for the given <code>notificationName</code>.
 		 */
-		public hasCommand( notificationName:String ) : Boolean
+		public hasCommand( notificationName:string ):Boolean
 		{
 			return commandMap[ notificationName ] != null;
 		}
@@ -156,7 +156,7 @@ module puremvc
 		 * 
 		 * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
 		 */
-		public removeCommand( notificationName : String ) : void
+		public removeCommand( notificationName:string ):void
 		{
 			// if the Command is registered...
 			if ( hasCommand( notificationName ) )
@@ -170,16 +170,16 @@ module puremvc
 		}
 		
 		// Local reference to View 
-		protected var view : IView;
+		protected var view:IView;
 		
 		// Mapping of Notification names to Command Class references
-		protected var commandMap : Array;
+		protected var commandMap:Array;
 
 		// Singleton instance
-		protected static var instance : IController;
+		protected static var instance:IController;
 
 		// Message Constants
-		protected const SINGLETON_MSG : String = "Controller Singleton already constructed!";
+		protected const SINGLETON_MSG:string = "Controller Singleton already constructed!";
 
 	}
 }

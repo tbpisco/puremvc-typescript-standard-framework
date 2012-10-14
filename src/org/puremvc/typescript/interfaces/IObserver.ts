@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-module puremvc
+module puremvc.IObserver
 {
 	
 	/**
@@ -44,8 +44,10 @@ module puremvc
 	 * @see org.puremvc.typescript.interfaces.IView IView
 	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
-	interface IObserver
+	export interface IObserver
 	{
+		//import INotification = module("puremvc").INotification;
+
 		/**
 		 * Set the notification method.
 		 * 
@@ -76,6 +78,6 @@ module puremvc
 		 * @param object the object to compare.
 		 * @return boolean indicating if the notification context and the object are the same.
 		 */
-		compareNotifyContext( object:Object ):boolean;
+		compareNotifyContext( object:Object ):Boolean;
 	}
 }

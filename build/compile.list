@@ -1,0 +1,4 @@
+src/org/puremvc/typescript/interfaces/INotification.ts
+src/org/puremvc/typescript/interfaces/IObserver.ts
+src/org/puremvc/typescript/patterns/observer/Notification.ts
+--out bin/test.js

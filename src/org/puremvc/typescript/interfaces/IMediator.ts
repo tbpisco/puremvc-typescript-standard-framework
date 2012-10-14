@@ -98,7 +98,7 @@ module puremvc
 	 * 
 	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
-	interface IMediator
+	export interface IMediator
 	{
 		
 		/**
@@ -106,7 +106,7 @@ module puremvc
 		 * 
 		 * @return the <code>IMediator</code> instance name
 		 */
-		getMediatorName():String;
+		getMediatorName():string;
 		
 		/**
 		 * Get the <code>IMediator</code>'s view component.

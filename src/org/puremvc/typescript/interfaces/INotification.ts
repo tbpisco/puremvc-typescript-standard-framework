@@ -39,7 +39,7 @@ module puremvc
 	 * @see org.puremvc.typescript.interfaces.IView IView
 	 * @see org.puremvc.typescript.interfaces.IObserver IObserver
 	 */
-	interface INotification
+	export interface INotification
 	{
 		/**
 		 * Get the name of the <code>INotification</code> instance. 

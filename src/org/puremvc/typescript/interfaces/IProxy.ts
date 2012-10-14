@@ -24,7 +24,7 @@ module puremvc
 	 * <LI>Encapsulate interaction with local or remote services used to fetch and persist model data.</LI>
 	 * </UL>
 	 */
-	interface IProxy
+	export interface IProxy
 	{
 		
 		/**
@@ -32,7 +32,7 @@ module puremvc
 		 * 
 		 * @return the Proxy instance name
 		 */
-		getProxyName():String;
+		getProxyName():string;
 		
 		/**
 		 * Set the data object

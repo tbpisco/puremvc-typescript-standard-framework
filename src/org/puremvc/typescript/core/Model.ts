@@ -68,7 +68,7 @@ module puremvc
 		 * 
 		 * @return void
 		 */
-		protected initializeModel(  ) : void
+		protected initializeModel(  ):void
 		{
 		}
 				
@@ -77,7 +77,7 @@ module puremvc
 		 * 
 		 * @return the Singleton instance
 		 */
-		public static getInstance() : IModel
+		public static getInstance():IModel
 		{
 			if (instance == null) instance = new Model( );
 			return instance;
@@ -88,7 +88,7 @@ module puremvc
 		 * 
 		 * @param proxy an <code>IProxy</code> to be held by the <code>Model</code>.
 		 */
-		public registerProxy( proxy:IProxy ) : void
+		public registerProxy( proxy:IProxy ):void
 		{
 			proxyMap[ proxy.getProxyName() ] = proxy;
 			proxy.onRegister();
@@ -100,7 +100,7 @@ module puremvc
 		 * @param proxyName
 		 * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
 		 */
-		public retrieveProxy( proxyName:String ) : IProxy
+		public retrieveProxy( proxyName:string ):IProxy
 		{
 			return proxyMap[ proxyName ];
 		}
@@ -111,7 +111,7 @@ module puremvc
 		 * @param proxyName
 		 * @return whether a Proxy is currently registered with the given <code>proxyName</code>.
 		 */
-		public hasProxy( proxyName:String ) : Boolean
+		public hasProxy( proxyName:string ):Boolean
 		{
 			return proxyMap[ proxyName ] != null;
 		}
@@ -122,7 +122,7 @@ module puremvc
 		 * @param proxyName name of the <code>IProxy</code> instance to be removed.
 		 * @return the <code>IProxy</code> that was removed from the <code>Model</code>
 		 */
-		public removeProxy( proxyName:String ) : IProxy
+		public removeProxy( proxyName:string ):IProxy
 		{
 			var proxy:IProxy = proxyMap [ proxyName ] as IProxy;
 			if ( proxy ) 
@@ -134,13 +134,13 @@ module puremvc
 		}
 
 		// Mapping of proxyNames to IProxy instances
-		protected var proxyMap : Array;
+		protected var proxyMap:Array;
 
 		// Singleton instance
-		protected static var instance : IModel;
+		protected static var instance:IModel;
 		
 		// Message Constants
-		protected const SINGLETON_MSG	: String = "Model Singleton already constructed!";
+		protected const SINGLETON_MSG	: string = "Model Singleton already constructed!";
 
 	}
 }

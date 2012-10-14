@@ -41,22 +41,22 @@ module puremvc
 	 *		// location for these constants, since any part
 	 *		// of the application participating in PureMVC 
 	 *		// Observer Notification will know the Facade.
-	 *		public static const GO_COMMAND:String = "go";
+	 *		public static const GO_COMMAND:string = "go";
 	 * 		
 	 *		// Override Singleton Factory method 
-	 *		public static getInstance() : MyFacade {
+	 *		public static getInstance():MyFacade {
 	 *			if (instance == null) instance = new MyFacade();
 	 *			return instance as MyFacade;
 	 *		}
 	 * 		
 	 *		// optional initialization hook for Facade
-	 *		override public initializeFacade() : void {
+	 *		override public initializeFacade():void {
 	 *			super.initializeFacade();
 	 *			// do any special subclass initialization here
 	 *		}
 	 *	
 	 *		// optional initialization hook for Controller
-	 *		override public initializeController() : void {
+	 *		override public initializeController():void {
 	 *			// call super to use the PureMVC Controller Singleton. 
 	 *			super.initializeController();
 	 * 
@@ -71,7 +71,7 @@ module puremvc
 	 *		}
 	 *	
 	 *		// optional initialization hook for Model
-	 *		override public initializeModel() : void {
+	 *		override public initializeModel():void {
 	 *			// call super to use the PureMVC Model Singleton. 
 	 *			super.initializeModel();
 	 * 
@@ -95,7 +95,7 @@ module puremvc
 	 *		}
 	 *	
 	 *		// optional initialization hook for View
-	 *		override public initializeView() : void {
+	 *		override public initializeView():void {
 	 *			// call super to use the PureMVC View Singleton. 
 	 *			super.initializeView();
 	 * 
@@ -257,7 +257,7 @@ module puremvc
 		 * @param notificationName the name of the <code>INotification</code> to associate the <code>ICommand</code> with
 		 * @param commandClassRef a reference to the Class of the <code>ICommand</code>
 		 */
-		public registerCommand( notificationName:String, commandClassRef:Class ):void
+		public registerCommand( notificationName:string, commandClassRef:Class ):void
 		{
 			controller.registerCommand( notificationName, commandClassRef );
 		}
@@ -267,7 +267,7 @@ module puremvc
 		 * 
 		 * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
 		 */
-		public removeCommand( notificationName:String ):void
+		public removeCommand( notificationName:string ):void
 		{
 			controller.removeCommand( notificationName );
 		}
@@ -278,7 +278,7 @@ module puremvc
 		 * @param notificationName
 		 * @return whether a Command is currently registered for the given <code>notificationName</code>.
 		 */
-		public hasCommand( notificationName:String ) : Boolean
+		public hasCommand( notificationName:string ):Boolean
 		{
 			return controller.hasCommand(notificationName);
 		}
@@ -300,7 +300,7 @@ module puremvc
 		 * @param proxyName the name of the proxy to be retrieved.
 		 * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
 		 */
-		public retrieveProxy ( proxyName:String ):IProxy
+		public retrieveProxy ( proxyName:string ):IProxy
 		{
 			return model.retrieveProxy ( proxyName );	
 		}
@@ -311,7 +311,7 @@ module puremvc
 		 * @param proxyName the <code>IProxy</code> to remove from the <code>Model</code>.
 		 * @return the <code>IProxy</code> that was removed from the <code>Model</code>
 		 */
-		public removeProxy ( proxyName:String ):IProxy
+		public removeProxy ( proxyName:string ):IProxy
 		{
 			var proxy:IProxy;
 			if ( model != null ) proxy = model.removeProxy ( proxyName );	
@@ -324,7 +324,7 @@ module puremvc
 		 * @param proxyName
 		 * @return whether a Proxy is currently registered with the given <code>proxyName</code>.
 		 */
-		public hasProxy( proxyName:String ) : Boolean
+		public hasProxy( proxyName:string ):Boolean
 		{
 			return model.hasProxy( proxyName );
 		}
@@ -346,7 +346,7 @@ module puremvc
 		 * @param mediatorName
 		 * @return the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
 		 */
-		public retrieveMediator( mediatorName:String ):IMediator
+		public retrieveMediator( mediatorName:string ):IMediator
 		{
 			return view.retrieveMediator( mediatorName ) as IMediator;
 		}
@@ -357,7 +357,7 @@ module puremvc
 		 * @param mediatorName name of the <code>IMediator</code> to be removed.
 		 * @return the <code>IMediator</code> that was removed from the <code>View</code>
 		 */
-		public removeMediator( mediatorName:String ) : IMediator
+		public removeMediator( mediatorName:string ):IMediator
 		{
 			var mediator:IMediator;
 			if ( view != null ) mediator = view.removeMediator( mediatorName );			
@@ -370,7 +370,7 @@ module puremvc
 		 * @param mediatorName
 		 * @return whether a Mediator is registered with the given <code>mediatorName</code>.
 		 */
-		public hasMediator( mediatorName:String ) : Boolean
+		public hasMediator( mediatorName:string ):Boolean
 		{
 			return view.hasMediator( mediatorName );
 		}
@@ -385,7 +385,7 @@ module puremvc
 		 * @param body the body of the notification (optional)
 		 * @param type the type of the notification (optional)
 		 */ 
-		public sendNotification( notificationName:String, body:Object=null, type:String=null ):void
+		public sendNotification( notificationName:string, body:Object=null, type:string=null ):void
 		{
 			notifyObservers( new Notification( notificationName, body, type ) );
 		}
@@ -408,15 +408,15 @@ module puremvc
 		}
 
 		// Private references to Model, View and Controller
-		protected var controller : IController;
-		protected var model		 : IModel;
-		protected var view		 : IView;
+		protected var controller:IController;
+		protected var model		:IModel;
+		protected var view		:IView;
 		
 		// The Singleton Facade instance.
-		protected static var instance : IFacade; 
+		protected static var instance:IFacade;
 		
 		// Message Constants
-		protected const SINGLETON_MSG	: String = "Facade Singleton already constructed!";
+		protected const SINGLETON_MSG	: string = "Facade Singleton already constructed!";
 	
 	}
 }

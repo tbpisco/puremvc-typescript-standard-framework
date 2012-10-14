@@ -27,7 +27,7 @@ module puremvc
 	 * @see org.puremvc.typescript.interfaces.IFacade IFacade
 	 * @see org.puremvc.typescript.interfaces.INotification INotification
 	 */
-	interface INotifier
+	export interface INotifier
 	{
 		/**
 		 * Send a <code>INotification</code>.
@@ -40,7 +40,7 @@ module puremvc
 		 * @param body the body of the notification (optional)
 		 * @param type the type of the notification (optional)
 		 */ 
-		sendNotification( notificationName:String, body:Object=null, type:String=null ):void;
+		sendNotification( notificationName:string, body:Object, type:string ):void;
 		
 	}
 }

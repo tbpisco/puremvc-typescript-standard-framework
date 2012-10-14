@@ -26,7 +26,7 @@ module puremvc
 	 * @see org.puremvc.typescript.interfaces INotification
 	 * @see org.puremvc.typescript.interfaces ICommand
 	 */
-	interface IController
+	export interface IController
 	{
 
 		/**
@@ -36,7 +36,7 @@ module puremvc
 		 * @param notificationName the name of the <code>INotification</code>
 		 * @param commandClassRef the Class of the <code>ICommand</code>
 		 */
-		registerCommand( notificationName : String, commandClassRef : Class ) : void;
+		registerCommand( notificationName:string, commandClassRef:Function ):void;
 		
 		/**
 		 * Execute the <code>ICommand</code> previously registered as the
@@ -44,14 +44,14 @@ module puremvc
 		 * 
 		 * @param notification the <code>INotification</code> to execute the associated <code>ICommand</code> for
 		 */
-		executeCommand( notification : INotification ) : void;
+		executeCommand( notification:INotification ):void;
 
 		/**
 		 * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping.
 		 * 
 		 * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
 		 */
-		removeCommand( notificationName : String ):void;
+		removeCommand( notificationName:string ):void;
 
 		/**
 		 * Check if a Command is registered for a given Notification 
@@ -59,6 +59,6 @@ module puremvc
 		 * @param notificationName
 		 * @return whether a Command is currently registered for the given <code>notificationName</code>.
 		 */
-		hasCommand( notificationName:String ) : Boolean;
+		hasCommand( notificationName:string ):Boolean;
 	}
 }
