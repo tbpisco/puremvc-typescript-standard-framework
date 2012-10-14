@@ -2,7 +2,7 @@
  PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 United States License
 */
-package org.puremvc.typescript.interfaces
+module org.puremvc.typescript.interfaces
 {
 	/**
 	 * The interface definition for a PureMVC Notifier.
