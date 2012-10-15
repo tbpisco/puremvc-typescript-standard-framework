@@ -1,6 +1,7 @@
 /*
- PureMVC - Copyright(c) 2006-12 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 United States License
+ PureMVC Javascript for TypeScript port by Frederic Saunier <frederic.saunier@puremvc.org>
+ PureMVC - Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 module puremvc
 {
