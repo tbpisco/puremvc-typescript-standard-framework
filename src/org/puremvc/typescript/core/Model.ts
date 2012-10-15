@@ -128,7 +128,7 @@ module puremvc
 		public removeProxy( proxyName:string ):IProxy
 		{
 			var proxy:IProxy = this.proxyMap[ proxyName ];
-			if ( proxy ) 
+			if( proxy )
 			{
 				this.proxyMap[ proxyName ] = null;
 				proxy.onRemove();

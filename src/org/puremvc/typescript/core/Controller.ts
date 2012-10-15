@@ -97,7 +97,7 @@ module puremvc
 		 */
 		public static getInstance():IController
 		{
-			if ( Controller.instance == null )
+			if( Controller.instance == null )
 				Controller.instance = new Controller( );
 
 			return Controller.instance;
@@ -113,7 +113,7 @@ module puremvc
 		{
 			//TODO Identify if here *any* is the right choice instead of Function ( won't compile if set to Function because it is not newable on new commandClassRef )
 			var commandClassRef:any = this.commandMap[ note.getName() ];
-			if ( commandClassRef == null )
+			if( commandClassRef == null )
 				return;
 
 			var commandInstance:ICommand = new commandClassRef();
@@ -162,7 +162,7 @@ module puremvc
 		public removeCommand( notificationName:string ):void
 		{
 			// if the Command is registered...
-			if ( this.hasCommand( notificationName ) )
+			if( this.hasCommand( notificationName ) )
 			{
 				// remove the observer
 				this.view.removeObserver( notificationName, this );

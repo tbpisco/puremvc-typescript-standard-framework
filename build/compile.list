@@ -8,9 +8,24 @@ src/org/puremvc/typescript/interfaces/INotifier.ts
 src/org/puremvc/typescript/interfaces/IObserver.ts
 src/org/puremvc/typescript/interfaces/IProxy.ts
 src/org/puremvc/typescript/interfaces/IView.ts
-src/org/puremvc/typescript/patterns/observer/Observer.ts
+
 src/org/puremvc/typescript/core/Controller.ts
 src/org/puremvc/typescript/core/Model.ts
 src/org/puremvc/typescript/core/View.ts
+
+src/org/puremvc/typescript/patterns/observer/Notifier.ts
+
+src/org/puremvc/typescript/patterns/command/MacroCommand.ts
+src/org/puremvc/typescript/patterns/command/SimpleCommand.ts
+
+src/org/puremvc/typescript/patterns/facade/Facade.ts
+
+src/org/puremvc/typescript/patterns/mediator/Mediator.ts
+
 src/org/puremvc/typescript/patterns/observer/Notification.ts
+
+src/org/puremvc/typescript/patterns/observer/Observer.ts
+
+src/org/puremvc/typescript/patterns/proxy/Proxy.ts
+
 --out bin/puremvc-typescript-singlecore-1.0.js

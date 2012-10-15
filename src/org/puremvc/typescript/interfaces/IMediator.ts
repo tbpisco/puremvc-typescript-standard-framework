@@ -30,7 +30,7 @@ module puremvc
 	 * When an <code>IMediator</code> is registered with the <code>IView</code>, 
 	 * the <code>IView</code> will call the <code>IMediator</code>'s 
 	 * <code>listNotificationInterests</code> method. The <code>IMediator</code> will 
-	 * return an <code>Array</code> of <code>INotification</code> names which 
+	 * return a list of <code>INotification</code> names which
 	 * it wishes to be notified about.</P>
 	 * 
 	 * <P>
@@ -61,7 +61,7 @@ module puremvc
 	 * 			combo.addEventListener( Event.CHANGE, onChange );
 	 * 		}
 	 * 		
-	 * 		override public listNotificationInterests():Array {
+	 * 		override public listNotificationInterests():string[] {
 	 * 				return [ MyFacade.SET_SELECTION, 
 	 * 						 MyFacade.SET_DATAPROVIDER ];
 	 * 		}
@@ -80,7 +80,7 @@ module puremvc
 	 * 		// Set the data provider of the combo box
 	 * 		public setDataProvider( notification:INotification ):void
 	 *		{
-	 * 			combo.dataProvider = notification.getBody() as Array;
+	 * 			combo.dataProvider = notification.getBody();
 	 * 		}
 	 * 
 	 * 		// Invoked when the combo box dispatches a change event, we send a
@@ -106,35 +106,40 @@ module puremvc
 		/**
 		 * Get the <code>IMediator</code> instance name
 		 * 
-		 * @return the <code>IMediator</code> instance name
+		 * @return
+		 * 		The <code>IMediator</code> instance name
 		 */
 		getMediatorName():string;
 		
 		/**
 		 * Get the <code>IMediator</code>'s view component.
 		 * 
-		 * @return Object the view component
+		 * @return Object
+		 * 		The view component.
 		 */
 		getViewComponent():Object;
 
 		/**
 		 * Set the <code>IMediator</code>'s view component.
 		 * 
-		 * @param Object the view component
+		 * @param Object
+		 * 		The view component.
 		 */
 		setViewComponent( viewComponent:Object ):void;
 		
 		/**
 		 * List <code>INotification</code> interests.
 		 * 
-		 * @return an <code>Array</code> of the <code>INotification</code> names this <code>IMediator</code> has an interest in.
+		 * @return
+		 * A list of the <code>INotification</code> names this <code>IMediator</code> has an interest in.
 		 */
-		listNotificationInterests( ):Array;
+		listNotificationInterests( ):string[];
 		
 		/**
 		 * Handle an <code>INotification</code>.
 		 * 
-		 * @param notification the <code>INotification</code> to be handled
+		 * @param notification
+		 * 		The <code>INotification</code> to be handled
 		 */
 		handleNotification( notification:INotification ):void;
 		

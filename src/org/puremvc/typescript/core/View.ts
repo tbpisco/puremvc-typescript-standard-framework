@@ -73,7 +73,7 @@ module puremvc
 		 */
 		public static getInstance():IView
 		{
-			if ( View.instance == null )
+			if( View.instance == null )
 				View.instance = new View();
 
 			return View.instance;
@@ -157,7 +157,7 @@ module puremvc
 
 			// Also, when a Notification's Observer list length falls to 
 			// zero, delete the notification key from the observer map
-			if ( observers.length == 0 )
+			if( observers.length == 0 )
 				delete this.observerMap[ notificationName ];
 		} 
 
@@ -188,16 +188,16 @@ module puremvc
 			this.mediatorMap[ mediator.getMediatorName() ] = mediator;
 			
 			// Get Notification interests, if any.
-			var interests:Array = mediator.listNotificationInterests();
+			var interests:string[] = mediator.listNotificationInterests();
 
 			// Register Mediator as an observer for each of its notification interests
-			if ( interests.length > 0 ) 
+			if( interests.length > 0 )
 			{
 				// Create Observer referencing this mediator's handlNotification method
 				var observer:IObserver = new Observer( mediator.handleNotification, mediator );
 
 				// Register Mediator as Observer for its list of Notification interests
-				for ( var i:number=0;  i<interests.length; i++ )
+				for( var i:number=0;  i<interests.length; i++ )
 					this.registerObserver( interests[i],  observer );
 			}
 			
@@ -231,7 +231,7 @@ module puremvc
 			if( mediator )
 			{
 				// for every notification this mediator is interested in...
-				var interests:Array = mediator.listNotificationInterests();
+				var interests:string[] = mediator.listNotificationInterests();
 				for( var i:number=0; i<interests.length; i++ )
 				{
 					// remove the observer linking the mediator 

@@ -41,7 +41,7 @@ module puremvc
 	 * 		
 	 *		// Override Singleton Factory method 
 	 *		public static getInstance():MyFacade {
-	 *			if (instance == null) instance = new MyFacade();
+	 *			if(instance == null) instance = new MyFacade();
 	 *			return instance as MyFacade;
 	 *		}
 	 * 		
@@ -58,7 +58,7 @@ module puremvc
 	 * 
 	 *			// Otherwise, if you're implmenting your own
 	 *			// IController, then instead do:
-	 *			// if ( controller != null ) return;
+	 *			// if( controller != null ) return;
 	 *			// controller = MyAppController.getInstance();
 	 * 		
 	 *			// do any special subclass initialization here
@@ -73,7 +73,7 @@ module puremvc
 	 * 
 	 *			// Otherwise, if you're implmenting your own
 	 *			// IModel, then instead do:
-	 *			// if ( model != null ) return;
+	 *			// if( model != null ) return;
 	 *			// model = MyAppModel.getInstance();
 	 * 		
 	 *			// do any special subclass initialization here
@@ -97,7 +97,7 @@ module puremvc
 	 * 
 	 *			// Otherwise, if you're implmenting your own
 	 *			// IView, then instead do:
-	 *			// if ( view != null ) return;
+	 *			// if( view != null ) return;
 	 *			// view = MyAppView.getInstance();
 	 * 		
 	 *			// do any special subclass initialization here
@@ -158,9 +158,9 @@ module puremvc
 		 */
 		public initializeFacade():void
 		{
-			initializeModel();
-			initializeController();
-			initializeView();
+			this.initializeModel();
+			this.initializeController();
+			this.initializeView();
 		}
 
 		/**
@@ -328,7 +328,7 @@ module puremvc
 			if( this.model != null )
 				proxy = this.model.removeProxy( proxyName );
 
-			return this.proxy
+			return proxy
 		}
 
 		/**
@@ -375,9 +375,9 @@ module puremvc
 		{
 			var mediator:IMediator;
 			if( this.view != null )
-				this.mediator = this.view.removeMediator( mediatorName );
+				mediator = this.view.removeMediator( mediatorName );
 
-			return this.mediator;
+			return mediator;
 		}
 
 		/**

@@ -33,9 +33,11 @@ module puremvc
 	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
 	 * @see org.puremvc.typescript.patterns.command.SimpleCommand SimpleCommand
 	 */
-	export class MacroCommand extends Notifier implements ICommand, INotifier
+	export class MacroCommand
+		extends Notifier
+		implements ICommand, INotifier
 	{
-		private subCommands:Array;
+		private subCommands:Function[];
 		
 		/**
 		 * Constructor. 
@@ -51,6 +53,8 @@ module puremvc
 		 */
 		constructor()
 		{
+			super();
+
 			this.subCommands = new Array();
 			this.initializeMacroCommand();
 		}
@@ -68,9 +72,9 @@ module puremvc
 		 *		// Initialize MyMacroCommand
 		 *		override public initializeMacroCommand( ):void
 		 *		{
-		 *			addSubCommand( com.me.myapp.controller.FirstCommand );
-		 *			addSubCommand( com.me.myapp.controller.SecondCommand );
-		 *			addSubCommand( com.me.myapp.controller.ThirdCommand );
+		 *			this.addSubCommand( com.me.myapp.controller.FirstCommand );
+		 *			this.addSubCommand( com.me.myapp.controller.SecondCommand );
+		 *			this.addSubCommand( com.me.myapp.controller.ThirdCommand );
 		 *		}
 		 * </listing>
 		 * 
@@ -105,11 +109,12 @@ module puremvc
 		 * 
 		 * @param notification the <code>INotification</code> object to be passsed to each <i>SubCommand</i>.
 		 */
-		public final execute( notification:INotification ):void
+		public /*TODO final*/ execute( notification:INotification ):void
 		{
-			while ( subCommands.length > 0)
+			while( this.subCommands.length > 0 )
 			{
-				var commandClassRef:Function = this.subCommands.shift();
+				//TODO Any ?
+				var commandClassRef:any = this.subCommands.shift();
 				var commandInstance:ICommand = new commandClassRef();
 				commandInstance.execute( notification );
 			}

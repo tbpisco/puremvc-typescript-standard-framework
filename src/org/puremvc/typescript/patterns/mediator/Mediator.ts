@@ -30,7 +30,7 @@ module puremvc
 		 */
 		public Mediator( mediatorName:string=null, viewComponent:Object=null )
 		{
-			this.mediatorName = (mediatorName != null)?mediatorName:NAME; 
+			this.mediatorName = (mediatorName != null) ? mediatorName : Mediator.NAME;
 			this.viewComponent = viewComponent;	
 		}
 

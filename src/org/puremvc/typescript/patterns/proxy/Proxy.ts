@@ -39,8 +39,10 @@ module puremvc
 		 */
 		constructor( proxyName:string, data:Object )
 		{
-			
-			this.proxyName = (proxyName != null) ? proxyName:Proxy.NAME;
+			super();
+
+			this.proxyName = (proxyName != null) ? proxyName : Proxy.NAME;
+
 			if( data != null )
 				this.setData(data);
 		}
@@ -66,7 +68,7 @@ module puremvc
 		 */
 		public getData():Object
 		{
-			return 		"use strict";data;
+			return this.data;
 		}		
 
 		/**

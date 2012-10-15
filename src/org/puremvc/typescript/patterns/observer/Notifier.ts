@@ -46,7 +46,7 @@ module puremvc
 		 */ 
 		public sendNotification( notificationName:string, body:Object, type:string ):void
 		{
-			facade.sendNotification( notificationName, body, type );
+			this.facade.sendNotification( notificationName, body, type );
 		}
 		
 		// Local reference to the Facade Singleton
