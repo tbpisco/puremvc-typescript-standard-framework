@@ -6,10 +6,6 @@ module puremvc
 {
 	"use strict";
 
-	import org.puremvc.typescript.core.*;
-	import org.puremvc.typescript.interfaces.*;
-	import org.puremvc.typescript.patterns.observer.Notification;
-
 	/**
 	 * A base Singleton <code>IFacade</code> implementation.
 	 * 
@@ -145,9 +141,11 @@ module puremvc
 		 */
 		constructor()
 		{
-			if (instance != null) throw Error(SINGLETON_MSG);
-			instance = this;
-			initializeFacade();	
+			if( Facade.instance != null )
+				throw Error( Facade.SINGLETON_MSG );
+
+			Facade.instance = this;
+			this.initializeFacade();
 		}
 
 		/**
@@ -158,7 +156,8 @@ module puremvc
 		 * subclass to do any subclass specific initializations. Be
 		 * sure to call <code>super.initializeFacade()</code>, though.</P>
 		 */
-		public initializeFacade(  ):void {
+		public initializeFacade():void
+		{
 			initializeModel();
 			initializeController();
 			initializeView();
@@ -169,9 +168,12 @@ module puremvc
 		 * 
 		 * @return the Singleton instance of the Facade
 		 */
-		public static getInstance():IFacade {
-			if (instance == null) instance = new Facade( );
-			return instance;
+		public static getInstance():IFacade
+		{
+			if( Facade.instance == null)
+				Facade.instance = new Facade();
+
+			return Facade.instance;
 		}
 
 		/**
@@ -190,9 +192,12 @@ module puremvc
 		 * method, then register <code>Command</code>s.
 		 * </P>
 		 */
-		public initializeController( ):void {
-			if ( controller != null ) return;
-			controller = Controller.getInstance();
+		public initializeController():void
+		{
+			if( this.controller != null )
+				return;
+
+			this.controller = Controller.getInstance();
 		}
 
 		/**
@@ -218,9 +223,12 @@ module puremvc
 		 * the <code>Facade</code> during their construction. 
 		 * </P>
 		 */
-		public initializeModel( ):void {
-			if ( model != null ) return;
-			model = Model.getInstance();
+		public initializeModel( ):void
+		{
+			if( this.model != null )
+				return;
+
+			this.model = Model.getInstance();
 		}
 		
 
@@ -246,9 +254,12 @@ module puremvc
 		 * to the <code>Facade</code> during their construction. 
 		 * </P>
 		 */
-		public initializeView( ):void {
-			if ( view != null ) return;
-			view = View.getInstance();
+		public initializeView( ):void
+		{
+			if( this.view != null )
+				return;
+
+			this.view = View.getInstance();
 		}
 
 		/**
@@ -257,9 +268,9 @@ module puremvc
 		 * @param notificationName the name of the <code>INotification</code> to associate the <code>ICommand</code> with
 		 * @param commandClassRef a reference to the Class of the <code>ICommand</code>
 		 */
-		public registerCommand( notificationName:string, commandClassRef:Class ):void
+		public registerCommand( notificationName:string, commandClassRef:Function ):void
 		{
-			controller.registerCommand( notificationName, commandClassRef );
+			this.controller.registerCommand( notificationName, commandClassRef );
 		}
 
 		/**
@@ -269,7 +280,7 @@ module puremvc
 		 */
 		public removeCommand( notificationName:string ):void
 		{
-			controller.removeCommand( notificationName );
+			this.controller.removeCommand( notificationName );
 		}
 
 		/**
@@ -280,7 +291,7 @@ module puremvc
 		 */
 		public hasCommand( notificationName:string ):Boolean
 		{
-			return controller.hasCommand(notificationName);
+			return this.controller.hasCommand(notificationName);
 		}
 
 		/**
@@ -289,9 +300,9 @@ module puremvc
 		 * @param proxyName the name of the <code>IProxy</code>.
 		 * @param proxy the <code>IProxy</code> instance to be registered with the <code>Model</code>.
 		 */
-		public registerProxy ( proxy:IProxy ):void
+		public registerProxy( proxy:IProxy ):void
 		{
-			model.registerProxy ( proxy );	
+			this.model.registerProxy( proxy );
 		}
 				
 		/**
@@ -300,9 +311,9 @@ module puremvc
 		 * @param proxyName the name of the proxy to be retrieved.
 		 * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
 		 */
-		public retrieveProxy ( proxyName:string ):IProxy
+		public retrieveProxy( proxyName:string ):IProxy
 		{
-			return model.retrieveProxy ( proxyName );	
+			return this.model.retrieveProxy( proxyName );
 		}
 
 		/**
@@ -314,8 +325,10 @@ module puremvc
 		public removeProxy ( proxyName:string ):IProxy
 		{
 			var proxy:IProxy;
-			if ( model != null ) proxy = model.removeProxy ( proxyName );	
-			return proxy
+			if( this.model != null )
+				proxy = this.model.removeProxy( proxyName );
+
+			return this.proxy
 		}
 
 		/**
@@ -326,7 +339,7 @@ module puremvc
 		 */
 		public hasProxy( proxyName:string ):Boolean
 		{
-			return model.hasProxy( proxyName );
+			return this.model.hasProxy( proxyName );
 		}
 
 		/**
@@ -337,7 +350,8 @@ module puremvc
 		 */
 		public registerMediator( mediator:IMediator ):void
 		{
-			if ( view != null ) view.registerMediator( mediator );
+			if( this.view != null )
+				this.view.registerMediator( mediator );
 		}
 
 		/**
@@ -348,7 +362,7 @@ module puremvc
 		 */
 		public retrieveMediator( mediatorName:string ):IMediator
 		{
-			return view.retrieveMediator( mediatorName ) as IMediator;
+			return <IMediator> this.view.retrieveMediator( mediatorName );
 		}
 
 		/**
@@ -360,8 +374,10 @@ module puremvc
 		public removeMediator( mediatorName:string ):IMediator
 		{
 			var mediator:IMediator;
-			if ( view != null ) mediator = view.removeMediator( mediatorName );			
-			return mediator;
+			if( this.view != null )
+				this.mediator = this.view.removeMediator( mediatorName );
+
+			return this.mediator;
 		}
 
 		/**
@@ -372,7 +388,7 @@ module puremvc
 		 */
 		public hasMediator( mediatorName:string ):Boolean
 		{
-			return view.hasMediator( mediatorName );
+			return this.view.hasMediator( mediatorName );
 		}
 
 		/**
@@ -387,7 +403,7 @@ module puremvc
 		 */ 
 		public sendNotification( notificationName:string, body:Object=null, type:string=null ):void
 		{
-			notifyObservers( new Notification( notificationName, body, type ) );
+			this.notifyObservers( new Notification( notificationName, body, type ) );
 		}
 
 		/**
@@ -403,20 +419,21 @@ module puremvc
 		 * 
 		 * @param notification the <code>INotification</code> to have the <code>View</code> notify <code>Observers</code> of.
 		 */
-		public notifyObservers ( notification:INotification ):void {
-			if ( view != null ) view.notifyObservers( notification );
+		public notifyObservers ( notification:INotification ):void
+		{
+			if( this.view != null )
+				this.view.notifyObservers( notification );
 		}
 
 		// Private references to Model, View and Controller
 		public controller:IController;
-		public model		:IModel;
-		public view		:IView;
+		public model:IModel;
+		public view:IView;
 		
 		// The Singleton Facade instance.
-		public static var instance:IFacade;
+		public static instance:IFacade;
 		
 		// Message Constants
-		public static SINGLETON_MSG	: string = "Facade Singleton already constructed!";
-	
+		public static SINGLETON_MSG:string = "Facade Singleton already constructed!";
 	}
 }

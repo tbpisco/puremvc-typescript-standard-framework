@@ -1,10 +1,5 @@
 var puremvc;
 (function (puremvc) {
-    
-})(puremvc || (puremvc = {}));
-
-var puremvc;
-(function (puremvc) {
     "use strict";
     var Observer = (function () {
         function Observer(notifyMethod, notifyContext) {
@@ -137,13 +132,13 @@ var puremvc;
     "use strict";
     var View = (function () {
         function View() {
-            if(instance != null) {
-                throw Error(SINGLETON_MSG);
+            if(View.instance != null) {
+                throw Error(View.SINGLETON_MSG);
             }
-            instance = this;
-            mediatorMap = new Array();
-            observerMap = new Array();
-            initializeView();
+            View.instance = this;
+            this.mediatorMap = new Array();
+            this.observerMap = new Array();
+            this.initializeView();
         }
         View.prototype.initializeView = function () {
         };
@@ -154,17 +149,17 @@ var puremvc;
             return View.instance;
         }
         View.prototype.registerObserver = function (notificationName, observer) {
-            var observers = observerMap[notificationName];
+            var observers = this.observerMap[notificationName];
             if(observers) {
                 observers.push(observer);
             } else {
-                observerMap[notificationName] = [
+                this.observerMap[notificationName] = [
                     observer
                 ];
             }
         };
         View.prototype.notifyObservers = function (notification) {
-            if(observerMap[notification.getName()] != null) {
+            if(this.observerMap[notification.getName()] != null) {
                 var observers_ref = this.observerMap[notification.getName()];
                 var observers = new Array();
                 var observer;
@@ -179,22 +174,22 @@ var puremvc;
             }
         };
         View.prototype.removeObserver = function (notificationName, notifyContext) {
-            var observers = observerMap[notificationName];
+            var observers = this.observerMap[notificationName];
             for(var i = 0; i < observers.length; i++) {
-                if(puremvc.Observer(observers[i]).compareNotifyContext(notifyContext) == true) {
+                if(observers[i].compareNotifyContext(notifyContext) === true) {
                     observers.splice(i, 1);
                     break;
                 }
             }
             if(observers.length == 0) {
-                delete observerMap[notificationName];
+                delete this.observerMap[notificationName];
             }
         };
         View.prototype.registerMediator = function (mediator) {
-            if(mediatorMap[mediator.getMediatorName()] != null) {
+            if(this.mediatorMap[mediator.getMediatorName()] != null) {
                 return;
             }
-            mediatorMap[mediator.getMediatorName()] = mediator;
+            this.mediatorMap[mediator.getMediatorName()] = mediator;
             var interests = mediator.listNotificationInterests();
             if(interests.length > 0) {
                 var observer = new puremvc.Observer(mediator.handleNotification, mediator);
@@ -208,13 +203,13 @@ var puremvc;
             return this.mediatorMap[mediatorName];
         };
         View.prototype.removeMediator = function (mediatorName) {
-            var mediator = mediatorMap[mediatorName];
+            var mediator = this.mediatorMap[mediatorName];
             if(mediator) {
                 var interests = mediator.listNotificationInterests();
                 for(var i = 0; i < interests.length; i++) {
                     this.removeObserver(interests[i], mediator);
                 }
-                delete mediatorMap[mediatorName];
+                delete this.mediatorMap[mediatorName];
                 mediator.onRemove();
             }
             return mediator;

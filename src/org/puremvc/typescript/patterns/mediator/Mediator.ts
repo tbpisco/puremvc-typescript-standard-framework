@@ -4,10 +4,8 @@
 */
 module puremvc
 {
-	import org.puremvc.typescript.interfaces.*;
-	import org.puremvc.typescript.patterns.observer.*;
-	import org.puremvc.typescript.patterns.facade.Facade;
-	
+	"use strict";
+
 	/**
 	 * A base <code>IMediator</code> implementation. 
 	 * 
@@ -17,8 +15,6 @@ module puremvc
 		extends Notifier
 		implements IMediator, INotifier
 	{
-		"use strict";
-
 		/**
 		 * The name of the <code>Mediator</code>. 
 		 * 
@@ -32,7 +28,8 @@ module puremvc
 		/**
 		 * Constructor.
 		 */
-		public Mediator( mediatorName:string=null, viewComponent:Object=null ) {
+		public Mediator( mediatorName:string=null, viewComponent:Object=null )
+		{
 			this.mediatorName = (mediatorName != null)?mediatorName:NAME; 
 			this.viewComponent = viewComponent;	
 		}
@@ -43,7 +40,7 @@ module puremvc
 		 */		
 		public getMediatorName():string
 		{	
-			return mediatorName;
+			return this.mediatorName;
 		}
 
 		/**
@@ -75,7 +72,7 @@ module puremvc
 		 */		
 		public getViewComponent():Object
 		{	
-			return viewComponent;
+			return this.viewComponent;
 		}
 
 		/**
@@ -84,9 +81,9 @@ module puremvc
 		 * 
 		 * @return Array the list of <code>INotification</code> names 
 		 */
-		public listNotificationInterests():Array
+		public listNotificationInterests():string[]
 		{
-			return [ ];
+			return new string[];
 		}
 
 		/**

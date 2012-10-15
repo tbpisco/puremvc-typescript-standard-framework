@@ -42,11 +42,13 @@ module puremvc
 		 */
 		constructor()
 		{
-			if (instance != null) throw Error(SINGLETON_MSG);
-			instance = this;
-			mediatorMap = new Array();
-			observerMap = new Array();	
-			initializeView();	
+			if( View.instance != null )
+				throw Error( View.SINGLETON_MSG );
+
+			View.instance = this;
+			this.mediatorMap = new IMediator[]();
+			this.observerMap = new IObserver[][]();
+			this.initializeView();
 		}
 		
 		/**
@@ -60,7 +62,7 @@ module puremvc
 		 * 
 		 * @return void
 		 */
-		public initializeView(  ):void
+		public initializeView():void
 		{
 		}
 	
@@ -71,8 +73,10 @@ module puremvc
 		 */
 		public static getInstance():IView
 		{
-			if ( instance == null ) instance = new View( );
-			return instance;
+			if ( View.instance == null )
+				View.instance = new View();
+
+			return View.instance;
 		}
 				
 		/**
@@ -82,14 +86,13 @@ module puremvc
 		 * @param notificationName the name of the <code>INotifications</code> to notify this <code>IObserver</code> of
 		 * @param observer the <code>IObserver</code> to register
 		 */
-		public registerObserver ( notificationName:string, observer:IObserver ):void
+		public registerObserver( notificationName:string, observer:IObserver ):void
 		{
-			var observers:Array = observerMap[ notificationName ];
-			if( observers ) {
+			var observers:IObserver[] = this.observerMap[ notificationName ];
+			if( observers )
 				observers.push( observer );
-			} else {
-				observerMap[ notificationName ] = [ observer ];	
-			}
+			else
+				this.observerMap[ notificationName ] = [ observer ];
 		}
 
 		/**
@@ -104,16 +107,17 @@ module puremvc
 		 */
 		public notifyObservers( notification:INotification ):void
 		{
-			if( observerMap[ notification.getName() ] != null )
+			if( this.observerMap[ notification.getName() ] != null )
 			{
 				// Get a reference to the observers list for this notification name
 				var observers_ref:IObserver[] = this.observerMap[ notification.getName() ];
 
+				//FIXME Find a way to optimize the copy of the array
 				// Copy observers from reference array to working array, 
 				// since the reference array may change during the notification loop
-   				var observers:Array = new Array(); 
+   				var observers:IObserver[] = new IObserver[]();
    				var observer:IObserver;
-				for( var i:Number=0; i<observers_ref.length; i++ )
+				for( var i:number=0; i<observers_ref.length; i++ )
 				{
 					observer = observers_ref[ i ];
 					observers.push( observer );
@@ -137,12 +141,13 @@ module puremvc
 		public removeObserver( notificationName:string, notifyContext:Object ):void
 		{
 			// the observer list for the notification under inspection
-			var observers:IObserver[] = observerMap[ notificationName ];
+			var observers:IObserver[] = this.observerMap[ notificationName ];
 
 			// find the observer for the notifyContext
-			for ( var i:Number=0; i<observers.length; i++ )
+			for( var i:number=0; i<observers.length; i++ )
 			{
-				if ( Observer(observers[i]).compareNotifyContext( notifyContext ) == true ) {
+				if( observers[i].compareNotifyContext( notifyContext ) === true )
+				{
 					// there can only be one Observer for a given notifyContext 
 					// in any given Observer list, so remove it and break
 					observers.splice(i,1);
@@ -152,9 +157,8 @@ module puremvc
 
 			// Also, when a Notification's Observer list length falls to 
 			// zero, delete the notification key from the observer map
-			if ( observers.length == 0 ) {
-				delete observerMap[ notificationName ];		
-			}
+			if ( observers.length == 0 )
+				delete this.observerMap[ notificationName ];
 		} 
 
 		/**
@@ -177,10 +181,11 @@ module puremvc
 		public registerMediator( mediator:IMediator ):void
 		{
 			// do not allow re-registration (you must to removeMediator fist)
-			if ( mediatorMap[ mediator.getMediatorName() ] != null ) return;
-			
+			if( this.mediatorMap[ mediator.getMediatorName() ] != null )
+				return;
+
 			// Register the Mediator for retrieval by name
-			mediatorMap[ mediator.getMediatorName() ] = mediator;
+			this.mediatorMap[ mediator.getMediatorName() ] = mediator;
 			
 			// Get Notification interests, if any.
 			var interests:Array = mediator.listNotificationInterests();
@@ -192,7 +197,7 @@ module puremvc
 				var observer:IObserver = new Observer( mediator.handleNotification, mediator );
 
 				// Register Mediator as Observer for its list of Notification interests
-				for ( var i:Number=0;  i<interests.length; i++ )
+				for ( var i:number=0;  i<interests.length; i++ )
 					this.registerObserver( interests[i],  observer );
 			}
 			
@@ -221,13 +226,13 @@ module puremvc
 		public removeMediator( mediatorName:string ):IMediator
 		{
 			// Retrieve the named mediator
-			var mediator:IMediator = mediatorMap[ mediatorName ];
+			var mediator:IMediator = this.mediatorMap[ mediatorName ];
 			
-			if ( mediator ) 
+			if( mediator )
 			{
 				// for every notification this mediator is interested in...
 				var interests:Array = mediator.listNotificationInterests();
-				for ( var i:Number=0; i<interests.length; i++ ) 
+				for( var i:number=0; i<interests.length; i++ )
 				{
 					// remove the observer linking the mediator 
 					// to the notification interest
@@ -235,7 +240,7 @@ module puremvc
 				}	
 				
 				// remove the mediator from the map		
-				delete mediatorMap[ mediatorName ];
+				delete this.mediatorMap[ mediatorName ];
 	
 				// alert the mediator that it has been removed
 				mediator.onRemove();

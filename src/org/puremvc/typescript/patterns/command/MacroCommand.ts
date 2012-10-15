@@ -5,9 +5,6 @@
 module puremvc
 {
 	"use strict";
-
-	import org.puremvc.typescript.interfaces.*;
-	import org.puremvc.typescript.patterns.observer.*;
 	
 	/**
 	 * A base <code>ICommand</code> implementation that executes other <code>ICommand</code>s.
