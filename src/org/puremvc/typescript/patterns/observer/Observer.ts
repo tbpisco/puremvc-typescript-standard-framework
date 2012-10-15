@@ -6,8 +6,6 @@ module puremvc
 {
 	"use strict";
 
-	import org.puremvc.typescript.interfaces.*;
-
 	/**
 	 * A base <code>IObserver</code> implementation.
 	 * 
@@ -28,11 +26,11 @@ module puremvc
 	 * @see org.puremvc.typescript.core.view.View View
 	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
 	 */
-	public class Observer
+	export class Observer
 		implements IObserver
 	{
-		private var notify:Function;
-		private var context:Object;
+		private notify:Function;
+		private context:Object;
 	
 		/**
 		 * Constructor. 
@@ -41,13 +39,16 @@ module puremvc
 		 * The notification method on the interested object should take 
 		 * one parameter of type <code>INotification</code></P>
 		 * 
-		 * @param notifyMethod the notification method of the interested object
-		 * @param notifyContext the notification context of the interested object
+		 * @param notifyMethod
+		 * 		The notification method of the interested object.
+		 *
+		 * @param notifyContext
+		 * 		The notification context of the interested object.
 		 */
-		public Observer( notifyMethod:Function, notifyContext:Object )
+		constructor( notifyMethod:Function, notifyContext:Object )
 		{
-			setNotifyMethod( notifyMethod );
-			setNotifyContext( notifyContext );
+			this.setNotifyMethod( notifyMethod );
+			this.setNotifyContext( notifyContext );
 		}
 		
 		/**
@@ -56,11 +57,12 @@ module puremvc
 		 * <P>
 		 * The notification method should take one parameter of type <code>INotification</code>.</P>
 		 * 
-		 * @param notifyMethod the notification (callback) method of the interested object.
+		 * @param notifyMethod
+		 * 		The notification (callback) method of the interested object.
 		 */
 		public setNotifyMethod( notifyMethod:Function ):void
 		{
-			notify = notifyMethod;
+			this.notify = notifyMethod;
 		}
 		
 		/**
@@ -70,7 +72,7 @@ module puremvc
 		 */
 		public setNotifyContext( notifyContext:Object ):void
 		{
-			context = notifyContext;
+			this.context = notifyContext;
 		}
 		
 		/**
@@ -80,7 +82,7 @@ module puremvc
 		 */
 		private getNotifyMethod():Function
 		{
-			return notify;
+			return this.notify;
 		}
 		
 		/**
@@ -90,7 +92,7 @@ module puremvc
 		 */
 		private getNotifyContext():Object
 		{
-			return context;
+			return this.context;
 		}
 		
 		/**

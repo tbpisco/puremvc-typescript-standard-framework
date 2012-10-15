@@ -13,7 +13,7 @@ module puremvc
 	 * 
 	 * @see org.puremvc.typescript.core.view.View View
 	 */
-	public class Mediator
+	export class Mediator
 		extends Notifier
 		implements IMediator, INotifier
 	{
@@ -27,7 +27,7 @@ module puremvc
 		 * one specific control or group controls and so,
 		 * will not have a need to be dynamically named.</P>
 		 */
-		public static const NAME:string = 'Mediator';
+		public static NAME:string = 'Mediator';
 		
 		/**
 		 * Constructor.
@@ -110,9 +110,9 @@ module puremvc
 		public onRemove( ):void {}
 
 		// the mediator name
-		protected var mediatorName:string;
+		public mediatorName:string;
 
 		// The view component
-		protected var viewComponent:Object;
+		public viewComponent:Object;
 	}
 }

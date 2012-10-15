@@ -6,10 +6,6 @@ module puremvc
 {
 	"use strict";
 
-	import org.puremvc.typescript.core.*;
-	import org.puremvc.typescript.interfaces.*;
-	import org.puremvc.typescript.patterns.observer.*;
-	
 	/**
 	 * A Singleton <code>IController</code> implementation.
 	 * 
@@ -43,7 +39,8 @@ module puremvc
 	 * @see org.puremvc.typescript.patterns.command.SimpleCommand SimpleCommand
 	 * @see org.puremvc.typescript.patterns.command.MacroCommand MacroCommand
 	 */
-	public class Controller implements IController
+	export class Controller
+		implements IController
 	{
 
 		/**
@@ -60,10 +57,12 @@ module puremvc
 		 */
 		constructor()
 		{
-			if (instance != null) throw Error(SINGLETON_MSG);
-			instance = this;
-			commandMap = new Array();	
-			initializeController();	
+			if( Controller.instance != null )
+				throw Error( Controller.SINGLETON_MSG );
+
+			Controller.instance = this;
+			this.commandMap = new Array();
+			this.initializeController();
 		}
 		
 		/**
@@ -86,9 +85,9 @@ module puremvc
 		 * 
 		 * @return void
 		 */
-		protected initializeController(  ):void
+		public initializeController():void
 		{
-			view = View.getInstance();
+			this.view = View.getInstance();
 		}
 	
 		/**
@@ -98,8 +97,10 @@ module puremvc
 		 */
 		public static getInstance():IController
 		{
-			if ( instance == null ) instance = new Controller( );
-			return instance;
+			if ( Controller.instance == null )
+				Controller.instance = new Controller( );
+
+			return Controller.instance;
 		}
 
 		/**
@@ -110,8 +111,10 @@ module puremvc
 		 */
 		public executeCommand( note:INotification ):void
 		{
-			var commandClassRef:Class = commandMap[ note.getName() ];
-			if ( commandClassRef == null ) return;
+			//TODO Identify if here *any* is the right choice instead of Function ( won't compile if set to Function because it is not newable on new commandClassRef )
+			var commandClassRef:any = this.commandMap[ note.getName() ];
+			if ( commandClassRef == null )
+				return;
 
 			var commandInstance:ICommand = new commandClassRef();
 			commandInstance.execute( note );
@@ -132,12 +135,12 @@ module puremvc
 		 * @param notificationName the name of the <code>INotification</code>
 		 * @param commandClassRef the <code>Class</code> of the <code>ICommand</code>
 		 */
-		public registerCommand( notificationName:string, commandClassRef:Class ):void
+		public registerCommand( notificationName:string, commandClassRef:Function ):void
 		{
-			if ( commandMap[ notificationName ] == null ) {
-				view.registerObserver( notificationName, new Observer( executeCommand, this ) );
-			}
-			commandMap[ notificationName ] = commandClassRef;
+			if( this.commandMap[ notificationName ] == null )
+				this.view.registerObserver( notificationName, new Observer( this.executeCommand, this ) );
+
+			this.commandMap[ notificationName ] = commandClassRef;
 		}
 		
 		/**
@@ -148,7 +151,7 @@ module puremvc
 		 */
 		public hasCommand( notificationName:string ):Boolean
 		{
-			return commandMap[ notificationName ] != null;
+			return this.commandMap[ notificationName ] != null;
 		}
 
 		/**
@@ -159,27 +162,27 @@ module puremvc
 		public removeCommand( notificationName:string ):void
 		{
 			// if the Command is registered...
-			if ( hasCommand( notificationName ) )
+			if ( this.hasCommand( notificationName ) )
 			{
 				// remove the observer
-				view.removeObserver( notificationName, this );
+				this.view.removeObserver( notificationName, this );
 							
 				// remove the command
-				commandMap[ notificationName ] = null;
+				this.commandMap[ notificationName ] = null;
 			}
 		}
-		
-		// Local reference to View 
-		protected var view:IView;
-		
+
+		// Local reference to View
+		public view:IView;
+
 		// Mapping of Notification names to Command Class references
-		protected var commandMap:Array;
+		public commandMap:Function[];
 
 		// Singleton instance
-		protected static var instance:IController;
+		public static instance:IController;
 
-		// Message Constants
-		protected const SINGLETON_MSG:string = "Controller Singleton already constructed!";
+		// Message "Constants" (ther is no constants support within TypeScript)
+		public static SINGLETON_MSG:string = "Controller Singleton already constructed!";
 
 	}
 }

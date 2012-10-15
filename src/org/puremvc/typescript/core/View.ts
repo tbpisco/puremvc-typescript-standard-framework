@@ -6,9 +6,6 @@ module puremvc
 {
 	"use strict";
 
-	import org.puremvc.typescript.interfaces.*;
-	import org.puremvc.typescript.patterns.observer.Observer;
-
 	/**
 	 * A Singleton <code>IView</code> implementation.
 	 * 
@@ -28,7 +25,8 @@ module puremvc
 	 * @see org.puremvc.typescript.patterns.observer.Observer Observer
 	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
 	 */
-	public class View implements IView
+	export class View
+		implements IView
 	{
 		/**
 		 * Constructor. 
@@ -62,7 +60,7 @@ module puremvc
 		 * 
 		 * @return void
 		 */
-		protected initializeView(  ):void
+		public initializeView(  ):void
 		{
 		}
 	
@@ -106,23 +104,25 @@ module puremvc
 		 */
 		public notifyObservers( notification:INotification ):void
 		{
-			if( observerMap[ notification.getName() ] != null ) {
-				
+			if( observerMap[ notification.getName() ] != null )
+			{
 				// Get a reference to the observers list for this notification name
-				var observers_ref:Array = observerMap[ notification.getName() ] as Array;
+				var observers_ref:IObserver[] = this.observerMap[ notification.getName() ];
 
 				// Copy observers from reference array to working array, 
 				// since the reference array may change during the notification loop
    				var observers:Array = new Array(); 
    				var observer:IObserver;
-				for (var i:Number = 0; i < observers_ref.length; i++) { 
-					observer = observers_ref[ i ] as IObserver;
+				for( var i:Number=0; i<observers_ref.length; i++ )
+				{
+					observer = observers_ref[ i ];
 					observers.push( observer );
 				}
 				
 				// Notify Observers from the working array				
-				for (i = 0; i < observers.length; i++) {
-					observer = observers[ i ] as IObserver;
+				for( i=0; i<observers.length; i++ )
+				{
+					observer = observers[ i ];
 					observer.notifyObserver( notification );
 				}
 			}
@@ -137,10 +137,10 @@ module puremvc
 		public removeObserver( notificationName:string, notifyContext:Object ):void
 		{
 			// the observer list for the notification under inspection
-			var observers:Array = observerMap[ notificationName ] as Array;
+			var observers:IObserver[] = observerMap[ notificationName ];
 
 			// find the observer for the notifyContext
-			for ( var i:int=0; i<observers.length; i++ ) 
+			for ( var i:Number=0; i<observers.length; i++ )
 			{
 				if ( Observer(observers[i]).compareNotifyContext( notifyContext ) == true ) {
 					// there can only be one Observer for a given notifyContext 
@@ -189,12 +189,11 @@ module puremvc
 			if ( interests.length > 0 ) 
 			{
 				// Create Observer referencing this mediator's handlNotification method
-				var observer:Observer = new Observer( mediator.handleNotification, mediator );
+				var observer:IObserver = new Observer( mediator.handleNotification, mediator );
 
 				// Register Mediator as Observer for its list of Notification interests
-				for ( var i:Number=0;  i<interests.length; i++ ) {
-					registerObserver( interests[i],  observer );
-				}			
+				for ( var i:Number=0;  i<interests.length; i++ )
+					this.registerObserver( interests[i],  observer );
 			}
 			
 			// alert the mediator that it has been registered
@@ -210,7 +209,7 @@ module puremvc
 		 */
 		public retrieveMediator( mediatorName:string ):IMediator
 		{
-			return mediatorMap[ mediatorName ];
+			return this.mediatorMap[ mediatorName ];
 		}
 
 		/**
@@ -222,7 +221,7 @@ module puremvc
 		public removeMediator( mediatorName:string ):IMediator
 		{
 			// Retrieve the named mediator
-			var mediator:IMediator = mediatorMap[ mediatorName ] as IMediator;
+			var mediator:IMediator = mediatorMap[ mediatorName ];
 			
 			if ( mediator ) 
 			{
@@ -232,7 +231,7 @@ module puremvc
 				{
 					// remove the observer linking the mediator 
 					// to the notification interest
-					removeObserver( interests[i], mediator );
+					this.removeObserver( interests[i], mediator );
 				}	
 				
 				// remove the mediator from the map		
@@ -253,19 +252,19 @@ module puremvc
 		 */
 		public hasMediator( mediatorName:string ):Boolean
 		{
-			return mediatorMap[ mediatorName ] != null;
+			return this.mediatorMap[ mediatorName ] != null;
 		}
 
 		// Mapping of Mediator names to Mediator instances
-		protected var mediatorMap:Array;
+		public mediatorMap:IMediator[];
 
 		// Mapping of Notification names to Observer lists
-		protected var observerMap	: Array;
+		public observerMap:IObserver[][];
 		
 		// Singleton instance
-		protected static var instance	: IView;
+		public static instance:IView;
 
 		// Message Constants
-		protected const SINGLETON_MSG	: string = "View Singleton already constructed!";
+		public static SINGLETON_MSG:string = "View Singleton already constructed!";
 	}
 }

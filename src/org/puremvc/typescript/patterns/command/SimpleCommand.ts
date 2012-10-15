@@ -17,7 +17,7 @@ module puremvc
 	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
 	 * @see org.puremvc.typescript.patterns.command.MacroCommand MacroCommand
 	 */
-	public class SimpleCommand
+	export class SimpleCommand
 		extends Notifier
 		implements ICommand, INotifier
 	{

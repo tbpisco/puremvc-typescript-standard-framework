@@ -41,7 +41,7 @@ module puremvc
 	 * @see org.puremvc.typescript.patterns.observer.Observer Observer
 	 * 
 	 */
-	class Notification
+	export class Notification
 		implements INotification
 	{
 		

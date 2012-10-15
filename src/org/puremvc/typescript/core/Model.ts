@@ -5,8 +5,6 @@
 module puremvc
 {
 	"use strict";
-
-	import org.puremvc.typescript.interfaces.*;
 	
 	/**
 	 * A Singleton <code>IModel</code> implementation.
@@ -34,7 +32,7 @@ module puremvc
 	 * @see org.puremvc.typescript.patterns.proxy.Proxy Proxy
 	 * @see org.puremvc.typescript.interfaces.IProxy IProxy
 	 */
-	public class Model
+	export class Model
 		implements IModel
 	{
 		/**
@@ -51,10 +49,12 @@ module puremvc
 		 */
 		constructor()
 		{
-			if (instance != null) throw Error(SINGLETON_MSG);
-			instance = this;
-			proxyMap = new Array();	
-			initializeModel();	
+			if( Model.instance != null )
+				throw Error( Model.SINGLETON_MSG );
+
+			Model.instance = this;
+			this.proxyMap = new Array();
+			this.initializeModel();
 		}
 		
 		/**
@@ -68,8 +68,9 @@ module puremvc
 		 * 
 		 * @return void
 		 */
-		protected initializeModel(  ):void
+		public initializeModel():void
 		{
+
 		}
 				
 		/**
@@ -79,8 +80,10 @@ module puremvc
 		 */
 		public static getInstance():IModel
 		{
-			if (instance == null) instance = new Model( );
-			return instance;
+			if( Model.instance == null )
+				Model.instance = new Model( );
+
+			return Model.instance;
 		}
 
 		/**
@@ -90,7 +93,7 @@ module puremvc
 		 */
 		public registerProxy( proxy:IProxy ):void
 		{
-			proxyMap[ proxy.getProxyName() ] = proxy;
+			this.proxyMap[ proxy.getProxyName() ] = proxy;
 			proxy.onRegister();
 		}
 
@@ -102,7 +105,7 @@ module puremvc
 		 */
 		public retrieveProxy( proxyName:string ):IProxy
 		{
-			return proxyMap[ proxyName ];
+			return this.proxyMap[ proxyName ];
 		}
 
 		/**
@@ -113,7 +116,7 @@ module puremvc
 		 */
 		public hasProxy( proxyName:string ):Boolean
 		{
-			return proxyMap[ proxyName ] != null;
+			return this.proxyMap[ proxyName ] != null;
 		}
 
 		/**
@@ -124,23 +127,23 @@ module puremvc
 		 */
 		public removeProxy( proxyName:string ):IProxy
 		{
-			var proxy:IProxy = proxyMap [ proxyName ] as IProxy;
+			var proxy:IProxy = this.proxyMap[ proxyName ];
 			if ( proxy ) 
 			{
-				proxyMap[ proxyName ] = null;
+				this.proxyMap[ proxyName ] = null;
 				proxy.onRemove();
 			}
 			return proxy;
 		}
 
 		// Mapping of proxyNames to IProxy instances
-		protected var proxyMap:Array;
+		public proxyMap:IProxy[];
 
 		// Singleton instance
-		protected static var instance:IModel;
+		public static instance:IModel;
 		
 		// Message Constants
-		protected const SINGLETON_MSG	: string = "Model Singleton already constructed!";
+		public static SINGLETON_MSG	: string = "Model Singleton already constructed!";
 
 	}
 }

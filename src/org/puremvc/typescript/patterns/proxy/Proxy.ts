@@ -5,10 +5,6 @@
 module puremvc
 {
 	"use strict";
-
-	import org.puremvc.typescript.interfaces.*;
-	import org.puremvc.typescript.patterns.observer.*;
-	import org.puremvc.typescript.patterns.facade.Facade;
 	
 	/**
 	 * A base <code>IProxy</code> implementation. 
@@ -31,7 +27,7 @@ module puremvc
 	 * 
 	 * @see org.puremvc.typescript.core.model.Model Model
 	 */
-	public class Proxy
+	export class Proxy
 		extends Notifier
 		implements IProxy, INotifier
 	{
@@ -84,9 +80,9 @@ module puremvc
 		
 		
 		// the proxy name
-		protected var proxyName:string;
+		public proxyName:string;
 		
 		// the data object
-		protected var data:Object;
+		public data:Object;
 	}
 }

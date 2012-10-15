@@ -31,7 +31,7 @@ module puremvc
 	 * @see org.puremvc.typescript.patterns.command.SimpleCommand SimpleCommand
 	 * @see org.puremvc.typescript.patterns.command.MacroCommand MacroCommand
 	 */
-	public class Notifier
+	export class Notifier
 		implements INotifier
 	{
 		/**
@@ -50,6 +50,6 @@ module puremvc
 		}
 		
 		// Local reference to the Facade Singleton
-		protected var facade:IFacade = Facade.getInstance();
+		public facade:IFacade = Facade.getInstance();
 	}
 }

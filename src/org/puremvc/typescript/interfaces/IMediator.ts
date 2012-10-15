@@ -54,7 +54,7 @@ module puremvc
 	 *	import mx.controls.ComboBox;
 	 *	import mx.events.ListEvent;
 	 * 
-	 * public class MyMediator extends Mediator implements IMediator {
+	 * class MyMediator extends Mediator implements IMediator {
 	 * 
 	 * 		public MyComboMediator( viewComponent:Object ) {
 	 * 			super( viewComponent );
@@ -78,18 +78,20 @@ module puremvc
 	 * 		}
 	 * 
 	 * 		// Set the data provider of the combo box
-	 * 		protected setDataProvider( notification:INotification ):void {
+	 * 		public setDataProvider( notification:INotification ):void
+	 *		{
 	 * 			combo.dataProvider = notification.getBody() as Array;
 	 * 		}
 	 * 
 	 * 		// Invoked when the combo box dispatches a change event, we send a
 	 *      // notification with the
-	 * 		protected onChange(event:ListEvent):void {
+	 * 		public onChange(event:ListEvent):void
+	 *
 	 * 			sendNotification( MyFacade.MYCOMBO_CHANGED, this );
 	 * 		}
 	 * 
 	 * 		// A private getter for accessing the view object by class
-	 *      protected get combo():ComboBox  {
+	 *      public get combo():ComboBox  {
 	 *         return view as ComboBox;
 	 *      }
 	 * 

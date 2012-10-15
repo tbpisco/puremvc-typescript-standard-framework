@@ -36,9 +36,9 @@ module puremvc
 	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
 	 * @see org.puremvc.typescript.patterns.command.SimpleCommand SimpleCommand
 	 */
-	public class MacroCommand extends Notifier implements ICommand, INotifier
+	export class MacroCommand extends Notifier implements ICommand, INotifier
 	{
-		private var subCommands:Array;
+		private subCommands:Array;
 		
 		/**
 		 * Constructor. 
@@ -54,8 +54,8 @@ module puremvc
 		 */
 		constructor()
 		{
-			subCommands = new Array();
-			initializeMacroCommand();			
+			this.subCommands = new Array();
+			this.initializeMacroCommand();
 		}
 		
 		/**
@@ -69,7 +69,7 @@ module puremvc
 		 * 
 		 * <listing>
 		 *		// Initialize MyMacroCommand
-		 *		override protected initializeMacroCommand( ):void
+		 *		override public initializeMacroCommand( ):void
 		 *		{
 		 *			addSubCommand( com.me.myapp.controller.FirstCommand );
 		 *			addSubCommand( com.me.myapp.controller.SecondCommand );
@@ -81,7 +81,7 @@ module puremvc
 		 * Note that <i>SubCommand</i>s may be any <code>ICommand</code> implementor,
 		 * <code>MacroCommand</code>s or <code>SimpleCommands</code> are both acceptable.
 		 */
-		protected initializeMacroCommand():void
+		public initializeMacroCommand():void
 		{
 		}
 		
@@ -94,9 +94,9 @@ module puremvc
 		 * 
 		 * @param commandClassRef a reference to the <code>Class</code> of the <code>ICommand</code>.
 		 */
-		protected addSubCommand( commandClassRef:Class ): void
+		public addSubCommand( commandClassRef:Function ): void
 		{
-			subCommands.push(commandClassRef);
+			this.subCommands.push(commandClassRef);
 		}
 		
 		/** 
@@ -110,8 +110,9 @@ module puremvc
 		 */
 		public final execute( notification:INotification ):void
 		{
-			while ( subCommands.length > 0) {
-				var commandClassRef:Class = subCommands.shift();
+			while ( subCommands.length > 0)
+			{
+				var commandClassRef:Function = this.subCommands.shift();
 				var commandInstance:ICommand = new commandClassRef();
 				commandInstance.execute( notification );
 			}

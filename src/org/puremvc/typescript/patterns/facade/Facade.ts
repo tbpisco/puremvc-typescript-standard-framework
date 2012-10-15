@@ -35,7 +35,7 @@ module puremvc
 	 *	import com.me.myapp.view.~~;
 	 *	import com.me.myapp.controller.~~;
 	 * 
-	 *	public class MyFacade extends Facade
+	 *	class MyFacade extends Facade
 	 *	{
 	 *		// Notification constants. The Facade is the ideal
 	 *		// location for these constants, since any part
@@ -128,7 +128,7 @@ module puremvc
 	 * @see org.puremvc.typescript.patterns.command.SimpleCommand SimpleCommand
 	 * @see org.puremvc.typescript.patterns.command.MacroCommand MacroCommand
 	 */
-	public class Facade
+	export class Facade
 		implements IFacade
 	{
 		/**
@@ -158,7 +158,7 @@ module puremvc
 		 * subclass to do any subclass specific initializations. Be
 		 * sure to call <code>super.initializeFacade()</code>, though.</P>
 		 */
-		protected initializeFacade(  ):void {
+		public initializeFacade(  ):void {
 			initializeModel();
 			initializeController();
 			initializeView();
@@ -190,7 +190,7 @@ module puremvc
 		 * method, then register <code>Command</code>s.
 		 * </P>
 		 */
-		protected initializeController( ):void {
+		public initializeController( ):void {
 			if ( controller != null ) return;
 			controller = Controller.getInstance();
 		}
@@ -218,7 +218,7 @@ module puremvc
 		 * the <code>Facade</code> during their construction. 
 		 * </P>
 		 */
-		protected initializeModel( ):void {
+		public initializeModel( ):void {
 			if ( model != null ) return;
 			model = Model.getInstance();
 		}
@@ -246,7 +246,7 @@ module puremvc
 		 * to the <code>Facade</code> during their construction. 
 		 * </P>
 		 */
-		protected initializeView( ):void {
+		public initializeView( ):void {
 			if ( view != null ) return;
 			view = View.getInstance();
 		}
@@ -408,15 +408,15 @@ module puremvc
 		}
 
 		// Private references to Model, View and Controller
-		protected var controller:IController;
-		protected var model		:IModel;
-		protected var view		:IView;
+		public controller:IController;
+		public model		:IModel;
+		public view		:IView;
 		
 		// The Singleton Facade instance.
-		protected static var instance:IFacade;
+		public static var instance:IFacade;
 		
 		// Message Constants
-		protected const SINGLETON_MSG	: string = "Facade Singleton already constructed!";
+		public static SINGLETON_MSG	: string = "Facade Singleton already constructed!";
 	
 	}
 }
