@@ -15,23 +15,19 @@
  * 
  * @constructor
  */
-var ControllerTestCommand = Objs
-(
-	"puremvc.ControllerTestCommand",
-	"puremvc.SimpleCommand",
-	{
-		/**
-		 * Fabricate a result by multiplying the input by 2.
-		 * 
-		 * @param {Notification} note
-		 * 		The note carrying the ControllerTestVO
-		 */
-		execute: function ( note ) 
-		{
-			var vo/*ControllerTestVO*/ = note.getBody();
-		
-			// Fabricate a result
-			vo.result = 2 * vo.input;
-		}
-	}
-);
+var ControllerTestCommand = function(){}
+__extends( ControllerTestCommand, extract("puremvc.SimpleCommand") );
+
+/**
+ * Fabricate a result by multiplying the input by 2.
+ *
+ * @param {Notification} note
+ * 		The note carrying the ControllerTestVO
+ */
+ControllerTestCommand.prototype.execute = function ( note )
+{
+	var vo/*ControllerTestVO*/ = note.getBody();
+
+	// Fabricate a result
+	vo.result = 2 * vo.input;
+}

@@ -62,7 +62,7 @@ module puremvc
 				throw Error( Controller.SINGLETON_MSG );
 
 			Controller.instance = this;
-			this.commandMap = new Array();
+			this.commandMap = new Object();
 			this.initializeController();
 		}
 		
@@ -177,7 +177,7 @@ module puremvc
 		public view:IView;
 
 		// Mapping of Notification names to Command Class references
-		public commandMap:Function[];
+		public commandMap:Object;
 
 		// Singleton instance
 		public static instance:IController;

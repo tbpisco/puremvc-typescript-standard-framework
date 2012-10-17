@@ -14,54 +14,50 @@
  * 
  * @constructor
  */
-var ViewTestMediator4 = Objs
-(
-	"puremvc.ViewTestMediator4",
-	"puremvc.Mediator", 
-	{
+
 		/**
+ * @constructor
+ *
 		 * Initialize a <code>Mediator</code> subclass instance.
 		 * 
 		 * @param {Object} view
 		 * 		The view component handled by this <code>Mediator</code>.
 		 */
-		initialize: function( view )
-		{
-			ViewTestMediator4.$super.initialize.call( this, ViewTestMediator4.NAME, view );
-		},
-				
-		/**
-		 * Standard getter to return the view handled by the
-		 * <code>Mediator</code>.
-		 * 
-		 * @return {Object}
-		 * 		The view handled by the <code>Mediator</code>.
-		 * 
-		 * @private
-		 */
-		getViewTest: function()
-		{
-			return this.viewComponent;
-		},
-			
-		/**
-		 * @override
-		 */	
-		onRegister: function()
-		{
-			this.getViewTest().onRegisterCalled = true;
-		},
-				
-			
-		/**
-		 * @override
-		 */	
-		onRemove: function()
-		{
-			this.getViewTest().onRemoveCalled = true;
-		}
-	}
-);
+var ViewTestMediator4 = function( view )
+{
+	extract("puremvc.Mediator").call( this, ViewTestMediator4.NAME, view );
+}
+__extends(ViewTestMediator4,extract("puremvc.Mediator"));
+
+/**
+ * Standard getter to return the view handled by the
+ * <code>Mediator</code>.
+ *
+ * @return {Object}
+ * 		The view handled by the <code>Mediator</code>.
+ *
+ * @private
+ */
+ViewTestMediator4.prototype.getViewTest = function()
+{
+	return this.viewComponent;
+}
+
+/**
+ * @override
+ */
+ViewTestMediator4.prototype.onRegister = function()
+{
+	this.getViewTest().onRegisterCalled = true;
+}
+
+/**
+ * @override
+ */
+ViewTestMediator4.prototype.onRemove = function()
+{
+	this.getViewTest().onRemoveCalled = true;
+}
 
 /**
  * The Mediator name.

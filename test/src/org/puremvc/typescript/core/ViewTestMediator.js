@@ -11,40 +11,34 @@
  * @see puremvc.ViewTest ViewTest
  *
  * @extends puremvc.Mediator Mediator
- * 
- * @constructor
  */
-var ViewTestMediator = Objs
-(
-	"puremvc.ViewTestMediator",
-	"puremvc.Mediator", 
-	{
-		/**
-		 * Initialize a <code>Mediator</code> subclass instance.
-		 * 
-		 * @param {Object} view
-		 * 		The view component handled by this <code>Mediator</code>.
-		 */
-		initialize: function( view )
-		{
-			ViewTestMediator.$super.initialize.call( this, ViewTestMediator.NAME, view );
-		},
-	
-		/**
-		 * @override
-		 *
-		 * @return {Array}
-		 * 		The list of notifications names in which is interested the
-		 * 		<code>Mediator</code>.
-		 */
-		listNotificationInterests: function()
-		{
-			// be sure that the mediator has some Observers created
-			// in order to test removeMediator
-			return [ 'ABC', 'DEF', 'GHI'  ];
-		}
-	}
-);
+
+/**
+ * @constructor
+ * Initialize a <code>Mediator</code> subclass instance.
+ *
+ * @param {Object} view
+ * 		The view component handled by this <code>Mediator</code>.
+ */
+var ViewTestMediator = function( view )
+{
+	extract("puremvc.Mediator").call( this, ViewTestMediator.NAME, view );
+}
+__extends( ViewTestMediator, extract("puremvc.Mediator") );
+
+/**
+ * @override
+ *
+ * @return {Array}
+ * 		The list of notifications names in which is interested the
+ * 		<code>Mediator</code>.
+ */
+ViewTestMediator.prototype.listNotificationInterests = function()
+{
+	// be sure that the mediator has some Observers created
+	// in order to test removeMediator
+	return [ 'ABC', 'DEF', 'GHI'  ];
+}
 
 /**
  * The Mediator name.

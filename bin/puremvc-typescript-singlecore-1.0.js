@@ -7,7 +7,7 @@ var puremvc;
                 throw Error(Controller.SINGLETON_MSG);
             }
             Controller.instance = this;
-            this.commandMap = new Array();
+            this.commandMap = new Object();
             this.initializeController();
         }
         Controller.prototype.initializeController = function () {

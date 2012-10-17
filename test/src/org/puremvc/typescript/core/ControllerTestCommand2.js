@@ -15,28 +15,24 @@
  * 
  * @constructor
  */
-var ControllerTestCommand2 = Objs
-(
-	"puremvc.ControllerTestCommand2",
-	"puremvc.SimpleCommand",
-	{
-		/**
-		 * Fabricate a result by multiplying the input by 2 and adding to the
-		 * existing result.
-		 * 
-		 * <P>
-		 * This tests accumulation effect that would show if the command were
-		 * executed more than once.
-		 * 
-		 * @param {Notification} note 
-		 * 		The note carrying the ControllerTestVO.
-		 */
-		execute: function( note ) 
-		{
-			var vo/*ControllerTestVO*/ = note.getBody();
-			
-			// Fabricate a result
-			vo.result = vo.result+(2 * vo.input);
-		}
-	}
-);
+var ControllerTestCommand2 = function(){}
+__extends( ControllerTestCommand2, extract("puremvc.SimpleCommand") );
+
+/**
+ * Fabricate a result by multiplying the input by 2 and adding to the
+ * existing result.
+ *
+ * <P>
+ * This tests accumulation effect that would show if the command were
+ * executed more than once.
+ *
+ * @param {Notification} note
+ * 		The note carrying the ControllerTestVO.
+ */
+ControllerTestCommand2.prototype.execute = function( note )
+{
+	var vo/*ControllerTestVO*/ = note.getBody();
+
+	// Fabricate a result
+	vo.result = vo.result+(2 * vo.input);
+}

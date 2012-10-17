@@ -11,74 +11,69 @@
  * @see puremvc.ViewTest ViewTest
  *
  * @extends puremvc.Mediator Mediator
- * 
- * @constructor
  */
-var ViewTestMediator6 = Objs
-(
-	"puremvc.ViewTestMediator6",
-	"puremvc.Mediator", 
-	{
-		/**
-		 * Initialize a <code>Mediator</code> subclass instance.
-		 * 
-		 * @param {String} mediatorName
-		 * 		The name of the <code>Mediator</code>.
-		 *
-		 * @param {Object} view
-		 * 		The view component handled by this <code>Mediator</code>.
-		 */
-		initialize: function( name, view )
-		{
-			ViewTestMediator6.$super.initialize.call( this, name, view );
-		},
-				
-		/**
-		 * Standard getter to return the view handled by the
-		 * <code>Mediator</code>.
-		 * 
-		 * @return {Object}
-		 * 		The view handled by the <code>Mediator</code>.
-		 * 
-		 * @private
-		 */
-		getViewTest: function()
-		{
-			return this.viewComponent;
-		},
-	
-		/**
-		 * @override
-		 *
-		 * @return {Array}
-		 * 		The list of notifications names in which is interested the
-		 * 		<code>Mediator</code>.
-		 */
-		listNotificationInterests: function()
-		{
-			return [ ViewTest.NOTE6 ];
-		},
-	
-		/**
-		 * @override
-		 *
-		 * @param {Notification} notification
-		 * 		The notification instance to be handled.
-		 */
-		handleNotification: function( notification )
-		{
-			this.facade.removeMediator(this.getMediatorName());
-		},
-	
-		/**
-		 * @override
-		 */
-		onRemove: function()
-		{
-			this.getViewTest().counter++;
-		}
-	}
-);
+
+/**
+ * @constructor
+ *
+ * Initialize a <code>Mediator</code> subclass instance.
+ *
+ * @param {String} mediatorName
+ * 		The name of the <code>Mediator</code>.
+ *
+ * @param {Object} view
+ * 		The view component handled by this <code>Mediator</code>.
+ */
+var ViewTestMediator6 = function( view )
+{
+	extract("puremvc.Mediator").call( this, ViewTestMediator6.NAME, view );
+}
+__extends(ViewTestMediator6,extract("puremvc.Mediator"));
+
+/**
+ * Standard getter to return the view handled by the
+ * <code>Mediator</code>.
+ *
+ * @return {Object}
+ * 		The view handled by the <code>Mediator</code>.
+ *
+ * @private
+ */
+ViewTestMediator6.prototype.getViewTest = function()
+{
+	return this.viewComponent;
+}
+
+/**
+ * @override
+ *
+ * @return {Array}
+ * 		The list of notifications names in which is interested the
+ * 		<code>Mediator</code>.
+ */
+ViewTestMediator6.prototype.listNotificationInterests = function()
+{
+	return [ ViewTest.NOTE6 ];
+}
+
+/**
+ * @override
+ *
+ * @param {Notification} notification
+ * 		The notification instance to be handled.
+ */
+ViewTestMediator6.prototype.handleNotification = function( notification )
+{
+	this.facade.removeMediator(this.getMediatorName());
+}
+
+/**
+ * @override
+ */
+ViewTestMediator6.prototype.onRemove = function()
+{
+	this.getViewTest().counter++;
+}
 
 /**
  * The Mediator name.

@@ -11,65 +11,60 @@
  * @see puremvc.ViewTest ViewTest
  *
  * @extends puremvc.Mediator Mediator
- * 
- * @constructor
  */
-var ViewTestMediator3 = Objs
-(
-	"puremvc.ViewTestMediator3",
-	"puremvc.Mediator", 
-	{
-		/**
-		 * Initialize a <code>Mediator</code> subclass instance.
-		 * 
-		 * @param {Object} view
-		 * 		The view component handled by this <code>Mediator</code>.
-		 */
-		initialize: function( view )
-		{
-			ViewTestMediator3.$super.initialize.call( this, ViewTestMediator3.NAME, view );
-		},
+
+/**
+ * @constructor
+ *
+ * Initialize a <code>Mediator</code> subclass instance.
+ *
+ * @param {Object} view
+ * 		The view component handled by this <code>Mediator</code>.
+ */
+var ViewTestMediator3 = function( view )
+{
+	extract("puremvc.Mediator").call( this, ViewTestMediator3.NAME, view );
+}
+__extends(ViewTestMediator3,extract("puremvc.Mediator"));
 		
-		/**
-		 * Standard getter to return the view handled by the
-		 * <code>Mediator</code>.
-		 * 
-		 * @return {Object}
-		 * 		The view handled by the <code>Mediator</code>.
-		 * 
-		 * @private
-		 */
-		getViewTest: function()
-		{
-			return this.viewComponent;
-		},
-	
-		/**
-		 * @override
-		 *
-		 * @return {Array}
-		 * 		The list of notifications names in which is interested the
-		 * 		<code>Mediator</code>.
-		 */
-		listNotificationInterests: function()
-		{
-			// be sure that the mediator has some Observers created
-			// in order to test removeMediator
-			return [ ViewTest.NOTE3 ];
-		},
-	
-		/**
-		 * @override
-		 *
-		 * @param {Notification} notification
-		 * 		The notification instance to be handled.
-		 */
-		handleNotification: function( notification )
-		{
-			this.getViewTest().lastNotification = notification.getName();
-		}
-	}
-);
+/**
+ * Standard getter to return the view handled by the
+ * <code>Mediator</code>.
+ *
+ * @return {Object}
+ * 		The view handled by the <code>Mediator</code>.
+ *
+ * @private
+ */
+ViewTestMediator3.prototype.getViewTest = function()
+{
+	return this.viewComponent;
+}
+
+/**
+ * @override
+ *
+ * @return {Array}
+ * 		The list of notifications names in which is interested the
+ * 		<code>Mediator</code>.
+ */
+ViewTestMediator3.prototype.listNotificationInterests = function()
+{
+	// be sure that the mediator has some Observers created
+	// in order to test removeMediator
+	return [ ViewTest.NOTE3 ];
+}
+
+/**
+ * @override
+ *
+ * @param {Notification} notification
+ * 		The notification instance to be handled.
+ */
+ViewTestMediator3.prototype.handleNotification = function( note )
+{
+	this.getViewTest().lastNotification = note.getName();
+}
 
 /**
  * The Mediator name.

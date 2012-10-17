@@ -10,29 +10,22 @@
  *
  * @see puremvc.ViewTest ViewTest
  * @extends puremvc.Notification Notification
- * 
- * @constructor
  */
-var ViewTestNote = Objs
-(
-	"puremvc.ViewTestNote",
-	"puremvc.Notification", 
-	{
-		/**
-		 * @constructor.
-		 * 
-		 * @param {String} name
-		 * 		Ignored and forced to NAME.
-		 * 
-		 * @param {Object} body 
-		 * 		The body of the Notification to be constructed.
-		 */
-		initialize: function( name, body )
-		{						
-			ViewTestNote.$super.initialize.call( this, ViewTestNote.NAME, body );
-		}
-	}
-);
+
+/**
+ * @constructor.
+ *
+ * @param {String} name
+ * 		Ignored and forced to NAME.
+ *
+ * @param {Object} body
+ * 		The body of the Notification to be constructed.
+ */
+var ViewTestNote =  function( name, body )
+{
+	extract("puremvc.Notification").call( this, ViewTestNote.NAME, body );
+}
+__extends(	ViewTestNote, extract("puremvc.Notification") );
 
 /**
  * The name of this Notification.

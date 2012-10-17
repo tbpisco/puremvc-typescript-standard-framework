@@ -11,36 +11,32 @@
  * 
  * @constructor
  */
-var ModelTestProxy = Objs
-(
-	"puremvc.ModelTestProxy",
-	"puremvc.Proxy",
-	{
-		/**
-		 * @constructor
-		 */
-		initialize: function()
-		{
-			ModelTestProxy.$super.initialize.call( this, ModelTestProxy.NAME, '' );
-		},
-	
-		/**
-		 * @override.
-		 */
-		onRegister: function()
-		{
-			this.setData( ModelTestProxy.ON_REGISTER_CALLED );
-		},		
-	
-		/**
-		 * @override.
-		 */
-		onRemove: function()
-		{
-			this.setData( ModelTestProxy.ON_REMOVE_CALLED );
-		}		
-	}
-);
+var ModelTestProxy = function(){ this.initialize() }
+__extends( ModelTestProxy, extract("puremvc.Proxy") );
+
+/**
+ * @constructs
+ */
+ModelTestProxy.prototype.initialize = function()
+{
+	extract("puremvc.Proxy").call( this, ModelTestProxy.NAME, '' );
+}
+
+/**
+ * @override.
+ */
+ModelTestProxy.prototype.onRegister = function()
+{
+	this.setData( ModelTestProxy.ON_REGISTER_CALLED );
+},
+
+/**
+ * @override.
+ */
+ModelTestProxy.prototype.onRemove = function()
+{
+	this.setData( ModelTestProxy.ON_REMOVE_CALLED );
+}
 
 /**
  * @type {String}
