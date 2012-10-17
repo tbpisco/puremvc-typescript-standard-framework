@@ -20,17 +20,24 @@ module puremvc
 		 * The name of the <code>Mediator</code>. 
 		 * 
 		 * <P>
-		 * Typically, a <code>Mediator</code> will be written to serve
-		 * one specific control or group controls and so,
-		 * will not have a need to be dynamically named.</P>
+		 * Typically, a <code>Mediator</code> will be written to serve one specific control or group controls and so,
+		 * will not have a need to be dynamically named.
 		 */
 		public static NAME:string = 'Mediator';
 		
 		/**
 		 * Constructor.
+		 *
+		 * @param {string} mediatorName
+		 * 		The name of the <code>Mediator</code>.
+		 *
+		 * @param {Object} view
+		 * 		The view component handled by this <code>Mediator</code>.
 		 */
-		public Mediator( mediatorName:string=null, viewComponent:Object=null )
+		constructor( mediatorName:string, viewComponent:Object )
 		{
+			super();
+
 			this.mediatorName = (mediatorName != null) ? mediatorName : Mediator.NAME;
 			this.viewComponent = viewComponent;	
 		}

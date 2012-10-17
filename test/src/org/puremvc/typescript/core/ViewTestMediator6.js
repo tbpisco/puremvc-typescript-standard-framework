@@ -24,9 +24,9 @@
  * @param {Object} view
  * 		The view component handled by this <code>Mediator</code>.
  */
-var ViewTestMediator6 = function( view )
+var ViewTestMediator6 = function( mediatorName, view )
 {
-	extract("puremvc.Mediator").call( this, ViewTestMediator6.NAME, view );
+	extract("puremvc.Mediator").call( this, mediatorName, view );
 }
 __extends(ViewTestMediator6,extract("puremvc.Mediator"));
 

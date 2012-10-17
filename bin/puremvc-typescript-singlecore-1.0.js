@@ -103,8 +103,8 @@ var puremvc;
                 throw Error(View.SINGLETON_MSG);
             }
             View.instance = this;
-            this.mediatorMap = new Array();
-            this.observerMap = new Array();
+            this.mediatorMap = new Object();
+            this.observerMap = new Object();
             this.initializeView();
         }
         View.prototype.initializeView = function () {
@@ -167,7 +167,7 @@ var puremvc;
             mediator.onRegister();
         };
         View.prototype.retrieveMediator = function (mediatorName) {
-            return this.mediatorMap[mediatorName];
+            return this.mediatorMap[mediatorName] || null;
         };
         View.prototype.removeMediator = function (mediatorName) {
             var mediator = this.mediatorMap[mediatorName];
@@ -178,8 +178,9 @@ var puremvc;
                 }
                 delete this.mediatorMap[mediatorName];
                 mediator.onRemove();
+                return mediator;
             }
-            return mediator;
+            return null;
         };
         View.prototype.hasMediator = function (mediatorName) {
             return this.mediatorMap[mediatorName] != null;
@@ -359,17 +360,12 @@ var puremvc;
     "use strict";
     var Mediator = (function (_super) {
         __extends(Mediator, _super);
-        function Mediator() {
-            _super.apply(this, arguments);
-
-        }
-        Mediator.NAME = 'Mediator';
-        Mediator.prototype.Mediator = function (mediatorName, viewComponent) {
-            if (typeof mediatorName === "undefined") { mediatorName = null; }
-            if (typeof viewComponent === "undefined") { viewComponent = null; }
+        function Mediator(mediatorName, viewComponent) {
+                _super.call(this);
             this.mediatorName = (mediatorName != null) ? mediatorName : Mediator.NAME;
             this.viewComponent = viewComponent;
-        };
+        }
+        Mediator.NAME = 'Mediator';
         Mediator.prototype.getMediatorName = function () {
             return this.mediatorName;
         };

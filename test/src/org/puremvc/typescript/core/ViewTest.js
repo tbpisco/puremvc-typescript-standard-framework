@@ -244,7 +244,9 @@ var ViewTest = new YUITest.TestCase
 				removedMediator.getMediatorName(),
 				"Expecting removedMediator.getMediatorName() == 'testing'"
 			);
-				
+
+			var t = view.retrieveMediator( 'testing' )
+
 			// assert that the mediator is no longer retrievable
    			YUITest.Assert.isNull
 			(

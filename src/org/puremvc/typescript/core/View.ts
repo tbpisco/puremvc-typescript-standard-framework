@@ -47,8 +47,8 @@ module puremvc
 				throw Error( View.SINGLETON_MSG );
 
 			View.instance = this;
-			this.mediatorMap = new IMediator[]();
-			this.observerMap = new IObserver[][]();
+			this.mediatorMap = new Object();
+			this.observerMap = new Object();
 			this.initializeView();
 		}
 		
@@ -215,7 +215,7 @@ module puremvc
 		 */
 		public retrieveMediator( mediatorName:string ):IMediator
 		{
-			return this.mediatorMap[ mediatorName ];
+			return this.mediatorMap[ mediatorName ] || null;
 		}
 
 		/**
@@ -245,9 +245,11 @@ module puremvc
 	
 				// alert the mediator that it has been removed
 				mediator.onRemove();
+
+				return mediator;
 			}
 			
-			return mediator;
+			return null;
 		}
 		
 		/**
@@ -262,10 +264,10 @@ module puremvc
 		}
 
 		// Mapping of Mediator names to Mediator instances
-		public mediatorMap:IMediator[];
+		public mediatorMap:Object;
 
 		// Mapping of Notification names to Observer lists
-		public observerMap:IObserver[][];
+		public observerMap:Object;
 		
 		// Singleton instance
 		public static instance:IView;
