@@ -15,23 +15,22 @@
  *
  * @constructor
  */
-var FacadeTestCommand = Objs
-(
-	"puremvc.FacadeTestCommand",
-	"puremvc.SimpleCommand",
-	{		
-		/**
-		 * Fabricate a result by multiplying the input by 2
-		 * 
-		 * @param {Notification} note
-		 * 		The Notification carrying the FacadeTestVO
-		 */
-		execute: function( note ) 
-		{
-			var vo/*FacadeTestVO*/ = note.getBody();
-			
-			// Fabricate a result
-			vo.result = 2 * vo.input;
-		}
-	}
-);
+var FacadeTestCommand = function()
+{
+	extract("puremvc.SimpleCommand").call(this);
+}
+__extends( FacadeTestCommand, extract("puremvc.SimpleCommand") );
+
+/**
+ * Fabricate a result by multiplying the input by 2
+ *
+ * @param {Notification} note
+ * 		The Notification carrying the FacadeTestVO
+ */
+FacadeTestCommand.prototype.execute = function( note )
+{
+	var vo/*FacadeTestVO*/ = note.getBody();
+
+	// Fabricate a result
+	vo.result = 2 * vo.input;
+}
