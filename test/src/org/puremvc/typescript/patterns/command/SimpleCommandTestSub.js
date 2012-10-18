@@ -13,23 +13,22 @@
  * 
  * @constructor
  */
-var SimpleCommandTestSub = Objs
-(
-	"puremvc.SimpleCommandTestSub",
-	"puremvc.SimpleCommand",
-	{
-		/**
-		 * A method to test if <code>Facade</code> instance of the object has
-		 * well been declared during its construction.
-		 * 
-		 * @return {Boolean}
-		 * 		<code>Facade</code> instance of the object has well been declared
-		 * 		during its construction.
-		 */
-		hasFacade: function()
-		{
-			var Facade = extract("puremvc.Facade");
-			return this.facade instanceof Facade;
-		}
-	}
-);
+var SimpleCommandTestSub = function()
+{
+	extract("puremvc.SimpleCommand").call(this);
+}
+__extends( SimpleCommandTestSub, extract("puremvc.SimpleCommand") );
+
+/**
+ * A method to test if <code>Facade</code> instance of the object has
+ * well been declared during its construction.
+ *
+ * @return {Boolean}
+ * 		<code>Facade</code> instance of the object has well been declared
+ * 		during its construction.
+ */
+SimpleCommandTestSub.prototype.hasFacade = function()
+{
+	var Facade = extract("puremvc.Facade");
+	return this.facade instanceof Facade;
+}

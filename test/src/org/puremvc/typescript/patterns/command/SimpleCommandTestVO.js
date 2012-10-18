@@ -10,32 +10,29 @@
  *
  * @see puremvc.SimpleCommandTest SimpleCommandTest
  * @see puremvc.SimpleCommandTestCommand SimpleCommandTestCommand
- *
- * @constructor
  */
-var SimpleCommandTestVO = Objs
-(
-	"puremvc.SimpleCommandTestVO",
-	{
-		/**
-		 * Initialize a <code>SimpleCommandTestVO</code> instance.
-		 * 
-		 * @param {Number} input
-		 * 		The number to be fed to the	<code>SimpleCommandTestCommand</code>.
-		 */
-		initialize: function( input )
-		{
-			this.input = input;
-		},
+
+/**
+ * @constructor
+ * Constructs a <code>SimpleCommandTestVO</code> instance.
+ *
+ * @param {Number} input
+ * 		The number to be fed to the	<code>SimpleCommandTestCommand</code>.
+ */
+var SimpleCommandTestVO = function( input )
+{
+	extract("puremvc.SimpleCommand").call(this);
+
+	this.input = input;
+}
+__extends( SimpleCommandTestVO, extract("puremvc.SimpleCommand") );
 	
-		/**
-		 * @type {Number}
-		 */
-		input: null,
+/**
+ * @type {Number}
+ */
+SimpleCommandTestVO.prototype.input = null;
 	
-		/**
-		 * @type {Number}
-		 */
-		result: null
-	}
-);
+/**
+ * @type {Number}
+ */
+SimpleCommandTestVO.prototype.result = null;

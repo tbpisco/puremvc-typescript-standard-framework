@@ -14,24 +14,25 @@
  * @see puremvc.MacroCommandTestVO MacroCommandTestVO
  * 
  * @extends puremvc.MacroCommand MacroCommand
- * 
+ */
+
+/**
  * @constructor
  */
-var MacroCommandTestCommand = Objs
-(
-	"puremvc.MacroCommandTestCommand",
-	"puremvc.MacroCommand",
-	{
-		/**
-		 * Initialize the MacroCommandTestCommand by adding
-		 * its 2 SubCommands.
-		 * 
-		 * @override
-		 */
-		initializeMacroCommand: function() 
-		{
-			this.addSubCommand( MacroCommandTestSub1Command );
-			this.addSubCommand( MacroCommandTestSub2Command );
-		}
-	}
-);
+var MacroCommandTestCommand = function()
+{
+	extract("puremvc.MacroCommand").call(this);
+}
+__extends( MacroCommandTestCommand, extract("puremvc.MacroCommand") );
+
+/**
+ * Initialize the MacroCommandTestCommand by adding
+ * its 2 SubCommands.
+ *
+ * @override
+ */
+MacroCommandTestCommand.prototype.initializeMacroCommand = function()
+{
+	this.addSubCommand( MacroCommandTestSub1Command );
+	this.addSubCommand( MacroCommandTestSub2Command );
+}

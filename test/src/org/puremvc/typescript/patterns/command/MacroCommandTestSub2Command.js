@@ -10,30 +10,29 @@
  *
  * @see puremvc.MacroCommandTest MacroCommandTest
  * @see puremvc.MacroCommandTestCommand MacroCommandTestCommand
- * @see puremvc.MacroCommandTestVO MacroCommandTestVO 
+ * @see puremvc.MacroCommandTestVO MacroCommandTestVO
  *
  * @extends puremvc.SimpleCommand SimpleCommand
  * 
  * @constructor
  */
-var MacroCommandTestSub2Command = Objs
-(
-	"puremvc.MacroCommandTestSub2Command",
-	"puremvc.SimpleCommand",
-	{
-		/**
-		 * Fabricate a result by multiplying the input by itself
-		 * 
-		 * @param {Notification} note
-		 * 		The <code>Notification</code> carrying the
-		 * 		<code>MacroCommandTestVO</code>
-		 */
-		execute: function( note ) 
-		{
-			var vo/*MacroCommandTestVO*/ = note.getBody();
-			
-			// Fabricate a result
-			vo.result2 = vo.input * vo.input;
-		}
-	}
-);
+var MacroCommandTestSub2Command = function()
+{
+	extract("puremvc.SimpleCommand").call(this);
+}
+__extends( MacroCommandTestSub2Command, extract("puremvc.SimpleCommand") );
+
+/**
+ * Fabricate a result by multiplying the input by 2
+ * 
+ * @param {Notification} note
+ * 		The <code>Notification</code> carrying the
+ * 		<code>MacroCommandTestVO</code>
+ */
+MacroCommandTestSub2Command.prototype.execute = function( note )
+{
+	var vo/*MacroCommandTestVO*/ = note.getBody();
+	
+	// Fabricate a result
+	vo.result2 = vo.input * vo.input;
+}

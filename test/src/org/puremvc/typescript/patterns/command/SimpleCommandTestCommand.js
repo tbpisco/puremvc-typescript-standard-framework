@@ -15,24 +15,23 @@
  * 
  * @constructor
  */
-var SimpleCommandTestCommand = Objs
-(
-	"puremvc.SimpleCommandTestCommand",
-	"puremvc.SimpleCommand",
-	{
-		/**
-		 * Fabricate a result by multiplying the input by 2
-		 * 
-		 * @param {Notification} note
-		 * 		The <code>Notification</code> carrying the
-		 * 		<code>SimpleCommandTestVO</code>
-		 */
-		execute: function( note ) 
-		{
-			var vo/*SimpleCommandTestVO*/ = note.getBody();
-	
-			// Fabricate a result
-			vo.result = 2 * vo.input;
-		}
-	}
-);
+var SimpleCommandTestCommand = function()
+{
+	extract("puremvc.SimpleCommand").call(this);
+}
+__extends( SimpleCommandTestCommand, extract("puremvc.SimpleCommand") );
+
+/**
+ * Fabricate a result by multiplying the input by 2
+ *
+ * @param {Notification} note
+ * 		The <code>Notification</code> carrying the
+ * 		<code>SimpleCommandTestVO</code>
+ */
+SimpleCommandTestCommand.prototype.execute = function( note )
+{
+	var vo/*SimpleCommandTestVO*/ = note.getBody();
+
+	// Fabricate a result
+	vo.result = 2 * vo.input;
+}

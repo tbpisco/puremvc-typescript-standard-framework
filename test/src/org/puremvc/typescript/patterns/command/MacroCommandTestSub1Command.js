@@ -16,24 +16,23 @@
  * 
  * @constructor
  */
-var MacroCommandTestSub1Command = Objs
-(
-	"puremvc.MacroCommandTestSub1Command",
-	"puremvc.SimpleCommand",
-	{
-		/**
-		 * Fabricate a result by multiplying the input by 2
-		 * 
-		 * @param {Notification} note
-		 * 		The <code>Notification</code> carrying the
-		 * 		<code>MacroCommandTestVO</code>
-		 */
-		execute: function( note ) 
-		{
-			var vo/*MacroCommandTestVO*/ = note.getBody();
-			
-			// Fabricate a result
-			vo.result1 = 2 * vo.input;
-		}
-	}
-);
+var MacroCommandTestSub1Command = function()
+{
+	extract("puremvc.SimpleCommand").call(this);
+}
+__extends( MacroCommandTestSub1Command, extract("puremvc.SimpleCommand") );
+
+/**
+ * Fabricate a result by multiplying the input by 2
+ *
+ * @param {Notification} note
+ * 		The <code>Notification</code> carrying the
+ * 		<code>MacroCommandTestVO</code>
+ */
+MacroCommandTestSub1Command.prototype.execute = function( note )
+{
+	var vo/*MacroCommandTestVO*/ = note.getBody();
+
+	// Fabricate a result
+	vo.result1 = 2 * vo.input;
+}

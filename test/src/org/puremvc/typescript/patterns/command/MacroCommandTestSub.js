@@ -10,41 +10,29 @@
  * <code>MacroCommandTest</code>.
  *
  * @extends puremvc.MacroCommand MacroCommand
- * 
- * @constructor
  */
-var MacroCommandTestSub = Objs
-(
-	"puremvc.MacroCommandTestSub",
-	"puremvc.MacroCommand",
-	{
-		/**
-		 * @override
-		 * 
-		 * Initialize a <code>MacroCommandTestSub</code> instance.
-		 * 
-		 * @return {MacroCommandTestSub}
-		 * 		This <code>MacroCommandTestSub</code> instance.
-		 */
-		initialize: function()
-		{
-			MacroCommandTestSub.$super.initialize.call( this );
-	
-			return this;
-		},
-	
-		/**
-		 * A method to test if <code>Facade</code> instance of the object has
-		 * well been declared during its construction.
-		 * 
-		 * @return {Boolean}
-		 * 		<code>Facade</code> instance of the object has well been declared
-		 * 		during its construction.
-		 */
-		hasFacade: function()
-		{
-			var Facade = extract("puremvc.Facade");
-			return this.facade instanceof Facade;
-		}
-	}
-);
+
+/**
+ * @constructor
+ *
+ * Constructs a <code>MacroCommandTestSub</code> instance.
+ */
+var MacroCommandTestSub = function()
+{
+	extract("puremvc.MacroCommand").call(this);
+}
+__extends( MacroCommandTestSub, extract("puremvc.MacroCommand") );
+
+/**
+ * A method to test if <code>Facade</code> instance of the object has
+ * well been declared during its construction.
+ *
+ * @return {Boolean}
+ * 		<code>Facade</code> instance of the object has well been declared
+ * 		during its construction.
+ */
+MacroCommandTestSub.prototype.hasFacade = function()
+{
+	var Facade = extract("puremvc.Facade");
+	return this.facade instanceof Facade;
+}
