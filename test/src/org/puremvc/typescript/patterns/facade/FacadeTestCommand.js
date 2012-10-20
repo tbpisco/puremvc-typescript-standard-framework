@@ -12,7 +12,9 @@
  * @see puremvc.FacadeTestVO FacadeTestVO
  * 
  * @extends puremvc.SimpleCommand SimpleCommand
- *
+ */
+
+/**
  * @constructor
  */
 var FacadeTestCommand = function()

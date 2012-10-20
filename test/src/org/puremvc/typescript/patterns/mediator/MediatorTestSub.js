@@ -9,7 +9,9 @@
  * A <code>Mediator</code> utility subclass used by <code>MediatorTest</code>.
  * 
  * @extends puremvc.Mediator Mediator
- * 
+ */
+
+ /**
  * @constructor
  */
 var MediatorTestSub = function()

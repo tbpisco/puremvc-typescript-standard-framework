@@ -12,23 +12,22 @@
  * 
  * @constructor
  */
-var NotifierTestSub = Objs
-(
-	"puremvc.NotifierTestSub",
-	"puremvc.Notifier",
-	{
-		/**
-		 * A method to test if <code>Facade</code> instance of the object has
-		 * well been declared during its construction.
-		 * 
-		 * @return {Boolean}
-		 * 		<code>Facade</code> instance of the object has well been declared
-		 * 		during its construction.
-		 */
-		hasFacade: function()
-		{
-			var Facade = extract("puremvc.Facade");
-			return this.facade instanceof Facade;
-		}
-	}
-);
+var NotifierTestSub = function()
+{
+	extract("puremvc.Notifier").call(this);
+}
+__extends( NotifierTestSub, extract("puremvc.Notifier") );
+
+/**
+ * A method to test if <code>Facade</code> instance of the object has
+ * well been declared during its construction.
+ *
+ * @return {Boolean}
+ * 		<code>Facade</code> instance of the object has well been declared
+ * 		during its construction.
+ */
+NotifierTestSub.prototype.hasFacade = function()
+{
+	var Facade = extract("puremvc.Facade");
+	return this.facade instanceof Facade;
+}

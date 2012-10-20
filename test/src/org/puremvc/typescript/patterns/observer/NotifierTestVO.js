@@ -10,32 +10,26 @@
  * 
  * @see puremvc.NotifierTest NotifierTest
  * @see puremvc.NotiferTestCommand NotifierTestCommand
- * 
- * @constructor
  */
-var NotifierTestVO = Objs
-(
-	"puremvc.NotifierTestVO",
-	{
-		/**
-		 * Constructs a <code>NotifierTestVO</code> instance.
-		 *
-		 * @param {Number} input
-		 * 		The number to be fed to the FacadeTestCommand
-		 */
-		initialize: function( input )
-		{
-			this.input = input;
-		},
-		
-		/**
-		 * @type {Number}
-		 */
-		input : null,
-		
-		/**
-		 * @type {Number}
-		 */
-		result : null
-	}
-);
+
+/**
+ * @constructor
+ * Constructs a <code>NotifierTestVO</code> instance.
+ *
+ * @param {Number} input
+ * 		The number to be fed to the FacadeTestCommand
+ */
+var NotifierTestVO = function( input )
+{
+	this.input = input;
+}
+
+/**
+ * @type {Number}
+ */
+NotifierTestVO.prototype.input = null;
+
+/**
+ * @type {Number}
+ */
+NotifierTestVO.prototype.result = null;
