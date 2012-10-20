@@ -9,36 +9,37 @@ module puremvc
 
 	/**
 	 * A base <code>IObserver</code> implementation.
-	 * 
-	 * <P> 
-	 * An <code>Observer</code> is an object that encapsulates information
-	 * about an interested object with a method that should 
-	 * be called when a particular <code>INotification</code> is broadcast. </P>
-	 * 
-	 * <P>
+	 *
+	 * An <code>Observer</code> is an object that encapsulates information about an interested
+	 * object with a method that should  be called when a particular <code>INotification</code> is
+	 * broadcast.
+	 *
 	 * In PureMVC, the <code>Observer</code> class assumes these responsibilities:
 	 * <UL>
-	 * <LI>Encapsulate the notification (callback) method of the interested object.</LI>
-	 * <LI>Encapsulate the notification context (this) of the interested object.</LI>
-	 * <LI>Provide methods for setting the notification method and context.</LI>
-	 * <LI>Provide a method for notifying the interested object.</LI>
-	 * </UL>
+	 * <LI>Encapsulate the notification (callback) method of the interested object.
+	 * <LI>Encapsulate the notification context (this) of the interested object.
+	 * <LI>Provide methods for setting the notification method and context.
+	 * <LI>Provide a method for notifying the interested object.
+	 *
 	 * 
-	 * @see org.puremvc.typescript.core.view.View View
-	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
+	 * @see puremvc.View View
+	 * @see puremvc.Notification Notification
 	 */
 	export class Observer
 		implements IObserver
 	{
-		private notify:Function;
-		private context:Object;
-	
 		/**
-		 * Constructor. 
-		 * 
-		 * <P>
-		 * The notification method on the interested object should take 
-		 * one parameter of type <code>INotification</code></P>
+		 * The notification method of the interested object.
+		 */
+		notify:Function;
+
+		/**
+		 * The notification context of the interested object.
+		 */
+		context:Object;
+
+		/**
+		 * Constructs an <code>Observer</code> instance.
 		 * 
 		 * @param notifyMethod
 		 * 		The notification method of the interested object.
@@ -51,12 +52,22 @@ module puremvc
 			this.setNotifyMethod( notifyMethod );
 			this.setNotifyContext( notifyContext );
 		}
-		
+
+		/**
+		 * Get the notification method.
+		 * 
+		 * @return
+		 * 		The notification (callback) method of the interested object.
+		 */
+		private getNotifyMethod():Function
+		{
+			return this.notify;
+		}
+
 		/**
 		 * Set the notification method.
-		 * 
-		 * <P>
-		 * The notification method should take one parameter of type <code>INotification</code>.</P>
+		 *
+		 * The notification method should take one parameter of type <code>INotification</code>.
 		 * 
 		 * @param notifyMethod
 		 * 		The notification (callback) method of the interested object.
@@ -67,39 +78,33 @@ module puremvc
 		}
 		
 		/**
-		 * Set the notification context.
-		 * 
-		 * @param notifyContext the notification context (this) of the interested object.
-		 */
-		public setNotifyContext( notifyContext:Object ):void
-		{
-			this.context = notifyContext;
-		}
-		
-		/**
-		 * Get the notification method.
-		 * 
-		 * @return the notification (callback) method of the interested object.
-		 */
-		private getNotifyMethod():Function
-		{
-			return this.notify;
-		}
-		
-		/**
 		 * Get the notification context.
 		 * 
-		 * @return the notification context (<code>this</code>) of the interested object.
+		 * @return
+		 * 		The notification context (<code>this</code>) of the interested object.
 		 */
 		private getNotifyContext():Object
 		{
 			return this.context;
 		}
-		
+			
+		/**
+		 * Set the notification context.
+		 * 
+		 * @param notifyContext
+		 * 		The notification context (this) of the interested object.
+		 */
+		public setNotifyContext( notifyContext:Object ):void
+		{
+			this.context = notifyContext;
+		}
+
 		/**
 		 * Notify the interested object.
 		 * 
-		 * @param notification the <code>INotification</code> to pass to the interested object's notification method.
+		 * @param {Notification} note
+		 * 		The <code>Notification</code> to pass to the interested object's notification
+		 * 		method.
 		 */
 		public notifyObserver( notification:INotification ):void
 		{
@@ -107,10 +112,13 @@ module puremvc
 		}
 	
 		/**
-		 * Compare an object to the notification context. 
-		 * 
-		 * @param object the object to compare
-		 * @return boolean indicating if the object and the notification context are the same
+		 * Compare an object to the notification context.
+		 *
+		 * @param object
+		 * 		The object to compare.
+		 *
+		 * @return
+		 * 		The object and the notification context are the same.
 		 */
 		 public compareNotifyContext( object:Object ):Boolean
 		 {

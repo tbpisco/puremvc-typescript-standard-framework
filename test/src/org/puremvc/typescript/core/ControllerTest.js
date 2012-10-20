@@ -64,12 +64,12 @@ var ControllerTest = new YUITest.TestCase
 		/**
 		 * Tests Command registration and execution.
 		 * 
-		 * <P>
+		 *
 		 * This test gets the Singleton Controller instance 
 		 * and registers the ControllerTestCommand class 
-		 * to handle 'ControllerTest' Notifications.<P>
+		 * to handle 'ControllerTest' Notifications.
 		 * 
-		 * <P>
+		 *
 		 * It then constructs such a Notification and tells the 
 		 * Controller to execute the associated Command.
 		 * Success is determined by evaluating a property
@@ -105,8 +105,7 @@ var ControllerTest = new YUITest.TestCase
 		
 		/**
 		 * Tests Command registration and removal.
-		 * 
-		 * <P>
+		 *
 		 * Tests that once a Command is registered and verified
 		 * working, it can be removed from the Controller.
 		 */
@@ -187,8 +186,7 @@ var ControllerTest = new YUITest.TestCase
 		
 		/**
 		 * Tests Removing and Reregistering a Command
-		 * 
-		 * <P>
+		 *
 		 * Tests that when a Command is re-registered that it isn't fired twice.
 		 * This involves, minimally, registration with the controller but
 		 * notification via the View, rather than direct execution of

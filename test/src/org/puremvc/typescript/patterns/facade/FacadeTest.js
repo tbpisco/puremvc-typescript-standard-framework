@@ -65,12 +65,10 @@ var FacadeTest = new YUITest.TestCase
   		/**
   		 * Tests Command registration and execution via the Facade.
   		 * 
-  		 * <P>
   		 * This test gets the Singleton Facade instance 
   		 * and registers the FacadeTestCommand class 
   		 * to handle 'FacadeTest' Notifications.
   		 * 
-  		 * <P>
   		 * It then sends a notification using the Facade. 
   		 * Success is determined by evaluating 
   		 * a property on an object placed in the body of
@@ -104,12 +102,12 @@ var FacadeTest = new YUITest.TestCase
   		/**
   		 * Tests Command removal via the Facade.
   		 * 
-  		 * <P>
+  		 *
   		 * This test gets the Singleton Facade instance 
   		 * and registers the FacadeTestCommand class 
   		 * to handle 'FacadeTest' Notifcations. Then it removes the command.
   		 * 
-  		 * <P>
+  		 *
   		 * It then sends a Notification using the Facade. 
   		 * Success is determined by evaluating a property on an object placed
   		 * in the body of the Notification, which will NOT be modified by the
@@ -144,7 +142,7 @@ var FacadeTest = new YUITest.TestCase
   		/**
   		 * Tests the registering and retrieving Model proxies via the Facade.
   		 * 
-  		 * <P>
+  		 *
   		 * Tests <code>registerProxy</code> and <code>retrieveProxy</code> in the same test.
   		 * These methods cannot currently be tested separately
   		 * in any meaningful way other than to show that the
@@ -152,11 +150,11 @@ var FacadeTest = new YUITest.TestCase
   		 */
   		testRegisterAndRetrieveProxy: function()
 		{
-    		var Facade = extract("puremvc.Facade");
-    		var Proxy = extract("puremvc.Proxy");
+			var Facade = extract("puremvc.Facade");
+			var Proxy = extract("puremvc.Proxy");
 
-   			// register a proxy and retrieve it.
-   			var facade/*Facade*/ = Facade.getInstance();
+			// register a proxy and retrieve it.
+			var facade/*Facade*/ = Facade.getInstance();
 			facade.registerProxy( new Proxy( 'colors', ['red', 'green', 'blue'] ) );
 			
 			var proxy/*Proxy*/ = facade.retrieveProxy( 'colors' );

@@ -8,26 +8,26 @@ module puremvc
 	/**
 	 * The interface definition for a PureMVC Notification.
 	 *
-	 * <P>
+	 *
 	 * PureMVC does not rely upon underlying event models such 
 	 * as the one provided with Flash, and ActionScript 3 does 
-	 * not have an inherent event model.</P>
+	 * not have an inherent event model.
 	 * 
-	 * <P>
+	 *
 	 * The Observer Pattern as implemented within PureMVC exists 
 	 * to support event-driven communication between the 
-	 * application and the actors of the MVC triad.</P>
+	 * application and the actors of the MVC triad.
 	 * 
-	 * <P>
+	 *
 	 * Notifications are not meant to be a replacement for Events
 	 * in Flex/Flash/AIR. Generally, <code>IMediator</code> implementors
 	 * place event listeners on their view components, which they
 	 * then handle in the usual way. This may lead to the broadcast of <code>Notification</code>s to 
 	 * trigger <code>ICommand</code>s or to communicate with other <code>IMediators</code>. <code>IProxy</code> and <code>ICommand</code>
 	 * instances communicate with each other and <code>IMediator</code>s 
-	 * by broadcasting <code>INotification</code>s.</P>
+	 * by broadcasting <code>INotification</code>s.
 	 * 
-	 * <P>
+	 *
 	 * A key difference between Flash <code>Event</code>s and PureMVC 
 	 * <code>Notification</code>s is that <code>Event</code>s follow the 
 	 * 'Chain of Responsibility' pattern, 'bubbling' up the display hierarchy 
@@ -37,8 +37,8 @@ module puremvc
 	 * parent/child relationship in order to communicate with one another
 	 * using <code>Notification</code>s.
 	 * 
-	 * @see org.puremvc.typescript.interfaces.IView IView
-	 * @see org.puremvc.typescript.interfaces.IObserver IObserver
+	 * @see puremvc.interfaces.IView IView
+	 * @see puremvc.interfaces.IObserver IObserver
 	 */
 	export interface INotification
 	{

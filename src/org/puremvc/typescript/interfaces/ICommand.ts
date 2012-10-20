@@ -8,14 +8,15 @@ module puremvc
 	/**
 	 * The interface definition for a PureMVC Command.
 	 *
-	 * @see org.puremvc.typescript.interfaces INotification
+	 * @see puremvc.interfaces INotification
 	 */
 	export interface ICommand
 	{
 		/**
 		 * Execute the <code>ICommand</code>'s logic to handle a given <code>INotification</code>.
 		 * 
-		 * @param note an <code>INotification</code> to handle.
+		 * @param note
+		 * 		An <code>INotification</code> to handle.
 		 */
 		execute( notification:INotification ):void;
 	}

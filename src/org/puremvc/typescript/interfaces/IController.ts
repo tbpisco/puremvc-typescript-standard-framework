@@ -8,58 +8,81 @@ module puremvc
 	/**
 	 * The interface definition for a PureMVC Controller.
 	 * 
-	 * <P>
+	 *
 	 * In PureMVC, an <code>IController</code> implementor 
 	 * follows the 'Command and Controller' strategy, and 
 	 * assumes these responsibilities:
 	 * <UL>
 	 * <LI> Remembering which <code>ICommand</code>s 
-	 * are intended to handle which <code>INotifications</code>.</LI>
+	 * are intended to handle which <code>INotifications</code>.
 	 * <LI> Registering itself as an <code>IObserver</code> with
 	 * the <code>View</code> for each <code>INotification</code> 
-	 * that it has an <code>ICommand</code> mapping for.</LI>
+	 * that it has an <code>ICommand</code> mapping for.
 	 * <LI> Creating a new instance of the proper <code>ICommand</code>
-	 * to handle a given <code>INotification</code> when notified by the <code>View</code>.</LI>
+	 * to handle a given <code>INotification</code> when notified by the <code>View</code>.
 	 * <LI> Calling the <code>ICommand</code>'s <code>execute</code>
-	 * method, passing in the <code>INotification</code>.</LI> 
-	 * </UL>
+	 * method, passing in the <code>INotification</code>.
 	 *
-	 * @see org.puremvc.typescript.interfaces INotification
-	 * @see org.puremvc.typescript.interfaces ICommand
+	 *
+	 * @see puremvc.interfaces INotification
+	 * @see puremvc.interfaces ICommand
 	 */
 	export interface IController
 	{
-
+	
+		
 		/**
-		 * Register a particular <code>ICommand</code> class as the handler 
-		 * for a particular <code>INotification</code>.
+		 * If an <code>ICommand</code> has previously been registered to handle a the given
+		 * <code>INotification</code>, then it is executed.
 		 * 
-		 * @param notificationName the name of the <code>INotification</code>
-		 * @param commandClassRef the Class of the <code>ICommand</code>
+		 * @param notification
+		 * 		The <code>INotification</code> the command will receive as parameter.
+		 */
+		executeCommand( notification:INotification ):void;
+		/**
+		 * Register a particular <code>ICommand</code> class as the handler for a particular
+		 * <code>INotification</code>.
+		 * 
+		 *
+		 * If an <code>ICommand</code> has already been registered to handle
+		 * <code>INotification</code>s with this name, it is no longer used, the new
+		 * <code>ICommand</code> is used instead.
+		 * 
+		 * The <code>Observer</code> for the new <code>ICommand</code> is only created if this the
+		 * first time an <code>ICommand</code> has been registered for this
+		 * <code>Notification</code> name.
+		 * 
+		 * @param notificationName
+		 * 		The name of the <code>INotification</code>.
+		 *
+		 * @param commandClassRef
+		 * 		The constructor of the <code>ICommand</code>.
 		 */
 		registerCommand( notificationName:string, commandClassRef:Function ):void;
 		
 		/**
-		 * Execute the <code>ICommand</code> previously registered as the
-		 * handler for <code>INotification</code>s with the given notification name.
-		 * 
-		 * @param notification the <code>INotification</code> to execute the associated <code>ICommand</code> for
-		 */
-		executeCommand( notification:INotification ):void;
-
-		/**
-		 * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping.
-		 * 
-		 * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
-		 */
-		removeCommand( notificationName:string ):void;
-
-		/**
-		 * Check if a Command is registered for a given Notification 
+		 * Check if an <code>ICommand</code> is registered for a given <code>Notification</code>.
 		 * 
 		 * @param notificationName
-		 * @return whether a Command is currently registered for the given <code>notificationName</code>.
+		 * 		Name of the <code>Notification</code> to check wheter an <code>ICommand</code> is
+		 * 		registered for.
+		 *
+		 * @return
+		 * 		Whether an <code>ICommand</code> is currently registered for the given
+		 * 		<i>notificationName</i>.
 		 */
-		hasCommand( notificationName:string ):Boolean;
+	hasCommand( notificationName:string ):Boolean;
+
+		/**
+		 * Remove a previously registered <code>ICommand</code> to <code>INotification</code>
+		 * mapping.
+		 * 
+		 * @param notificationName
+		 * 		The name of the <code>INotification</code> to remove the <code>ICommand</code>
+		 * 		mapping for.
+		 */
+	removeCommand( notificationName:string ):void;
+
+
 	}
 }

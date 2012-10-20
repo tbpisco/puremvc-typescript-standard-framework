@@ -9,36 +9,56 @@ module puremvc
 	
 	/**
 	 * A base <code>IProxy</code> implementation. 
+	 *
+	 * In PureMVC, <code>Proxy</code> classes are used to manage parts of the application's data
+	 * model.
+	 *
+	 * A <code>Proxy</code> might simply manage a reference to a local data object, in which case
+	 * interacting with it might involve setting and getting of its data in synchronous fashion.
+	 *
+	 * <code>Proxy</code> classes are also used to encapsulate the application's interaction with
+	 * remote services to store or retrieve data, in which case, we adopt an asynchronous idiom
+	 * setting data (or calling a method) on the <code>Proxy</code> and listening for a
+	 * <code>Notification</code> to be sent when the <code>Proxy</code> has retrieved the data from
+	 * the service.
 	 * 
-	 * <P>
-	 * In PureMVC, <code>Proxy</code> classes are used to manage parts of the 
-	 * application's data model. </P>
-	 * 
-	 * <P>
-	 * A <code>Proxy</code> might simply manage a reference to a local data object, 
-	 * in which case interacting with it might involve setting and 
-	 * getting of its data in synchronous fashion.</P>
-	 * 
-	 * <P>
-	 * <code>Proxy</code> classes are also used to encapsulate the application's 
-	 * interaction with remote services to save or retrieve data, in which case, 
-	 * we adopt an asyncronous idiom; setting data (or calling a method) on the 
-	 * <code>Proxy</code> and listening for a <code>Notification</code> to be sent 
-	 * when the <code>Proxy</code> has retrieved the data from the service. </P>
-	 * 
-	 * @see org.puremvc.typescript.core.model.Model Model
+	 * @see puremvc.core.model.Model Model
 	 */
 	export class Proxy
 		extends Notifier
 		implements IProxy, INotifier
 	{
 
-		public static NAME:string = 'Proxy';
-		
 		/**
-		 * Constructor
+		 * The data object controlled by the <code>Proxy</code>.
 		 */
-		constructor( proxyName:string, data:Object )
+		private proxyName:string;
+
+		/**
+		 * The name of the <code>Proxy</code>.
+		 */
+		private data:Object;
+
+		/**
+		 * The default name of the <code>Proxy</code>
+		 * 
+		 * @type {String}
+		 * @constant
+		 */
+		 public static NAME:string = 'Proxy';
+
+		/**
+
+		 *
+		 * Constructs a <code>Proxy</code> instance.
+		 *
+		 * @param {String} proxyName
+		 * 		The name of the <code>Proxy</code>.
+		 *
+		 * @param {Object} data
+		 * 		An initial data object to be held by the <code>Proxy</code>.
+		 */
+		constructor( proxyName:string=null, data:Object=null )
 		{
 			super();
 
@@ -50,43 +70,45 @@ module puremvc
 
 		/**
 		 * Get the proxy name
+		 * @return
+		 * 		The name of the proxy.
 		 */
 		public getProxyName():string
 		{
 			return this.proxyName;
 		}		
-		
+
 		/**
-		 * Set the data object
+		 * Set the data object.
+		 * @param data
+		 * 		The data to set.
 		 */
 		public setData( data:Object ):void
 		{
 			this.data = data;
 		}
-		
+
 		/**
 		 * Get the data object
+		 *
+		 * @return
+		 * 		The data held in the <code>Proxy</code>.
 		 */
 		public getData():Object
 		{
 			return this.data;
-		}		
+		}
 
 		/**
-		 * Called by the Model when the Proxy is registered
+		 * Called by the Model when the <code>Proxy</code> is registered. This method has to be
+		 * overridden by the subclass to know when the instance is registered.
 		 */ 
 		public onRegister( ):void {}
 
 		/**
-		 * Called by the Model when the Proxy is removed
+		 * Called by the Model when the <code>Proxy</code> is removed. This method has to be
+		 * overridden by the subclass to know when the instance is removed.
 		 */ 
 		public onRemove( ):void {}
-		
-		
-		// the proxy name
-		public proxyName:string;
-		
-		// the data object
-		public data:Object;
 	}
 }

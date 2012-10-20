@@ -10,20 +10,29 @@ module puremvc
 	/**
 	 * A base <code>IMediator</code> implementation. 
 	 * 
-	 * @see org.puremvc.typescript.core.view.View View
+	 * @see puremvc.View View
 	 */
 	export class Mediator
 		extends Notifier
 		implements IMediator, INotifier
 	{
 		/**
+		 * The name of the <code>Mediator</code>.
+		 */
+		private mediatorName:string;
+
+		/**
+		 * The <code>Mediator</code>'s view component.
+		 */
+		private viewComponent:Object;
+	
+		/**
 		 * The name of the <code>Mediator</code>. 
-		 * 
-		 * <P>
+		 *
 		 * Typically, a <code>Mediator</code> will be written to serve one specific control or group controls and so,
 		 * will not have a need to be dynamically named.
 		 */
-		public static NAME:string = 'Mediator';
+		public static /*const*/ NAME:string = 'Mediator';
 		
 		/**
 		 * Constructor.
@@ -31,10 +40,10 @@ module puremvc
 		 * @param {string} mediatorName
 		 * 		The name of the <code>Mediator</code>.
 		 *
-		 * @param {Object} view
+		 * @param {Object} viewComponent
 		 * 		The view component handled by this <code>Mediator</code>.
 		 */
-		constructor( mediatorName:string, viewComponent:Object )
+		constructor( mediatorName:string=null, viewComponent:Object=null )
 		{
 			super();
 
@@ -52,9 +61,32 @@ module puremvc
 		}
 
 		/**
+		 * Get the <code>Mediator</code>'s view component.
+		 *
+		 * Additionally, an implicit getter will usually
+		 * be defined in the subclass that casts the view 
+		 * object to a type, like this:
+		 * 
+		 * <code>
+		 *		private get comboBox:mx.controls.ComboBox
+		 *		{
+		 *			return viewComponent as mx.controls.ComboBox;
+		 *		}
+		 * </code>
+		 * 
+		 * @return {Object}
+		 * 		The view component.
+		 */		
+		public getViewComponent():Object
+		{	
+			return this.viewComponent;
+		}
+		
+		/**
 		 * Set the <code>IMediator</code>'s view component.
 		 * 
-		 * @param Object the view component
+		 * @param {Object} viewComponent
+		 * 		The view component.
 		 */
 		public setViewComponent( viewComponent:Object ):void
 		{
@@ -62,32 +94,11 @@ module puremvc
 		}
 
 		/**
-		 * Get the <code>Mediator</code>'s view component.
-		 * 
-		 * <P>
-		 * Additionally, an implicit getter will usually
-		 * be defined in the subclass that casts the view 
-		 * object to a type, like this:</P>
-		 * 
-		 * <listing>
-		 *		private get comboBox:mx.controls.ComboBox
-		 *		{
-		 *			return viewComponent as mx.controls.ComboBox;
-		 *		}
-		 * </listing>
-		 * 
-		 * @return the view component
-		 */		
-		public getViewComponent():Object
-		{	
-			return this.viewComponent;
-		}
-
-		/**
-		 * List the <code>INotification</code> names this
-		 * <code>Mediator</code> is interested in being notified of.
-		 * 
-		 * @return Array the list of <code>INotification</code> names 
+		 * List the <code>INotification</code> names this <code>IMediator</code> is interested in
+		 * being notified of.
+		 *
+		 * @return {Array}
+		 * 		The list of notifications names in which is interested the <code>Mediator</code>.
 		 */
 		public listNotificationInterests():string[]
 		{
@@ -97,27 +108,25 @@ module puremvc
 		/**
 		 * Handle <code>INotification</code>s.
 		 * 
-		 * <P>
-		 * Typically this will be handled in a switch statement,
-		 * with one 'case' entry per <code>INotification</code>
-		 * the <code>Mediator</code> is interested in.
+		 *
+		 * Typically this will be handled in a switch statement, with one 'case' entry per
+		 * <code>INotification</code> the <code>Mediator</code> is interested in.
+		 *
+		 * @param {Notification} note
+		 * 		The notification instance to be handled.
 		 */ 
 		public handleNotification( notification:INotification ):void {}
-		
+
 		/**
-		 * Called by the View when the Mediator is registered
+		 * Called by the View when the Mediator is registered. This method has to be overridden
+		 * by the subclass to know when the instance is registered.
 		 */ 
 		public onRegister( ):void {}
 
 		/**
-		 * Called by the View when the Mediator is removed
+		 * Called by the View when the Mediator is removed. This method has to be overridden
+		 * by the subclass to know when the instance is removed.
 		 */ 
 		public onRemove( ):void {}
-
-		// the mediator name
-		public mediatorName:string;
-
-		// The view component
-		public viewComponent:Object;
 	}
 }

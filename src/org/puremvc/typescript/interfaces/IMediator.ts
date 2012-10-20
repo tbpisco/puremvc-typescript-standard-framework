@@ -9,44 +9,44 @@ module puremvc
 	/**
 	 * The interface definition for a PureMVC Mediator.
 	 *
-	 * <P>
-	 * In PureMVC, <code>IMediator</code> implementors assume these responsibilities:</P>
+	 *
+	 * In PureMVC, <code>IMediator</code> implementors assume these responsibilities:
 	 * <UL>
 	 * <LI>Implement a common method which returns a list of all <code>INotification</code>s 
-	 * the <code>IMediator</code> has interest in.</LI>
-	 * <LI>Implement a notification callback method.</LI>
-	 * <LI>Implement methods that are called when the IMediator is registered or removed from the View.</LI>
-	 * </UL>
-	 * <P>
+	 * the <code>IMediator</code> has interest in.
+	 * <LI>Implement a notification callback method.
+	 * <LI>Implement methods that are called when the IMediator is registered or removed from the View.
+	 *
+	 *
 	 * Additionally, <code>IMediator</code>s typically:
 	 * <UL>
 	 * <LI>Act as an intermediary between one or more view components such as text boxes or 
-	 * list controls, maintaining references and coordinating their behavior.</LI>
+	 * list controls, maintaining references and coordinating their behavior.
 	 * <LI>In Flash-based apps, this is often the place where event listeners are
-	 * added to view components, and their handlers implemented.</LI>
+	 * added to view components, and their handlers implemented.
 	 * <LI>Respond to and generate <code>INotifications</code>, interacting with of 
 	 * the rest of the PureMVC app.
-	 * </UL></P>
-	 * <P>
+	 *
+	 *
 	 * When an <code>IMediator</code> is registered with the <code>IView</code>, 
 	 * the <code>IView</code> will call the <code>IMediator</code>'s 
 	 * <code>listNotificationInterests</code> method. The <code>IMediator</code> will 
 	 * return a list of <code>INotification</code> names which
-	 * it wishes to be notified about.</P>
+	 * it wishes to be notified about.
 	 * 
-	 * <P>
+	 *
 	 * The <code>IView</code> will then create an <code>Observer</code> object 
 	 * encapsulating that <code>IMediator</code>'s (<code>handleNotification</code>) method
 	 * and register it as an Observer for each <code>INotification</code> name returned by 
-	 * <code>listNotificationInterests</code>.</P>
+	 * <code>listNotificationInterests</code>.
 	 * 
-	 * <P>
-	 * A concrete IMediator implementor usually looks something like this:</P>
+	 *
+	 * A concrete IMediator implementor usually looks something like this:
 	 * 
 	 * <listing>
-	 *	import org.puremvc.typescript.patterns.mediator.~~;
-	 *	import org.puremvc.typescript.patterns.observer.~~;
-	 *	import org.puremvc.typescript.core.view.~~;
+	 *	import puremvc.~~;
+	 *	import puremvc.~~;
+	 *	import puremvc.~~;
 	 * 
 	 *	import com.me.myapp.model.~~;
 	 *	import com.me.myapp.view.~~;
@@ -99,7 +99,7 @@ module puremvc
 	 * }
 	 * </listing>
 	 * 
-	 * @see org.puremvc.typescript.interfaces.INotification INotification
+	 * @see puremvc.interfaces.INotification INotification
 	 */
 	export interface IMediator
 	{

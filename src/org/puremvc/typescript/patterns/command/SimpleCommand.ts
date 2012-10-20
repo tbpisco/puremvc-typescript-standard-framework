@@ -3,41 +3,42 @@
  PureMVC - Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
+
+//Objs("puremvc.Notifier");
+//Objs("puremvc.ICommand);
+//Objs("puremvc.INotifier);
+
 module puremvc
 {
 	"use strict";
-	
+
 	/**
 	 * A base <code>ICommand</code> implementation.
 	 * 
-	 * <P>
-	 * Your subclass should override the <code>execute</code> 
-	 * method where your business logic will handle the <code>INotification</code>. </P>
+	 * Your subclass should override the <code>execute</code> method where your business logic will
+	 * handle the <code>INotification</code>.
 	 * 
-	 * @see org.puremvc.typescript.core.controller.Controller Controller
-	 * @see org.puremvc.typescript.patterns.observer.Notification Notification
-	 * @see org.puremvc.typescript.patterns.command.MacroCommand MacroCommand
+	 * @see puremvc.Controller Controller
+	 * @see puremvc.Notification Notification
+	 * @see puremvc.MacroCommand MacroCommand
 	 */
 	export class SimpleCommand
 		extends Notifier
 		implements ICommand, INotifier
 	{
-		
 		/**
 		 * Fulfill the use-case initiated by the given <code>INotification</code>.
 		 * 
-		 * <P>
-		 * In the Command Pattern, an application use-case typically
-		 * begins with some user action, which results in an <code>INotification</code> being broadcast, which 
-		 * is handled by business logic in the <code>execute</code> method of an
-		 * <code>ICommand</code>.</P>
+		 * In the Command Pattern, an application use-case typically begins with some user action,
+		 * which results in an <code>INotification</code> being broadcast, which is handled by
+		 * business logic in the <code>execute</code> method of an <code>ICommand</code>.
 		 * 
-		 * @param notification the <code>INotification</code> to handle.
+		 * @param notification
+		 * 		The <code>INotification</code> to handle.
 		 */
 		public execute( notification:INotification ):void
 		{
-			
+
 		}
-								
 	}
 }

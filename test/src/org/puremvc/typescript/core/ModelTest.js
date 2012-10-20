@@ -63,8 +63,7 @@ var ModelTest = new YUITest.TestCase
 
   		/**
   		 * Tests the proxy registration and retrieval methods.
-  		 * 
-  		 * <P>
+  		 *
   		 * Tests <code>registerProxy</code> and <code>retrieveProxy</code> in
   		 * the same test. These methods cannot currently be tested separately
   		 * in any meaningful way other than to show that the methods do not

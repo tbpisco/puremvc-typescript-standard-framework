@@ -10,50 +10,62 @@ module puremvc
 	/**
 	 * A base <code>INotification</code> implementation.
 	 * 
-	 * <P>
-	 * PureMVC does not rely upon underlying event models such 
-	 * as the one provided with Flash, and ActionScript 3 does 
-	 * not have an inherent event model.</P>
+	 *
+	 * PureMVC does not rely upon underlying event framework or language models and TypeScript does
+	 * not have an inherent event model.
 	 * 
-	 * <P>
-	 * The Observer Pattern as implemented within PureMVC exists 
-	 * to support event-driven communication between the 
-	 * application and the actors of the MVC triad.</P>
+	 * The Observer Pattern as implemented within PureMVC exists to support event-driven
+	 * communication between the application and the actors of the MVC triad.
+	 *
+	 * Notifications are not meant to be a replacement for Events in Flex/Flash/Air/Javascript.
+	 * Generally, <code>IMediator</code> implementors place event listeners on their view components,
+	 * which they then handle in the usual way. This may lead to the broadcast of
+	 * <code>INotification</code>s to trigger <code>ICommand</code>s or to communicate with other
+	 * <code>IMediators</code>. <code>IProxy</code> and <code>ICommand</code> instances communicate
+	 * with each other and <code>IMediator</code>s by broadcasting <code>INotification</code>s.
 	 * 
-	 * <P>
-	 * Notifications are not meant to be a replacement for Events
-	 * in Flex/Flash/Apollo. Generally, <code>IMediator</code> implementors
-	 * place event listeners on their view components, which they
-	 * then handle in the usual way. This may lead to the broadcast of <code>Notification</code>s to 
-	 * trigger <code>ICommand</code>s or to communicate with other <code>IMediators</code>. <code>IProxy</code> and <code>ICommand</code>
-	 * instances communicate with each other and <code>IMediator</code>s 
-	 * by broadcasting <code>INotification</code>s.</P>
+	 *
+	 * A key difference between JavaScript <code>Event</code>s and PureMVC
+	 * <code>INotification</code>s is that <code>Event</code>s follow the 'Chain of Responsibility'
+	 * pattern, 'bubbling' up the display hierarchy until some parent component handles the
+	 * <code>Event</code>, while PureMVC <code>INotification</code>s follow a 'Publish/Subscribe'
+	 * pattern. PureMVC classes need not be related to each other in a parent/child relationship in
+	 * order to communicate with one another using <code>INotification</code>s.
 	 * 
-	 * <P>
-	 * A key difference between Flash <code>Event</code>s and PureMVC 
-	 * <code>Notification</code>s is that <code>Event</code>s follow the 
-	 * 'Chain of Responsibility' pattern, 'bubbling' up the display hierarchy 
-	 * until some parent component handles the <code>Event</code>, while
-	 * PureMVC <code>Notification</code>s follow a 'Publish/Subscribe'
-	 * pattern. PureMVC classes need not be related to each other in a 
-	 * parent/child relationship in order to communicate with one another
-	 * using <code>Notification</code>s.
-	 * 
-	 * @see org.puremvc.typescript.patterns.observer.Observer Observer
+	 * @see puremvc.Observer Observer
 	 * 
 	 */
 	export class Notification
 		implements INotification
 	{
+		/**
+		 * The name of the notification.
+		 */
+		private name:string;
+
+		/**
+		 * The body data to send with the notification.
+		 */
+		private body:Object;
 		
 		/**
-		 * Constructor. 
-		 * 
-		 * @param name name of the <code>Notification</code> instance. (required)
-		 * @param body the <code>Notification</code> body. (optional)
-		 * @param type the type of the <code>Notification</code> (optional)
+		 * The type identifier of the notification.
 		 */
-		constructor( name:string, body:Object, type:string )
+		private type:string;
+				
+		/**
+		 * Constructs a <code>Notification</code> instance.
+		 *
+		 * @param {String} name
+		 * 		The name of the notification.
+		 *
+		 * @param {Object} body
+		 * 		(optional) Body data to send with the notification.
+		 * 
+		 * @param {String} type (optional)
+		 * 		Type identifier of the notification.
+		 */
+		constructor( name:string, body:Object=null, type:string=null )
 		{
 			this.name = name;
 			this.body = body;
@@ -114,19 +126,9 @@ module puremvc
 		public toString():string
 		{
 			var msg:string = "Notification Name: " + this.getName();
-			msg += "\nBody:" + (( this.body == null ) ? "null" : this.body.toString());
-			msg += "\nType:" + (( this.type == null ) ? "null" : this.type);
+			msg += "\nBody:" + (( this.getBody() == null ) ? "null" : this.getBody().toString());
+			msg += "\nType:" + (( this.getType() == null ) ? "null" : this.getType());
 			return msg;
-		}
-		
-		// the name of the notification instance
-		private name:string;
-
-		// the type of the notification instance
-		private type:string;
-
-		// the body of the notification instance
-		private body:Object;
-		
+		}		
 	}
 }

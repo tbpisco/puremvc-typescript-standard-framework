@@ -9,23 +9,23 @@ module puremvc
 	/**
 	 * The interface definition for a PureMVC View.
 	 * 
-	 * <P>
-	 * In PureMVC, <code>IView</code> implementors assume these responsibilities:</P>
+	 *
+	 * In PureMVC, <code>IView</code> implementors assume these responsibilities:
 	 * 
-	 * <P>
+	 *
 	 * In PureMVC, the <code>View</code> class assumes these responsibilities:
 	 * <UL>
-	 * <LI>Maintain a cache of <code>IMediator</code> instances.</LI>
-	 * <LI>Provide methods for registering, retrieving, and removing <code>IMediators</code>.</LI>
-	 * <LI>Managing the observer lists for each <code>INotification</code> in the application.</LI>
-	 * <LI>Providing a method for attaching <code>IObservers</code> to an <code>INotification</code>'s observer list.</LI>
-	 * <LI>Providing a method for broadcasting an <code>INotification</code>.</LI>
-	 * <LI>Notifying the <code>IObservers</code> of a given <code>INotification</code> when it broadcast.</LI>
-	 * </UL>
+	 * <LI>Maintain a cache of <code>IMediator</code> instances.
+	 * <LI>Provide methods for registering, retrieving, and removing <code>IMediators</code>.
+	 * <LI>Managing the observer lists for each <code>INotification</code> in the application.
+	 * <LI>Providing a method for attaching <code>IObservers</code> to an <code>INotification</code>'s observer list.
+	 * <LI>Providing a method for broadcasting an <code>INotification</code>.
+	 * <LI>Notifying the <code>IObservers</code> of a given <code>INotification</code> when it broadcast.
+	 *
 	 * 
-	 * @see org.puremvc.typescript.interfaces.IMediator IMediator
-	 * @see org.puremvc.typescript.interfaces.IObserver IObserver
-	 * @see org.puremvc.typescript.interfaces.INotification INotification
+	 * @see puremvc.interfaces.IMediator IMediator
+	 * @see puremvc.interfaces.IObserver IObserver
+	 * @see puremvc.interfaces.INotification INotification
 	 */
 	export interface IView
 	{
@@ -41,7 +41,7 @@ module puremvc
 
 		/**
 		 * Remove a group of observers from the observer list for a given Notification name.
-		 * <P>
+		 *
 		 * @param notificationName which observer list to remove from 
 		 * @param notifyContext removed the observers with this object as their notifyContext
 		 */
@@ -50,10 +50,10 @@ module puremvc
 		/**
 		 * Notify the <code>IObservers</code> for a particular <code>INotification</code>.
 		 * 
-		 * <P>
+		 *
 		 * All previously attached <code>IObservers</code> for this <code>INotification</code>'s
 		 * list are notified and are passed a reference to the <code>INotification</code> in 
-		 * the order in which they were registered.</P>
+		 * the order in which they were registered.
 		 * 
 		 * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
 		 */
@@ -62,11 +62,11 @@ module puremvc
 		/**
 		 * Register an <code>IMediator</code> instance with the <code>View</code>.
 		 * 
-		 * <P>
+		 *
 		 * Registers the <code>IMediator</code> so that it can be retrieved by name,
 		 * and further interrogates the <code>IMediator</code> for its 
-		 * <code>INotification</code> interests.</P>
-		 * <P>
+		 * <code>INotification</code> interests.
+		 *
 		 * If the <code>IMediator</code> returns any <code>INotification</code> 
 		 * names to be notified about, an <code>Observer</code> is created encapsulating 
 		 * the <code>IMediator</code> instance's <code>handleNotification</code> method 

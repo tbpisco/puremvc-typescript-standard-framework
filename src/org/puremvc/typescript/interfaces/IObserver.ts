@@ -9,41 +9,41 @@ module puremvc
 	/**
 	 * The interface definition for a PureMVC Observer.
 	 *
-	 * <P>
+	 *
 	 * In PureMVC, <code>IObserver</code> implementors assume these responsibilities:
 	 * <UL>
-	 * <LI>Encapsulate the notification (callback) method of the interested object.</LI>
-	 * <LI>Encapsulate the notification context (this) of the interested object.</LI>
-	 * <LI>Provide methods for setting the interested object' notification method and context.</LI>
-	 * <LI>Provide a method for notifying the interested object.</LI>
-	 * </UL>
+	 * <LI>Encapsulate the notification (callback) method of the interested object.
+	 * <LI>Encapsulate the notification context (this) of the interested object.
+	 * <LI>Provide methods for setting the interested object' notification method and context.
+	 * <LI>Provide a method for notifying the interested object.
+	 *
 	 * 
-	 * <P>
+	 *
 	 * PureMVC does not rely upon underlying event
 	 * models such as the one provided with Flash,
 	 * and ActionScript 3 does not have an inherent
-	 * event model.</P>
+	 * event model.
 	 * 
-	 * <P>
+	 *
 	 * The Observer Pattern as implemented within
 	 * PureMVC exists to support event driven communication
 	 * between the application and the actors of the
-	 * MVC triad.</P>
+	 * MVC triad.
 	 * 
-	 * <P> 
+	 *
 	 * An Observer is an object that encapsulates information
 	 * about an interested object with a notification method that
 	 * should be called when an </code>INotification</code> is broadcast. The Observer then
 	 * acts as a proxy for notifying the interested object.
 	 * 
-	 * <P>
+	 *
 	 * Observers can receive <code>Notification</code>s by having their
 	 * <code>notifyObserver</code> method invoked, passing
 	 * in an object implementing the <code>INotification</code> interface, such
-	 * as a subclass of <code>Notification</code>.</P>
+	 * as a subclass of <code>Notification</code>.
 	 * 
-	 * @see org.puremvc.typescript.interfaces.IView IView
-	 * @see org.puremvc.typescript.interfaces.INotification INotification
+	 * @see puremvc.interfaces.IView IView
+	 * @see puremvc.interfaces.INotification INotification
 	 */
 	export interface IObserver
 	{
@@ -52,8 +52,8 @@ module puremvc
 		/**
 		 * Set the notification method.
 		 * 
-		 * <P>
-		 * The notification method should take one parameter of type <code>INotification</code></P>
+		 *
+		 * The notification method should take one parameter of type <code>INotification</code>
 		 * 
 		 * @param notifyMethod the notification (callback) method of the interested object
 		 */

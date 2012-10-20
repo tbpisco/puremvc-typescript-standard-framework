@@ -10,47 +10,54 @@ module puremvc
 	/**
 	 * A Base <code>INotifier</code> implementation.
 	 * 
-	 * <P>
-	 * <code>MacroCommand, Command, Mediator</code> and <code>Proxy</code> 
-	 * all have a need to send <code>Notifications</code>. <P>
-	 * <P>
+	 *
+	 * <code>MacroCommand</code>, <code>Command</code>, <code>Mediator</code> and <code>Proxy</code>
+	 * all have a need to send <code>Notifications</code>.
+	 * 
 	 * The <code>INotifier</code> interface provides a common method called
-	 * <code>sendNotification</code> that relieves implementation code of 
-	 * the necessity to actually construct <code>Notifications</code>.</P>
+	 * <code>sendNotification</code> that relieves implementation code of the necessity to actually
+	 * construct <code>Notification</code>s.
+	 *
+	 * The <code>INotifier</code> interface, which all of the above mentioned classes extend,
+	 * provides an initialized reference to the <code>Facade</code> singleton, which is required by
+	 * the convenience method <code>sendNotification</code>	for sending <code>Notifications</code>,
+	 * but it also eases implementation as these classes have frequent <code>Facade</code>
+	 * interactions and usually require access to the facade anyway.
 	 * 
-	 * <P>
-	 * The <code>Notifier</code> class, which all of the above mentioned classes
-	 * extend, provides an initialized reference to the <code>Facade</code>
-	 * Singleton, which is required for the convienience method
-	 * for sending <code>Notifications</code>, but also eases implementation as these
-	 * classes have frequent <code>Facade</code> interactions and usually require
-	 * access to the facade anyway.</P>
-	 * 
-	 * @see org.puremvc.typescript.patterns.facade.Facade Facade
-	 * @see org.puremvc.typescript.patterns.mediator.Mediator Mediator
-	 * @see org.puremvc.typescript.patterns.proxy.Proxy Proxy
-	 * @see org.puremvc.typescript.patterns.command.SimpleCommand SimpleCommand
-	 * @see org.puremvc.typescript.patterns.command.MacroCommand MacroCommand
+	 * @see puremvc.Facade Facade
+	 * @see puremvc.Mediator Mediator
+	 * @see puremvc.Proxy Proxy
+	 * @see puremvc.SimpleCommand SimpleCommand
+	 * @see puremvc.MacroCommand MacroCommand
 	 */
 	export class Notifier
 		implements INotifier
 	{
+	
 		/**
-		 * Create and send an <code>INotification</code>.
+		 * Local reference to the <code>Facade</code> of this core.
+		 */
+		public facade:IFacade = Facade.getInstance();
+		
+		/**
+		 * Create and send a <code>Notification</code>.
+		 *
+		 * Keeps us from having to construct new <code>Notification</code> instances in our
+		 * implementation code.
 		 * 
-		 * <P>
-		 * Keeps us from having to construct new INotification 
-		 * instances in our implementation code.
-		 * @param notificationName the name of the notiification to send
-		 * @param body the body of the notification (optional)
-		 * @param type the type of the notification (optional)
-		 */ 
-		public sendNotification( notificationName:string, body:Object, type:string ):void
+		 * @param name
+		 * 		The name of the notification to send.
+		 * 
+		 * @param body
+		 * 		The body of the notification (optional).
+		 *
+		 * @param type
+		 * 		The type of the notification (optional).
+		 */
+		//TODO optional
+		public sendNotification( notificationName:string, body:Object=null, type:string=null ):void
 		{
 			this.facade.sendNotification( notificationName, body, type );
 		}
-		
-		// Local reference to the Facade Singleton
-		public facade:IFacade = Facade.getInstance();
 	}
 }

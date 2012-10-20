@@ -8,17 +8,17 @@ module puremvc
 	/**
 	 * The interface definition for a PureMVC Model.
 	 * 
-	 * <P>
+	 *
 	 * In PureMVC, <code>IModel</code> implementors provide
-	 * access to <code>IProxy</code> objects by named lookup. </P>
+	 * access to <code>IProxy</code> objects by named lookup.
 	 * 
-	 * <P>
-	 * An <code>IModel</code> assumes these responsibilities:</P>
+	 *
+	 * An <code>IModel</code> assumes these responsibilities:
 	 * 
 	 * <UL>
-	 * <LI>Maintain a cache of <code>IProxy</code> instances</LI>
-	 * <LI>Provide methods for registering, retrieving, and removing <code>IProxy</code> instances</LI>
-	 * </UL>
+	 * <LI>Maintain a cache of <code>IProxy</code> instances
+	 * <LI>Provide methods for registering, retrieving, and removing <code>IProxy</code> instances
+	 *
 	 */
 	export interface IModel
 	{
