@@ -16,9 +16,9 @@
  */
 var ProxyTestSub = function()
 {
-	extract("puremvc.ProxyTestSub").call(this);
+	extract("puremvc.Proxy").call(this);
 }
-__extends( ProxyTestSub, extract("puremvc.ProxyTestSub") );
+__extends( ProxyTestSub, extract("puremvc.Proxy") );
 
 /**
  * A method to test if <code>Facade</code> instance of the object has
