@@ -31,7 +31,6 @@ module puremvc
 	export class View
 		implements IView
 	{
-
 		/**
 		 * Mapping of <code>Mediator</code> names to <code>Mediator</code> instances.
 		 *

@@ -5,7 +5,6 @@
 */
 module puremvc
 {
-	
 	/**
 	 * The interface definition for a PureMVC Observer.
 	 *
@@ -35,37 +34,42 @@ module puremvc
 	 */
 	export interface IObserver
 	{
-		//import INotification = module("puremvc").INotification;
-
 		/**
 		 * Set the notification method.
-		 * 
 		 *
-		 * The notification method should take one parameter of type <code>INotification</code>
+		 * The notification method should take one parameter of type <code>INotification</code>.
 		 * 
-		 * @param notifyMethod the notification (callback) method of the interested object
+		 * @param notifyMethod
+		 * 		The notification (callback) method of the interested object.
 		 */
 		setNotifyMethod( notifyMethod:Function ):void;
 		
 		/**
+		/**
 		 * Set the notification context.
 		 * 
-		 * @param notifyContext the notification context (this) of the interested object
+		 * @param notifyContext
+		 * 		The notification context (this) of the interested object.
 		 */
 		setNotifyContext( notifyContext:Object ):void;
 		
 		/**
 		 * Notify the interested object.
 		 * 
-		 * @param notification the <code>INotification</code> to pass to the interested object's notification method
+		 * @param note
+		 * 		The <code>INotification</code> to pass to the interested object's notification
+		 * 		method.
 		 */
 		notifyObserver( notification:INotification ):void;
 		
 		/**
-		 * Compare the given object to the notificaiton context object.
-		 * 
-		 * @param object the object to compare.
-		 * @return boolean indicating if the notification context and the object are the same.
+		 * Compare an object to the notification context.
+		 *
+		 * @param object
+		 * 		The object to compare.
+		 *
+		 * @return
+		 * 		The object and the notification context are the same.
 		 */
 		compareNotifyContext( object:Object ):Boolean;
 	}

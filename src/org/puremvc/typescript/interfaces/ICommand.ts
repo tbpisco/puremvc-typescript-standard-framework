@@ -5,7 +5,6 @@
 */
 module puremvc
 {
-
 	/**
 	 * The interface definition for a PureMVC Command.
 	 */

@@ -168,7 +168,6 @@ module puremvc
 				delete this.commandMap[notificationName];
 			}
 		}
-	
 
 		/**
 		 * Singleton instance local reference.

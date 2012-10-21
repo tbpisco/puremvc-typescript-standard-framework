@@ -30,7 +30,6 @@ module puremvc
 	export class Model
 		implements IModel
 	{
-
 		/**
 		 * HashTable of <code>IProxy</code> registered with the <code>Model</code>.
 		 * @protected
@@ -80,7 +79,6 @@ module puremvc
 			proxy.onRegister();
 		}
 
-
 		/**
 		 * Remove an <code>IProxy</code> from the <code>Model</code>.
 		 *
@@ -102,7 +100,7 @@ module puremvc
 			
 			return proxy;
 		}
-		
+
 		/**
 		 * Retrieve an <code>IProxy</code> from the <code>Model</code>.
 		 * 
@@ -118,7 +116,7 @@ module puremvc
 				//Return a strict null when the proxy doesn't exist
 				return this.proxyMap[proxyName] || null;
 		}
-		
+
 		/**
 		 * Check if a Proxy is registered
 		 * 
@@ -132,7 +130,7 @@ module puremvc
 		{
 			return this.proxyMap[ proxyName ] != null;
 		}
-		
+
 		/**
 		 * Error message used to indicate that a controller singleton is already constructed when
 		 * trying to constructs the class twice.

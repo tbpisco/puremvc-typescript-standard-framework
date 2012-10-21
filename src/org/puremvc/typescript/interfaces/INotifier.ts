@@ -7,7 +7,6 @@ module puremvc
 {
 	/**
 	 * The interface definition for a PureMVC <code>Notifier</code>.
-	 * 
 	 *
 	 * <code>MacroCommand</code>, <code>SimpleCommand</code>, <code>Mediator</code> and
 	 * <code>Proxy</code> all have a need to send <code>Notifications</code>.
@@ -28,7 +27,6 @@ module puremvc
 	 * @see puremvc.SimpleCommand SimpleCommand
 	 * @see puremvc.MacroCommand MacroCommand
 	 */
-
 	export interface INotifier
 	{
 		/**

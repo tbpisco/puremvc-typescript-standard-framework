@@ -20,9 +20,6 @@ module puremvc
 	export interface IFacade
 		extends INotifier
 	{
-
-		/**
-
 		/**
 		 * Register an <code>ICommand</code> with the <code>IController</code> associating it to a
 		 * <code>INotification</code> name.
@@ -103,7 +100,6 @@ module puremvc
 		 */
 		hasProxy( proxyName:string ):Boolean;
 
-		
 		/**
 		 * Register a <code>IMediator</code> with the <code>IView</code>.
 		 *
@@ -160,7 +156,6 @@ module puremvc
 		 * @param notification
 		 * 		The <code>INotification</code> to have the <code>IView</code> notify
 		 *		<code>IObserver</code>s	of.
-		 */
 		 */
 		notifyObservers( note:INotification ):void;
 	}

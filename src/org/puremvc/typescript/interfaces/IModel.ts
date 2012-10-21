@@ -30,7 +30,6 @@ module puremvc
 		 */
 		registerProxy( proxy:IProxy ):void;
 
-
 		/**
 		 * Remove an <code>IProxy</code> from the <code>Model</code>.
 		 *
@@ -54,6 +53,7 @@ module puremvc
 		 *		<code>proxyName</code> or an explicit <code>null</code> if it doesn't exists.
 		 */
 		retrieveProxy( proxyName:string ):IProxy;
+
 		/**
 		 * Check if a Proxy is registered
 		 * 
@@ -64,6 +64,5 @@ module puremvc
 		 *		A Proxy is currently registered with the given <code>proxyName</code>.
 		 */
 		hasProxy( proxyName:string ):Boolean;
-
 	}
 }

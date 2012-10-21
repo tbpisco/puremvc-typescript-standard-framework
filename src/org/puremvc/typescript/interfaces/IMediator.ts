@@ -42,7 +42,6 @@ module puremvc
 	 */
 	export interface IMediator
 	{
-		
 		/**
 		 * Get the <code>IMediator</code> instance name
 		 * 
@@ -65,7 +64,7 @@ module puremvc
 		 * </code>
 		 * 
 		 * @return
-		 * 		The view component.
+		 * 		The <code>Mediator</code>'s view component.
 		 */
 		getViewComponent():Object;
 
@@ -73,7 +72,7 @@ module puremvc
 		 * Set the <code>IMediator</code>'s view component.
 		 * 
 		 * @param viewComponent
-		 * 		The view component.
+		 * 		The default view component to set for this <code>Mediator</code>.
 		 */
 		setViewComponent( viewComponent:Object ):void;
 		
@@ -109,6 +108,5 @@ module puremvc
 		 * by the subclass to know when the instance is removed.
 		 */ 
 		onRemove():void;
-		
 	}
 }

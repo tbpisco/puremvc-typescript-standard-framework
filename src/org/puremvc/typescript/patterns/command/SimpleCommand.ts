@@ -17,7 +17,6 @@ module puremvc
 	 * 
 	 * Your subclass should override the <code>execute</code> method where your business logic will
 	 * handle the <code>INotification</code>.
-
 	 */
 	export class SimpleCommand
 		extends Notifier

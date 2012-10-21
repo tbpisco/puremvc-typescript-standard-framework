@@ -5,7 +5,6 @@
 */
 module puremvc
 {
-	
 	/**
 	 * The interface definition for a PureMVC Proxy.
 	 *
@@ -25,7 +24,6 @@ module puremvc
 	 */
 	export interface IProxy
 	{
-
 		/**
 		 * Get the name of the <code>IProxy></code> instance.
 		 *

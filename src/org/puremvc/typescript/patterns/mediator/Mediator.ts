@@ -31,7 +31,6 @@ module puremvc
 		 */
 		private viewComponent:Object;
 
-		
 		/**
 		 * Constructs a <code>Mediator</code> instance.
 		 *
@@ -74,18 +73,18 @@ module puremvc
 		 * </code>
 		 * 
 		 * @return
-		 * 		The view component.
+		 * 		The <code>Mediator</code>'s view component.
 		 */
 		public getViewComponent():Object
 		{	
 			return this.viewComponent;
 		}
-		
+
 		/**
 		 * Set the <code>IMediator</code>'s view component.
 		 * 
 		 * @param viewComponent
-		 * 		The view component.
+		 * 		The default view component to set for this <code>Mediator</code>.
 		 */
 		public setViewComponent( viewComponent:Object ):void
 		{

@@ -110,8 +110,8 @@ module puremvc
 		/**
 		 * Notify the interested object.
 		 * 
-		 * @param {Notification} note
-		 * 		The <code>Notification</code> to pass to the interested object's notification
+		 * @param note
+		 * 		The <code>INotification</code> to pass to the interested object's notification
 		 * 		method.
 		 */
 		public notifyObserver( notification:INotification ):void

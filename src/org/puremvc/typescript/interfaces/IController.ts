@@ -78,6 +78,5 @@ module puremvc
 		 * 		mapping for.
 		 */
 		removeCommand( notificationName:string ):void;
-
 	}
 }

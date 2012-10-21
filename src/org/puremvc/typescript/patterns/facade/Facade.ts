@@ -35,7 +35,6 @@ module puremvc
 	export class Facade
 		implements IFacade
 	{
-		
 		/**
 		 * Local reference to the <code>Model</code> singleton.
 		 *
@@ -56,7 +55,6 @@ module puremvc
 		 * @protected
 		 */
 		private controller:IController;
-		
 
 		/**
 		 * Constructor. 
@@ -93,7 +91,6 @@ module puremvc
 			this.initializeController();
 			this.initializeView();
 		}
-
 
 		/**
 		 * Initialize the <code>Model</code>.
@@ -392,7 +389,6 @@ module puremvc
 		 */
 		private static instance:IFacade;
 
-		
 		/**
 		 * Facade Singleton factory method.
 		 * 

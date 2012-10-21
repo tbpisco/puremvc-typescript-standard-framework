@@ -10,7 +10,7 @@ module puremvc
 	 *
 	 * PureMVC does not rely upon underlying event models such as the one provided in JavaScript DOM API,
 	 * and TypeScript does not have an inherent event model.
-	 * 
+	 *
 	 * The Observer pattern as implemented within PureMVC exists to support event-driven
 	 * communication between the application and the actors of the MVC triad (Model, View and
 	 * Controller).
@@ -28,7 +28,7 @@ module puremvc
 	 * <code>Event</code>, while PureMVC <code>INotification</code>s follow a 'Publish/Subscribe'
 	 * pattern. PureMVC classes need not be related to each other in a parent/child relationship in
 	 * order to communicate with one another using <code>INotification</code>s.
-	 * 
+	 *
 	 * @see puremvc.IView IView
 	 * @see puremvc.IObserver IObserver
 	 */
@@ -49,7 +49,7 @@ module puremvc
 		 * 		The body of the notification instance.
 		 */
 		setBody( body:Object ):void;
-		
+
 		/**
 		 * Get the body of the <code>INotification</code>.
 		 * 
@@ -57,7 +57,7 @@ module puremvc
 		 *		The body object of the <code>INotification</code>.
 		 */
 		getBody():Object;
-		
+
 		/**
 		 * Set the type of the <code>INotification</code>.
 		 *
@@ -65,7 +65,7 @@ module puremvc
 		 * 		The type identifier for the notification.
 		 */
 		setType( type:string ):void;
-		
+
 		/**
 		 * Get the type of the <code>INotification</code>.
 		 * 

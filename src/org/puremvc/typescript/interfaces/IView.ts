@@ -5,7 +5,6 @@
 */
 module puremvc
 {
-
 	/**
 	 * The interface definition for a PureMVC view.
 	 *
@@ -26,7 +25,6 @@ module puremvc
 	 */
 	export interface IView
 	{
-		
 		/**
 		 * Register an <code>IObserver</code> to be notified of <code>INotifications</code> with a
 		 * given name.
@@ -116,7 +114,5 @@ module puremvc
 		 *		A <code>Mediator</code> is registered with the given <code>mediatorName</code>.
 		 */
 		hasMediator( mediatorName:string ):Boolean;
-		
 	}
-	
 }

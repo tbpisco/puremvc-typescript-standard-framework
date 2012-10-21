@@ -22,26 +22,24 @@ module puremvc
 	 * the convenience method <code>sendNotification</code>	for sending <code>Notifications</code>,
 	 * but it also eases implementation as these classes have frequent <code>Facade</code>
 	 * interactions and usually require access to the facade anyway.
-	 *
 	 */
 	export class Notifier
 		implements INotifier
 	{
-
 		/**
 		 * Local reference to the singleton <code>Facade</code>.
 		 *
 		 * @protected
 		 */
-		private facade:IFacade = null;
+		private facade:IFacade;
 		
 		/**
 		 * Constructs a <code>Notifier</code> instance.
 		 */
-		constructor = function()
+		constructor()
 		{
 			this.facade = Facade.getInstance();
-		},
+		}
 
 		/**
 		 * Create and send a <code>Notification</code>.
