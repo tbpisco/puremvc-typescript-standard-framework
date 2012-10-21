@@ -59,7 +59,7 @@ var ProxyTest = new YUITest.TestCase
   		 */
   		testConstructor: function()
 		{
-    		var Proxy = Objs("puremvc.Proxy");
+    		var Proxy = extract("puremvc.Proxy");
 
 			// Create a new Proxy using the Constructor to set the name and data
    			var proxy/*Proxy*/ = new Proxy('colors',['red', 'green', 'blue']);
