@@ -13,10 +13,10 @@ module puremvc
 	/**
 	 * The <code>Model</code> class for PureMVC.
 	 *
-	 * A Singleton <code>IModel</code> implementation.
+	 * A singleton <code>IModel</code> implementation.
 	 *
-	 * In PureMVC, the <code>IModel</code> class provides access to model objects (Proxies) by named
-	 * lookup.
+	 * In PureMVC, the <code>IModel</code> class provides access to model objects
+	 * <code>Proxie</code>s by named lookup.
 	 *
 	 * The <code>Model</code> assumes these responsibilities:
 	 * <UL>
@@ -26,9 +26,6 @@ module puremvc
 	 * Your application must register <code>IProxy</code> instances with the <code>Model</code>.
 	 * Typically, you use an <code>ICommand</code> to create and register <code>Proxy</code> instances
 	 * once the <code>Facade</code> has initialized the Core actors.
-	 *
-	 * @see puremvc.Proxy Proxy
-	 * @see puremvc.interfaces.IProxy IProxy
 	 */
 	export class Model
 		implements IModel
@@ -38,7 +35,7 @@ module puremvc
 		 * HashTable of <code>IProxy</code> registered with the <code>Model</code>.
 		 * @protected
 		 */
-		public proxyMap:Object;
+		private proxyMap:Object;
 
 		/**
 		 * This <code>IModel</code> implementation is a Singleton,  so you should not call the
@@ -54,34 +51,21 @@ module puremvc
 				throw Error( Model.SINGLETON_MSG );
 
 			Model.instance = this;
-			this.proxyMap = new Object();
+			this.proxyMap = {};
 			this.initializeModel();
 		}
 		
 		/**
 		 * Initialize the Singleton <code>Model</code> instance.
-		 * 
 		 *
 		 * Called automatically by the constructor, this is the opportunity to initialize the
 		 * Singleton instance in a subclass without overriding the constructor.
+		 *
+		 * @protected
 		 */
-		/*protected*/public initializeModel():void
+		private initializeModel():void
 		{
 
-		}
-				
-		/**
-		 * <code>Model</code> Singleton Factory method.
-		 * 
-		 * @return
-		 *		The Singleton instance.
-		 */
-		public static getInstance():IModel
-		{
-			if( !Model.instance )
-				Model.instance = new Model();
-
-			return Model.instance;
 		}
 
 		/**
@@ -96,6 +80,29 @@ module puremvc
 			proxy.onRegister();
 		}
 
+
+		/**
+		 * Remove an <code>IProxy</code> from the <code>Model</code>.
+		 *
+		 * @param {String} proxyName
+		 *		The name of the <code>Proxy</code> instance to be removed.
+		 *
+		 * @return {IProxy}
+		 *		The <code>IProxy</code> that was removed from the <code>Model</code> or an
+		 *		explicit <code>null</null> if the <code>IProxy</code> didn't exist.
+		 */
+		public removeProxy( proxyName:string ):IProxy
+		{
+			var proxy:IProxy = this.proxyMap[ proxyName ];
+			if( proxy )
+			{
+				delete this.proxyMap[ proxyName ];
+				proxy.onRemove();
+			}
+			
+			return proxy;
+		}
+		
 		/**
 		 * Retrieve an <code>IProxy</code> from the <code>Model</code>.
 		 * 
@@ -111,7 +118,7 @@ module puremvc
 				//Return a strict null when the proxy doesn't exist
 				return this.proxyMap[proxyName] || null;
 		}
-
+		
 		/**
 		 * Check if a Proxy is registered
 		 * 
@@ -125,43 +132,35 @@ module puremvc
 		{
 			return this.proxyMap[ proxyName ] != null;
 		}
+		
+		/**
+		 * Error message used to indicate that a controller singleton is already constructed when
+		 * trying to constructs the class twice.
+		 *
+		 * @constant
+		 * @protected
+		 */
+		 private static SINGLETON_MSG:string = "Model Singleton already constructed!";
 
 		/**
-		 * Remove an <code>IProxy</code> from the <code>Model</code>.
+		 * Singleton instance local reference.
 		 *
-		 * @param {String} proxyName
-		 *		The name of the <code>Proxy</code> instance to be removed.
-		 *
-		 * @return {Proxy}
-		 *		The <code>Proxy</code> that was removed from the <code>Model</code> or an
-		 *		explicit <code>null</null> if the <code>Proxy</code> didn't exist.
+		 * @protected
 		 */
-		public removeProxy( proxyName:string ):IProxy
+		 private static instance:IModel;
+				
+		/**
+		 * <code>Model</code> singleton factory method.
+		 * 
+		 * @return
+		 * 		The singleton instance of the <code>Model</code>.
+		 */
+		public static getInstance():IModel
 		{
-			var proxy:IProxy = this.proxyMap[ proxyName ];
-			if( proxy )
-			{
-				delete this.proxyMap[ proxyName ];
-				proxy.onRemove();
-			}
-			
-			return proxy;
+			if( !Model.instance )
+				Model.instance = new Model();
+
+			return Model.instance;
 		}
-	/**
-	 * Singleton instance.
-	 *
-	 * @protected
-	 */
-	 public static instance:IModel;
-
-	/**
-	 * Error message used to indicate that a controller singleton is already constructed when
-	 * trying to constructs the class twice.
-	 *
-	 * @constant
-	 * @protected
-	 */
-	 public static SINGLETON_MSG:string = "Model Singleton already constructed!";
-
 	}
 }

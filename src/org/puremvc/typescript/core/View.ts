@@ -11,7 +11,9 @@ module puremvc
 	"use strict";
 
 	/**
-	 * A Singleton <code>IView</code> implementation.
+	 * The <code>View</code> class for PureMVC.
+	 *
+	 * A singleton <code>IView</code> implementation.
 	 *
 	 * In PureMVC, the <code>View</code> class assumes these responsibilities:
 	 * <UL>
@@ -25,22 +27,32 @@ module puremvc
 	 * <LI>Providing a method for broadcasting an <code>INotification</code>.
 	 * <LI>Notifying the <code>IObserver</code>s of a given <code>INotification</code> when it
 	 * broadcasts.
-	 *
-	 * 
-	 * @see puremvc.Mediator Mediator
-	 * @see puremvc.Observer Observer
-	 * @see puremvc.Notification Notification
 	 */
 	export class View
 		implements IView
 	{
+
+		/**
+		 * Mapping of <code>Mediator</code> names to <code>Mediator</code> instances.
+		 *
+		 * @protected
+		 */
+		private mediatorMap:Object;
+
+		/**
+		 * Mapping of <code>Notification</code> names to <code>Observers</code> lists.
+		 *
+		 * @protected
+		 */
+		private observerMap:Object;
+
 		/**
 		 * This <code>IView</code> implementation is a Singleton, so you should not call the
 		 * constructor directly, but instead call the static Singleton Factory method
 		 * <code>View.getInstance()</code>.
 		 * 
 		 * @throws Error
-		 * 		Error if Singleton instance has already been constructed.
+		 * 		Throws an error if an instance for this singleton has already been constructed.
 		 */
 		constructor()
 		{
@@ -48,35 +60,22 @@ module puremvc
 				throw Error( View.SINGLETON_MSG );
 
 			View.instance = this;
-			this.mediatorMap = new Object();
-			this.observerMap = new Object();
+			this.mediatorMap = {};
+			this.observerMap = {};
 			this.initializeView();
 		}
 		
 		/**
 		 * Initialize the Singleton View instance.
 		 * 
-		 * Called automatically by the constructor, this is the opportunity to initialize the
-		 * Singleton instance in the subclass without overriding the constructor.
+		 * Called automatically by the constructor. This is the opportunity to initialize the
+		 * singleton instance in a subclass without overriding the constructor.
 		 */
 		public initializeView():void
 		{
-		}
-	
-		/**
-		 * View Singleton Factory method.
-		 * 
-		 * @return
-		 * 		The Singleton instance of <code>View</code>.
-		 */
-		public static getInstance():IView
-		{
-			if( View.instance == null )
-				View.instance = new View();
 
-			return View.instance;
 		}
-				
+
 		/**
 		 * Register an <code>IObserver</code> to be notified of <code>INotifications</code> with a
 		 * given name.
@@ -98,35 +97,7 @@ module puremvc
 		}
 
 		/**
-		 * Notify the <code>IObserver</code>s for a particular <code>INotification</code>.
-		 *
-		 * All previously attached <code>IObserver</code>s for this <code>INotification</code>'s
-		 * list are notified and are passed a reference to the <code>INotification</code> in the
-		 * order in which they were registered.
-		 * 
-		 * @param notification
-		 * 		The <code>INotification</code> to notify <code>IObserver</code>s of.
-		 */
-		public notifyObservers( notification:INotification ):void
-		{
-			var notificationName:string = notification.getName();
-			
-			var observersRef/*Array*/ = this.observerMap[notificationName];
-			if( observersRef )
-			{
-				// Copy the array.
-				var observers/*Array*/ = observersRef.slice(0);
-				var len/*Number*/ = observers.length;
-				for( var i/*Number*/=0; i<len; i++ )
-				{
-					var observer/*Observer*/ = observers[i];
-					observer.notifyObserver(notification);
-				}
-			}
-		}
-
-		/**
-		 * Remove the <code>Observer</code> for a given <code>notifyContext</code> from an
+		 * Remove a list of <code>Observer</code>s for a given <code>notifyContext</code> from an
 		 * <code>Observer</code> list for a given <code>INotification</code> name.
 		 *
 		 * @param notificationName
@@ -142,10 +113,10 @@ module puremvc
 			var observers:IObserver[] = this.observerMap[ notificationName ];
 
 			//Find the observer for the notifyContext.
-			var i/*Number*/ = observers.length;
+			var i:number = observers.length;
 			while( i-- )
 			{
-				var observer/*Observer*/ = observers[i];
+				var observer:IObserver = observers[i];
 				if( observer.compareNotifyContext(notifyContext) )
 				{
 					observers.splice( i, 1 );
@@ -160,6 +131,34 @@ module puremvc
 			if( observers.length == 0 )
 				delete this.observerMap[ notificationName ];
 		} 
+
+		/**
+		 * Notify the <code>IObserver</code>s for a particular <code>INotification</code>.
+		 *
+		 * All previously attached <code>IObserver</code>s for this <code>INotification</code>'s
+		 * list are notified and are passed a reference to the <code>INotification</code> in the
+		 * order in which they were registered.
+		 * 
+		 * @param notification
+		 * 		The <code>INotification</code> to notify <code>IObserver</code>s of.
+		 */
+		public notifyObservers( notification:INotification ):void
+		{
+			var notificationName:string = notification.getName();
+	
+			var observersRef/*Array*/ = this.observerMap[notificationName];
+			if( observersRef )
+			{
+				// Copy the array.
+				var observers/*Array*/ = observersRef.slice(0);
+				var len/*Number*/ = observers.length;
+				for( var i/*Number*/=0; i<len; i++ )
+				{
+					var observer/*Observer*/ = observers[i];
+					observer.notifyObserver(notification);
+				}
+			}
+		}
 
 		/**
 		 * Register an <code>IMediator</code> instance with the <code>View</code>.
@@ -261,23 +260,38 @@ module puremvc
 		 * 		The <code>IMediator</code> name to check whether it is registered.
 		 *
 		 * @return
-		 * 		An <code>IMediator</code> is registered with the given <i>mediatorName</i>.
+		 *		A <code>Mediator</code> is registered with the given <code>mediatorName</code>.
 		 */
 		public hasMediator( mediatorName:string ):Boolean
 		{
 			return this.mediatorMap[ mediatorName ] != null;
 		}
 
-		// Mapping of Mediator names to Mediator instances
-		/*protected*/public mediatorMap:Object;
+		/**
+		 * @constant
+		 * @protected
+		 */
+		private static /*const*/ SINGLETON_MSG:string = "View Singleton already constructed!";
 
-		// Mapping of Notification names to Observer lists
-		/*protected*/public observerMap:Object;
-		
-		// Singleton instance
-		/*protected*/public static instance:IView;
+		/**
+		 * Singleton instance local reference.
+		 *
+		 * @protected
+		 */
+		 private static instance:IView;
 
-		// Message Constants
-		/*protected*/public static /*const*/ SINGLETON_MSG:string = "View Singleton already constructed!";
+		/**
+		 * <code>View</code> Singleton Factory method.
+		 * 
+		 * @return
+		 * 		The singleton instance of the <code>View</code>.
+		 */
+		public static getInstance():IView
+		{
+			if( !View.instance )
+				View.instance = new View();
+
+			return View.instance;
+		}
 	}
 }

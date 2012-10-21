@@ -9,12 +9,10 @@ module puremvc
 	/**
 	 * The interface definition for a PureMVC Proxy.
 	 *
-	 *
 	 * In PureMVC, <code>IProxy</code> implementors assume these responsibilities:
 	 * <UL>
 	 * <LI>Implement a common method which returns the name of the Proxy.
 	 * <LI>Provide methods for setting and getting the data object.
-	 *
 	 *
 	 * Additionally, <code>IProxy</code>s typically:
 	 * <UL>
@@ -27,36 +25,41 @@ module puremvc
 	 */
 	export interface IProxy
 	{
-		
+
 		/**
-		 * Get the Proxy name
-		 * 
-		 * @return the Proxy instance name
+		 * Get the name of the <code>IProxy></code> instance.
+		 *
+		 * @return
+		 * 		The name of the <code>IProxy></code> instance.
 		 */
 		getProxyName():string;
-		
+
 		/**
-		 * Set the data object
-		 * 
-		 * @param data the data object
+		 * Set the data of the <code>IProxy></code> instance.
+		 *
+		 * @param data
+		 * 		The data to set for the <code>IProxy></code> instance.
 		 */
 		setData( data:Object ):void;
-		
+
 		/**
-		 * Get the data object
-		 * 
-		 * @return the data as type Object
+		 * Get the data of the <code>IProxy></code> instance.
+		 *
+		 * @return
+		 * 		The data held in the <code>IProxy</code> instance.
 		 */
 		getData():Object;
-		
+
 		/**
-		 * Called by the Model when the Proxy is registered
-		 */ 
+		 * Called by the Model when the <code>IProxy</code> is registered. This method has to be
+		 * overridden by the subclass to know when the instance is registered.
+		 */
 		onRegister( ):void;
 
 		/**
-		 * Called by the Model when the Proxy is removed
-		 */ 
+		 * Called by the Model when the <code>IProxy</code> is removed. This method has to be
+		 * overridden by the subclass to know when the instance is removed.
+		 */
 		onRemove( ):void;
 	}
 }

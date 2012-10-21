@@ -10,7 +10,8 @@ module puremvc
 	/**
 	 * A base <code>IMediator</code> implementation. 
 	 * 
-	 * @see puremvc.View View
+	 * Typically, a <code>Mediator</code> will be written to serve one specific control or group
+	 * controls and so, will not have a need to be dynamically named.
 	 */
 	export class Mediator
 		extends Notifier
@@ -18,29 +19,26 @@ module puremvc
 	{
 		/**
 		 * The name of the <code>Mediator</code>.
+		 *
+		 * @protected
 		 */
 		private mediatorName:string;
 
 		/**
 		 * The <code>Mediator</code>'s view component.
+		 *
+		 * @protected
 		 */
 		private viewComponent:Object;
-	
-		/**
-		 * The name of the <code>Mediator</code>. 
-		 *
-		 * Typically, a <code>Mediator</code> will be written to serve one specific control or group controls and so,
-		 * will not have a need to be dynamically named.
-		 */
-		public static /*const*/ NAME:string = 'Mediator';
+
 		
 		/**
-		 * Constructor.
+		 * Constructs a <code>Mediator</code> instance.
 		 *
-		 * @param {string} mediatorName
+		 * @param mediatorName
 		 * 		The name of the <code>Mediator</code>.
 		 *
-		 * @param {Object} viewComponent
+		 * @param viewComponent
 		 * 		The view component handled by this <code>Mediator</code>.
 		 */
 		constructor( mediatorName:string=null, viewComponent:Object=null )
@@ -52,8 +50,10 @@ module puremvc
 		}
 
 		/**
-		 * Get the name of the <code>Mediator</code>.
-		 * @return the Mediator name
+		 * Get the <code>Mediator</code> instance name.
+		 *
+		 * @return
+		 * 		The <code>Mediator</code> instance name
 		 */		
 		public getMediatorName():string
 		{	
@@ -63,20 +63,19 @@ module puremvc
 		/**
 		 * Get the <code>Mediator</code>'s view component.
 		 *
-		 * Additionally, an implicit getter will usually
-		 * be defined in the subclass that casts the view 
-		 * object to a type, like this:
+		 * Additionally, an implicit getter will usually be defined in the subclass that casts the
+		 * view object to a type, like this:
 		 * 
 		 * <code>
-		 *		private get comboBox:mx.controls.ComboBox
+		 *		public getMenu():Menu
 		 *		{
-		 *			return viewComponent as mx.controls.ComboBox;
+		 *			return <Menu> this.viewComponent;
 		 *		}
 		 * </code>
 		 * 
-		 * @return {Object}
+		 * @return
 		 * 		The view component.
-		 */		
+		 */
 		public getViewComponent():Object
 		{	
 			return this.viewComponent;
@@ -85,7 +84,7 @@ module puremvc
 		/**
 		 * Set the <code>IMediator</code>'s view component.
 		 * 
-		 * @param {Object} viewComponent
+		 * @param viewComponent
 		 * 		The view component.
 		 */
 		public setViewComponent( viewComponent:Object ):void
@@ -97,7 +96,7 @@ module puremvc
 		 * List the <code>INotification</code> names this <code>IMediator</code> is interested in
 		 * being notified of.
 		 *
-		 * @return {Array}
+		 * @return
 		 * 		The list of notifications names in which is interested the <code>Mediator</code>.
 		 */
 		public listNotificationInterests():string[]
@@ -112,21 +111,37 @@ module puremvc
 		 * Typically this will be handled in a switch statement, with one 'case' entry per
 		 * <code>INotification</code> the <code>Mediator</code> is interested in.
 		 *
-		 * @param {Notification} note
+		 * @param note
 		 * 		The notification instance to be handled.
 		 */ 
-		public handleNotification( notification:INotification ):void {}
+		public handleNotification( notification:INotification ):void
+		{
+
+		}
 
 		/**
 		 * Called by the View when the Mediator is registered. This method has to be overridden
 		 * by the subclass to know when the instance is registered.
 		 */ 
-		public onRegister( ):void {}
+		public onRegister():void
+		{
+
+		}
 
 		/**
 		 * Called by the View when the Mediator is removed. This method has to be overridden
 		 * by the subclass to know when the instance is removed.
 		 */ 
-		public onRemove( ):void {}
+		public onRemove():void
+		{
+
+		}
+
+		/**
+		 * Default name of the <code>Mediator</code>.
+		 *
+		 * @constant
+		 */
+		public static NAME:string = 'Mediator';
 	}
 }

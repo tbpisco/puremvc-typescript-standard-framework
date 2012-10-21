@@ -6,13 +6,12 @@
 module puremvc
 {
 	"use strict";
-	
+
 	/**
-	 * A Base <code>INotifier</code> implementation.
-	 * 
+	 * A base <code>INotifier</code> implementation.
 	 *
-	 * <code>MacroCommand</code>, <code>Command</code>, <code>Mediator</code> and <code>Proxy</code>
-	 * all have a need to send <code>Notifications</code>.
+	 * <code>MacroCommand</code>, <code>SimpleCommand</code>, <code>Mediator</code> and
+	 * <code>Proxy</code> all have a need to send <code>Notifications</code>.
 	 * 
 	 * The <code>INotifier</code> interface provides a common method called
 	 * <code>sendNotification</code> that relieves implementation code of the necessity to actually
@@ -23,22 +22,27 @@ module puremvc
 	 * the convenience method <code>sendNotification</code>	for sending <code>Notifications</code>,
 	 * but it also eases implementation as these classes have frequent <code>Facade</code>
 	 * interactions and usually require access to the facade anyway.
-	 * 
-	 * @see puremvc.Facade Facade
-	 * @see puremvc.Mediator Mediator
-	 * @see puremvc.Proxy Proxy
-	 * @see puremvc.SimpleCommand SimpleCommand
-	 * @see puremvc.MacroCommand MacroCommand
+	 *
 	 */
 	export class Notifier
 		implements INotifier
 	{
-	
+
 		/**
-		 * Local reference to the <code>Facade</code> of this core.
+		 * Local reference to the singleton <code>Facade</code>.
+		 *
+		 * @protected
 		 */
-		public facade:IFacade = Facade.getInstance();
+		private facade:IFacade = null;
 		
+		/**
+		 * Constructs a <code>Notifier</code> instance.
+		 */
+		constructor = function()
+		{
+			this.facade = Facade.getInstance();
+		},
+
 		/**
 		 * Create and send a <code>Notification</code>.
 		 *
@@ -55,9 +59,9 @@ module puremvc
 		 * 		The type of the notification (optional).
 		 */
 		//TODO optional
-		public sendNotification( notificationName:string, body:Object=null, type:string=null ):void
+		public sendNotification( name:string, body:Object=null, type:string=null ):void
 		{
-			this.facade.sendNotification( notificationName, body, type );
+			this.facade.sendNotification( name, body, type );
 		}
 	}
 }

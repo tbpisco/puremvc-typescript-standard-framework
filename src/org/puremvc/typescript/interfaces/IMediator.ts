@@ -22,10 +22,10 @@ module puremvc
 	 * <UL>
 	 * <LI>Act as an intermediary between one or more view components such as text boxes or 
 	 * list controls, maintaining references and coordinating their behavior.
-	 * <LI>In Flash-based apps, this is often the place where event listeners are
-	 * added to view components, and their handlers implemented.
-	 * <LI>Respond to and generate <code>INotifications</code>, interacting with of 
-	 * the rest of the PureMVC app.
+	 * <LI>In a PureMVC application, this the place where event listeners are added to view
+	 * components, and their handlers implemented.
+	 * <LI>Respond to and generate <code>INotifications</code>, interacting with of the rest of the
+	 * PureMVC application.
 	 *
 	 *
 	 * When an <code>IMediator</code> is registered with the <code>IView</code>, 
@@ -39,67 +39,6 @@ module puremvc
 	 * encapsulating that <code>IMediator</code>'s (<code>handleNotification</code>) method
 	 * and register it as an Observer for each <code>INotification</code> name returned by 
 	 * <code>listNotificationInterests</code>.
-	 * 
-	 *
-	 * A concrete IMediator implementor usually looks something like this:
-	 * 
-	 * <listing>
-	 *	import puremvc.~~;
-	 *	import puremvc.~~;
-	 *	import puremvc.~~;
-	 * 
-	 *	import com.me.myapp.model.~~;
-	 *	import com.me.myapp.view.~~;
-	 *	import com.me.myapp.controller.~~;
-	 * 		
-	 *	import mx.controls.ComboBox;
-	 *	import mx.events.ListEvent;
-	 * 
-	 * class MyMediator extends Mediator implements IMediator {
-	 * 
-	 * 		public MyComboMediator( viewComponent:Object ) {
-	 * 			super( viewComponent );
-	 * 			combo.addEventListener( Event.CHANGE, onChange );
-	 * 		}
-	 * 		
-	 * 		override public listNotificationInterests():string[] {
-	 * 				return [ MyFacade.SET_SELECTION, 
-	 * 						 MyFacade.SET_DATAPROVIDER ];
-	 * 		}
-	 * 
-	 * 		override public handleNotification( notification:INotification ):void {
-	 * 				switch ( notification.getName() ) {
-	 * 					case MyFacade.SET_SELECTION:
-	 * 						setSelection(notification);
-	 * 						break;
-	 * 					case MyFacade.SET_DATAPROVIDER:
-	 * 						setDataProvider(notification);
-	 * 						break;
-	 * 				}
-	 * 		}
-	 * 
-	 * 		// Set the data provider of the combo box
-	 * 		public setDataProvider( notification:INotification ):void
-	 *		{
-	 * 			combo.dataProvider = notification.getBody();
-	 * 		}
-	 * 
-	 * 		// Invoked when the combo box dispatches a change event, we send a
-	 *      // notification with the
-	 * 		public onChange(event:ListEvent):void
-	 *
-	 * 			sendNotification( MyFacade.MYCOMBO_CHANGED, this );
-	 * 		}
-	 * 
-	 * 		// A private getter for accessing the view object by class
-	 *      public get combo():ComboBox  {
-	 *         return view as ComboBox;
-	 *      }
-	 * 
-	 * }
-	 * </listing>
-	 * 
-	 * @see puremvc.interfaces.INotification INotification
 	 */
 	export interface IMediator
 	{
@@ -113,9 +52,19 @@ module puremvc
 		getMediatorName():string;
 		
 		/**
-		 * Get the <code>IMediator</code>'s view component.
+		 * Get the <code>Mediator</code>'s view component.
+		 *
+		 * Additionally, an implicit getter will usually be defined in the subclass that casts the
+		 * view object to a type, like this:
 		 * 
-		 * @return Object
+		 * <code>
+		 *		getMenu: function
+		 *		{
+		 *			return this.viewComponent;
+		 *		}
+		 * </code>
+		 * 
+		 * @return
 		 * 		The view component.
 		 */
 		getViewComponent():Object;
@@ -123,36 +72,43 @@ module puremvc
 		/**
 		 * Set the <code>IMediator</code>'s view component.
 		 * 
-		 * @param Object
+		 * @param viewComponent
 		 * 		The view component.
 		 */
 		setViewComponent( viewComponent:Object ):void;
 		
 		/**
-		 * List <code>INotification</code> interests.
-		 * 
+		 * List the <code>INotification</code> names this <code>IMediator</code> is interested in
+		 * being notified of.
+		 *
 		 * @return
-		 * A list of the <code>INotification</code> names this <code>IMediator</code> has an interest in.
+		 * 		The list of notifications names in which is interested the <code>Mediator</code>.
 		 */
 		listNotificationInterests( ):string[];
 		
 		/**
-		 * Handle an <code>INotification</code>.
+		 * Handle <code>INotification</code>s.
 		 * 
-		 * @param notification
-		 * 		The <code>INotification</code> to be handled
-		 */
+		 *
+		 * Typically this will be handled in a switch statement, with one 'case' entry per
+		 * <code>INotification</code> the <code>Mediator</code> is interested in.
+		 *
+		 * @param note
+		 * 		The notification instance to be handled.
+		 */ 
 		handleNotification( notification:INotification ):void;
 		
 		/**
-		 * Called by the View when the Mediator is registered
+		 * Called by the View when the Mediator is registered. This method has to be overridden
+		 * by the subclass to know when the instance is registered.
 		 */ 
-		onRegister( ):void;
+		onRegister():void;
 
 		/**
-		 * Called by the View when the Mediator is removed
+		 * Called by the View when the Mediator is removed. This method has to be overridden
+		 * by the subclass to know when the instance is removed.
 		 */ 
-		onRemove( ):void;
+		onRemove():void;
 		
 	}
 }

@@ -1,6 +1,11 @@
 var puremvc;
 (function (puremvc) {
     "use strict";
+})(puremvc || (puremvc = {}));
+
+var puremvc;
+(function (puremvc) {
+    "use strict";
     var Controller = (function () {
         function Controller() {
             if(Controller.instance) {
@@ -12,7 +17,7 @@ var puremvc;
             this.initializeController();
         }
         Controller.prototype.initializeController = function () {
-            this.view = puremvc.View.getInstance();
+            this.view = View.getInstance();
         };
         Controller.prototype.executeCommand = function (notification) {
             var commandClassRef = this.commandMap[notification.getName()];
@@ -36,7 +41,7 @@ var puremvc;
                 delete this.commandMap[notificationName];
             }
         };
-        Controller.instance = null;
+        Controller.instance = undefined;
         Controller.SINGLETON_MSG = "Controller Singleton already constructed!";
         Controller.getInstance = function getInstance() {
             if(!Controller.instance) {
@@ -58,17 +63,12 @@ var puremvc;
                 throw Error(Model.SINGLETON_MSG);
             }
             Model.instance = this;
-            this.proxyMap = new Object();
+            this.proxyMap = {
+            };
             this.initializeModel();
         }
         Model.prototype.initializeModel = function () {
         };
-        Model.getInstance = function getInstance() {
-            if(!Model.instance) {
-                Model.instance = new Model();
-            }
-            return Model.instance;
-        }
         Model.prototype.registerProxy = function (proxy) {
             this.proxyMap[proxy.getProxyName()] = proxy;
             proxy.onRegister();
@@ -87,8 +87,14 @@ var puremvc;
             }
             return proxy;
         };
-        Model.instance = null;
         Model.SINGLETON_MSG = "Model Singleton already constructed!";
+        Model.instance = null;
+        Model.getInstance = function getInstance() {
+            if(!Model.instance) {
+                Model.instance = new Model();
+            }
+            return Model.instance;
+        }
         return Model;
     })();
     puremvc.Model = Model;    
@@ -97,132 +103,10 @@ var puremvc;
 var puremvc;
 (function (puremvc) {
     "use strict";
-    var View = (function () {
-        function View() {
-            if(View.instance) {
-                throw Error(View.SINGLETON_MSG);
-            }
-            View.instance = this;
-            this.mediatorMap = new Object();
-            this.observerMap = new Object();
-            this.initializeView();
-        }
-        View.prototype.initializeView = function () {
-        };
-        View.getInstance = function getInstance() {
-            if(View.instance == null) {
-                View.instance = new View();
-            }
-            return View.instance;
-        }
-        View.prototype.registerObserver = function (notificationName, observer) {
-            var observers = this.observerMap[notificationName];
-            if(observers) {
-                observers.push(observer);
-            } else {
-                this.observerMap[notificationName] = [
-                    observer
-                ];
-            }
-        };
-        View.prototype.notifyObservers = function (notification) {
-            var notificationName = notification.getName();
-            var observersRef = this.observerMap[notificationName];
-            if(observersRef) {
-                var observers = observersRef.slice(0);
-                var len = observers.length;
-                for(var i = 0; i < len; i++) {
-                    var observer = observers[i];
-                    observer.notifyObserver(notification);
-                }
-            }
-        };
-        View.prototype.removeObserver = function (notificationName, notifyContext) {
-            var observers = this.observerMap[notificationName];
-            var i = observers.length;
-            while(i--) {
-                var observer = observers[i];
-                if(observer.compareNotifyContext(notifyContext)) {
-                    observers.splice(i, 1);
-                    break;
-                }
-            }
-            if(observers.length == 0) {
-                delete this.observerMap[notificationName];
-            }
-        };
-        View.prototype.registerMediator = function (mediator) {
-            var name = mediator.getMediatorName();
-            if(this.mediatorMap[name]) {
-                return;
-            }
-            this.mediatorMap[name] = mediator;
-            var interests = mediator.listNotificationInterests();
-            var len = interests.length;
-            if(len) {
-                var observer = new puremvc.Observer(mediator.handleNotification, mediator);
-                for(var i = 0; i < len; i++) {
-                    this.registerObserver(interests[i], observer);
-                }
-            }
-            mediator.onRegister();
-        };
-        View.prototype.retrieveMediator = function (mediatorName) {
-            return this.mediatorMap[mediatorName] || null;
-        };
-        View.prototype.removeMediator = function (mediatorName) {
-            var mediator = this.mediatorMap[mediatorName];
-            if(!mediator) {
-                return null;
-            }
-            var interests = mediator.listNotificationInterests();
-            var i = interests.length;
-            while(i--) {
-                this.removeObserver(interests[i], mediator);
-            }
-            delete this.mediatorMap[mediatorName];
-            mediator.onRemove();
-            return mediator;
-        };
-        View.prototype.hasMediator = function (mediatorName) {
-            return this.mediatorMap[mediatorName] != null;
-        };
-        View.instance = null;
-        View.SINGLETON_MSG = "View Singleton already constructed!";
-        return View;
-    })();
-    puremvc.View = View;    
-})(puremvc || (puremvc = {}));
-
-var puremvc;
-(function (puremvc) {
-    "use strict";
-    var Notifier = (function () {
-        function Notifier() {
-            this.facade = puremvc.Facade.getInstance();
-        }
-        Notifier.prototype.sendNotification = function (notificationName, body, type) {
-            if (typeof body === "undefined") { body = null; }
-            if (typeof type === "undefined") { type = null; }
-            this.facade.sendNotification(notificationName, body, type);
-        };
-        return Notifier;
-    })();
-    puremvc.Notifier = Notifier;    
-})(puremvc || (puremvc = {}));
-
-var __extends = this.__extends || function (d, b) {
-    function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
-}
-var puremvc;
-(function (puremvc) {
-    "use strict";
     var MacroCommand = (function (_super) {
         __extends(MacroCommand, _super);
         function MacroCommand() {
-                _super.call(this);
+            _super.prototype();
             this.subCommands = new Array();
             this.initializeMacroCommand();
         }
@@ -242,7 +126,7 @@ var puremvc;
             this.subCommands.splice(0);
         };
         return MacroCommand;
-    })(puremvc.Notifier);
+    })(Notifier);
     puremvc.MacroCommand = MacroCommand;    
 })(puremvc || (puremvc = {}));
 
@@ -258,7 +142,7 @@ var puremvc;
         SimpleCommand.prototype.execute = function (notification) {
         };
         return SimpleCommand;
-    })(puremvc.Notifier);
+    })(Notifier);
     puremvc.SimpleCommand = SimpleCommand;    
 })(puremvc || (puremvc = {}));
 
@@ -273,19 +157,11 @@ var puremvc;
             Facade.instance = this;
             this.initializeFacade();
         }
-        Facade.instance = null;
-        Facade.SINGLETON_MSG = "Facade Singleton already constructed!";
         Facade.prototype.initializeFacade = function () {
             this.initializeModel();
             this.initializeController();
             this.initializeView();
         };
-        Facade.getInstance = function getInstance() {
-            if(Facade.instance == null) {
-                Facade.instance = new Facade();
-            }
-            return Facade.instance;
-        }
         Facade.prototype.initializeModel = function () {
             if(!this.model) {
                 this.model = puremvc.Model.getInstance();
@@ -298,7 +174,7 @@ var puremvc;
         };
         Facade.prototype.initializeView = function () {
             if(!this.view) {
-                this.view = puremvc.View.getInstance();
+                this.view = View.getInstance();
             }
         };
         Facade.prototype.registerCommand = function (notificationName, commandClassRef) {
@@ -318,7 +194,7 @@ var puremvc;
         };
         Facade.prototype.removeProxy = function (proxyName) {
             var proxy;
-            if(this.model != null) {
+            if(this.model) {
                 proxy = this.model.removeProxy(proxyName);
             }
             return proxy;
@@ -336,7 +212,7 @@ var puremvc;
         };
         Facade.prototype.removeMediator = function (mediatorName) {
             var mediator;
-            if(this.view != null) {
+            if(this.view) {
                 mediator = this.view.removeMediator(mediatorName);
             }
             return mediator;
@@ -345,7 +221,7 @@ var puremvc;
             return this.view.hasMediator(mediatorName);
         };
         Facade.prototype.notifyObservers = function (notification) {
-            if(this.view != null) {
+            if(this.view) {
                 this.view.notifyObservers(notification);
             }
         };
@@ -354,6 +230,14 @@ var puremvc;
             if (typeof type === "undefined") { type = null; }
             this.notifyObservers(new puremvc.Notification(name, body, type));
         };
+        Facade.SINGLETON_MSG = "Facade Singleton already constructed!";
+        Facade.instance = null;
+        Facade.getInstance = function getInstance() {
+            if(!Facade.instance) {
+                Facade.instance = new Facade();
+            }
+            return Facade.instance;
+        }
         return Facade;
     })();
     puremvc.Facade = Facade;    
@@ -367,11 +251,10 @@ var puremvc;
         function Mediator(mediatorName, viewComponent) {
             if (typeof mediatorName === "undefined") { mediatorName = null; }
             if (typeof viewComponent === "undefined") { viewComponent = null; }
-                _super.call(this);
+            _super.prototype();
             this.mediatorName = (mediatorName != null) ? mediatorName : Mediator.NAME;
             this.viewComponent = viewComponent;
         }
-        Mediator.NAME = 'Mediator';
         Mediator.prototype.getMediatorName = function () {
             return this.mediatorName;
         };
@@ -390,8 +273,9 @@ var puremvc;
         };
         Mediator.prototype.onRemove = function () {
         };
+        Mediator.NAME = 'Mediator';
         return Mediator;
-    })(puremvc.Notifier);
+    })(Notifier);
     puremvc.Mediator = Mediator;    
 })(puremvc || (puremvc = {}));
 
@@ -473,13 +357,12 @@ var puremvc;
         function Proxy(proxyName, data) {
             if (typeof proxyName === "undefined") { proxyName = null; }
             if (typeof data === "undefined") { data = null; }
-                _super.call(this);
+            _super.prototype();
             this.proxyName = (proxyName != null) ? proxyName : Proxy.NAME;
             if(data != null) {
                 this.setData(data);
             }
         }
-        Proxy.NAME = 'Proxy';
         Proxy.prototype.getProxyName = function () {
             return this.proxyName;
         };
@@ -493,8 +376,9 @@ var puremvc;
         };
         Proxy.prototype.onRemove = function () {
         };
+        Proxy.NAME = 'Proxy';
         return Proxy;
-    })(puremvc.Notifier);
+    })(Notifier);
     puremvc.Proxy = Proxy;    
 })(puremvc || (puremvc = {}));
 

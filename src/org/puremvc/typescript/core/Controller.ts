@@ -31,18 +31,12 @@ module puremvc
 	 *
  	 * The simplest way is to subclass </code>Facade</code>, and use its
 	 * <code>initializeController</code> method to add your registrations.
-	 * 
-	 * @see puremvc.View View
-	 * @see puremvc.Observer Observer
-	 * @see puremvc.Notification Notification
-	 * @see puremvc.SimpleCommand SimpleCommand
-	 * @see puremvc.MacroCommand MacroCommand
 	 */
 	export class Controller
 		implements IController
 	{
 		/**
-		 * Local reference to View.
+		 * Local reference to the <code>View</code> singleton.
 		 *
 		 * @protected
 		 */		
@@ -177,7 +171,7 @@ module puremvc
 	
 
 		/**
-		 * Singleton instance.
+		 * Singleton instance local reference.
 		 *
 		 * @protected
 		 */

@@ -9,41 +9,29 @@ module puremvc
 	/**
 	 * The interface definition for a PureMVC Observer.
 	 *
-	 *
-	 * In PureMVC, <code>IObserver</code> implementors assume these responsibilities:
+	 * In PureMVC, <code>IObserver</code> implementors assumes these responsibilities:
 	 * <UL>
 	 * <LI>Encapsulate the notification (callback) method of the interested object.
 	 * <LI>Encapsulate the notification context (this) of the interested object.
-	 * <LI>Provide methods for setting the interested object' notification method and context.
+	 * <LI>Provide methods for setting the interested object notification method and context.
 	 * <LI>Provide a method for notifying the interested object.
 	 *
-	 * 
+	 * PureMVC does not rely upon underlying event models such as the one provided in JavaScript DOM API,
+	 * and JavaScript does not have an inherent event model.
 	 *
-	 * PureMVC does not rely upon underlying event
-	 * models such as the one provided with Flash,
-	 * and ActionScript 3 does not have an inherent
-	 * event model.
-	 * 
+	 * The Observer Pattern as implemented within PureMVC exists to support event driven
+	 * communication between the application and the actors of the MVC triad (Model, View, Controller).
 	 *
-	 * The Observer Pattern as implemented within
-	 * PureMVC exists to support event driven communication
-	 * between the application and the actors of the
-	 * MVC triad.
-	 * 
+	 * An Observer is an object that encapsulates information about an interested object with a
+	 * notification method that should be called when an </code>INotification</code> is broadcast.
+	 * The Observer then acts as a proxy for notifying the interested object.
 	 *
-	 * An Observer is an object that encapsulates information
-	 * about an interested object with a notification method that
-	 * should be called when an </code>INotification</code> is broadcast. The Observer then
-	 * acts as a proxy for notifying the interested object.
+	 * Observers can receive <code>Notification</code>s by having their <code>notifyObserver</code>
+	 * method invoked, passing in an object implementing the <code>INotification</code> interface,
+	 * such as a subclass of <code>Notification</code>.
 	 * 
-	 *
-	 * Observers can receive <code>Notification</code>s by having their
-	 * <code>notifyObserver</code> method invoked, passing
-	 * in an object implementing the <code>INotification</code> interface, such
-	 * as a subclass of <code>Notification</code>.
-	 * 
-	 * @see puremvc.interfaces.IView IView
-	 * @see puremvc.interfaces.INotification INotification
+	 * @see puremvc.IView IView
+	 * @see puremvc.INotification INotification
 	 */
 	export interface IObserver
 	{
