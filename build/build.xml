@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="YUICompression" basedir=".." default="ConcatenateAndCompress">
 
+    <property file="build/user.properties" />
+
     <target name="ConcatenateAndCompress" description="Concatenate and minifiy a set of files">
 
         <taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
@@ -16,7 +18,7 @@
 			</fileset>
         </delete>
 
-        <exec executable="C:\Documents and Settings\Textorm\Application Data\npm\tsc.cmd">
+        <exec executable="${TSC_CMD}">
             <arg value="@build/compile.list"/>
         </exec>
 
