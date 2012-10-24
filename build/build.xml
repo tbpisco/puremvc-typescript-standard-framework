@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="build" basedir="../" default="build.all">
+<project name="build" basedir=".." default="build.all">
 
 
 
@@ -37,24 +37,63 @@
 	<!-- //////////////////////////////////////// MACRO //////////////////////////////////////// -->
 	<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
 
-	<macrodef name="CreateCompileList">
+	<macrodef name="TypeScriptCompileDir">
 
 		<attribute name="src" />
-		<attribute name="file" />
+		<attribute name="out" default="" />
+		<attribute name="module" default="" />
+		<attribute name="comments" default="" />
+		<attribute name="declarations" default="" />
+		<attribute name="nolib" default="" />
+		<attribute name="target" default="" />
 
 		<sequential>
 
-			<pathconvert property="list" dirsep="/" pathsep="${line.separator}">
+			<condition property="out.arg" value="" else='--out "@{out}"'>
+				<equals arg1="@{out}" arg2="" />
+			</condition>
 
-				<map from="${basedir}" to="." />
+			<condition property="module.arg" value="" else="--module @{module}">
+				<equals arg1="@{module}" arg2="" />
+			</condition>
+
+			<condition property="comments.arg" value="" else="--comments">
+				<equals arg1="@{comments}" arg2="" />
+			</condition>
+
+			<condition property="declarations.arg" value="" else="--declarations">
+				<equals arg1="@{declarations}" arg2="" />
+			</condition>
+
+			<condition property="nolib.arg" value="" else="--nolib">
+				<equals arg1="@{nolib}" arg2="" />
+			</condition>
+
+			<!-- Could have been defaulted to ES3 but let the compiler use its own default is better -->
+			<condition property="target.arg" value="" else="--target">
+				<equals arg1="@{target}" arg2="" />
+			</condition>
+
+			<pathconvert property="list" dirsep="\" pathsep="${line.separator}">
 
 				<fileset dir="@{src}">
 					<include name="**/*.ts" />
 				</fileset>
 
+				<mapper type="regexp" from="^(.*)$" to='"\1"' />
+				<!--regexpmapper from="^.*$" to='"\1"' /-->
+
 			</pathconvert>
 
-			<echo file="@{file}" message="${list}" append="false" />
+			<echo file="@{src}/compile.list" message="${list}${line.separator}${out.arg}${line.separator}${module.arg}${line.separator}${comments.arg}${line.separator}${declarations.arg}${line.separator}${nolib.arg}${line.separator}${target.arg}" append="false" />
+
+			<!-- We have to escape the @<file> needed by tsc (there's probably a better way of doing this) -->
+			<property name="tsc.compile.file" value="@{src}/compile.list" />
+			<exec executable="${typescript.compiler.path}">
+				<arg value="@${tsc.compile.file}"/>
+			</exec>
+
+			<!-- delete file="@{src}/compile.list" /-->
 
 		</sequential>
 
@@ -83,27 +122,18 @@
 			</fileset>
 		</copy>
 
-<!--
-		<CreateCompileList src="${src-js.dir}" file="compile.list" />
-
-		<!- - Compile plain JavaScript files in their respective directories for debug - ->
-		<exec executable="${typescript.compiler.path}">
-			<arg value="@compile.list"/>
-		</exec>
--->
+		<!-- Compile a single JavaScript file in the bin dir for release -->
+		<TypeScriptCompileDir
+			src="${src-js.dir}"
+			out="${bin.dir}${release-name}.js"
+			module="amd"
+		/>
 
 		<!-- Compile plain JavaScript files in their respective directories for debug -->
-		<exec executable="${typescript.compiler.path}">
-			<arg value="@build/src-compile.list"/>
-		</exec>
-
-		<!-- Compile a single plain JavaScript file ready to be minified -->
-		<exec executable="${typescript.compiler.path}">
-
-			<arg value="@build/src-release-compile.list"/>
-			<!-- Can't add the out argument here, probably because it use a .cmd to forward to node -->
-
-		</exec>
+		<TypeScriptCompileDir
+			src="${src-js.dir}"
+			module="amd"
+		/>
 
 		<antcall target="clean.src-js" />
 
@@ -127,9 +157,11 @@
 			</fileset>
 		</copy>
 
-		<exec executable="${typescript.compiler.path}">
-			<arg value="@build/test-compile.list"/>
-		</exec>
+		<!-- Compile plain JavaScript files in their respective directories for debug -->
+		<!--<TypeScriptCompileDir
+			src="${test-src-js.dir}"
+			module="amd"
+		/>-->
 
 		<antcall target="clean.test-src-js" />
 
