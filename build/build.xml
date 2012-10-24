@@ -7,6 +7,11 @@
 	<!-- /////////////////////////// PROPERTIES /////////////////////////// -->
 	<!-- ////////////////////////////////////////////////////////////////// -->
 
+	<!--
+		The file contains a single property named typescript.compiler.path which can contain
+	 	user name of system login which you may don't want to publish on the web.
+	 -->
+	<property file="user.properties" />
 	<property file="build.properties" />
 
 
