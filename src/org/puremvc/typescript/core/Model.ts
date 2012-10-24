@@ -4,7 +4,8 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-//var IProxy = Objs("puremvc.IProxy");
+///<reference path='../../../../org/puremvc/typescript/interfaces/IModel.ts'/>
+///<reference path='../../../../org/puremvc/typescript/interfaces/IProxy.ts'/>
 
 module puremvc
 {
