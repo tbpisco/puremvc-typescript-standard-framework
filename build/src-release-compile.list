@@ -1,31 +1,32 @@
-../src-js/org/puremvc/typescript/interfaces/ICommand.ts
-../src-js/org/puremvc/typescript/interfaces/IController.ts
-../src-js/org/puremvc/typescript/interfaces/IFacade.ts
-../src-js/org/puremvc/typescript/interfaces/IMediator.ts
-../src-js/org/puremvc/typescript/interfaces/IModel.ts
-../src-js/org/puremvc/typescript/interfaces/INotification.ts
-../src-js/org/puremvc/typescript/interfaces/INotifier.ts
-../src-js/org/puremvc/typescript/interfaces/IObserver.ts
-../src-js/org/puremvc/typescript/interfaces/IProxy.ts
-../src-js/org/puremvc/typescript/interfaces/IView.ts
+src-js/org/puremvc/typescript/interfaces/ICommand.ts
+src-js/org/puremvc/typescript/interfaces/IController.ts
+src-js/org/puremvc/typescript/interfaces/IFacade.ts
+src-js/org/puremvc/typescript/interfaces/IMediator.ts
+src-js/org/puremvc/typescript/interfaces/IModel.ts
+src-js/org/puremvc/typescript/interfaces/INotification.ts
+src-js/org/puremvc/typescript/interfaces/INotifier.ts
+src-js/org/puremvc/typescript/interfaces/IObserver.ts
+src-js/org/puremvc/typescript/interfaces/IProxy.ts
+src-js/org/puremvc/typescript/interfaces/IView.ts
 
-../src-js/org/puremvc/typescript/core/Controller.ts
-../src-js/org/puremvc/typescript/core/Model.ts
-../src-js/org/puremvc/typescript/core/View.ts
+src-js/org/puremvc/typescript/core/Controller.ts
+src-js/org/puremvc/typescript/core/Model.ts
+src-js/org/puremvc/typescript/core/View.ts
 
-../src-js/org/puremvc/typescript/patterns/observer/Notifier.ts
+src-js/org/puremvc/typescript/patterns/observer/Notifier.ts
 
-../src-js/org/puremvc/typescript/patterns/command/MacroCommand.ts
-../src-js/org/puremvc/typescript/patterns/command/SimpleCommand.ts
+src-js/org/puremvc/typescript/patterns/command/MacroCommand.ts
+src-js/org/puremvc/typescript/patterns/command/SimpleCommand.ts
 
-../src-js/org/puremvc/typescript/patterns/facade/Facade.ts
+src-js/org/puremvc/typescript/patterns/facade/Facade.ts
 
-../src-js/org/puremvc/typescript/patterns/mediator/Mediator.ts
+src-js/org/puremvc/typescript/patterns/mediator/Mediator.ts
 
-../src-js/org/puremvc/typescript/patterns/observer/Notification.ts
+src-js/org/puremvc/typescript/patterns/observer/Notification.ts
 
-../src-js/org/puremvc/typescript/patterns/observer/Observer.ts
+src-js/org/puremvc/typescript/patterns/observer/Observer.ts
 
-../src-js/org/puremvc/typescript/patterns/proxy/Proxy.ts
+src-js/org/puremvc/typescript/patterns/proxy/Proxy.ts
 
---out ../bin/puremvc-typescript-singlecore-1.0.js
+--out bin/puremvc-typescript-singlecore-1.0.js
+--module amd
