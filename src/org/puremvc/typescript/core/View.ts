@@ -4,7 +4,10 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-//var Observer = Objs("puremvc.Observer");
+///<reference path='../../../../org/puremvc/typescript/interfaces/IView.ts'/>
+///<reference path='../../../../org/puremvc/typescript/interfaces/IObserver.ts'/>
+///<reference path='../../../../org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../org/puremvc/typescript/interfaces/IMediator.ts'/>
 
 module puremvc
 {

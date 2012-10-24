@@ -4,9 +4,10 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-//Objs("puremvc.Notifier");
-//Objs("puremvc.ICommand");
-//Objs("puremvc.INotifier");
+///<reference path='../../../../../org/puremvc/typescript/interfaces/ICommand.ts'/>
+///<reference path='../../../../../org/puremvc/typescript/interfaces/INotifier.ts'/>
+///<reference path='../../../../../org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../org/puremvc/typescript/patterns/observer/Notifier.ts'/>
 
 module puremvc
 {

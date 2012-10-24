@@ -3,6 +3,11 @@
  PureMVC - Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
+
+///<reference path='../../../../../org/puremvc/typescript/interfaces/INotifier.ts'/>
+///<reference path='../../../../../org/puremvc/typescript/interfaces/IFacade.ts'/>
+///<reference path='../../../../../org/puremvc/typescript/patterns/facade/Facade.ts'/>
+
 module puremvc
 {
 	"use strict";
