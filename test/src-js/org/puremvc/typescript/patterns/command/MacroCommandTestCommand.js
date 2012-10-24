@@ -1,38 +1,8 @@
-/*
- PureMVC TypeScript by Frederic Saunier <frederic.saunier@puremvc.org>
- PureMVC - Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 License
-*/
-
-/**
- * @classDescription
- * A MacroCommand subclass used by MacroCommandTest.
- *
- * @see puremvc.MacroCommandTest MacroCommandTest
- * @see puremvc.MacroCommandTestSub1Command MacroCommandTestSub1Command
- * @see puremvc.MacroCommandTestSub2Command MacroCommandTestSub2Command
- * @see puremvc.MacroCommandTestVO MacroCommandTestVO
- * 
- * @extends puremvc.MacroCommand MacroCommand
- */
-
-/**
- * @constructor
- */
-var MacroCommandTestCommand = function()
-{
-	extract("puremvc.MacroCommand").call(this);
-}
-__extends( MacroCommandTestCommand, extract("puremvc.MacroCommand") );
-
-/**
- * Initialize the MacroCommandTestCommand by adding
- * its 2 SubCommands.
- *
- * @override
- */
-MacroCommandTestCommand.prototype.initializeMacroCommand = function()
-{
-	this.addSubCommand( MacroCommandTestSub1Command );
-	this.addSubCommand( MacroCommandTestSub2Command );
-}
+var MacroCommandTestCommand = function () {
+    extract("puremvc.MacroCommand").call(this);
+};
+__extends(MacroCommandTestCommand, extract("puremvc.MacroCommand"));
+MacroCommandTestCommand.prototype.initializeMacroCommand = function () {
+    this.addSubCommand(MacroCommandTestSub1Command);
+    this.addSubCommand(MacroCommandTestSub2Command);
+};
