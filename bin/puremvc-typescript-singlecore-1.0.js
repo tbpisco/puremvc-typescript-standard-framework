@@ -1,103 +1,6 @@
 var puremvc;
 (function (puremvc) {
     "use strict";
-    var Controller = (function () {
-        function Controller() {
-            if(Controller.instance) {
-                throw Error(Controller.SINGLETON_MSG);
-            }
-            Controller.instance = this;
-            this.commandMap = {
-            };
-            this.initializeController();
-        }
-        Controller.prototype.initializeController = function () {
-            this.view = puremvc.View.getInstance();
-        };
-        Controller.prototype.executeCommand = function (notification) {
-            var commandClassRef = this.commandMap[notification.getName()];
-            if(commandClassRef) {
-                var command = new commandClassRef();
-                command.execute(notification);
-            }
-        };
-        Controller.prototype.registerCommand = function (notificationName, commandClassRef) {
-            if(!this.commandMap[notificationName]) {
-                this.view.registerObserver(notificationName, new puremvc.Observer(this.executeCommand, this));
-            }
-            this.commandMap[notificationName] = commandClassRef;
-        };
-        Controller.prototype.hasCommand = function (notificationName) {
-            return this.commandMap[notificationName] != null;
-        };
-        Controller.prototype.removeCommand = function (notificationName) {
-            if(this.hasCommand(notificationName)) {
-                this.view.removeObserver(notificationName, this);
-                delete this.commandMap[notificationName];
-            }
-        };
-        Controller.instance = null;
-        Controller.SINGLETON_MSG = "Controller Singleton already constructed!";
-        Controller.getInstance = function getInstance() {
-            if(!Controller.instance) {
-                Controller.instance = new Controller();
-            }
-            return Controller.instance;
-        }
-        return Controller;
-    })();
-    puremvc.Controller = Controller;    
-})(puremvc || (puremvc = {}));
-
-var puremvc;
-(function (puremvc) {
-    "use strict";
-    var Model = (function () {
-        function Model() {
-            if(Model.instance) {
-                throw Error(Model.SINGLETON_MSG);
-            }
-            Model.instance = this;
-            this.proxyMap = {
-            };
-            this.initializeModel();
-        }
-        Model.prototype.initializeModel = function () {
-        };
-        Model.prototype.registerProxy = function (proxy) {
-            this.proxyMap[proxy.getProxyName()] = proxy;
-            proxy.onRegister();
-        };
-        Model.prototype.removeProxy = function (proxyName) {
-            var proxy = this.proxyMap[proxyName];
-            if(proxy) {
-                delete this.proxyMap[proxyName];
-                proxy.onRemove();
-            }
-            return proxy;
-        };
-        Model.prototype.retrieveProxy = function (proxyName) {
-            return this.proxyMap[proxyName] || null;
-        };
-        Model.prototype.hasProxy = function (proxyName) {
-            return this.proxyMap[proxyName] != null;
-        };
-        Model.SINGLETON_MSG = "Model Singleton already constructed!";
-        Model.instance = null;
-        Model.getInstance = function getInstance() {
-            if(!Model.instance) {
-                Model.instance = new Model();
-            }
-            return Model.instance;
-        }
-        return Model;
-    })();
-    puremvc.Model = Model;    
-})(puremvc || (puremvc = {}));
-
-var puremvc;
-(function (puremvc) {
-    "use strict";
     var View = (function () {
         function View() {
             if(View.instance) {
@@ -195,6 +98,136 @@ var puremvc;
         return View;
     })();
     puremvc.View = View;    
+})(puremvc || (puremvc = {}));
+
+var puremvc;
+(function (puremvc) {
+    "use strict";
+    var Observer = (function () {
+        function Observer(notifyMethod, notifyContext) {
+            this.setNotifyMethod(notifyMethod);
+            this.setNotifyContext(notifyContext);
+        }
+        Observer.prototype.getNotifyMethod = function () {
+            return this.notify;
+        };
+        Observer.prototype.setNotifyMethod = function (notifyMethod) {
+            this.notify = notifyMethod;
+        };
+        Observer.prototype.getNotifyContext = function () {
+            return this.context;
+        };
+        Observer.prototype.setNotifyContext = function (notifyContext) {
+            this.context = notifyContext;
+        };
+        Observer.prototype.notifyObserver = function (notification) {
+            this.getNotifyMethod().apply(this.getNotifyContext(), [
+                notification
+            ]);
+        };
+        Observer.prototype.compareNotifyContext = function (object) {
+            return object === this.context;
+        };
+        return Observer;
+    })();
+    puremvc.Observer = Observer;    
+})(puremvc || (puremvc = {}));
+
+var puremvc;
+(function (puremvc) {
+    "use strict";
+    var Controller = (function () {
+        function Controller() {
+            if(Controller.instance) {
+                throw Error(Controller.SINGLETON_MSG);
+            }
+            Controller.instance = this;
+            this.commandMap = {
+            };
+            this.initializeController();
+        }
+        Controller.prototype.initializeController = function () {
+            this.view = puremvc.View.getInstance();
+        };
+        Controller.prototype.executeCommand = function (notification) {
+            var commandClassRef = this.commandMap[notification.getName()];
+            if(commandClassRef) {
+                var command = new commandClassRef();
+                command.execute(notification);
+            }
+        };
+        Controller.prototype.registerCommand = function (notificationName, commandClassRef) {
+            if(!this.commandMap[notificationName]) {
+                this.view.registerObserver(notificationName, new puremvc.Observer(this.executeCommand, this));
+            }
+            this.commandMap[notificationName] = commandClassRef;
+        };
+        Controller.prototype.hasCommand = function (notificationName) {
+            return this.commandMap[notificationName] != null;
+        };
+        Controller.prototype.removeCommand = function (notificationName) {
+            if(this.hasCommand(notificationName)) {
+                this.view.removeObserver(notificationName, this);
+                delete this.commandMap[notificationName];
+            }
+        };
+        Controller.instance = null;
+        Controller.SINGLETON_MSG = "Controller Singleton already constructed!";
+        Controller.getInstance = function getInstance() {
+            if(!Controller.instance) {
+                Controller.instance = new Controller();
+            }
+            return Controller.instance;
+        }
+        return Controller;
+    })();
+    puremvc.Controller = Controller;    
+})(puremvc || (puremvc = {}));
+
+var puremvc;
+(function (puremvc) {
+    "use strict";
+    var Model = (function () {
+        function Model() {
+            if(Model.instance) {
+                throw Error(Model.SINGLETON_MSG);
+            }
+            Model.instance = this;
+            this.proxyMap = {
+            };
+            this.initializeModel();
+        }
+        Model.prototype.initializeModel = function () {
+        };
+        Model.prototype.registerProxy = function (proxy) {
+            this.proxyMap[proxy.getProxyName()] = proxy;
+            proxy.onRegister();
+        };
+        Model.prototype.removeProxy = function (proxyName) {
+            var proxy = this.proxyMap[proxyName];
+            if(proxy) {
+                delete this.proxyMap[proxyName];
+                proxy.onRemove();
+            }
+            return proxy;
+        };
+        Model.prototype.retrieveProxy = function (proxyName) {
+            return this.proxyMap[proxyName] || null;
+        };
+        Model.prototype.hasProxy = function (proxyName) {
+            return this.proxyMap[proxyName] != null;
+        };
+        Model.SINGLETON_MSG = "Model Singleton already constructed!";
+        Model.instance = null;
+        Model.getInstance = function getInstance() {
+            if(!Model.instance) {
+                Model.instance = new Model();
+            }
+            return Model.instance;
+        }
+        return Model;
+    })();
+    puremvc.Model = Model;    
 })(puremvc || (puremvc = {}));
 
 var puremvc;
@@ -433,39 +466,6 @@ var puremvc;
         return Notification;
     })();
     puremvc.Notification = Notification;    
-})(puremvc || (puremvc = {}));
-
-var puremvc;
-(function (puremvc) {
-    "use strict";
-    var Observer = (function () {
-        function Observer(notifyMethod, notifyContext) {
-            this.setNotifyMethod(notifyMethod);
-            this.setNotifyContext(notifyContext);
-        }
-        Observer.prototype.getNotifyMethod = function () {
-            return this.notify;
-        };
-        Observer.prototype.setNotifyMethod = function (notifyMethod) {
-            this.notify = notifyMethod;
-        };
-        Observer.prototype.getNotifyContext = function () {
-            return this.context;
-        };
-        Observer.prototype.setNotifyContext = function (notifyContext) {
-            this.context = notifyContext;
-        };
-        Observer.prototype.notifyObserver = function (notification) {
-            this.getNotifyMethod().apply(this.getNotifyContext(), [
-                notification
-            ]);
-        };
-        Observer.prototype.compareNotifyContext = function (object) {
-            return object === this.context;
-        };
-        return Observer;
-    })();
-    puremvc.Observer = Observer;    
 })(puremvc || (puremvc = {}));
 
 var puremvc;
