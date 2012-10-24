@@ -58,29 +58,29 @@
 			<property name="tsc.compile.file" value="@{src}compile.list" />
 
 			<!-- Optional arguments are not written to compile file when attributes not set -->
-			<condition property="out.arg" value="" else='--out "@{out}"'>
+			<condition property="out.arg" value="" else='${line.separator}--out "@{out}"'>
 				<equals arg1="@{out}" arg2="" />
 			</condition>
 
-			<condition property="module.arg" value="" else="--module @{module}">
+			<condition property="module.arg" value="" else="${line.separator}--module @{module}">
 				<equals arg1="@{module}" arg2="" />
 			</condition>
 
-			<condition property="comments.arg" value="" else="--comments">
+			<!-- Could have been defaulted to ES3 but let the compiler uses its own default is quite better -->
+			<condition property="target.arg" value="" else="${line.separator}--target @{target}">
+				<equals arg1="@{target}" arg2="" />
+			</condition>
+
+			<condition property="comments.arg" value="" else="${line.separator}--comments">
 				<equals arg1="@{comments}" arg2="" />
 			</condition>
 
-			<condition property="declarations.arg" value="" else="--declarations">
+			<condition property="declarations.arg" value="" else="${line.separator}--declarations">
 				<equals arg1="@{declarations}" arg2="" />
 			</condition>
 
-			<condition property="nolib.arg" value="" else="--nolib">
+			<condition property="nolib.arg" value="" else="${line.separator}--nolib">
 				<equals arg1="@{nolib}" arg2="" />
-			</condition>
-
-			<!-- Could have been defaulted to ES3 but let the compiler uses its own default is quite better -->
-			<condition property="target.arg" value="" else="--target">
-				<equals arg1="@{target}" arg2="" />
 			</condition>
 
 			<!-- Recursively read TypeScript source directory and generate a compile list -->
@@ -99,7 +99,7 @@
 
 			<!-- Write to the file -->
 			<echo message="Writing tsc command line arguments to : ${tsc.compile.file}" />
-			<echo file="${tsc.compile.file}" message="${typescript.file.list}${line.separator}${out.arg}${line.separator}${module.arg}${line.separator}${comments.arg}${line.separator}${declarations.arg}${line.separator}${nolib.arg}${line.separator}${target.arg}" append="false" />
+			<echo file="${tsc.compile.file}" message="${typescript.file.list}${out.arg}${module.arg}${comments.arg}${declarations.arg}${nolib.arg}${target.arg}" append="false" />
 
 			<!-- Compile using the generated compile file -->
 			<echo message="Calling ${typescript.compiler.path} with ${tsc.compile.file}" />
@@ -143,12 +143,14 @@
 			src="${src-js.dir}"
 			out="${release-file-path}"
 			module="amd"
+			target="ES5"
 		/>
 
 		<!-- Compile plain JavaScript files in their respective directories for debug -->
 		<TypeScriptCompileDir
 			src="${src-js.dir}"
 			module="amd"
+			target="ES5"
 		/>
 
 		<antcall target="clean.src-js" />
@@ -177,6 +179,7 @@
 		<TypeScriptCompileDir
 			src="${test-src-js.dir}"
 			module="amd"
+			target="ES5"
 		/>
 
 		<antcall target="clean.test-src-js" />
