@@ -24,7 +24,7 @@ First official PureMVC TypeScript port.
 
 h2. Usage
 
-As this port depends on the TypeScript language you may want to start by reading "TypeScript «getting started» at ":http://www.typescriptlang.org/.
+As this port depends on the TypeScript language you may want to start by reading TypeScript "getting started":http://www.typescriptlang.org/.
 
 
 h2. Build
