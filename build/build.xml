@@ -49,6 +49,14 @@
 
 		<sequential>
 
+			<local name="out.arg"/>
+			<local name="module.arg"/>
+			<local name="comments.arg"/>
+			<local name="declarations.arg"/>
+			<local name="nolib.arg"/>
+			<local name="target.arg"/>
+			<local name="typescript.file.list"/>
+
 			<condition property="out.arg" value="" else='--out "@{out}"'>
 				<equals arg1="@{out}" arg2="" />
 			</condition>
@@ -74,7 +82,7 @@
 				<equals arg1="@{target}" arg2="" />
 			</condition>
 
-			<pathconvert property="list" dirsep="\" pathsep="${line.separator}">
+			<pathconvert property="typescript.file.list" dirsep="\" pathsep="${line.separator}">
 
 				<fileset dir="@{src}">
 					<include name="**/*.ts" />
@@ -85,15 +93,17 @@
 
 			</pathconvert>
 
-			<echo file="@{src}/compile.list" message="${list}${line.separator}${out.arg}${line.separator}${module.arg}${line.separator}${comments.arg}${line.separator}${declarations.arg}${line.separator}${nolib.arg}${line.separator}${target.arg}" append="false" />
+			<echo message="src set to : @{src}" />
+			<var name="tsc.compile.file" value="@{src}compile.list" />
+			<echo message="Writing tsc command line arguments to : ${tsc.compile.file}" />
 
-			<!-- We have to escape the @<file> needed by tsc (there's probably a better way of doing this) -->
-			<property name="tsc.compile.file" value="@{src}/compile.list" />
+			<echo file="${tsc.compile.file}" message="${typescript.file.list}${line.separator}${out.arg}${line.separator}${module.arg}${line.separator}${comments.arg}${line.separator}${declarations.arg}${line.separator}${nolib.arg}${line.separator}${target.arg}" append="false" />
+
 			<exec executable="${typescript.compiler.path}">
 				<arg value="@${tsc.compile.file}"/>
 			</exec>
 
-			<!-- delete file="@{src}/compile.list" /-->
+			<delete file="${tsc.compile.file}" />
 
 		</sequential>
 
@@ -125,7 +135,7 @@
 		<!-- Compile a single JavaScript file in the bin dir for release -->
 		<TypeScriptCompileDir
 			src="${src-js.dir}"
-			out="${bin.dir}${release-name}.js"
+			out="${release-file-path}"
 			module="amd"
 		/>
 
@@ -158,10 +168,10 @@
 		</copy>
 
 		<!-- Compile plain JavaScript files in their respective directories for debug -->
-		<!--<TypeScriptCompileDir
+		<TypeScriptCompileDir
 			src="${test-src-js.dir}"
 			module="amd"
-		/>-->
+		/>
 
 		<antcall target="clean.test-src-js" />
 
@@ -220,7 +230,6 @@
 		<delete>
 			<fileset dir="${src-js.dir}">
 				<include name="**/*.ts" />
-				<include name="src-compile.list" />
 			</fileset>
 		</delete>
 
@@ -231,7 +240,6 @@
 		<delete>
 			<fileset dir="${test-src-js.dir}">
 				<include name="**/*.ts" />
-				<include name="test-compile.list" />
 			</fileset>
 		</delete>
 
