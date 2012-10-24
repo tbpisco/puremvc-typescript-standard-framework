@@ -46,14 +46,17 @@
 			</fileset>
 		</copy>
 
-		<!--
-			We first generate a tsc compile list file because for any reason (probably because the
-			executable on windows point to a .cmd file) the compiler doesn't understand the - -out
-			argument when passed as is.
-		-->
-
+		<!-- Compile plain JavaScript files in their respective directories for debug -->
 		<exec executable="${typescript.compiler.path}">
 			<arg value="@src-compile.list"/>
+		</exec>
+
+		<!-- Compile a single plain JavaScript file ready to be minified -->
+		<exec executable="${typescript.compiler.path}">
+
+			<arg value="@src-release-compile.list"/>
+			<!-- Can't add the out argument here, probably because it use a .cmd to forward to node -->
+
 		</exec>
 
 		<antcall target="clean.src-js" />
@@ -78,12 +81,6 @@
 			</fileset>
 		</copy>
 
-		<!--
-			We first generate a tsc compile list file because for any reason (probably because the
-			executable on windows point to a .cmd file) the compiler doesn't understand the - -out
-			argument when passed as is.
-		-->
-
 		<exec executable="${typescript.compiler.path}">
 			<arg value="@test-compile.list"/>
 		</exec>
@@ -92,7 +89,13 @@
 
 	</target>
 
-	<target name="compress" description="Concatenate and minifiy a set of files">
+
+
+	<!-- ////////////////////////////////////////////////////////////////// -->
+	<!-- ///////////////////////////// MINIFY ///////////////////////////// -->
+	<!-- ////////////////////////////////////////////////////////////////// -->
+
+	<target name="compress" description="Minifiy the release JavaScript file">
 
 		<taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
 			<classpath>
