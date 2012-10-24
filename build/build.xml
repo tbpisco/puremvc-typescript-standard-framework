@@ -21,25 +21,19 @@
 
 
 	<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
-	<!-- /////////////////////////////////////// IMPORT //////////////////////////////////////// -->
-	<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
-
-	<!-- AntContrib -->
-	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
-		<classpath>
-			<pathelement location="${antcontrib.file}"/>
-		</classpath>
-	</taskdef>
-
-
-
-	<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
 	<!-- //////////////////////////////////////// MACRO //////////////////////////////////////// -->
 	<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
 
+	<!--
+		Recursively read a source directory for TypeScript files, generate a compile list in the
+		format needed by the TypeScript compiler adding every parameters it take.
+	-->
 	<macrodef name="TypeScriptCompileDir">
 
+		<!-- required attribute -->
 		<attribute name="src" />
+
+		<!-- optional attributes -->
 		<attribute name="out" default="" />
 		<attribute name="module" default="" />
 		<attribute name="comments" default="" />
@@ -49,6 +43,7 @@
 
 		<sequential>
 
+			<!-- local properties -->
 			<local name="out.arg"/>
 			<local name="module.arg"/>
 			<local name="comments.arg"/>
@@ -56,7 +51,11 @@
 			<local name="nolib.arg"/>
 			<local name="target.arg"/>
 			<local name="typescript.file.list"/>
+			<local name="tsc.compile.file"/>
 
+			<property name="tsc.compile.file" value="@{src}compile.list" />
+
+			<!-- Optional arguments are not written to compile file when attributes not set -->
 			<condition property="out.arg" value="" else='--out "@{out}"'>
 				<equals arg1="@{out}" arg2="" />
 			</condition>
@@ -82,27 +81,32 @@
 				<equals arg1="@{target}" arg2="" />
 			</condition>
 
+			<!-- Recursively read TypeScript source directory and generate a compile list -->
 			<pathconvert property="typescript.file.list" dirsep="\" pathsep="${line.separator}">
 
 				<fileset dir="@{src}">
 					<include name="**/*.ts" />
 				</fileset>
 
+				<!-- In case regexp doesn't work on your computer, comment <mapper /> and uncomment <regexpmapper /> -->
 				<mapper type="regexp" from="^(.*)$" to='"\1"' />
-				<!--regexpmapper from="^.*$" to='"\1"' /-->
+				<!--regexpmapper from="^(.*)$" to='"\1"' /-->
 
 			</pathconvert>
 
-			<echo message="src set to : @{src}" />
-			<var name="tsc.compile.file" value="@{src}compile.list" />
-			<echo message="Writing tsc command line arguments to : ${tsc.compile.file}" />
 
+			<!-- Write to the file -->
+			<echo message="Writing tsc command line arguments to : ${tsc.compile.file}" />
 			<echo file="${tsc.compile.file}" message="${typescript.file.list}${line.separator}${out.arg}${line.separator}${module.arg}${line.separator}${comments.arg}${line.separator}${declarations.arg}${line.separator}${nolib.arg}${line.separator}${target.arg}" append="false" />
 
+			<!-- Compile using the generated compile file -->
+			<echo message="Calling ${typescript.compiler.path} with ${tsc.compile.file}" />
 			<exec executable="${typescript.compiler.path}">
 				<arg value="@${tsc.compile.file}"/>
 			</exec>
 
+			<!-- Finally delete the compile file -->
+			<echo message="${tsc.compile.file} deleted" />
 			<delete file="${tsc.compile.file}" />
 
 		</sequential>
