@@ -9,6 +9,8 @@
 ///<reference path='../../../../../org/puremvc/typescript/interfaces/INotification.ts'/>
 ///<reference path='../../../../../org/puremvc/typescript/patterns/observer/Notifier.ts'/>
 
+
+
 module puremvc
 {
 	"use strict";
