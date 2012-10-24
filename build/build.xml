@@ -1,40 +1,214 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="YUICompression" basedir=".." default="ConcatenateAndCompress">
+<?xml version="1.0" encoding="utf-8"?>
+<project name="YUICompression" basedir="." default="build.all">
 
-    <target name="ConcatenateAndCompress" description="Concatenate and minifiy a set of files">
 
-        <taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
-            <classpath>
-                <pathelement path="${basedir}/build/lib/yuicompressor/yuicompressor-2.4.2.jar"/>
-                <pathelement path="${basedir}/build/lib/yuiant/yuiant.jar"/>
-            </classpath>
-        </taskdef>
 
-        <delete>
-			<fileset dir="${basedir}/bin/">
-				<include name="*.js" />
+	<!-- ////////////////////////////////////////////////////////////////// -->
+	<!-- /////////////////////////// PROPERTIES /////////////////////////// -->
+	<!-- ////////////////////////////////////////////////////////////////// -->
+
+	<property file="build.properties" />
+
+
+
+	<!-- ////////////////////////////////////////////////////////////////// -->
+	<!-- //////////////////////////// IMPORT ////////////////////////////// -->
+	<!-- ////////////////////////////////////////////////////////////////// -->
+
+	<!-- AntContrib -->
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="${antcontrib.file}"/>
+		</classpath>
+	</taskdef>
+
+
+
+	<!-- ////////////////////////////////////////////////////////////////// -->
+	<!-- //////////////////////////// COMPILE ///////////////////////////// -->
+	<!-- ////////////////////////////////////////////////////////////////// -->
+
+	<target name="compile.src" description="Concatenate and minifiy a set of files">
+
+		<!--
+			Because the TypeScript compiler doesn't know how to output a specific file to a specific
+			path. We let it output JavaScript compiled files beside TypeScript files. As the
+			TypeScript files must be removed at the end of the operation, it's better to work on a
+			copy of the source files for obvious reasons. The generated directory will also be used
+			to debug plain JavaScript files stored in their respective class path.
+
+			Ant can fix the problem using <apply /> and <redirector /> but it is way too slow
+			because it process each file independently in a tsc call for each file.
+		-->
+		<copy todir="${src-js.dir}" overwrite="true">
+			<fileset dir="${src.dir}">
+				<include name="**/*.ts" />
 			</fileset>
-        </delete>
+		</copy>
 
-        <exec executable="C:\Documents and Settings\Textorm\Application Data\npm\tsc.cmd">
-            <arg value="@build/compile.list"/>
-        </exec>
+		<!--
+			We first generate a tsc compile list file because for any reason (probably because the
+			executable on windows point to a .cmd file) the compiler doesn't understand the - -out
+			argument when passed as is.
+		-->
 
-        <yuicompress
+		<exec executable="${typescript.compiler.path}">
+			<arg value="@src-compile.list"/>
+		</exec>
+
+		<antcall target="clean.src-js" />
+
+	</target>
+
+	<target name="compile.test" description="Concatenate and minifiy a set of files">
+
+		<!--
+			Because the TypeScript compiler doesn't know how to output a specific file to a specific
+			path. We let it output JavaScript compiled files beside TypeScript files. As the
+			TypeScript files must be removed at the end of the operation, it's better to work on a
+			copy of the source files for obvious reasons. The generated directory will also be used
+			to debug plain JavaScript files stored in their respective class path.
+
+			Ant can fix the problem using <apply /> and <redirector /> but it is way too slow
+			because it process each file independently in a tsc call for each file.
+		-->
+		<copy todir="${test-src-js.dir}" overwrite="true">
+			<fileset dir="${test-src.dir}">
+				<include name="**/*.ts" />
+			</fileset>
+		</copy>
+
+		<!--
+			We first generate a tsc compile list file because for any reason (probably because the
+			executable on windows point to a .cmd file) the compiler doesn't understand the - -out
+			argument when passed as is.
+		-->
+
+		<exec executable="${typescript.compiler.path}">
+			<arg value="@test-compile.list"/>
+		</exec>
+
+		<antcall target="clean.test-src-js" />
+
+	</target>
+
+	<target name="compress" description="Concatenate and minifiy a set of files">
+
+		<taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
+			<classpath>
+				<pathelement path="${yuicompressor.file}" />
+				<pathelement path="${yuiant.file}" />
+			</classpath>
+		</taskdef>
+
+		<yuicompress
 			charset="UTF-8"
 			linebreak="500"
 			warn="false"
 			munge="yes"
 			preserveallsemicolons="false"
 			preservestringlitterals="false"
-			outputfolder="${basedir}/bin/"
+			outputfolder="${bin.dir}"
 			outputsuffix="-min"
 		>
-            <fileset dir="${basedir}/bin/">
-                <include name="**/*.js"/>
-            </fileset>
-        </yuicompress>
+			<fileset dir="${bin.dir}">
+				<include name="*.js"/>
+			</fileset>
+		</yuicompress>
 
-    </target>
+	</target>
+
+
+
+	<!-- ////////////////////////////////////////////////////////////////// -->
+	<!-- ///////////////////////////// CLEAN ////////////////////////////// -->
+	<!-- ////////////////////////////////////////////////////////////////// -->
+
+	<target name="clean.bin" description="Clean bin directory">
+
+		<delete>
+			<fileset dir="${bin.dir}">
+				<include name="*.js" />
+			</fileset>
+		</delete>
+
+	</target>
+
+	<target name="clean.src-js" description="Clean src-js output directory from its TypeScript files">
+
+		<delete>
+			<fileset dir="${src-js.dir}">
+				<include name="**/*.ts" />
+				<include name="src-compile.list" />
+			</fileset>
+		</delete>
+
+	</target>
+
+	<target name="clean.test-src-js" description="Clean test src-js output directory from its TypeScript files ">
+
+		<delete>
+			<fileset dir="${test-src-js.dir}">
+				<include name="**/*.ts" />
+				<include name="test-compile.list" />
+			</fileset>
+		</delete>
+
+	</target>
+
+	<target name="remove.src-js" description="Remove the src-js output directory from the project">
+
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${src-js.dir}" />
+		</delete>
+
+	</target>
+
+	<target name="remove.test-js" description="Remove the test-js output directory from the project">
+
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${test-src-js.dir}/" />
+		</delete>
+
+	</target>
+
+
+
+	<!-- ////////////////////////////////////////////////////////////////// -->
+	<!-- ////////////////////////////// BUILD ///////////////////////////// -->
+	<!-- ////////////////////////////////////////////////////////////////// -->
+
+	<target
+		name="build.src"
+		description="Compile src from TypeScript to JavaScript, concatenate and minify it into a single file"
+		depends=
+		"
+			clean.bin,
+			remove.src-js,
+			compile.src,
+			compress
+		"
+	/>
+
+	<target
+		name="build.test"
+		description="Compile tests from TypeScript to JavaScript"
+		depends=
+		"
+			clean.bin,
+			remove.test-js,
+			compile.test
+		"
+	/>
+
+	<target
+		name="build.all"
+		description="Compile TypeScript to JavaScript, concatenate JavaScript and minify sets of JavaScript files"
+		depends=
+		"
+			build.src,
+			build.test
+		"
+	/>
 
 </project>
