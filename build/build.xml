@@ -10,11 +10,13 @@
 	<!--
 		The file contains a single property named typescript.compiler.path which can contain
 	 	user name of system login which you may don't want to publish on the web.
+
+	 	Instructions given in the user.properties.sample file included in the project.
 	 -->
 	<property file="build/user.properties" />
 
 	<!--
-		Standard project properties, including name of the release to build.
+		Standard project properties, including name of the release file to build.
 	 -->
 	<property file="build/build.properties" />
 
@@ -76,7 +78,7 @@
 				<equals arg1="@{nolib}" arg2="" />
 			</condition>
 
-			<!-- Could have been defaulted to ES3 but let the compiler use its own default is better -->
+			<!-- Could have been defaulted to ES3 but let the compiler uses its own default is quite better -->
 			<condition property="target.arg" value="" else="--target">
 				<equals arg1="@{target}" arg2="" />
 			</condition>
@@ -101,7 +103,7 @@
 
 			<!-- Compile using the generated compile file -->
 			<echo message="Calling ${typescript.compiler.path} with ${tsc.compile.file}" />
-			<exec executable="${typescript.compiler.path}">
+			<exec dir="@{src}" executable="${typescript.compiler.path}">
 				<arg value="@${tsc.compile.file}"/>
 			</exec>
 
