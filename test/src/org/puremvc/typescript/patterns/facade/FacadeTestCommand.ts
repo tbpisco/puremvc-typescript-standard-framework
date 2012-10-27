@@ -6,9 +6,13 @@
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/SimpleCommand.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+
+///<reference path='FacadeTestVO.ts'/>
 
 module puremvc
 {
@@ -29,7 +33,7 @@ module puremvc
 		 */
 		execute( note:INotification )
 		{
-			var vo:FacadeTestVO = note.getBody();
+			var vo:FacadeTestVO = <FacadeTestVO> note.getBody();
 
 			// Fabricate a result
 			vo.result = 2 * vo.input;

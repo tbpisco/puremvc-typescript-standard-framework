@@ -6,9 +6,18 @@
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IFacade.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IMediator.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IProxy.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/facade/Facade.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/mediator/Mediator.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/proxy/Proxy.ts'/>
+
+///<reference path='FacadeTestCommand.ts'/>
+///<reference path='FacadeTestVO.ts'/>
 
 module puremvc
 {
@@ -48,10 +57,8 @@ module puremvc
 		 */
 		testGetInstance():void
 		{
-			var Facade = Facade;
-
 			// Test Factory Method
-			var facade:Facade = Facade.getInstance();
+			var facade:IFacade = Facade.getInstance();
 
 			// test assertions
 			YUITest.Assert.isNotUndefined
@@ -83,14 +90,17 @@ module puremvc
 		 */
 		testRegisterCommandAndSendNotification():void
 		{
-			// Create the Facade, register the FacadeTestCommand to
-			// handle 'FacadeTest' notifications
-			var facade:Facade = Facade.getInstance();
+			/*
+			 * Create the Facade, register the FacadeTestCommand to handle 'FacadeTest'
+			 * notifications.
+			 */
+			var facade:IFacade = Facade.getInstance();
 			facade.registerCommand( 'FacadeTestNote', FacadeTestCommand );
 
-			// Send notification. The Command associated with the event
-			// (FacadeTestCommand) will be invoked, and will multiply
-			// the vo.input value by 2 and set the result on vo.result
+			/*
+			 * Send notification. The Command associated with the event (FacadeTestCommand) will be
+			 * invoked, and will multiply the vo.input value by 2 and set the result on vo.result
+			 */
 			var vo:FacadeTestVO = new FacadeTestVO( 32 );
 			facade.sendNotification( 'FacadeTestNote', vo );
 
@@ -107,22 +117,19 @@ module puremvc
 		 * Tests Command removal via the Facade.
 		 *
 		 *
-		 * This test gets the Singleton Facade instance
-		 * and registers the FacadeTestCommand class
-		 * to handle 'FacadeTest' Notifcations. Then it removes the command.
+		 * This test gets the Singleton Facade instance and registers the FacadeTestCommand class to
+		 * handle 'FacadeTest' Notifcations. Then it removes the command.
 		 *
 		 *
-		 * It then sends a Notification using the Facade.
-		 * Success is determined by evaluating a property on an object placed
-		 * in the body of the Notification, which will NOT be modified by the
-		 * Command.
-		 *
+		 * It then sends a Notification using the Facade. Success is determined by evaluating a
+		 * property on an object placed in the body of the Notification, which will NOT be modified
+		 * by the Command.
 		 */
 		testRegisterAndRemoveCommandAndSendNotification():void
 		{
 			// Create the Facade, register the FacadeTestCommand to
 			// handle 'FacadeTest' events
-			var facade:Facade = Facade.getInstance();
+			var facade:IFacade = Facade.getInstance();
 			facade.registerCommand( 'FacadeTestNote', FacadeTestCommand );
 			facade.removeCommand( 'FacadeTestNote' );
 
@@ -144,19 +151,17 @@ module puremvc
 		/**
 		 * Tests the registering and retrieving Model proxies via the Facade.
 		 *
-		 *
-		 * Tests <code>registerProxy</code> and <code>retrieveProxy</code> in the same test.
-		 * These methods cannot currently be tested separately
-		 * in any meaningful way other than to show that the
-		 * methods do not throw exception when called.
+		 * Tests <code>registerProxy</code> and <code>retrieveProxy</code> in the same test. These
+		 * methods cannot currently be tested separately in any meaningful way other than to show
+		 * that the methods do not throw exception when called.
 		 */
 		testRegisterAndRetrieveProxy():void
 		{
 			// register a proxy and retrieve it.
-			var facade:Facade = Facade.getInstance();
+			var facade:IFacade = Facade.getInstance();
 			facade.registerProxy( new Proxy( 'colors', ['red', 'green', 'blue'] ) );
 
-			var proxy:Proxy = facade.retrieveProxy( 'colors' );
+			var proxy:IProxy = facade.retrieveProxy( 'colors' );
 
 			YUITest.Assert.isInstanceOf
 			(
@@ -215,16 +220,13 @@ module puremvc
 		 */
 		testRegisterAndRemoveProxy():void
 		{
-			var Facade = Facade;
-			var Proxy = Proxy;
-
 			// register a proxy, remove it, then try to retrieve it
-			var facade:Facade = Facade.getInstance();
-			var proxy:Proxy = new Proxy( 'sizes', ['7', '13', '21'] );
+			var facade:IFacade = Facade.getInstance();
+			var proxy:IProxy = new Proxy( 'sizes', ['7', '13', '21'] );
 			facade.registerProxy( proxy );
 
 			// remove the proxy
-			var removedProxy:Proxy = facade.removeProxy('sizes');
+			var removedProxy:IProxy = facade.removeProxy('sizes');
 
 			// test assertions
 
@@ -249,7 +251,7 @@ module puremvc
 		testRegisterRetrieveAndRemoveMediator():void
 		{
 			// register a mediator, remove it, then try to retrieve it
-			var facade:Facade = Facade.getInstance();
+			var facade:IFacade = Facade.getInstance();
 			facade.registerMediator( new Mediator( Mediator.NAME, new Object() ) );
 
 			// retrieve the mediator
@@ -260,7 +262,7 @@ module puremvc
 			);
 
 			// remove the mediator
-			var removedMediator:Mediator = facade.removeMediator(Mediator.NAME);
+			var removedMediator:IMediator = facade.removeMediator(Mediator.NAME);
 
 			// assert that we have removed the appropriate mediator
 			YUITest.Assert.areEqual
@@ -284,7 +286,7 @@ module puremvc
 		testHasProxy():void
 		{
 			// register a Proxy
-			var facade:Facade = Facade.getInstance();
+			var facade:IFacade = Facade.getInstance();
 			facade.registerProxy( new Proxy( 'hasProxyTest', [1,2,3] ) );
 
 			// assert that the model.hasProxy method returns true
@@ -302,7 +304,7 @@ module puremvc
 		testHasMediator():void
 		{
 			// register a Mediator
-			var facade:Facade = Facade.getInstance();
+			var facade:IFacade = Facade.getInstance();
 			facade.registerMediator( new Mediator( 'facadeHasMediatorTest', new Object() ) );
 
 			// assert that the facade.hasMediator method returns true
@@ -330,7 +332,7 @@ module puremvc
 		testHasCommand():void
 		{
 			// register the ControllerTestCommand to handle 'hasCommandTest' notes
-			var facade:Facade = Facade.getInstance();
+			var facade:IFacade = Facade.getInstance();
 			facade.registerCommand( 'facadeHasCommandTest', FacadeTestCommand );
 
 			// test that hasCommand returns true for hasCommandTest notifications
