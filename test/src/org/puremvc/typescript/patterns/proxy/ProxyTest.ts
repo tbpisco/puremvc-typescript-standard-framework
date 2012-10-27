@@ -59,7 +59,7 @@ var ProxyTest = new YUITest.TestCase
 		 */
 		testConstructor: function()
 		{
-  		var Proxy = extract("puremvc.Proxy");
+  		var Proxy = Proxy;
 
 			// Create a new Proxy using the Constructor to set the name and data
 			var proxy/*Proxy*/ = new Proxy('colors',['red', 'green', 'blue']);
@@ -81,7 +81,7 @@ var ProxyTest = new YUITest.TestCase
 		 */
 		testNameAccessor: function()
 		{
-  		var Proxy = extract("puremvc.Proxy");
+  		var Proxy = Proxy;
 
 			// Create a new Proxy and use accessors to set the proxy name 
 			var proxy/*Proxy*/ = new Proxy('TestProxy');
@@ -101,7 +101,7 @@ var ProxyTest = new YUITest.TestCase
 		 */
 		testDataAccessors: function()
 		{
-  		var Proxy = extract("puremvc.Proxy");
+  		var Proxy = Proxy;
 
 			// Create a new Proxy and use accessors to set the data
 			var proxy/*Proxy*/ = new Proxy('colors');

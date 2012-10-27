@@ -19,9 +19,9 @@
  */
 var NotifierTestCommand = function()
 {
-	extract("puremvc.SimpleCommand").call(this);
+	SimpleCommand.call(this);
 }
-__extends( NotifierTestCommand, extract("puremvc.SimpleCommand") );
+__extends( NotifierTestCommand, SimpleCommand );
 
 /**
  * Fabricate a result by multiplying the input by 2

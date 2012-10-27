@@ -15,9 +15,9 @@
  */
 var SimpleCommandTestSub = function()
 {
-	extract("puremvc.SimpleCommand").call(this);
+	SimpleCommand.call(this);
 }
-__extends( SimpleCommandTestSub, extract("puremvc.SimpleCommand") );
+__extends( SimpleCommandTestSub, SimpleCommand );
 
 /**
  * A method to test if <code>Facade</code> instance of the object has
@@ -29,6 +29,6 @@ __extends( SimpleCommandTestSub, extract("puremvc.SimpleCommand") );
  */
 SimpleCommandTestSub.prototype.hasFacade = function()
 {
-	var Facade = extract("puremvc.Facade");
+	var Facade = Facade;
 	return this.facade instanceof Facade;
 }

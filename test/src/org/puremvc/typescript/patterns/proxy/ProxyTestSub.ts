@@ -16,9 +16,9 @@
  */
 var ProxyTestSub = function()
 {
-	extract("puremvc.Proxy").call(this);
+	Proxy.call(this);
 }
-__extends( ProxyTestSub, extract("puremvc.Proxy") );
+__extends( ProxyTestSub, Proxy );
 
 /**
  * A method to test if <code>Facade</code> instance of the object has
@@ -30,6 +30,6 @@ __extends( ProxyTestSub, extract("puremvc.Proxy") );
  */
 ProxyTestSub.prototype.hasFacade = function()
 {
-	var Facade = extract("puremvc.Facade");
+	var Facade = Facade;
 	return this.facade instanceof Facade;
 }

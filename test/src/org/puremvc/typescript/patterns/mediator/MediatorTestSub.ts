@@ -16,9 +16,9 @@
  */
 var MediatorTestSub = function()
 {
-	extract("puremvc.Mediator").call(this);
+	Mediator.call(this);
 }
-__extends( MediatorTestSub, extract("puremvc.Mediator") );
+__extends( MediatorTestSub, Mediator );
 
 /**
  * A method to test if <code>Facade</code> instance of the object has
@@ -30,6 +30,6 @@ __extends( MediatorTestSub, extract("puremvc.Mediator") );
  */
 MediatorTestSub.prototype.hasFacade = function()
 {
-	var Facade = extract("puremvc.Facade");
+	var Facade = Facade;
 	return this.facade instanceof Facade;
 }

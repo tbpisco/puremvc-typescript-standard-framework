@@ -19,9 +19,9 @@
  */
 var MacroCommandTestSub = function()
 {
-	extract("puremvc.MacroCommand").call(this);
+	MacroCommand.call(this);
 }
-__extends( MacroCommandTestSub, extract("puremvc.MacroCommand") );
+__extends( MacroCommandTestSub, MacroCommand );
 
 /**
  * A method to test if <code>Facade</code> instance of the object has
@@ -33,6 +33,6 @@ __extends( MacroCommandTestSub, extract("puremvc.MacroCommand") );
  */
 MacroCommandTestSub.prototype.hasFacade = function()
 {
-	var Facade = extract("puremvc.Facade");
+	var Facade = Facade;
 	return this.facade instanceof Facade;
 }

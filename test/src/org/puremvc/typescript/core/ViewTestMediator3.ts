@@ -23,9 +23,9 @@
  */
 var ViewTestMediator3 = function( view )
 {
-	extract("puremvc.Mediator").call( this, ViewTestMediator3.NAME, view );
+	Mediator.call( this, ViewTestMediator3.NAME, view );
 }
-__extends(ViewTestMediator3,extract("puremvc.Mediator"));
+__extends(ViewTestMediator3,Mediator);
 		
 /**
  * Standard getter to return the view handled by the

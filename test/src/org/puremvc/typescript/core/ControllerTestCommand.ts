@@ -16,7 +16,7 @@
  * @constructor
  */
 var ControllerTestCommand = function(){}
-__extends( ControllerTestCommand, extract("puremvc.SimpleCommand") );
+__extends( ControllerTestCommand, SimpleCommand );
 
 /**
  * Fabricate a result by multiplying the input by 2.

@@ -17,9 +17,9 @@
  */
 var SimpleCommandTestCommand = function()
 {
-	extract("puremvc.SimpleCommand").call(this);
+	SimpleCommand.call(this);
 }
-__extends( SimpleCommandTestCommand, extract("puremvc.SimpleCommand") );
+__extends( SimpleCommandTestCommand, SimpleCommand );
 
 /**
  * Fabricate a result by multiplying the input by 2

@@ -23,9 +23,9 @@
  */
 var ViewTestNote =  function( name, body )
 {
-	extract("puremvc.Notification").call( this, ViewTestNote.NAME, body );
+	Notification.call( this, ViewTestNote.NAME, body );
 }
-__extends(	ViewTestNote, extract("puremvc.Notification") );
+__extends(	ViewTestNote, Notification );
 
 /**
  * The name of this Notification.

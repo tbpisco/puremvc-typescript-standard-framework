@@ -21,9 +21,9 @@
  */
 var MacroCommandTestCommand = function()
 {
-	extract("puremvc.MacroCommand").call(this);
+	MacroCommand.call(this);
 }
-__extends( MacroCommandTestCommand, extract("puremvc.MacroCommand") );
+__extends( MacroCommandTestCommand, MacroCommand );
 
 /**
  * Initialize the MacroCommandTestCommand by adding

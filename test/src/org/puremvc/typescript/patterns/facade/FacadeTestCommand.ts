@@ -19,9 +19,9 @@
  */
 var FacadeTestCommand = function()
 {
-	extract("puremvc.SimpleCommand").call(this);
+	SimpleCommand.call(this);
 }
-__extends( FacadeTestCommand, extract("puremvc.SimpleCommand") );
+__extends( FacadeTestCommand, SimpleCommand );
 
 /**
  * Fabricate a result by multiplying the input by 2

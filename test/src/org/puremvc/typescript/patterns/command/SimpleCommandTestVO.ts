@@ -21,11 +21,11 @@
  */
 var SimpleCommandTestVO = function( input )
 {
-	extract("puremvc.SimpleCommand").call(this);
+	SimpleCommand.call(this);
 
 	this.input = input;
 }
-__extends( SimpleCommandTestVO, extract("puremvc.SimpleCommand") );
+__extends( SimpleCommandTestVO, SimpleCommand );
 	
 /**
  * @type {Number}

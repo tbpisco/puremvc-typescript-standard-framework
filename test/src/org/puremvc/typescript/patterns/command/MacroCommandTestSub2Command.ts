@@ -18,9 +18,9 @@
  */
 var MacroCommandTestSub2Command = function()
 {
-	extract("puremvc.SimpleCommand").call(this);
+	SimpleCommand.call(this);
 }
-__extends( MacroCommandTestSub2Command, extract("puremvc.SimpleCommand") );
+__extends( MacroCommandTestSub2Command, SimpleCommand );
 
 /**
  * Fabricate a result by multiplying the input by 2

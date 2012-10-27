@@ -14,9 +14,9 @@
  */
 var NotifierTestSub = function()
 {
-	extract("puremvc.Notifier").call(this);
+	Notifier.call(this);
 }
-__extends( NotifierTestSub, extract("puremvc.Notifier") );
+__extends( NotifierTestSub, Notifier );
 
 /**
  * A method to test if <code>Facade</code> instance of the object has
@@ -28,6 +28,6 @@ __extends( NotifierTestSub, extract("puremvc.Notifier") );
  */
 NotifierTestSub.prototype.hasFacade = function()
 {
-	var Facade = extract("puremvc.Facade");
+	var Facade = Facade;
 	return this.facade instanceof Facade;
 }

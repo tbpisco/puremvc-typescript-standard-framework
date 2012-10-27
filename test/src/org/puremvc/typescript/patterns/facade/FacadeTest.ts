@@ -41,7 +41,7 @@ var FacadeTest = new YUITest.TestCase
 		 */
 		testGetInstance: function()
 		{
-			var Facade = extract("puremvc.Facade");
+			var Facade = Facade;
 
 			// Test Factory Method
 			var facade/*Facade*/ = Facade.getInstance();
@@ -208,8 +208,8 @@ var FacadeTest = new YUITest.TestCase
 		 */
 		testRegisterAndRemoveProxy: function()
 		{
-			var Facade = extract("puremvc.Facade");
-			var Proxy = extract("puremvc.Proxy");
+			var Facade = Facade;
+			var Proxy = Proxy;
 
 			// register a proxy, remove it, then try to retrieve it
 			var facade/*Facade*/ = Facade.getInstance();

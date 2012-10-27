@@ -12,14 +12,14 @@
  * @constructor
  */
 var ModelTestProxy = function(){ this.initialize() }
-__extends( ModelTestProxy, extract("puremvc.Proxy") );
+__extends( ModelTestProxy, Proxy );
 
 /**
  * @constructs
  */
 ModelTestProxy.prototype.initialize = function()
 {
-	extract("puremvc.Proxy").call( this, ModelTestProxy.NAME, '' );
+	Proxy.call( this, ModelTestProxy.NAME, '' );
 }
 
 /**
