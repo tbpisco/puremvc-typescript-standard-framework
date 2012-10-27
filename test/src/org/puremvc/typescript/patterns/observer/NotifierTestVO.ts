@@ -38,12 +38,12 @@ module puremvc
 		}
 
 		/**
-		 * @type {number}
+		 * Will be used to store the number to pass to the command.
 		 */
 		input:number = null;
 
 		/**
-		 * @type {number}
+		 * Will be used to read the result calculated by the command.
 		 */
 		result:number = null;
 	}

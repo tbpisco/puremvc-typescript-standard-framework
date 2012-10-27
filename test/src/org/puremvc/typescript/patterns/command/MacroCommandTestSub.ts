@@ -23,7 +23,7 @@ module puremvc
 	 */
 	export class MacroCommandTestSub
 		extends MacroCommand
-		{
+	{
 		/**
 		 * @constructor
 		 *

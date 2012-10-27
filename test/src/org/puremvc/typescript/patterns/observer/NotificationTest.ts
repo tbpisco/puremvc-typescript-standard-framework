@@ -37,7 +37,7 @@ module puremvc
 		}
 
 		/**
-		 * Cleans up everything that was created by setUp():void.
+		 * Cleans up everything that was created by setUp().
 		 */
 		tearDown():void
 		{

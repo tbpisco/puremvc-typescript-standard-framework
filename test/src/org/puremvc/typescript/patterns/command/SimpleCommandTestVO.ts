@@ -28,23 +28,24 @@ module puremvc
 		 * @constructor
 		 * Constructs a <code>SimpleCommandTestVO</code> instance.
 		 *
-		 * @param {number} input
+		 * @param input
 		 * 		The number to be fed to the	<code>SimpleCommandTestCommand</code>.
 		 */
-		constructor( input )
+		constructor( input:number )
 		{
-			SimpleCommand.call(this);
+			//FIXME Needed here?
+			super();
 
 			this.input = input;
 		}
 
 		/**
-		 * @type {number}
+		 * Will be used to store the number to pass to the command.
 		 */
 		input:number = null;
 
 		/**
-		 * @type {number}
+		 * Will be used to read the result calculated by the command.
 		 */
 		result:number = null;
 	}

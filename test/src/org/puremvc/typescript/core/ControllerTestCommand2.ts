@@ -24,8 +24,6 @@ module puremvc
 	 * @see puremvc.ControllerTestVO ControllerTestVO
 	 *
 	 * @extends puremvc.SimpleCommand SimpleCommand
-	 *
-	 * @constructor
 	 */
 	export class ControllerTestCommand2
 		extends SimpleCommand
@@ -37,10 +35,10 @@ module puremvc
 		 * This tests accumulation effect that would show if the command were
 		 * executed more than once.
 		 *
-		 * @param {Notification} note
+		 * @param note
 		 * 		The note carrying the ControllerTestVO.
 		 */
-		execute( note )
+		execute( note:INotification )
 		{
 			var vo:ControllerTestVO = note.getBody();
 

@@ -211,4 +211,5 @@ declare module "YUITest"
 		 *      fails.
 		 */
 		static throwsError( expectedError:any, method:Function, message?:string ):void;
+	}
 }

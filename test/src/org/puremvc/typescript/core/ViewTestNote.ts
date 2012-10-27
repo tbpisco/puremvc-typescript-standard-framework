@@ -21,43 +21,44 @@ module puremvc
 	 * @see puremvc.ViewTest ViewTest
 	 * @extends puremvc.Notification Notification
 	 */
-
-	/**
-	 * @constructor.
-	 *
-	 * @param {String} name
-	 * 		Ignored and forced to NAME.
-	 *
-	 * @param {Object} body
-	 * 		The body of the Notification to be constructed.
-	 */
-	var ViewTestNote =  function( name, body )
+	class ViewTestNote
+		extends Notification
 	{
-		Notification.call( this, ViewTestNote.NAME, body );
-	}
-	__extends(	ViewTestNote, Notification );
+		/**
+		 * @constructor.
+		 *
+		 * @param {String} name
+		 *		Ignored and forced to NAME.
+		 *
+		 * @param {Object} body
+		 *		The body of the Notification to be constructed.
+		 */
+		constructor( name, body )
+		{
+			super( ViewTestNote.NAME, body );
+		}
 
-	/**
-	 * The name of this Notification.
-	 * @type {String}
-	 */
-	ViewTestNote.NAME = "ViewTestNote";
+		/**
+		 * The name of this Notification.
+		 */
+		private static NAME:string = "ViewTestNote";
 
-	/**
-	 * Factory method.
-	 *
-	 * This method creates new instances of the ViewTestNote class,
-	 * automatically setting the note name so you don't have to. Use
-	 * this as an alternative to the constructor.
-	 *
-	 * @param {Object} body
-	 * 		The body of the Notification to be constructed.
-	 *
-	 * @return {Notification}
-	 *		The created <code>Notification</code>
-	 */
-	ViewTestNote.create = function( body )
-	{
-		return new ViewTestNote( ViewTestNote.NAME, body );
+		/**
+		 * Factory method.
+		 *
+		 * This method creates new instances of the ViewTestNote class,
+		 * automatically setting the note name so you don't have to. Use
+		 * this as an alternative to the constructor.
+		 *
+		 * @param {Object} body
+		 * 		The body of the Notification to be constructed.
+		 *
+		 * @return {Notification}
+		 *		The created <code>Notification</code>
+		 */
+		static create( body )
+		{
+			return new ViewTestNote( ViewTestNote.NAME, body );
+		}
 	}
 }

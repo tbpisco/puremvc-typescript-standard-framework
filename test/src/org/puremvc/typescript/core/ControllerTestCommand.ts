@@ -24,8 +24,6 @@ module puremvc
 	 * @see puremvc.ControllerTestVO ControllerTestVO
 	 *
 	 * @extends puremvc.SimpleCommand SimpleCommand
-	 *
-	 * @constructor
 	 */
 	export class ControllerTestCommand
 		extends SimpleCommand
@@ -33,10 +31,10 @@ module puremvc
 		/**
 		 * Fabricate a result by multiplying the input by 2.
 		 *
-		 * @param {Notification} note
+		 * @param note
 		 * 		The note carrying the ControllerTestVO
 		 */
-		execute( note )
+		execute( note:INotification )
 		{
 			var vo:ControllerTestVO = note.getBody();
 

@@ -28,7 +28,6 @@ module puremvc
 	export class MacroCommandTestSub1Command
 		extends SimpleCommand
 	{
-
 		constructor()
 		{
 			//FIXME Necessary here ?

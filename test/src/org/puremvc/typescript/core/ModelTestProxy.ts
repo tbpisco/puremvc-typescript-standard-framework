@@ -13,6 +13,12 @@
 module puremvc
 {
 	"use strict";
+
+	/**
+	 * A <code>Proxy</code> subclass used by <code>ModelTest</code> testCase.
+	 *
+	 * @extends puremvc.Proxy Proxy
+	 */
 	export class ModelTestProxy
 		extends Proxy
 	{
@@ -24,11 +30,16 @@ module puremvc
 		 *
 		 * @constructor
 		 */
-		constructor(){ this.initialize() }
+		constructor()
+		{
+			//FIXME Needed ?
+			this.initialize();
+		}
 
 		/**
 		 * @constructs
 		 */
+		//FIXME Needed ?
 		initialize()
 		{
 			Proxy.call( this, ModelTestProxy.NAME, '' );
@@ -37,7 +48,7 @@ module puremvc
 		/**
 		 * @override.
 		 */
-		onRegister()
+		onRegister():void
 		{
 			this.setData( ModelTestProxy.ON_REGISTER_CALLED );
 		}
@@ -45,29 +56,24 @@ module puremvc
 		/**
 		 * @override.
 		 */
-		onRemove()
+		onRemove():void
 		{
 			this.setData( ModelTestProxy.ON_REMOVE_CALLED );
 		}
 
 		/**
-		 * @type {String}
 		 * @constant
 		 */
-		ModelTestProxy.NAME = 'ModelTestProxy';
-
+		private static NAME:string = 'ModelTestProxy';
 
 		/**
-		 * @type {String}
 		 * @constant
 		 */
-		ModelTestProxy.ON_REGISTER_CALLED = 'onRegister Called';
-
+		private static ON_REGISTER_CALLED:string = 'onRegister Called';
 
 		/**
-		 * @type {String}
 		 * @constant
 		 */
-		ModelTestProxy.ON_REMOVE_CALLED = 'onRemove Called';
+		private static ON_REMOVE_CALLED:string = 'onRemove Called';
 	}
 }

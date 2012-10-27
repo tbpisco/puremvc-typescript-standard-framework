@@ -28,7 +28,8 @@ module puremvc
 	{
 		constructor()
 		{
-			SimpleCommand.call(this);
+			//FIXME Necessary here
+			super();
 		}
 
 		/**

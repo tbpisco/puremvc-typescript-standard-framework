@@ -24,7 +24,7 @@ module puremvc
 	 */
 	export class ViewTestMediator6
 		extends Mediator
-		{
+	{
 		/**
 		 * @constructor
 		 *
@@ -38,7 +38,7 @@ module puremvc
 		 */
 		constructor( mediatorName, view )
 		{
-			Mediator.call( this, mediatorName, view );
+			super( mediatorName, view );
 		}
 
 		/**

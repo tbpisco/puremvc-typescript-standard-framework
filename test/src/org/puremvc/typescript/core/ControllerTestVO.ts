@@ -21,24 +21,27 @@ module puremvc
 	 * @see puremvc.ControllerTest ControllerTest
 	 * @see puremvc.ControllerTestCommand ControllerTestCommand
 	 */
-
-	/**
-	 * @constructor
-	 * @param {number} input
-	 * 		The number to be fed to the <code>ControllerTestCommand</code>.
-	 */
-	constructor( input )
+	class ControllerTestVO
 	{
-		this.input = input;
+		/**
+		 * @constructor
+		 *
+		 * @param input
+		 *		The number to be fed to the <code>ControllerTestCommand</code>.
+		 */
+		constructor( input:number )
+		{
+			this.input = input;
+		}
+
+		/**
+		 * Will be used to store the number to pass to the command.
+		 */
+		input:number = 0;
+
+		/**
+		 * Will be used to read the result calculated by the command.
+		 */
+		result:number = 0;
 	}
-
-	/**
-	 * @type {number}
-	 */
-	ControllerTestVO.prototype.input = 0;
-
-	/**
-	 * @type {number}
-	 */
-	ControllerTestVO.prototype.result = 0;
 }

@@ -22,40 +22,41 @@ module puremvc
 	 *
 	 * @extends puremvc.Mediator Mediator
 	 */
-
-	/**
-	 * @constructor
-	 * Constructs a <code>Mediator</code> subclass instance.
-	 *
-	 * @param {Object} view
-	 * 		The view component handled by this <code>Mediator</code>.
-	 */
-	constructor( view )
-	{
-		Mediator.call( this, ViewTestMediator.NAME, view );
-	}
 	export class ViewTestMediator
 		extends Mediator
 	{
-	/**
-	 * @override
-	 *
-	 * @return {Array}
-	 * 		The list of notifications names in which is interested the
-	 * 		<code>Mediator</code>.
-	 */
-	listNotificationInterests()
-	{
-		// be sure that the mediator has some Observers created
-		// in order to test removeMediator
-		return [ 'ABC', 'DEF', 'GHI'  ];
-	}
+		/**
+		 * @constructor
+		 * Constructs a <code>Mediator</code> subclass instance.
+		 *
+		 * @param {Object} view
+		 *		The view component handled by this <code>Mediator</code>.
+		 */
+		constructor( view )
+		{
+			super( ViewTestMediator.NAME, view );
+		}
 
-	/**
-	 * The Mediator name.
-	 *
-	 * @type {String}
-	 * @private
-	 */
-	ViewTestMediator.NAME = "ViewTestMediator";
+		/**
+		 * @override
+		 *
+		 * @return {Array}
+		 * 		The list of notifications names in which is interested the
+		 * 		<code>Mediator</code>.
+		 */
+		listNotificationInterests()
+		{
+			// be sure that the mediator has some Observers created
+			// in order to test removeMediator
+			return [ 'ABC', 'DEF', 'GHI'  ];
+		}
+
+		/**
+		 * The Mediator name.
+		 *
+		 * @type {String}
+		 * @private
+		 */
+		private static NAME:string = "ViewTestMediator";
+	}
 }
