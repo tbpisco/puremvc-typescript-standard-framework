@@ -18,8 +18,6 @@ module puremvc
 
 	/**
 	 * Test the PureMVC Mediator class.
-	 *
-	 * @see puremvc.Mediator Mediator
 	 */
 	export class MediatorTest
 	{

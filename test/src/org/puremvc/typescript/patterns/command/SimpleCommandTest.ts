@@ -18,9 +18,6 @@ module puremvc
 
 	/**
 	 * Test the PureMVC SimpleCommand class.
-	 *
-	 * @see puremvc.SimpleCommandTestVO SimpleCommandTestVO
-	 * @see puremvc.SimpleCommandTestCommand SimpleCommandTestCommand
 	 */
 	export class SimpleCommandTest
 	{

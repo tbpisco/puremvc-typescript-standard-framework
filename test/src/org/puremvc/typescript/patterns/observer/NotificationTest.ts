@@ -19,7 +19,6 @@ module puremvc
 	/**
 	 * Test the PureMVC Notification class.
 	 *
-	 * @see puremvc.Notification
 	 */
 	export class NotificationTest
 	{

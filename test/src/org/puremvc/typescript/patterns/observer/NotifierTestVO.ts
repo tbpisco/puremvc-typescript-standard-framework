@@ -17,11 +17,7 @@ module puremvc
 	import YUITest = module("YUITest");
 
 	/**
-	 * @classDescription
 	 * A utility class used by NotifierTest.
-	 *
-	 * @see puremvc.NotifierTest NotifierTest
-	 * @see puremvc.NotiferTestCommand NotifierTestCommand
 	 */
 	export class NotifierTestVO
 	{
@@ -29,10 +25,10 @@ module puremvc
 		 * @constructor
 		 * Constructs a <code>NotifierTestVO</code> instance.
 		 *
-		 * @param {number} input
+		 * @param input
 		 * 		The number to be fed to the FacadeTestCommand
 		 */
-		constructor( input )
+		constructor( input:number )
 		{
 			this.input = input;
 		}

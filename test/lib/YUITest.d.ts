@@ -118,7 +118,7 @@ declare module "YUITest"
 		 * @param actual The actual value to test.
 		 * @param message The message to display if the assertion fails.
 		 */
-		isNull( actual:any, message?:string ):void;
+		static isNull( actual:any, message?:string ):void;
 	
 		/**
 		 * Asserts that a value is undefined. This uses the triple equals sign

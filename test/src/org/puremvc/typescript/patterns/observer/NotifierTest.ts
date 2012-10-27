@@ -23,8 +23,6 @@ module puremvc
 
 	/**
 	 * Test the PureMVC Notifier class.
-	 *
-	 * @see puremvc.Notifier
 	 */
 	export class NotifierTest
 	{

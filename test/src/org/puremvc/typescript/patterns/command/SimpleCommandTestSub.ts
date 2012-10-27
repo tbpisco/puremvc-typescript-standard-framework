@@ -15,14 +15,11 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
-	 * A <code>SimpleCommand</code> utility subclass used by
-	 * <code>SimpleCommandTest</code>.
-	 *
-	 * @extends puremvc.SimpleCommand SimpleCommand
+	 * A <code>SimpleCommand</code> utility subclass used by <code>SimpleCommandTest</code>.
 	 */
 	export class SimpleCommandTestSub
 		extends SimpleCommand
+		implements ICommand
 	{
 		constructor()
 		{
@@ -31,14 +28,14 @@ module puremvc
 		}
 
 		/**
-		 * A method to test if <code>Facade</code> instance of the object has
-		 * well been declared during its construction.
+		 * A method to test if <code>Facade</code> instance of the object has well been declared
+		 * during its construction.
 		 *
-		 * @return {bool}
-		 * 		<code>Facade</code> instance of the object has well been declared
-		 * 		during its construction.
+		 * @return
+		 * 		<code>Facade</code> instance of the object has well been declared during its
+		 * 		construction.
 		 */
-		hasFacade()
+		hasFacade():bool
 		{
 			var Facade = Facade;
 			return this.facade instanceof Facade;

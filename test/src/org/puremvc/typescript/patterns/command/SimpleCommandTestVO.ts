@@ -15,14 +15,9 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A utility class used by SimpleCommandTest.
-	 *
-	 * @see puremvc.SimpleCommandTest SimpleCommandTest
-	 * @see puremvc.SimpleCommandTestCommand SimpleCommandTestCommand
 	 */
 	export class SimpleCommandTestVO
-		extends SimpleCommand
 	{
 		/**
 		 * @constructor

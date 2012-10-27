@@ -7,8 +7,11 @@
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
 
 ///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
 
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/patterns/command/SimpleCommand.ts'/>
+
+///<reference path='ControllerTestVO.ts'/>
 
 module puremvc
 {
@@ -17,16 +20,11 @@ module puremvc
 	import YUITest = module("YUITest");
 
 	/**
-	 * @classDescription
 	 * A SimpleCommand subclass used by ControllerTest.
-	 *
-	 * @see puremvc.ControllerTest ControllerTest
-	 * @see puremvc.ControllerTestVO ControllerTestVO
-	 *
-	 * @extends puremvc.SimpleCommand SimpleCommand
 	 */
 	export class ControllerTestCommand2
 		extends SimpleCommand
+		implements ICommand
 	{
 		/**
 		 * Fabricate a result by multiplying the input by 2 and adding to the

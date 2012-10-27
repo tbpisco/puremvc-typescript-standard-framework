@@ -15,27 +15,21 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A Mediator class used by ViewTest.
-	 *
-	 * @see puremvc.ViewTest ViewTest
-	 *
-	 * @extends puremvc.Mediator Mediator
-	 *
-	 * @constructor
 	 */
 	export class ViewTestMediator4
 		extends Mediator
+		implements IMediator
 	{
 		/**
 		 * @constructor
 		 *
 		 * Constructs a <code>Mediator</code> subclass instance.
 		 *
-		 * @param {Object} view
+		 * @param view
 		 *		The view component handled by this <code>Mediator</code>.
 		 */
-		constructor( view )
+		constructor( view:any )
 		{
 			super( ViewTestMediator4.NAME, view );
 		}
@@ -44,12 +38,10 @@ module puremvc
 		 * Standard getter to return the view handled by the
 		 * <code>Mediator</code>.
 		 *
-		 * @return {Object}
+		 * @return
 		 * 		The view handled by the <code>Mediator</code>.
-		 *
-		 * @private
 		 */
-		getViewTest()
+		getViewTest():any
 		{
 			return this.viewComponent;
 		}
@@ -73,9 +65,8 @@ module puremvc
 		/**
 		 * The Mediator name.
 		 *
-		 * @type {String}
-		 * @private
+		 * @constant
 		 */
-	/*const*/static NAME:string = 'ViewTestMediator4';
+		private static NAME:string = 'ViewTestMediator4';
 	}
 }

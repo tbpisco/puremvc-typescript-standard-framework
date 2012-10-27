@@ -19,15 +19,11 @@ module puremvc
 	/**
 	 * Tests PureMVC Observer class.
 	 *
-	 * Since the Observer encapsulates the interested object's
-	 * callback information, there are no getters, only setters.
-	 * It is, in effect write-only memory.
+	 * Since the Observer encapsulates the interested object's callback information, there are no
+	 * getters, only setters. It is, in effect write-only memory.
 	 *
-	 * Therefore, the only way to test it is to set the
-	 * notification method and context and call the notifyObserver
-	 * method.
-	 *
-	 * @see puremvc.Observer
+	 * Therefore, the only way to test it is to set the notification method and context and call the
+	 * notifyObserver method.
 	 */
 	export class ObserverTest
 	{

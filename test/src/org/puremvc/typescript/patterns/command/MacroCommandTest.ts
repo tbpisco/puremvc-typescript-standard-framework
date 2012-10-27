@@ -19,8 +19,6 @@ module puremvc
 	/**
 	 * Test the PureMVC MacroCommmand class.
 	 *
-	 * @see puremvc.MacroCommandTestVO MacroCommandTestVO
-	 * @see puremvc.MacroCommandTestCommand MacroCommandTestCommand
 	 */
 	export class MacroCommandTest
 	{

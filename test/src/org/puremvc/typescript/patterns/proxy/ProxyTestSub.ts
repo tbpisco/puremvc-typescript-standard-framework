@@ -16,13 +16,11 @@ module puremvc
 	import YUITest = module("YUITest");
 
 	/**
-	 * @classDescription
 	 * A <code>Proxy</code> utility subclass used by <code>ProxyTest</code>.
-	 *
-	 * @extends puremvc.Proxy Proxy
 	 */
 	export class ProxyTestSub
 		extends Proxy
+		implements IProxy
 	{
 		constructor()
 		{
@@ -31,14 +29,14 @@ module puremvc
 		}
 
 		/**
-		 * A method to test if <code>Facade</code> instance of the object has
-		 * well been declared during its construction.
+		 * A method to test if <code>Facade</code> instance of the object has well been declared
+		 * during its construction.
 		 *
-		 * @return {bool}
-		 *		<code>Facade</code> instance of the object has well been declared
-		 *		during its construction.
+		 * @return
+		 *		<code>Facade</code> instance of the object has well been declared during its
+		 *		construction.
 		 */
-		hasFacade()
+		hasFacade():bool
 		{
 			return this.facade instanceof Facade;
 		}

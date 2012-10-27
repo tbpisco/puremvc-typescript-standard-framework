@@ -25,9 +25,6 @@ module puremvc
 
 	/**
 	 * Test the PureMVC Controller class.
-	 *
-	 * @see puremvc.ControllerTestVO ControllerTestVO
-	 * @see puremvc.ControllerTestCommand ControllerTestCommand
 	 */
 	export class ControllerTest
 	{

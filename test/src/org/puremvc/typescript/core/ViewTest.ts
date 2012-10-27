@@ -141,10 +141,10 @@ module puremvc
 		/**
 		 * A utility method to test the notification of Observers by the view.
 		 *
-		 * @param {Notification} note
+		 * @param note
 		 *		The note to test.
 		 */
-		viewTestMethod( note )
+		viewTestMethod( note:Notification )
 		{
 			// set the local viewTestVar to the number on the event payload
 			this.viewTestVar = note.getBody();

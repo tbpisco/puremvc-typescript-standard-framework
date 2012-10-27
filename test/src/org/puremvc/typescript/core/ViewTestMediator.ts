@@ -15,24 +15,20 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A Mediator class used by ViewTest.
-	 *
-	 * @see puremvc.ViewTest ViewTest
-	 *
-	 * @extends puremvc.Mediator Mediator
 	 */
 	export class ViewTestMediator
 		extends Mediator
+		implements IMediator
 	{
 		/**
 		 * @constructor
 		 * Constructs a <code>Mediator</code> subclass instance.
 		 *
-		 * @param {Object} view
+		 * @param view
 		 *		The view component handled by this <code>Mediator</code>.
 		 */
-		constructor( view )
+		constructor( view:any )
 		{
 			super( ViewTestMediator.NAME, view );
 		}
@@ -40,22 +36,19 @@ module puremvc
 		/**
 		 * @override
 		 *
-		 * @return {Array}
-		 * 		The list of notifications names in which is interested the
-		 * 		<code>Mediator</code>.
+		 * @return
+		 * 		The list of notifications names in which is interested the <code>Mediator</code>.
 		 */
-		listNotificationInterests()
+		listNotificationInterests():string[]
 		{
-			// be sure that the mediator has some Observers created
-			// in order to test removeMediator
-			return [ 'ABC', 'DEF', 'GHI'  ];
+			// Be sure that the mediator has some Observers created in order to test removeMediator.
+			return [ 'ABC', 'DEF', 'GHI' ];
 		}
 
 		/**
 		 * The Mediator name.
 		 *
-		 * @type {String}
-		 * @private
+		 * @constant
 		 */
 		private static NAME:string = "ViewTestMediator";
 	}

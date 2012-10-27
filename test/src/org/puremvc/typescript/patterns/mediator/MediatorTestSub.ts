@@ -15,13 +15,11 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A <code>Mediator</code> utility subclass used by <code>MediatorTest</code>.
-	 *
-	 * @extends puremvc.Mediator Mediator
 	 */
 	export class MediatorTestSub
 		extends Mediator
+		implements IMediator
 	{
 		/**
 		 * @constructor
@@ -33,14 +31,14 @@ module puremvc
 		}
 
 		/**
-		 * A method to test if <code>Facade</code> instance of the object has
-		 * well been declared during its construction.
+		 * A method to test if <code>Facade</code> instance of the object has well been declared
+		 * during its construction.
 		 *
-		 * @return {bool}
-		 * 		<code>Facade</code> instance of the object has well been declared
-		 * 		during its construction.
+		 * @return
+		 * 		<code>Facade</code> instance of the object has well been declared during its
+		 * 		construction.
 		 */
-		hasFacade()
+		hasFacade():bool
 		{
 			var Facade = Facade;
 			return this.facade instanceof Facade;

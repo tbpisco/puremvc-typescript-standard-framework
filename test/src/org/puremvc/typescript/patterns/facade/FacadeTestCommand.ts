@@ -15,16 +15,11 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A SimpleCommand subclass used by FacadeTest.
-	 *
-	 * @see puremvc.FacadeTest FacadeTest
-	 * @see puremvc.FacadeTestVO FacadeTestVO
-	 *
-	 * @extends puremvc.SimpleCommand SimpleCommand
 	 */
 	export class FacadeTestCommand
 		extends SimpleCommand
+		implements ICommand
 	{
 		constructor()
 		{
@@ -35,10 +30,10 @@ module puremvc
 		/**
 		 * Fabricate a result by multiplying the input by 2
 		 *
-		 * @param {Notification} note
+		 * @param note
 		 * 		The Notification carrying the FacadeTestVO
 		 */
-		execute( note )
+		execute( note:INotification )
 		{
 			var vo:FacadeTestVO = note.getBody();
 

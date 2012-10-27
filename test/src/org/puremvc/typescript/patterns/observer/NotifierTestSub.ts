@@ -16,13 +16,11 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A <code>Notifier</code> utility subclass used by <code>NotifierTest</code>.
-	 *
-	 * @extends puremvc.Notifier Notifier
 	 */
 	export class NotifierTestSub
 		extends Notifier
+		implements INotifier
 	{
 		constructor()
 		{

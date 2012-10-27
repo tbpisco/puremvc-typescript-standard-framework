@@ -15,14 +15,12 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A Notification class used by ViewTest.
 	 *
-	 * @see puremvc.ViewTest ViewTest
-	 * @extends puremvc.Notification Notification
 	 */
 	export class ViewTestNote
 		extends Notification
+		implements INotification
 	{
 		/**
 		 * @constructor.

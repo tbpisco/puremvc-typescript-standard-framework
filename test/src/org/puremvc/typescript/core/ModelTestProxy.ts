@@ -6,6 +6,8 @@
 
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
 
+///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/IProxy.ts'/>
+
 ///<reference path='../../../../../../src/org/puremvc/typescript/patterns/proxy/Proxy.ts'/>
 
 module puremvc
@@ -14,11 +16,10 @@ module puremvc
 
 	/**
 	 * A <code>Proxy</code> subclass used by <code>ModelTest</code> testCase.
-	 *
-	 * @extends puremvc.Proxy Proxy
 	 */
 	export class ModelTestProxy
 		extends Proxy
+		implements IProxy
 	{
 
 		/**
@@ -30,17 +31,7 @@ module puremvc
 		 */
 		constructor()
 		{
-			//FIXME Needed ?
-			this.initialize();
-		}
-
-		/**
-		 * @constructs
-		 */
-		//FIXME Needed ?
-		initialize()
-		{
-			Proxy.call( this, ModelTestProxy.NAME, '' );
+			super( ModelTestProxy.NAME, '' );
 		}
 
 		/**

@@ -15,13 +15,7 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A utility class used by MacroCommandTest.
-	 *
-	 * @see puremvc.MacroCommandTest MacroCommandTest
-	 * @see puremvc.MacroCommandTestCommand MacroCommandTestCommand
-	 * @see puremvc.MacroCommandTestSub1Command MacroCommandTestSub1Command
-	 * @see puremvc.MacroCommandTestSub2Command MacroCommandTestSub2Command
 	 */
 	export class MacroCommandTestVO
 	{

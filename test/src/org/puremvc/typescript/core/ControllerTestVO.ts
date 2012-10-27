@@ -6,20 +6,12 @@
 
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-
 module puremvc
 {
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A utility class used by ControllerTest.
-	 *
-	 * @see puremvc.ControllerTest ControllerTest
-	 * @see puremvc.ControllerTestCommand ControllerTestCommand
 	 */
 	export class ControllerTestVO
 	{

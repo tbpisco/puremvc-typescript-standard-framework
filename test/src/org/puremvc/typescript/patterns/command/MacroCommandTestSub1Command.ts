@@ -15,18 +15,12 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A SimpleCommand subclass used by MacroCommandTestCommand.
-	 *
-	 * @see puremvc.MacroCommandTest MacroCommandTest
-	 * @see puremvc.MacroCommandTestCommand MacroCommandTestCommand
-	 * @see puremvc.MacroCommandTestVO MacroCommandTestVO
-	 *
-	 * @extends puremvc.SimpleCommand SimpleCommand
 	 */
 
 	export class MacroCommandTestSub1Command
 		extends SimpleCommand
+		implements ICommand
 	{
 		constructor()
 		{
@@ -37,11 +31,11 @@ module puremvc
 		/**
 		 * Fabricate a result by multiplying the input by 2
 		 *
-		 * @param {Notification} note
+		 * @param note
 		 * 		The <code>Notification</code> carrying the
 		 * 		<code>MacroCommandTestVO</code>
 		 */
-		execute( note )
+		execute( note:INotification )
 		{
 			var vo:MacroCommandTestVO = note.getBody();
 

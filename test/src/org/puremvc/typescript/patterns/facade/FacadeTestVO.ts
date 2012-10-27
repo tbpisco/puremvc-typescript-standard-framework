@@ -15,11 +15,7 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A utility class used by FacadeTest.
-	 *
-	 * @see puremvc.FacadeTest FacadeTest
-	 * @see puremvc.FacadeTestCommand FacadeTestCommand
 	 */
 	export class FacadeTestVO
 	{

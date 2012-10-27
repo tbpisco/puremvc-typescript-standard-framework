@@ -19,8 +19,6 @@ module puremvc
 	/**
 	 * Test the PureMVC Facade class.
 	 *
-	 * @see puremvc.FacadeTestVO
-	 * @see puremvc.FacadeTestCommand
 	 */
 	export class FacadeTest
 	{
@@ -131,7 +129,7 @@ module puremvc
 			// Send notification. The Command associated with the event
 			// (FacadeTestCommand) will NOT be invoked, and will NOT multiply
 			// the vo.input value by 2
-			var vo:Object = new FacadeTestVO( 32 );
+			var vo:FacadeTestVO = new FacadeTestVO( 32 );
 			facade.sendNotification( 'FacadeTestNote', vo );
 
 			// test assertions

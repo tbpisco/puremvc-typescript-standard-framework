@@ -18,16 +18,11 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A SimpleCommand subclass used by NotifierTest.
-	 *
-	 * @see puremvc.NotifierTest NotifierTest
-	 * @see puremvc.NotifierTestVO NotifierTestVO
-	 *
-	 * @extends puremvc.SimpleCommand SimpleCommand
 	 */
 	export class NotifierTestCommand
 		extends SimpleCommand
+		implements ICommand
 	{
 		constructor()
 		{

@@ -97,16 +97,16 @@
 			"PureMVC JavaScript Objs - plain",
 			[
 				new YUITest.TestCase( new puremvc.ControllerTest ),
-				//ModelTest,
-				//ViewTest,
-				//MacroCommandTest,
-				//SimpleCommandTest,
-				//FacadeTest,
-				//MediatorTest,
+				new YUITest.TestCase( new puremvc.ModelTest ),
+				new YUITest.TestCase( new puremvc.ViewTest ),
+				new YUITest.TestCase( new puremvc.MacroCommandTest ),
+				new YUITest.TestCase( new puremvc.SimpleCommandTest ),
+				new YUITest.TestCase( new puremvc.FacadeTest ),
+				new YUITest.TestCase( new puremvc.MediatorTest ),
 				new YUITest.TestCase( new puremvc.NotificationTest ),
 				new YUITest.TestCase( new puremvc.NotifierTest ),
 				new YUITest.TestCase( new puremvc.ObserverTest ),
-				//ProxyTest
+				new YUITest.TestCase( new puremvc.ProxyTest )
 			]
 		);
 		</script> 

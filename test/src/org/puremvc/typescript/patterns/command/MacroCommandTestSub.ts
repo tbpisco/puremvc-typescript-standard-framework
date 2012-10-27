@@ -15,14 +15,11 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
-	 * A <code>MacroCommand</code> utility subclass used by
-	 * <code>MacroCommandTest</code>.
-	 *
-	 * @extends puremvc.MacroCommand MacroCommand
+	 * A <code>MacroCommand</code> utility subclass used by <code>MacroCommandTest</code>.
 	 */
 	export class MacroCommandTestSub
 		extends MacroCommand
+		implements ICommand
 	{
 		/**
 		 * @constructor
@@ -39,11 +36,11 @@ module puremvc
 		 * A method to test if <code>Facade</code> instance of the object has
 		 * well been declared during its construction.
 		 *
-		 * @return {bool}
+		 * @return
 		 * 		<code>Facade</code> instance of the object has well been declared
 		 * 		during its construction.
 		 */
-		hasFacade()
+		hasFacade():bool
 		{
 			var Facade = Facade;
 			return this.facade instanceof Facade;

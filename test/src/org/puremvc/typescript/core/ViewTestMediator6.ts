@@ -15,28 +15,24 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A Mediator class used by ViewTest.
-	 *
-	 * @see puremvc.ViewTest ViewTest
-	 *
-	 * @extends puremvc.Mediator Mediator
 	 */
 	export class ViewTestMediator6
 		extends Mediator
+		implements IMediator
 	{
 		/**
 		 * @constructor
 		 *
 		 * Constructs a <code>Mediator</code> subclass instance.
 		 *
-		 * @param {String} mediatorName
+		 * @param mediatorName
 		 * 		The name of the <code>Mediator</code>.
 		 *
-		 * @param {Object} view
+		 * @param view
 		 * 		The view component handled by this <code>Mediator</code>.
 		 */
-		constructor( mediatorName, view )
+		constructor( mediatorName:string, view:any )
 		{
 			super( mediatorName, view );
 		}
@@ -45,12 +41,10 @@ module puremvc
 		 * Standard getter to return the view handled by the
 		 * <code>Mediator</code>.
 		 *
-		 * @return {Object}
+		 * @return
 		 * 		The view handled by the <code>Mediator</code>.
-		 *
-		 * @private
 		 */
-		getViewTest()
+		getViewTest():any
 		{
 			return this.viewComponent;
 		}
@@ -58,11 +52,11 @@ module puremvc
 		/**
 		 * @override
 		 *
-		 * @return {Array}
+		 * @return
 		 * 		The list of notifications names in which is interested the
 		 * 		<code>Mediator</code>.
 		 */
-		listNotificationInterests()
+		listNotificationInterests():string[]
 		{
 			return [ ViewTest.NOTE6 ];
 		}
@@ -70,10 +64,10 @@ module puremvc
 		/**
 		 * @override
 		 *
-		 * @param {Notification} notification
+		 * @param notification
 		 * 		The notification instance to be handled.
 		 */
-		handleNotification( notification )
+		handleNotification( notification:INotification )
 		{
 			this.facade.removeMediator(this.getMediatorName());
 		}
@@ -89,9 +83,8 @@ module puremvc
 		/**
 		 * The Mediator name.
 		 *
-		 * @type {String}
-		 * @private
+		 * @constant
 		 */
-	/*const*/static NAME:string = 'ViewTestMediator6';
+		private static NAME:string = 'ViewTestMediator6';
 	}
 }

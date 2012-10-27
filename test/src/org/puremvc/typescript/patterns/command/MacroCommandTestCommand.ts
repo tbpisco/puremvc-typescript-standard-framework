@@ -18,18 +18,11 @@ module puremvc
 	"use strict";
 
 	/**
-	 * @classDescription
 	 * A MacroCommand subclass used by MacroCommandTest.
-	 *
-	 * @see puremvc.MacroCommandTest MacroCommandTest
-	 * @see puremvc.MacroCommandTestSub1Command MacroCommandTestSub1Command
-	 * @see puremvc.MacroCommandTestSub2Command MacroCommandTestSub2Command
-	 * @see puremvc.MacroCommandTestVO MacroCommandTestVO
-	 *
-	 * @extends puremvc.MacroCommand MacroCommand
 	 */
 	export class MacroCommandTestCommand
 		extends MacroCommand
+		implements ICommand
 	{
 
 		constructor()
