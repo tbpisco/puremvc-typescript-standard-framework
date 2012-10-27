@@ -34,7 +34,7 @@ function runTests( name, tests )
 					case TestRunner.BEGIN_EVENT:
 						message = "Testing began at " + (new Date()).toString() + ".";
 						messageType = "info";
-						break;
+					break;
 
 					case TestRunner.COMPLETE_EVENT:
 						message = Y.substitute
@@ -46,27 +46,27 @@ function runTests( name, tests )
 								event.results
 							);
 						messageType = "info";
-						break;
+					break;
 
 					case TestRunner.TEST_FAIL_EVENT:
 						message = event.testName + ": failed.\n" + event.error.getMessage();
 						messageType = "fail";
-						break;
+					break;
 
 					case TestRunner.TEST_IGNORE_EVENT:
 						message = event.testName + ": ignored.";
 						messageType = "ignore";
-						break;
+					break;
 
 					case TestRunner.TEST_PASS_EVENT:
 						message = event.testName + ": passed.";
 						messageType = "pass";
-						break;
+					break;
 
 					case TestRunner.TEST_SUITE_BEGIN_EVENT:
 						message = "Test suite \"" + event.testSuite.name + "\" started.";
 						messageType = "info";
-						break;
+					break;
 
 					case TestRunner.TEST_SUITE_COMPLETE_EVENT:
 						message = Y.substitute
@@ -78,12 +78,12 @@ function runTests( name, tests )
 								event.results
 							);
 						messageType = "info";
-						break;
+					break;
 
 					case TestRunner.TEST_CASE_BEGIN_EVENT:
 						message = "Test case \"" + event.testCase.name + "\" started.";
 						messageType = "info";
-						break;
+					break;
 
 					case TestRunner.TEST_CASE_COMPLETE_EVENT:
 						message = Y.substitute
@@ -95,7 +95,7 @@ function runTests( name, tests )
 								event.results
 							);
 						messageType = "info";
-						break;
+					break;
 
 					default:
 						message = "Unexpected event " + event.type;
@@ -116,7 +116,6 @@ function runTests( name, tests )
 			TestRunner.attach(TestRunner.TEST_PASS_EVENT, logEvent);
 			TestRunner.attach(TestRunner.TEST_FAIL_EVENT, logEvent);
 			TestRunner.attach(TestRunner.TEST_IGNORE_EVENT, logEvent);
-
 
 			//run the tests
 			TestRunner.run();

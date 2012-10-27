@@ -1,15 +1,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>PureMVC TypeScript - plain</title>
-		
-	 	<!-- Needed by YUITest Unit Test Framework Library -->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>PureMVC TypeScript - plain</title>
+
+		<!-- Needed by YUITest Unit Test Framework Library -->
 		<link type="text/css" rel="stylesheet" href="test/lib/fonts-min.css" />
 		<script type="text/javascript" src="test/lib/yui-min.js"></script>
 		<script type="text/javascript" src="test/lib/yuitest_1.0.0b1.js"></script>
-	
+
+		<script type="text/javascript">
+		//FIXME Determine how to give accessibility to YUITest module the right way
+		var __YUITest__ = YUITest;
+		</script>
+
 		<!-- Home Made Test Runner -->
 		<link type="text/css" rel="stylesheet" href="test/lib/testrunner.css" />
 		<script type="text/javascript" src="test/lib/testrunner.js"></script>
@@ -30,8 +35,8 @@
 		<script type="text/javascript" src="src-js/org/puremvc/typescript/patterns/command/MacroCommand.js"></script>
 		<script type="text/javascript" src="src-js/org/puremvc/typescript/patterns/mediator/Mediator.js"></script>
 		<script type="text/javascript" src="src-js/org/puremvc/typescript/patterns/proxy/Proxy.js"></script>
-		
-	 	<!-- PureMVC Framework Unit Test Cases -->
+
+		<!-- PureMVC Framework Unit Test Cases -->
 		<script type="text/javascript" src="test/src-js/org/puremvc/typescript/core/ControllerTestCommand.js"></script>
 		<script type="text/javascript" src="test/src-js/org/puremvc/typescript/core/ControllerTestCommand2.js"></script>
 		<script type="text/javascript" src="test/src-js/org/puremvc/typescript/core/ControllerTestVO.js"></script>
@@ -64,7 +69,7 @@
 		<script type="text/javascript" src="test/src-js/org/puremvc/typescript/patterns/facade/FacadeTestVO.js"></script>
 		<script type="text/javascript" src="test/src-js/org/puremvc/typescript/patterns/facade/FacadeTestCommand.js"></script>
 		<script type="text/javascript" src="test/src-js/org/puremvc/typescript/patterns/facade/FacadeTest.js"></script>
-		
+
 		<script type="text/javascript" src="test/src-js/org/puremvc/typescript/patterns/mediator/MediatorTestSub.js"></script>
 		<script type="text/javascript" src="test/src-js/org/puremvc/typescript/patterns/mediator/MediatorTest.js"></script>
 
@@ -81,30 +86,30 @@
 	</head>
 
 	<body class="yui3-skin-sam  yui-skin-sam"> 
-		 
+
 		<h1>PureMVC TypeScript Objs - plain</h1>
-		 
+
 		<div id="testLogger" class="yui3-skin-sam"></div>
-		
-		<script type="text/javascript"> 
+
+		<script type="text/javascript">
 		runTests
 		(
 			"PureMVC JavaScript Objs - plain",
 			[
-			    ControllerTest,
-			    ModelTest,
-			    ViewTest,
-			    MacroCommandTest,
-			    SimpleCommandTest,
-			    FacadeTest,
-			    MediatorTest,
-			    NotificationTest,
-			    NotifierTest,
-			    ObserverTest,
-			    ProxyTest
+				//ControllerTest,
+				//ModelTest,
+				//ViewTest,
+				//MacroCommandTest,
+				//SimpleCommandTest,
+				//FacadeTest,
+				//MediatorTest,
+				new YUITest.TestCase( new puremvc.NotificationTest ),
+				//NotifierTest,
+				//ObserverTest,
+				//ProxyTest
 			]
 		);
 		</script> 
- 
+
 	</body> 
 </html>
