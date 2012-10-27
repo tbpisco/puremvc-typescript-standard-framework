@@ -26,7 +26,7 @@ module puremvc
 	 * @constructor
 	 * Constructs a <code>FacadeTestVo</code> instance.
 	 *
-	 * @param {Number} input
+	 * @param {number} input
 	 * 		The number to be fed to the FacadeTestCommand
 	 */
 	constructor( input )
@@ -35,12 +35,12 @@ module puremvc
 	}
 
 	/**
-	 * @type {Number}
+	 * @type {number}
 	 */
-	FacadeTestVO.prototype.input = null;
+	input:number = null;
 
 	/**
-	 * @type {Number}
+	 * @type {number}
 	 */
-	FacadeTestVO.prototype.result = null;
+	result:number = null;
 }

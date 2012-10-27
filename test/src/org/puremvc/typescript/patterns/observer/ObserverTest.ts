@@ -59,7 +59,7 @@ module puremvc
 			 * A test variable that proves the notify method was executed with
 			 * 'this' as its execution context.
 			 *
-			 * @type {Number}
+			 * @type {number}
 			 * @private
 			 */
 			observerTestVar = null;

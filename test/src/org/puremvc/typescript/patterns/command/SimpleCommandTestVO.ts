@@ -26,7 +26,7 @@ module puremvc
 	 * @constructor
 	 * Constructs a <code>SimpleCommandTestVO</code> instance.
 	 *
-	 * @param {Number} input
+	 * @param {number} input
 	 * 		The number to be fed to the	<code>SimpleCommandTestCommand</code>.
 	 */
 	constructor( input )
@@ -38,12 +38,12 @@ module puremvc
 	__extends( SimpleCommandTestVO, SimpleCommand );
 
 	/**
-	 * @type {Number}
+	 * @type {number}
 	 */
-	SimpleCommandTestVO.prototype.input = null;
+	input:number = null;
 
 	/**
-	 * @type {Number}
+	 * @type {number}
 	 */
-	SimpleCommandTestVO.prototype.result = null;
+	result:number = null;
 }

@@ -24,7 +24,7 @@ module puremvc
 
 	/**
 	 * @constructor
-	 * @param {Number} input
+	 * @param {number} input
 	 * 		The number to be fed to the <code>ControllerTestCommand</code>.
 	 */
 	constructor( input )
@@ -33,12 +33,12 @@ module puremvc
 	}
 
 	/**
-	 * @type {Number}
+	 * @type {number}
 	 */
 	ControllerTestVO.prototype.input = 0;
 
 	/**
-	 * @type {Number}
+	 * @type {number}
 	 */
 	ControllerTestVO.prototype.result = 0;
 }

@@ -51,7 +51,7 @@ module puremvc
 			lastNotification: null,
 
 			/**
-			 * @type {Number}
+			 * @type {number}
 			 */
 			counter: 0,
 
@@ -71,7 +71,7 @@ module puremvc
 			 * A test variable that proves the viewTestMethod was
 			 * invoked by the View.
 			 *
-			 * @type {Number}
+			 * @type {number}
 			 * @private
 			 */
 			viewTestVar: null,

@@ -28,7 +28,7 @@ module puremvc
 	 * @constructor
 	 * Constructs a <code>MacroCommandTestVO</code> instance.
 	 *
-	 * @param {Number} input
+	 * @param {number} input
 	 * 		A random number to pass to the command.
 	 */
 	constructor( input )
@@ -37,17 +37,17 @@ module puremvc
 	}
 
 	/**
-	 * @type {Number}
+	 * @type {number}
 	 */
-	MacroCommandTestVO.prototype.input = null;
+	input:number = null;
 
 	/**
-	 * @type {Number}
+	 * @type {number}
 	 */
-	MacroCommandTestVO.prototype.result1 = null;
+	result1:number = null;
 
 	/**
-	 * @type {Number}
+	 * @type {number}
 	 */
-	MacroCommandTestVO.prototype.result2 = null;
+	result2:number = null;
 }

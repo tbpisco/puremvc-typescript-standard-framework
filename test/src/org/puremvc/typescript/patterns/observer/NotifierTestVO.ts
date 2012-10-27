@@ -23,27 +23,30 @@ module puremvc
 	 * @see puremvc.NotifierTest NotifierTest
 	 * @see puremvc.NotiferTestCommand NotifierTestCommand
 	 */
-	class
-
-	/**
-	 * @constructor
-	 * Constructs a <code>NotifierTestVO</code> instance.
-	 *
-	 * @param {Number} input
-	 * 		The number to be fed to the FacadeTestCommand
-	 */
-	constructor( input )
+	class NotifierTestVO
 	{
-		this.input = input;
+
+		/**
+		 * @constructor
+		 * Constructs a <code>NotifierTestVO</code> instance.
+		 *
+		 * @param {number} input
+		 * 		The number to be fed to the FacadeTestCommand
+		 */
+		constructor( input )
+		{
+			this.input = input;
+		}
+
+		/**
+		 * @type {number}
+		 */
+		input:number = null;
+
+		/**
+		 * @type {number}
+		 */
+		result:number = null;
 	}
 
-	/**
-	 * @type {Number}
-	 */
-	NotifierTestVO.prototype.input = null;
-
-	/**
-	 * @type {Number}
-	 */
-	NotifierTestVO.prototype.result = null;
 }
