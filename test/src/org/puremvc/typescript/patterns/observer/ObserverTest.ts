@@ -4,9 +4,9 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
 module puremvc
 {
@@ -60,7 +60,7 @@ module puremvc
 			 * @type {Number}
 			 * @private
 			 */
-			observerTestVar: null,
+			observerTestVar = null;
 
 			/**
 			 * Tests observer class when initialized by accessor methods.
