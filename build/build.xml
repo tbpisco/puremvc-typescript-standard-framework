@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="build" basedir=".." default="build.all">
+<project name="build" basedir="." default="build.all">
 
 
 
@@ -8,17 +8,17 @@
 	<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
 
 	<!--
-		The file contains a single property named typescript.compiler.path which can contain
-	 	user name of system login which you may don't want to publish on the web.
+		The file contains a single property named typescript.compiler.path which (on Windows)
+		contain	system login name, what you may don't want to include in your sources.
 
-	 	Instructions given in the user.properties.sample file included in the project.
+	 	Instructions are given in the user.properties.sample file included in the same dir.
 	 -->
-	<property file="build/user.properties" />
+	<property file="user.properties" />
 
 	<!--
 		Standard project properties, including name of the release file to build.
 	 -->
-	<property file="build/build.properties" />
+	<property file="build.properties" />
 
 
 
