@@ -35,14 +35,14 @@ module puremvc
 			/**
 			 * Sets up data that is needed by each test.
 			 */
-			setUp: function()
+			setUp():void
 			{
 			}
 
 			/**
-			 * Cleans up everything that was created by setUp().
+			 * Cleans up everything that was created by setUp():void.
 			 */
-			tearDown: function()
+			tearDown():void
 			{
 			}
 
@@ -51,7 +51,7 @@ module puremvc
 			 * super by testing for the existence of its <code>Notifier</code>
 			 * superclass facade instance.
 			 */
-			testConstructor: function()
+			testConstructor():void
 			{
 				// Create a new subclass of Notifier and verify that its facade
 				// has well been created
@@ -93,7 +93,7 @@ module puremvc
 			 * body.
 			 *
 			 */
-			testMacroCommandExecute: function()
+			testMacroCommandExecute():void
 			{
 				// Create the VO
 				var vo/*MacroCommandTestVO*/ = new MacroCommandTestVO(5);

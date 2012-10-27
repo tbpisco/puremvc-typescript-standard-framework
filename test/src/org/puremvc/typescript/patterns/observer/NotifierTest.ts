@@ -34,21 +34,21 @@ module puremvc
 			/**
 			 * Sets up data that is needed by each test.
 			 */
-			setUp: function()
+			setUp():void
 			{
 			}
 
 			/**
-			 * Cleans up everything that was created by setUp().
+			 * Cleans up everything that was created by setUp():void.
 			 */
-			tearDown: function()
+			tearDown():void
 			{
 			}
 
 			/**
 			 * Tests if constructing the Notifier also create a facade instance.
 			 */
-			testConstructor: function()
+			testConstructor():void
 			{
 				// Create a new subclass of Notifier and verify that its facade
 				// has well been created
@@ -65,7 +65,7 @@ module puremvc
 			/**
 			 * Tests sending a Notification from the Notifier.
 			 */
-			testSendNotification: function()
+			testSendNotification():void
 			{
 				// Create the Facade, register the FacadeTestCommand to
 				// handle 'NotifierTest' notifications

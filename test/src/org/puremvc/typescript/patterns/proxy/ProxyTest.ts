@@ -24,14 +24,14 @@ export class ProxyTest
         /**
 		 * Sets up data that is needed by each test.
 		 */
-        setUp: function()
+        setUp():void
 		{
         },
         
         /**
-		 * Cleans up everything that was created by setUp().
+		 * Cleans up everything that was created by setUp():void.
 		 */
-        tearDown: function()
+        tearDown():void
 		{
         },
 
@@ -40,7 +40,7 @@ export class ProxyTest
 		 * for the existence of its <code>Notifier</code> superclass facade
 		 * instance.
 		 */
-		testConstructorInitialization: function()
+		testConstructorInitialization():void
 		{
 			// Create a new subclass of Notifier and verify that its facade
 			// has well been created
@@ -57,7 +57,7 @@ export class ProxyTest
 		/**
 		 * Tests create a new Proxy using the constructor to set the name and data.
 		 */
-		testConstructor: function()
+		testConstructor():void
 		{
   		var Proxy = Proxy;
 
@@ -79,7 +79,7 @@ export class ProxyTest
 		 * Tests getting the name using Proxy class accessor method. Setting can only be done in
 		 * constructor.
 		 */
-		testNameAccessor: function()
+		testNameAccessor():void
 		{
   		var Proxy = Proxy;
 
@@ -99,7 +99,7 @@ export class ProxyTest
 		 * Tests setting and getting the data using Proxy class accessor
 		 * methods.
 		 */
-		testDataAccessors: function()
+		testDataAccessors():void
 		{
   		var Proxy = Proxy;
 

@@ -32,14 +32,14 @@ module puremvc
 			/**
 			 * Sets up data that is needed by each test.
 			 */
-			setUp: function()
+			setUp():void
 			{
 			}
 
 			/**
-			 * Cleans up everything that was created by setUp().
+			 * Cleans up everything that was created by setUp():void.
 			 */
-			tearDown: function()
+			tearDown():void
 			{
 			}
 
@@ -77,7 +77,7 @@ module puremvc
 			/**
 			 * Tests the View Singleton Factory Method
 			 */
-			testGetInstance: function()
+			testGetInstance():void
 			{
 				// Test Factory Method
 				var view/*View*/ = View.getInstance();
@@ -116,7 +116,7 @@ module puremvc
 			 * original 'ViewTestEvent'.
 			 *
 			 */
-			testRegisterAndNotifyObserver: function()
+			testRegisterAndNotifyObserver():void
 			{
 				// Get the Singleton View instance
 				var view/*View*/ = View.getInstance();
@@ -152,7 +152,7 @@ module puremvc
 			 * @param {Notification} note
 			 *		The note to test.
 			 */
-			viewTestMethod: function( note )
+			viewTestMethod( note )
 			{
 				// set the local viewTestVar to the number on the event payload
 				this.viewTestVar = note.getBody();
@@ -162,7 +162,7 @@ module puremvc
 			 * Tests registering and retrieving a mediator with
 			 * the View.
 			 */
-			testRegisterAndRetrieveMediator: function()
+			testRegisterAndRetrieveMediator():void
 			{
 				// Get the Singleton View instance
 				var view/*View*/ = View.getInstance();
@@ -189,7 +189,7 @@ module puremvc
 			/**
 			 * Tests the hasMediator Method
 			 */
-			testHasMediator: function()
+			testHasMediator():void
 			{
 				// register a Mediator
 				var view/*View*/ = View.getInstance();
@@ -220,7 +220,7 @@ module puremvc
 			/**
 			 * Tests registering and removing a mediator
 			 */
-			testRegisterAndRemoveMediator: function()
+			testRegisterAndRemoveMediator():void
 			{
 				// Get the Singleton View instance
 				var view/*View*/ = View.getInstance();
@@ -255,7 +255,7 @@ module puremvc
 			/**
 			 * Tests that the View callse the onRegister and onRemove methods
 			 */
-			testOnRegisterAndOnRemove: function()
+			testOnRegisterAndOnRemove():void
 			{
 				// Get the Singleton View instance
 				var view/*View*/ = View.getInstance();
@@ -287,7 +287,7 @@ module puremvc
 			/**
 			 * Tests successive regster and remove of same mediator.
 			 */
-			testSuccessiveRegisterAndRemoveMediator: function()
+			testSuccessiveRegisterAndRemoveMediator():void
 			{
 				// Get the Singleton View instance
 				var view/*View*/ = View.getInstance();
@@ -349,7 +349,7 @@ module puremvc
 			 * Mediator from the View, and seeing that neither notification causes the
 			 * Mediator to be notified. Added for the fix deployed in version 1.7
 			 */
-			testRemoveMediatorAndSubsequentNotify: function()
+			testRemoveMediatorAndSubsequentNotify():void
 			{
 				// Get the Singleton View instance
 				var view/*View*/ = View.getInstance();
@@ -413,7 +413,7 @@ module puremvc
 			 * that the remaining one still responds.
 			 * Added for the fix deployed in version 1.7.1
 			 */
-			testRemoveOneOfTwoMediatorsAndSubsequentNotify: function()
+			testRemoveOneOfTwoMediatorsAndSubsequentNotify():void
 			{
 				// Get the Singleton View instance
 				var view/*View*/ = View.getInstance();
@@ -500,7 +500,7 @@ module puremvc
 			 *
 			 * Added for the fix deployed in version 2.0.4
 			 */
-			testMediatorReregistration: function()
+			testMediatorReregistration():void
 			{
 
 				// Get the Singleton View instance
@@ -553,7 +553,7 @@ module puremvc
 			 *
 			 * Added for the fix deployed in version 2.0.4
 			 */
-			testModifyObserverListDuringNotification: function()
+			testModifyObserverListDuringNotification():void
 			{
 				// Get the Singleton View instance
 				var view/*View*/ = View.getInstance();
@@ -604,7 +604,7 @@ module puremvc
 			/**
 			 * @private
 			 */
-			cleanup: function()
+			cleanup()
 			{
 
 				View.getInstance().removeMediator( ViewTestMediator.NAME );

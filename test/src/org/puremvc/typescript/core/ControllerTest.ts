@@ -35,21 +35,21 @@ module puremvc
 			/**
 			 * Sets up data that is needed by each test.
 			 */
-			setUp: function()
+			setUp():void
 			{
 			}
 
 			/**
-			 * Cleans up everything that was created by setUp().
+			 * Cleans up everything that was created by setUp():void.
 			 */
-			tearDown: function()
+			tearDown():void
 			{
 			}
 
 			/**
 			 * Tests the Controller Singleton Factory Method
 			 */
-			testGetInstance: function()
+			testGetInstance():void
 			{
 				// Test Factory Method
 				var controller/*Controller*/ = Controller.getInstance();
@@ -84,7 +84,7 @@ module puremvc
 			 * on an object passed to the Command, which will
 			 * be modified when the Command executes.
 			 */
-			testRegisterAndExecuteCommand: function()
+			testRegisterAndExecuteCommand():void
 			{
 				// Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes
 				var controller/*Controller*/ = Controller.getInstance();
@@ -114,7 +114,7 @@ module puremvc
 			 * Tests that once a Command is registered and verified
 			 * working, it can be removed from the Controller.
 			 */
-			testRegisterAndRemoveCommand: function()
+			testRegisterAndRemoveCommand():void
 			{
 				// Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes
 				var controller/*Controller*/ = Controller.getInstance();
@@ -160,7 +160,7 @@ module puremvc
 			/**
 			 * Test hasCommand method.
 			 */
-			testHasCommand: function()
+			testHasCommand():void
 			{
 				// register the ControllerTestCommand to handle 'hasCommandTest' notes
 				var controller/*Controller*/ = Controller.getInstance();
@@ -195,7 +195,7 @@ module puremvc
 			 * Version 2.0.2. If you run the unit tests with 2.0.1 this
 			 * test will fail.
 			 */
-			testReregisterAndExecuteCommand: function()
+			testReregisterAndExecuteCommand():void
 			{
 				// Fetch the controller, register the ControllerTestCommand2 to handle 'ControllerTest2' notes
 				var controller/*Controller*/ = Controller.getInstance();

@@ -34,21 +34,21 @@ module puremvc
 			/**
 			 * Sets up data that is needed by each test.
 			 */
-			setUp: function()
+			setUp():void
 			{
 			}
 
 			/**
-			 * Cleans up everything that was created by setUp().
+			 * Cleans up everything that was created by setUp():void.
 			 */
-			tearDown: function()
+			tearDown():void
 			{
 			}
 
 			/**
 			 * Tests the Model Singleton Factory Method.
 			 */
-			testGetInstance: function()
+			testGetInstance():void
 			{
 				// Test Factory Method
 				var model/*Model*/ = Model.getInstance()
@@ -76,7 +76,7 @@ module puremvc
 			 * in any meaningful way other than to show that the methods do not
 			 * throw exception when called.
 			 */
-			testRegisterAndRetrieveProxy: function()
+			testRegisterAndRetrieveProxy():void
 			{
 				// register a proxy and retrieve it.
 				var model/*Model*/ = Model.getInstance();
@@ -130,7 +130,7 @@ module puremvc
 			/**
 			 * Tests the proxy removal method.
 			 */
-			testRegisterAndRemoveProxy: function()
+			testRegisterAndRemoveProxy():void
 			{
 				// register a proxy, remove it, then try to retrieve it
 				var model/*Model*/ = Model.getInstance();
@@ -162,7 +162,7 @@ module puremvc
 			/**
 			 * Tests the hasProxy Method.
 			 */
-			testHasProxy: function()
+			testHasProxy():void
 			{
 				// register a proxy
 				var model/*Model*/ = Model.getInstance();
@@ -192,7 +192,7 @@ module puremvc
 			/**
 			 * Tests that the Model calls the onRegister and onRemove methods.
 			 */
-			testOnRegisterAndOnRemove: function()
+			testOnRegisterAndOnRemove():void
 			{
 				// Get the Singleton View instance
 				var model/*Model*/ = Model.getInstance();

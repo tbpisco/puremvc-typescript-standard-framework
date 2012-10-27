@@ -42,14 +42,14 @@ module puremvc
 			/**
 			 * Sets up data that is needed by each test.
 			 */
-			setUp: function()
+			setUp():void
 			{
 			}
 
 			/**
-			 * Cleans up everything that was created by setUp().
+			 * Cleans up everything that was created by setUp():void.
 			 */
-			tearDown: function()
+			tearDown():void
 			{
 			}
 
@@ -65,7 +65,7 @@ module puremvc
 			/**
 			 * Tests observer class when initialized by accessor methods.
 			 */
-			testObserverAccessors: function()
+			testObserverAccessors():void
 			{
 				// Create observer with null args, then
 				// use accessors to set notification method and context
@@ -94,7 +94,7 @@ module puremvc
 			/**
 			 * Tests observer class when initd by constructor.
 			 */
-			testObserverConstructor: function()
+			testObserverConstructor():void
 			{
 				// Create observer passing in notification method and context
 				var observer/*Observer*/ = new Observer( this.observerTestMethod, this );
@@ -121,7 +121,7 @@ module puremvc
 			 * Tests the compareNotifyContext method of the Observer class
 			 *
 			 */
-			testCompareNotifyContext: function()
+			testCompareNotifyContext():void
 			{
 				// Create observer passing in notification method and context
 				var observer/*Observer*/ = new Observer( this.observerTestMethod, this );
@@ -148,7 +148,7 @@ module puremvc
 			 *
 			 * @private
 			 */
-			observerTestMethod: function( note )
+			observerTestMethod( note )
 			{
 				this.observerTestVar = note.getBody();
 			}

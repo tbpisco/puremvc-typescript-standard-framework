@@ -35,21 +35,21 @@ module puremvc
 			/**
 			 * Sets up data that is needed by each test.
 			 */
-			setUp: function()
+			setUp():void
 			{
 			}
 
 			/**
-			 * Cleans up everything that was created by setUp().
+			 * Cleans up everything that was created by setUp():void.
 			 */
-			tearDown: function()
+			tearDown():void
 			{
 			}
 
 			/**
 			 * Tests the Facade Singleton Factory Method
 			 */
-			testGetInstance: function()
+			testGetInstance():void
 			{
 				var Facade = Facade;
 
@@ -84,7 +84,7 @@ module puremvc
 			 * the Notification, which will be modified by the Command.
 			 *
 			 */
-			testRegisterCommandAndSendNotification: function()
+			testRegisterCommandAndSendNotification():void
 			{
 				// Create the Facade, register the FacadeTestCommand to
 				// handle 'FacadeTest' notifications
@@ -121,7 +121,7 @@ module puremvc
 			 * Command.
 			 *
 			 */
-			testRegisterAndRemoveCommandAndSendNotification: function()
+			testRegisterAndRemoveCommandAndSendNotification():void
 			{
 				// Create the Facade, register the FacadeTestCommand to
 				// handle 'FacadeTest' events
@@ -153,7 +153,7 @@ module puremvc
 			 * in any meaningful way other than to show that the
 			 * methods do not throw exception when called.
 			 */
-			testRegisterAndRetrieveProxy: function()
+			testRegisterAndRetrieveProxy():void
 			{
 				// register a proxy and retrieve it.
 				var facade/*Facade*/ = Facade.getInstance();
@@ -216,7 +216,7 @@ module puremvc
 			/**
 			 * Tests the removing Proxies via the Facade.
 			 */
-			testRegisterAndRemoveProxy: function()
+			testRegisterAndRemoveProxy():void
 			{
 				var Facade = Facade;
 				var Proxy = Proxy;
@@ -250,7 +250,7 @@ module puremvc
 			/**
 			 * Tests registering, retrieving and removing Mediators via the Facade.
 			 */
-			testRegisterRetrieveAndRemoveMediator: function()
+			testRegisterRetrieveAndRemoveMediator():void
 			{
 				// register a mediator, remove it, then try to retrieve it
 				var facade/*Facade*/ = Facade.getInstance();
@@ -285,7 +285,7 @@ module puremvc
 			/**
 			 * Tests the hasProxy Method
 			 */
-			testHasProxy: function()
+			testHasProxy():void
 			{
 				// register a Proxy
 				var facade/*Facade*/ = Facade.getInstance();
@@ -303,7 +303,7 @@ module puremvc
 			/**
 			 * Tests the hasMediator Method
 			 */
-			testHasMediator: function()
+			testHasMediator():void
 			{
 				// register a Mediator
 				var facade/*Facade*/ = Facade.getInstance();
@@ -331,7 +331,7 @@ module puremvc
 			/**
 			 * Test hasCommand method.
 			 */
-			testHasCommand: function()
+			testHasCommand():void
 			{
 				// register the ControllerTestCommand to handle 'hasCommandTest' notes
 				var facade/*Facade*/ = Facade.getInstance();

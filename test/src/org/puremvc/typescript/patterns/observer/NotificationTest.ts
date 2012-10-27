@@ -30,21 +30,21 @@ module puremvc
 		/**
 		 * Sets up data that is needed by each test.
 		 */
-		setUp()
+		setUp():void
 		{
 		}
 
 		/**
-		 * Cleans up everything that was created by setUp().
+		 * Cleans up everything that was created by setUp():void.
 		 */
-		tearDown()
+		tearDown():void
 		{
 		}
 
 		/**
 		 * Tests setting and getting the name using Notification class accessor methods.
 		 */
-		testNameAccessors()
+		testNameAccessors():void
 		{
 			// Create a new Notification and use accessors to set the note name
 			var note/*Notification*/ = new Notification('TestNote');
@@ -62,7 +62,7 @@ module puremvc
 		 * Tests setting and getting the body using Notification class accessor
 		 * methods.
 		 */
-		testBodyAccessors()
+		testBodyAccessors():void
 		{
 
 			// Create a new Notification and use accessors to set the body
@@ -82,7 +82,7 @@ module puremvc
 		 * Tests setting the name and body using the Notification class
 		 * Constructor.
 		 */
-		testConstructor()
+		testConstructor():void
 		{
 			// Create a new Notification using the Constructor to set the note name and body
 			var note/*Notification*/ = new Notification( 'TestNote', 5, 'TestNoteType' );
@@ -113,7 +113,7 @@ module puremvc
 		/**
 		 * Tests the toString method of the notification
 		 */
-		testToString()
+		testToString():void
 		{
 			// Create a new Notification and use accessors to set the note name
 			var note/*Notification*/ = new Notification( 'TestNote', [1,3,5], 'TestType' );
@@ -124,7 +124,7 @@ module puremvc
 			(
 				ts,
 				note.toString(),
-				"Expecting note.testToString() == '" + ts + "'"
+				"Expecting note.testToString():void == '" + ts + "'"
 			);
 		}
 	}
