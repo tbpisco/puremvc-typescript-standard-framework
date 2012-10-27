@@ -6,6 +6,7 @@
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IFacade.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/facade/Facade.ts'/>
@@ -71,7 +72,7 @@ module puremvc
 		{
 			// Create the Facade, register the FacadeTestCommand to
 			// handle 'NotifierTest' notifications
-			var facade:Facade = Facade.getInstance();
+			var facade:IFacade = Facade.getInstance();
 			facade.registerCommand( 'NotifierTestNote', NotifierTestCommand );
 
 			// Send notification. The Command associated with the event

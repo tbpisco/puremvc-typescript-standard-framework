@@ -7,8 +7,12 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IProxy.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/proxy/Proxy.ts'/>
+
+///<reference path='ProxyTestSub.ts'/>
 
 module puremvc
 {
@@ -66,8 +70,8 @@ module puremvc
 		testConstructor():void
 		{
 			// Create a new Proxy using the Constructor to set the name and data
-			var proxy:Proxy = new Proxy('colors',['red', 'green', 'blue']);
-			var data:Array = proxy.getData();
+			var proxy:IProxy = new Proxy('colors',['red', 'green', 'blue']);
+			var data:string[] = <string[]> proxy.getData();
 
 			// test assertions
 			YUITest.Assert.isNotNull( proxy, "Expecting proxy !== null"	);
@@ -106,7 +110,7 @@ module puremvc
 			// Create a new Proxy and use accessors to set the data
 			var proxy:IProxy = new Proxy('colors');
 			proxy.setData(['red', 'green', 'blue']);
-			var data:Array = <Array> proxy.getData();
+			var data:string[] = <string[]> proxy.getData();
 
 			// test assertions
 			YUITest.Assert.areEqual

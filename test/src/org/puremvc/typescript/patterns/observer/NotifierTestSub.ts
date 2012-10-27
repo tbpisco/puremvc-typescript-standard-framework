@@ -6,10 +6,10 @@
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotifier.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/facade/Facade.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notifier.ts'/>
 
 module puremvc
 {

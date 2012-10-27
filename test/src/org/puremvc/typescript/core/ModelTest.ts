@@ -83,7 +83,7 @@ module puremvc
 			model.registerProxy( new Proxy( 'colors', ['red', 'green', 'blue'] ) );
 
 			var proxy:IProxy = model.retrieveProxy('colors');
-			var data:Array = <Array> proxy.getData();
+			var data:string[] = <string[]> proxy.getData();
 
 			// test assertions
 			YUITest.Assert.isNotNull

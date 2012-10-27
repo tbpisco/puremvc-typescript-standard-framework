@@ -7,7 +7,9 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IObserver.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Observer.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
 
 module puremvc
@@ -58,19 +60,21 @@ module puremvc
 		 */
 		testObserverAccessors():void
 		{
-			// Create observer with null args, then
-			// use accessors to set notification method and context
-			var observer:Observer = new Observer( null, null );
+			/*
+			 * Create observer with null args, then use accessors to set notification method and
+			 * context.
+			 */
+			var observer:IObserver = new Observer( null, null );
 			observer.setNotifyContext(this);
 			observer.setNotifyMethod( this.observerTestMethod );
 
-			// create a test event, setting a payload value and notify
-			// the observer with it. since the observer is this class
-			// and the notification method is observerTestMethod,
-			// successful notification will result in our local
-			// observerTestVar being set to the value we pass in
-			// on the note body.
-			var note:Notification = new Notification( 'ObserverTestNote', 10 );
+			/*
+			 * Create a test event, setting a payload value and notify the observer with it. since
+			 * the observer is this class and the notification method is observerTestMethod,
+			 * successful notification will result in our local observerTestVar being set to the
+			 * value we pass in on the note body.
+			 */
+			var note:INotification = new Notification( 'ObserverTestNote', 10 );
 			observer.notifyObserver(note);
 
 			// test assertions
@@ -87,16 +91,16 @@ module puremvc
 		 */
 		testObserverConstructor():void
 		{
-			// Create observer passing in notification method and context
-			var observer:Observer = new Observer( this.observerTestMethod, this );
+			// Create observer passing in notification method and context.
+			var observer:IObserver = new Observer( this.observerTestMethod, this );
 
-			// create a test note, setting a body value and notify
-			// the observer with it. since the observer is this class
-			// and the notification method is observerTestMethod,
-			// successful notification will result in our local
-			// observerTestVar being set to the value we pass in
-			// on the note body.
-			var note:Notification = new Notification( 'ObserverTestNote', 5 );
+			/*
+			 * Create a test note, setting a body value and notify the observer with it. since the
+			 * observer is this class and the notification method is observerTestMethod, successful
+			 * notification will result in our local observerTestVar being set to the value we pass
+			 * in on the note body.
+			 */
+			var note:INotification = new Notification( 'ObserverTestNote', 5 );
 			observer.notifyObserver(note);
 
 			// test assertions
@@ -109,13 +113,12 @@ module puremvc
 		}
 
 		/**
-		 * Tests the compareNotifyContext method of the Observer class
-		 *
+		 * Tests the compareNotifyContext method of the Observer class.
 		 */
 		testCompareNotifyContext():void
 		{
 			// Create observer passing in notification method and context
-			var observer:Observer = new Observer( this.observerTestMethod, this );
+			var observer:IObserver = new Observer( this.observerTestMethod, this );
 
 			var negTestObj:Object = new Object();
 
@@ -135,10 +138,8 @@ module puremvc
 
 		/**
 		 * A function that is used as the observer notification method.
-		 *
-		 * @private
 		 */
-		observerTestMethod( note ):void
+		private observerTestMethod( note:INotification ):void
 		{
 			this.observerTestVar = note.getBody();
 		}

@@ -7,8 +7,10 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IMediator.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/facade/Facade.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/mediator/Mediator.ts'/>
 
 module puremvc
 {
@@ -31,7 +33,6 @@ module puremvc
 		 */
 		hasFacade():bool
 		{
-			var Facade = Facade;
 			return this.facade instanceof Facade;
 		}
 	}
