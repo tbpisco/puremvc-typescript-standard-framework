@@ -6,9 +6,12 @@
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/SimpleCommand.ts'/>
+
+///<reference path='SimpleCommandTestVO.ts'/>
 
 module puremvc
 {
@@ -22,17 +25,11 @@ module puremvc
 		extends SimpleCommand
 		implements ICommand
 	{
-		constructor()
-		{
-			SimpleCommand.call(this);
-		}
-
 		/**
-		 * Fabricate a result by multiplying the input by 2
+		 * Fabricate a result by multiplying the input by 2.
 		 *
 		 * @param note
-		 * 		The <code>Notification</code> carrying the
-		 * 		<code>SimpleCommandTestVO</code>
+		 * 		The <code>Notification</code> carrying the <code>SimpleCommandTestVO</code>.
 		 */
 		execute( note:INotification )
 		{

@@ -22,12 +22,6 @@ module puremvc
 		extends Proxy
 		implements IProxy
 	{
-		constructor()
-		{
-			//FIXME Necessary here ?
-			super();
-		}
-
 		/**
 		 * A method to test if <code>Facade</code> instance of the object has well been declared
 		 * during its construction.

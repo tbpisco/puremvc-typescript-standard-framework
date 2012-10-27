@@ -24,12 +24,6 @@ module puremvc
 		extends SimpleCommand
 		implements ICommand
 	{
-		constructor()
-		{
-			//FIXME Necessary here
-			super();
-		}
-
 		/**
 		 * Fabricate a result by multiplying the input by 2
 		 *

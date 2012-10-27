@@ -6,6 +6,7 @@
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/MacroCommand.ts'/>
@@ -21,17 +22,6 @@ module puremvc
 		extends MacroCommand
 		implements ICommand
 	{
-		/**
-		 * @constructor
-		 *
-		 * Constructs a <code>MacroCommandTestSub</code> instance.
-		 */
-		constructor()
-		{
-			//FIXME Necessary here ?
-			super();
-		}
-
 		/**
 		 * A method to test if <code>Facade</code> instance of the object has
 		 * well been declared during its construction.

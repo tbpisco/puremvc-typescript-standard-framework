@@ -6,6 +6,7 @@
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/MacroCommand.ts'/>
@@ -24,13 +25,6 @@ module puremvc
 		extends MacroCommand
 		implements ICommand
 	{
-
-		constructor()
-		{
-			//FIXME Needed here?
-			super(this);
-		}
-
 		/**
 		 * Initialize the MacroCommandTestCommand by adding
 		 * its 2 SubCommands.

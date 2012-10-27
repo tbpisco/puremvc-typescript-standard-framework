@@ -6,9 +6,14 @@
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+
+///<reference path='SimpleCommandTestCommand.ts'/>
+///<reference path='SimpleCommandTestVO.ts'/>
+///<reference path='SimpleCommandTestSub.ts'/>
 
 module puremvc
 {
@@ -43,14 +48,12 @@ module puremvc
 		}
 
 		/**
-		 * Tests if constructing the <code>SimpleCommand</code> also call its
-		 * super( by testing for the existence of its <code>Notifier</code>
-		 * super( class facade instance.
+		 * Tests if constructing the <code>SimpleCommand</code> also call its super by testing for
+		 * the existence of its <code>Notifier</code> superclass facade instance.
 		 */
 		testConstructor():void
 		{
-			// Create a new subclass of Notifier and verify that its facade
-			// has well been created
+			// Create a new subclass of Notifier and verify that its facade has well been created
 			var simpleCommandTestSub:SimpleCommandTestSub = new SimpleCommandTestSub();
 
 			// test assertions
@@ -65,14 +68,12 @@ module puremvc
 		 * Tests the <code>execute</code> method of a <code>SimpleCommand</code>.
 		 *
 		 * This test creates a new <code>Notification</code>, adding a
-		 * <code>SimpleCommandTestVO</code> as the body.
-		 * It then creates a <code>SimpleCommandTestCommand</code> and invokes
-		 * its <code>execute</code> method, passing in the note.
+		 * <code>SimpleCommandTestVO</code> as the body. It then creates a
+		 * <code>SimpleCommandTestCommand</code> and invokes its <code>execute</code> method,
+		 * passing in the note.
 		 *
-		 * Success is determined by evaluating a property on the
-		 * object that was passed on the Notification body, which will
-		 * be modified by the SimpleCommand.
-		 *
+		 * Success is determined by evaluating a property on the object that was passed on the
+		 * <code>Notification</code> body, which will be modified by the SimpleCommand.
 		 */
 		testSimpleCommandExecute():void
 		{
@@ -80,10 +81,10 @@ module puremvc
 			var vo:SimpleCommandTestVO = new SimpleCommandTestVO(5);
 
 			// Create the Notification (note)
-			var note:Notification = new Notification( 'SimpleCommandTestNote', vo );
+			var note:INotification = new Notification( 'SimpleCommandTestNote', vo );
 
 			// Create the SimpleCommand
-			var command:SimpleCommandTestCommand = new SimpleCommandTestCommand();
+			var command:ICommand = new SimpleCommandTestCommand();
 
 			// Execute the SimpleCommand
 			command.execute(note);

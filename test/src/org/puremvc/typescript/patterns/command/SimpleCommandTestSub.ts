@@ -6,9 +6,11 @@
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/SimpleCommand.ts'/>
+
+///<reference path='SimpleCommandTestVO.ts'/>
 
 module puremvc
 {
@@ -21,12 +23,6 @@ module puremvc
 		extends SimpleCommand
 		implements ICommand
 	{
-		constructor()
-		{
-			//FIXME Necessary here ?
-			super();
-		}
-
 		/**
 		 * A method to test if <code>Facade</code> instance of the object has well been declared
 		 * during its construction.

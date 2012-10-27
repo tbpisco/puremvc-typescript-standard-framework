@@ -43,9 +43,8 @@ module puremvc
 		}
 
 		/**
-		 * Tests if constructing the Mediator also call its super( by testing
-		 * for the existence of its <code>Notifier</code> super( class facade
-		 * instance.
+		 * Tests if constructing the Mediator also call its super by testing for the existence of
+		 * its <code>Notifier</code> superclass facade instance.
 		 */
 		testConstructor():void
 		{

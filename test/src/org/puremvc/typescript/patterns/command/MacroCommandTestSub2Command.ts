@@ -6,9 +6,13 @@
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/SimpleCommand.ts'/>
+
+///<reference path='MacroCommandTestVO.ts'/>
 
 module puremvc
 {
@@ -21,11 +25,6 @@ module puremvc
 		extends SimpleCommand
 		implements ICommand
 	{
-		constructor()
-		{
-			//FIXME Necessary here ?
-			super();
-		}
 		/**
 		 * Fabricate a result by multiplying the input by 2
 		 *

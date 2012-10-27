@@ -28,9 +28,6 @@ module puremvc
 		 */
 		constructor( input:number )
 		{
-			//FIXME Needed here?
-			super();
-
 			this.input = input;
 		}
 
