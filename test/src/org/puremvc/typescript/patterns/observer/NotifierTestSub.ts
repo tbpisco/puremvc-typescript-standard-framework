@@ -7,6 +7,7 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/facade/Facade.ts'/>
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
 
@@ -37,7 +38,7 @@ module puremvc
 		 * 		<code>Facade</code> instance of the object has well been declared
 		 * 		during its construction.
 		 */
-		hasFacade():boolean
+		hasFacade():bool
 		{
 			return this.facade instanceof Facade;
 		}

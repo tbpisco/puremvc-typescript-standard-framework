@@ -4,11 +4,11 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
+///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
 
 module puremvc
 {
@@ -21,7 +21,7 @@ module puremvc
 	 * @see puremvc.ControllerTest ControllerTest
 	 * @see puremvc.ControllerTestCommand ControllerTestCommand
 	 */
-	class ControllerTestVO
+	export class ControllerTestVO
 	{
 		/**
 		 * @constructor

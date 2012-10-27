@@ -8,7 +8,10 @@
 
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/MacroCommand.ts'/>
+
+///<reference path='MacroCommandTestSub1Command.ts'/>
+///<reference path='MacroCommandTestSub2Command.ts'/>
 
 module puremvc
 {
@@ -31,7 +34,8 @@ module puremvc
 
 		constructor()
 		{
-			MacroCommand.call(this);
+			//FIXME Needed here?
+			super(this);
 		}
 
 		/**

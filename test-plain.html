@@ -96,7 +96,7 @@
 		(
 			"PureMVC JavaScript Objs - plain",
 			[
-				//ControllerTest,
+				new YUITest.TestCase( new puremvc.ControllerTest ),
 				//ModelTest,
 				//ViewTest,
 				//MacroCommandTest,
@@ -104,8 +104,8 @@
 				//FacadeTest,
 				//MediatorTest,
 				new YUITest.TestCase( new puremvc.NotificationTest ),
-				//NotifierTest,
-				//ObserverTest,
+				new YUITest.TestCase( new puremvc.NotifierTest ),
+				new YUITest.TestCase( new puremvc.ObserverTest ),
 				//ProxyTest
 			]
 		);

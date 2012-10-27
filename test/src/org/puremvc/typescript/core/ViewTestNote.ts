@@ -4,11 +4,11 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
+///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
 
 module puremvc
 {
@@ -21,19 +21,19 @@ module puremvc
 	 * @see puremvc.ViewTest ViewTest
 	 * @extends puremvc.Notification Notification
 	 */
-	class ViewTestNote
+	export class ViewTestNote
 		extends Notification
 	{
 		/**
 		 * @constructor.
 		 *
-		 * @param {String} name
+		 * @param name
 		 *		Ignored and forced to NAME.
 		 *
-		 * @param {Object} body
+		 * @param body
 		 *		The body of the Notification to be constructed.
 		 */
-		constructor( name, body )
+		constructor( name:string, body:any )
 		{
 			super( ViewTestNote.NAME, body );
 		}
@@ -50,13 +50,13 @@ module puremvc
 		 * automatically setting the note name so you don't have to. Use
 		 * this as an alternative to the constructor.
 		 *
-		 * @param {Object} body
+		 * @param body
 		 * 		The body of the Notification to be constructed.
 		 *
-		 * @return {Notification}
+		 * @return
 		 *		The created <code>Notification</code>
 		 */
-		static create( body )
+		static create( body:any ):INotification
 		{
 			return new ViewTestNote( ViewTestNote.NAME, body );
 		}

@@ -4,32 +4,43 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-/**
- * @classDescription
- * A <code>Proxy</code> utility subclass used by <code>ProxyTest</code>.
- * 
- * @extends puremvc.Proxy Proxy
- */
-class ProxyTestSub
-	extends Proxy
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
+
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/proxy/Proxy.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/facade/Facade.ts'/>
+
+module puremvc
 {
-	constructor()
-	{
-		//FIXME Necessary here ?
-		super();
-	}
+	"use strict";
+
+	import YUITest = module("YUITest");
 
 	/**
-	 * A method to test if <code>Facade</code> instance of the object has
-	 * well been declared during its construction.
+	 * @classDescription
+	 * A <code>Proxy</code> utility subclass used by <code>ProxyTest</code>.
 	 *
-	 * @return {bool}
-	 *		<code>Facade</code> instance of the object has well been declared
-	 *		during its construction.
+	 * @extends puremvc.Proxy Proxy
 	 */
-	hasFacade()
+	export class ProxyTestSub
+		extends Proxy
 	{
-		var Facade = Facade;
-		return this.facade instanceof Facade;
+		constructor()
+		{
+			//FIXME Necessary here ?
+			super();
+		}
+
+		/**
+		 * A method to test if <code>Facade</code> instance of the object has
+		 * well been declared during its construction.
+		 *
+		 * @return {bool}
+		 *		<code>Facade</code> instance of the object has well been declared
+		 *		during its construction.
+		 */
+		hasFacade()
+		{
+			return this.facade instanceof Facade;
+		}
 	}
 }

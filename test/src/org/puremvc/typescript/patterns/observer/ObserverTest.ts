@@ -52,11 +52,10 @@ module puremvc
 		}
 
 		/**
-		 * A test variable that proves the notify method was executed with
-		 * 'this' as its execution context.
-		 * @private
+		 * A test variable that proves the notify method was executed with 'this' as its execution
+		 * context.
 		 */
-		observerTestVar:numer = null;
+		observerTestVar:number = -1;
 
 		/**
 		 * Tests observer class when initialized by accessor methods.
@@ -143,7 +142,7 @@ module puremvc
 		 *
 		 * @private
 		 */
-		observerTestMethod( note )
+		observerTestMethod( note ):void
 		{
 			this.observerTestVar = note.getBody();
 		}
