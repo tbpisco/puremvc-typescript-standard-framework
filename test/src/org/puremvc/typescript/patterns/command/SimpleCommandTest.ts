@@ -37,14 +37,14 @@ module puremvc
 			 */
 			setUp: function()
 			{
-			},
+			}
 
 			/**
 			 * Cleans up everything that was created by setUp().
 			 */
 			tearDown: function()
 			{
-			},
+			}
 
 			/**
 			 * Tests if constructing the <code>SimpleCommand</code> also call its
@@ -63,7 +63,7 @@ module puremvc
 					simpleCommandTestSub.hasFacade(),
 					"Expecting simpleCommandTestSub.hasFacade() === true"
 				);
-			},
+			}
 
 			/**
 			 * Tests the <code>execute</code> method of a <code>SimpleCommand</code>.

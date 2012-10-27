@@ -37,14 +37,14 @@ module puremvc
 			 */
 			setUp: function()
 			{
-			},
+			}
 
 			/**
 			 * Cleans up everything that was created by setUp().
 			 */
 			tearDown: function()
 			{
-			},
+			}
 
 			/**
 			 * Tests if constructing the <code>MacroCommand</code> also call its
@@ -63,7 +63,7 @@ module puremvc
 					macroCommandTestSub.hasFacade(),
 					"Expecting macroCommandTestSub.hasFacade() === true"
 				);
-			},
+			}
 
 			/**
 			 * Tests operation of a <code>MacroCommand</code>.

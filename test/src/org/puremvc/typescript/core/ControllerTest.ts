@@ -37,14 +37,14 @@ module puremvc
 			 */
 			setUp: function()
 			{
-			},
+			}
 
 			/**
 			 * Cleans up everything that was created by setUp().
 			 */
 			tearDown: function()
 			{
-			},
+			}
 
 			/**
 			 * Tests the Controller Singleton Factory Method
@@ -67,7 +67,7 @@ module puremvc
 					controller,
 					"Expecting instance extends Controller"
 				);
-			},
+			}
 
 			/**
 			 * Tests Command registration and execution.
@@ -106,7 +106,7 @@ module puremvc
 					vo.result,
 					"Expecting vo.result == 24"
 				);
-			},
+			}
 
 			/**
 			 * Tests Command registration and removal.
@@ -155,7 +155,7 @@ module puremvc
 					vo.result,
 					"Expecting vo.result == 0"
 				);
-			},
+			}
 
 			/**
 			 * Test hasCommand method.
@@ -182,7 +182,7 @@ module puremvc
 					controller.hasCommand('hasCommandTest'),
 					"Expecting controller.hasCommand('hasCommandTest') === false"
 				);
-			},
+			}
 
 			/**
 			 * Tests Removing and Reregistering a Command

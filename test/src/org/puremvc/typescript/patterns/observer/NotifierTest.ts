@@ -36,14 +36,14 @@ module puremvc
 			 */
 			setUp: function()
 			{
-			},
+			}
 
 			/**
 			 * Cleans up everything that was created by setUp().
 			 */
 			tearDown: function()
 			{
-			},
+			}
 
 			/**
 			 * Tests if constructing the Notifier also create a facade instance.
@@ -60,7 +60,7 @@ module puremvc
 					notifierTestSub.hasFacade(),
 					"Expecting notifierTestSub.hasFacade() === true"
 				);
-			},
+			}
 
 			/**
 			 * Tests sending a Notification from the Notifier.

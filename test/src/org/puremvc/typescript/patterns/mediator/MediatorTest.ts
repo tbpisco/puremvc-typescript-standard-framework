@@ -36,14 +36,14 @@ module puremvc
 			 */
 			setUp: function()
 			{
-			},
+			}
 
 			/**
 			 * Cleans up everything that was created by setUp().
 			 */
 			tearDown: function()
 			{
-			},
+			}
 
 			/**
 			 * Tests if constructing the Mediator also call its super by testing
@@ -62,7 +62,7 @@ module puremvc
 					mediatorTestSub.hasFacade(),
 					"Expecting mediatorTestSub.hasFacade() === true"
 				);
-			},
+			}
 
 			/**
 			 * Tests getting the name using Mediator class accessor method.
@@ -79,7 +79,7 @@ module puremvc
 					mediator.getMediatorName(),
 					"Expecting mediator.getMediatorName() == Mediator.NAME"
 				);
-			},
+			}
 
 			/**
 			 * Tests getting the name using Mediator class accessor method.

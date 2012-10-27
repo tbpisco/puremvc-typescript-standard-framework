@@ -34,14 +34,14 @@ module puremvc
 			 */
 			setUp: function()
 			{
-			},
+			}
 
 			/**
 			 * Cleans up everything that was created by setUp().
 			 */
 			tearDown: function()
 			{
-			},
+			}
 
 			/**
 			 * @type {String}
@@ -95,7 +95,7 @@ module puremvc
 					view,
 					"Expecting instance implements View"
 				);
-			},
+			}
 
 			/**
 			 * Tests registration and notification of Observers.
@@ -144,7 +144,7 @@ module puremvc
 					this.viewTestVar,
 					"Expecting viewTestVar = 10"
 				);
-			},
+			}
 
 			/**
 			 * A utility method to test the notification of Observers by the view.
@@ -156,7 +156,7 @@ module puremvc
 			{
 				// set the local viewTestVar to the number on the event payload
 				this.viewTestVar = note.getBody();
-			},
+			}
 
 			/**
 			 * Tests registering and retrieving a mediator with
@@ -184,7 +184,7 @@ module puremvc
 
 				this.cleanup();
 
-			},
+			}
 
 			/**
 			 * Tests the hasMediator Method
@@ -215,7 +215,7 @@ module puremvc
 					view.hasMediator('hasMediatorTest'),
 					"Expecting view.hasMediator('hasMediatorTest') === false"
 				);
-			},
+			}
 
 			/**
 			 * Tests registering and removing a mediator
@@ -250,7 +250,7 @@ module puremvc
 				);
 
 				this.cleanup();
-			},
+			}
 
 			/**
 			 * Tests that the View callse the onRegister and onRemove methods
@@ -282,7 +282,7 @@ module puremvc
 				);
 
 				this.cleanup();
-			},
+			}
 
 			/**
 			 * Tests successive regster and remove of same mediator.
@@ -342,7 +342,7 @@ module puremvc
 				);
 
 				this.cleanup();
-			},
+			}
 
 			/**
 			 * Tests registering a Mediator for 2 different notifications, removing the
@@ -406,7 +406,7 @@ module puremvc
 				);
 
 				this.cleanup();
-			},
+			}
 
 			/**
 			 * Tests registering one of two registered Mediators and seeing
@@ -488,7 +488,7 @@ module puremvc
 				);
 
 				this.cleanup();
-			},
+			}
 
 			/**
 			 * Tests registering the same mediator twice.
@@ -541,7 +541,7 @@ module puremvc
 					this.counter,
 					"Expecting counter == 0"
 				);
-			},
+			}
 
 			/**
 			 * Tests the ability for the observer list to
@@ -599,7 +599,7 @@ module puremvc
 					"Expecting counter == 0"
 				);
 
-			},
+			}
 
 			/**
 			 * @private

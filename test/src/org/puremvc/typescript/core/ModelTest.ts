@@ -36,14 +36,14 @@ module puremvc
 			 */
 			setUp: function()
 			{
-			},
+			}
 
 			/**
 			 * Cleans up everything that was created by setUp().
 			 */
 			tearDown: function()
 			{
-			},
+			}
 
 			/**
 			 * Tests the Model Singleton Factory Method.
@@ -66,7 +66,7 @@ module puremvc
 					model,
 					"Expecting instance extends Model"
 				);
-			},
+			}
 
 			/**
 			 * Tests the proxy registration and retrieval methods.
@@ -125,7 +125,7 @@ module puremvc
 					data[2],
 					"Expecting data[2] == 'blue'"
 				);
-			},
+			}
 
 			/**
 			 * Tests the proxy removal method.
@@ -157,7 +157,7 @@ module puremvc
 					proxy,
 					"Expecting proxy === null"
 				);
-			},
+			}
 
 			/**
 			 * Tests the hasProxy Method.
@@ -187,7 +187,7 @@ module puremvc
 					model.hasProxy('aces'),
 					"Expecting model.hasProxy('aces') === false"
 				);
-			},
+			}
 
 			/**
 			 * Tests that the Model calls the onRegister and onRemove methods.

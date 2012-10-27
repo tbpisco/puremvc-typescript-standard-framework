@@ -37,14 +37,14 @@ module puremvc
 			 */
 			setUp: function()
 			{
-			},
+			}
 
 			/**
 			 * Cleans up everything that was created by setUp().
 			 */
 			tearDown: function()
 			{
-			},
+			}
 
 			/**
 			 * Tests the Facade Singleton Factory Method
@@ -69,7 +69,7 @@ module puremvc
 					facade,
 					"Expecting instance is instance of Facade"
 				);
-			},
+			}
 
 			/**
 			 * Tests Command registration and execution via the Facade.
@@ -104,7 +104,7 @@ module puremvc
 					vo.result,
 					"Expecting vo.result == 64"
 				);
-			},
+			}
 
 			/**
 			 * Tests Command removal via the Facade.
@@ -142,7 +142,7 @@ module puremvc
 					vo.result,
 					"Expecting vo.result != 64"
 				);
-			},
+			}
 
 			/**
 			 * Tests the registering and retrieving Model proxies via the Facade.
@@ -211,7 +211,7 @@ module puremvc
 					data[2],
 					"Expecting data[2] == 'blue'"
 				);
-			},
+			}
 
 			/**
 			 * Tests the removing Proxies via the Facade.
@@ -280,7 +280,7 @@ module puremvc
 					facade.retrieveMediator( Mediator.NAME ),
 					"Expecting facade.retrieveMediator( Mediator.NAME ) === null )"
 				);
-			},
+			}
 
 			/**
 			 * Tests the hasProxy Method
@@ -298,7 +298,7 @@ module puremvc
 					facade.hasProxy('hasProxyTest'),
 					"Expecting facade.hasProxy('hasProxyTest') === true"
 				);
-			},
+			}
 
 			/**
 			 * Tests the hasMediator Method
@@ -326,7 +326,7 @@ module puremvc
 					facade.hasMediator('facadeHasMediatorTest'),
 					"Expecting facade.hasMediator('facadeHasMediatorTest') === false"
 				);
-			},
+			}
 
 			/**
 			 * Test hasCommand method.

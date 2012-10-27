@@ -44,14 +44,14 @@ module puremvc
 			 */
 			setUp: function()
 			{
-			},
+			}
 
 			/**
 			 * Cleans up everything that was created by setUp().
 			 */
 			tearDown: function()
 			{
-			},
+			}
 
 			/**
 			 * A test variable that proves the notify method was executed with
@@ -89,7 +89,7 @@ module puremvc
 					this.observerTestVar,
 					"Expecting observerTestVar === 10"
 				);
-			},
+			}
 
 			/**
 			 * Tests observer class when initd by constructor.
@@ -115,7 +115,7 @@ module puremvc
 					this.observerTestVar,
 					"Expecting observerTestVar === 5"
 				);
-			},
+			}
 
 			/**
 			 * Tests the compareNotifyContext method of the Observer class
@@ -140,7 +140,7 @@ module puremvc
 					observer.compareNotifyContext(this),
 					"Expecting observer.compareNotifyContext(this) === true"
 				);
-			},
+			}
 
 			/**
 			 * A function that is used as the observer notification
