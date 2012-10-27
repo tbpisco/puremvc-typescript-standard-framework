@@ -47,7 +47,7 @@ module puremvc
 		 * The body data to send with the notification.
 		 * @protected
 		 */
-		private body:Object;
+		private body:any;
 
 		/**
 		 * The type identifier of the notification.
@@ -67,7 +67,7 @@ module puremvc
 		 * @param {String} type (optional)
 		 * 		Type identifier of the notification.
 		 */
-		constructor( name:string, body:Object=null, type:string=null )
+		constructor( name:string, body:any=null, type:string=null )
 		{
 			this.name = name;
 			this.body = body;
@@ -91,7 +91,7 @@ module puremvc
 		 * @param body
 		 * 		The body of the notification instance.
 		 */
-		public setBody( body:Object ):void
+		public setBody( body:any ):void
 		{
 			this.body = body;
 		}
@@ -102,7 +102,7 @@ module puremvc
 		 * @return
 		 *		The body object of the <code>Notification</code> instance.
 		 */
-		public getBody():Object
+		public getBody():any
 		{
 			return this.body;
 		}

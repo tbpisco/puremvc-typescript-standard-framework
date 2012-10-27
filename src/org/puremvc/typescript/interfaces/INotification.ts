@@ -48,7 +48,7 @@ module puremvc
 		 * @param body
 		 * 		The body of the notification instance.
 		 */
-		setBody( body:Object ):void;
+		setBody( body:any ):void;
 
 		/**
 		 * Get the body of the <code>INotification</code>.
@@ -56,7 +56,7 @@ module puremvc
 		 * @return
 		 *		The body object of the <code>INotification</code>.
 		 */
-		getBody():Object;
+		getBody():any;
 
 		/**
 		 * Set the type of the <code>INotification</code>.

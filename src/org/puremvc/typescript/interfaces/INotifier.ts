@@ -44,6 +44,6 @@ module puremvc
 		 * @param type
 		 * 		The type of the notification (optional).
 		 */
-		sendNotification( name:string, body:Object, type:string ):void;
+		sendNotification( name:string, body?:any, type?:string ):void;
 	}
 }

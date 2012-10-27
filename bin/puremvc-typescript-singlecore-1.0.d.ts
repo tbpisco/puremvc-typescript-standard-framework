@@ -52,8 +52,8 @@ declare module "puremvc"
 	export interface INotification
 	{
 		getName():string;
-		setBody( body:Object ):void;
-		getBody():Object;
+		setBody( body:any ):void;
+		getBody():any;
 		setType( type:string ):void;
 		getType():string;
 		toString():string;
@@ -61,7 +61,7 @@ declare module "puremvc"
 
 	export interface INotifier
 	{
-		sendNotification( name:string, body:Object, type:string ):void;
+		sendNotification( name:string, body:any, type:string ):void;
 	}
 
 	export interface IObserver
@@ -156,7 +156,7 @@ declare module "puremvc"
 	{
         private facade;
         constructor ();
-        public sendNotification(name: string, body?: Object, type?: string): void;
+        public sendNotification(name: string, body?: any, type?: string): void;
     }
 
     export class MacroCommand extends Notifier implements ICommand, INotifier
@@ -195,7 +195,7 @@ declare module "puremvc"
         public removeMediator(mediatorName: string): IMediator;
         public hasMediator(mediatorName: string): Boolean;
         public notifyObservers(notification: INotification): void;
-        public sendNotification(name: string, body?: Object, type?: string): void;
+        public sendNotification(name: string, body?: any, type?: string): void;
         static SINGLETON_MSG: string;
         static instance;
         static getInstance(): IFacade;
@@ -219,11 +219,11 @@ declare module "puremvc"
     export class Notification implements INotification
 	{
         private name: string;
-        private body: Object;
+        private body: any;
         private type: string;
-        constructor (name: string, body?: Object, type?: string);
+        constructor (name: string, body?: any, type?: string);
         public getName(): string;
-        public setBody(body: Object): void;
+        public setBody(body: any): void;
         public getBody(): Object;
         public setType(type: string): void;
         public getType(): string;
