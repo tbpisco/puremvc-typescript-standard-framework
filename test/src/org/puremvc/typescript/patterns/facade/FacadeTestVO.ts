@@ -21,26 +21,28 @@ module puremvc
 	 * @see puremvc.FacadeTest FacadeTest
 	 * @see puremvc.FacadeTestCommand FacadeTestCommand
 	 */
-
-	/**
-	 * @constructor
-	 * Constructs a <code>FacadeTestVo</code> instance.
-	 *
-	 * @param {number} input
-	 * 		The number to be fed to the FacadeTestCommand
-	 */
-	constructor( input )
+	class FacadeTestVO
 	{
-		this.input = input;
+		/**
+		 * @constructor
+		 * Constructs a <code>FacadeTestVo</code> instance.
+		 *
+		 * @param {number} input
+		 * 		The number to be fed to the FacadeTestCommand
+		 */
+		constructor( input )
+		{
+			this.input = input;
+		}
+
+		/**
+		 * @type {number}
+		 */
+		input:number = null;
+
+		/**
+		 * @type {number}
+		 */
+		result:number = null;
 	}
-
-	/**
-	 * @type {number}
-	 */
-	input:number = null;
-
-	/**
-	 * @type {number}
-	 */
-	result:number = null;
 }

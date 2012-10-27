@@ -22,27 +22,29 @@ module puremvc
 	 * @see puremvc.SimpleCommandTestVO SimpleCommandTestVO
 	 *
 	 * @extends puremvc.SimpleCommand SimpleCommand
-	 *
-	 * @constructor
 	 */
-	constructor()
-	{
-		SimpleCommand.call(this);
-	}
-	__extends( SimpleCommandTestCommand, SimpleCommand );
 
-	/**
-	 * Fabricate a result by multiplying the input by 2
-	 *
-	 * @param {Notification} note
-	 * 		The <code>Notification</code> carrying the
-	 * 		<code>SimpleCommandTestVO</code>
-	 */
-	execute( note )
+	class SimpleCommandTestCommand
+		extends SimpleCommand
 	{
-		var vo:SimpleCommandTestVO = note.getBody();
+		constructor()
+		{
+			SimpleCommand.call(this);
+		}
 
-		// Fabricate a result
-		vo.result = 2 * vo.input;
+		/**
+		 * Fabricate a result by multiplying the input by 2
+		 *
+		 * @param {Notification} note
+		 * 		The <code>Notification</code> carrying the
+		 * 		<code>SimpleCommandTestVO</code>
+		 */
+		execute( note )
+		{
+			var vo:SimpleCommandTestVO = note.getBody();
+
+			// Fabricate a result
+			vo.result = 2 * vo.input;
+		}
 	}
 }

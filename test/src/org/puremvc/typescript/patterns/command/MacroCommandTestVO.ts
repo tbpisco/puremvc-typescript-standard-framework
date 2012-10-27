@@ -23,31 +23,33 @@ module puremvc
 	 * @see puremvc.MacroCommandTestSub1Command MacroCommandTestSub1Command
 	 * @see puremvc.MacroCommandTestSub2Command MacroCommandTestSub2Command
 	 */
-
-	/**
-	 * @constructor
-	 * Constructs a <code>MacroCommandTestVO</code> instance.
-	 *
-	 * @param {number} input
-	 * 		A random number to pass to the command.
-	 */
-	constructor( input )
+	class MacroCommandTestVO
 	{
-		this.input = input;
+		/**
+		 * @constructor
+		 * Constructs a <code>MacroCommandTestVO</code> instance.
+		 *
+		 * @param {number} input
+		 * 		A random number to pass to the command.
+		 */
+		constructor( input )
+		{
+			this.input = input;
+		}
+
+		/**
+		 * @type {number}
+		 */
+		input:number = null;
+
+		/**
+		 * @type {number}
+		 */
+		result1:number = null;
+
+		/**
+		 * @type {number}
+		 */
+		result2:number = null;
 	}
-
-	/**
-	 * @type {number}
-	 */
-	input:number = null;
-
-	/**
-	 * @type {number}
-	 */
-	result1:number = null;
-
-	/**
-	 * @type {number}
-	 */
-	result2:number = null;
 }

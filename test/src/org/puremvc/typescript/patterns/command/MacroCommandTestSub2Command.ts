@@ -23,27 +23,29 @@ module puremvc
 	 * @see puremvc.MacroCommandTestVO MacroCommandTestVO
 	 *
 	 * @extends puremvc.SimpleCommand SimpleCommand
-	 *
-	 * @constructor
 	 */
-	constructor()
+	class MacroCommandTestSub2Command
+		extends SimpleCommand
 	{
-		SimpleCommand.call(this);
-	}
-	__extends( MacroCommandTestSub2Command, SimpleCommand );
 
-	/**
-	 * Fabricate a result by multiplying the input by 2
-	 *
-	 * @param {Notification} note
-	 * 		The <code>Notification</code> carrying the
-	 * 		<code>MacroCommandTestVO</code>
-	 */
-	execute( note )
-	{
-		var vo:MacroCommandTestVO = note.getBody();
+		constructor()
+		{
+			//FIXME Necessary here ?
+			super();
+		}
+		/**
+		 * Fabricate a result by multiplying the input by 2
+		 *
+		 * @param {Notification} note
+		 * 		The <code>Notification</code> carrying the
+		 * 		<code>MacroCommandTestVO</code>
+		 */
+		execute( note )
+		{
+			var vo:MacroCommandTestVO = note.getBody();
 
-		// Fabricate a result
-		vo.result2 = vo.input * vo.input;
+			// Fabricate a result
+			vo.result2 = vo.input * vo.input;
+		}
 	}
 }

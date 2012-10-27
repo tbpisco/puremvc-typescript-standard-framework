@@ -34,8 +34,9 @@ module puremvc
 	{
 		Mediator.call( this, ViewTestMediator.NAME, view );
 	}
-	__extends( ViewTestMediator, Mediator );
-
+	class ViewTestMediator
+		extends Mediator
+	{
 	/**
 	 * @override
 	 *

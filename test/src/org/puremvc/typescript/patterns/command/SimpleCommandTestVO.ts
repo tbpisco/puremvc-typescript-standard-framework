@@ -21,29 +21,31 @@ module puremvc
 	 * @see puremvc.SimpleCommandTest SimpleCommandTest
 	 * @see puremvc.SimpleCommandTestCommand SimpleCommandTestCommand
 	 */
-
-	/**
-	 * @constructor
-	 * Constructs a <code>SimpleCommandTestVO</code> instance.
-	 *
-	 * @param {number} input
-	 * 		The number to be fed to the	<code>SimpleCommandTestCommand</code>.
-	 */
-	constructor( input )
+	class SimpleCommandTestVO
+		extends SimpleCommand
 	{
-		SimpleCommand.call(this);
+		/**
+		 * @constructor
+		 * Constructs a <code>SimpleCommandTestVO</code> instance.
+		 *
+		 * @param {number} input
+		 * 		The number to be fed to the	<code>SimpleCommandTestCommand</code>.
+		 */
+		constructor( input )
+		{
+			SimpleCommand.call(this);
 
-		this.input = input;
+			this.input = input;
+		}
+
+		/**
+		 * @type {number}
+		 */
+		input:number = null;
+
+		/**
+		 * @type {number}
+		 */
+		result:number = null;
 	}
-	__extends( SimpleCommandTestVO, SimpleCommand );
-
-	/**
-	 * @type {number}
-	 */
-	input:number = null;
-
-	/**
-	 * @type {number}
-	 */
-	result:number = null;
 }

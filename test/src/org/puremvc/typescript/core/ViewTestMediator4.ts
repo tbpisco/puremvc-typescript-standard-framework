@@ -24,56 +24,59 @@ module puremvc
 	 *
 	 * @constructor
 	 */
-
-			/**
-	 * @constructor
-	 *
-			 * Constructs a <code>Mediator</code> subclass instance.
-			 *
-			 * @param {Object} view
-			 * 		The view component handled by this <code>Mediator</code>.
-			 */
-	constructor( view )
+	class ViewTestMediator4
+		extends Mediator
 	{
-		Mediator.call( this, ViewTestMediator4.NAME, view );
-	}
-	__extends(ViewTestMediator4,Mediator);
 
-	/**
-	 * Standard getter to return the view handled by the
-	 * <code>Mediator</code>.
-	 *
-	 * @return {Object}
-	 * 		The view handled by the <code>Mediator</code>.
-	 *
-	 * @private
-	 */
-	getViewTest()
-	{
-		return this.viewComponent;
-	}
+		/**
+		 * @constructor
+		 *
+		 * Constructs a <code>Mediator</code> subclass instance.
+		 *
+		 * @param {Object} view
+		 *		The view component handled by this <code>Mediator</code>.
+		 */
+		constructor( view )
+		{
+			Mediator.call( this, ViewTestMediator4.NAME, view );
+		}
 
-	/**
-	 * @override
-	 */
-	onRegister()
-	{
-		this.getViewTest().onRegisterCalled = true;
-	}
+		/**
+		 * Standard getter to return the view handled by the
+		 * <code>Mediator</code>.
+		 *
+		 * @return {Object}
+		 * 		The view handled by the <code>Mediator</code>.
+		 *
+		 * @private
+		 */
+		getViewTest()
+		{
+			return this.viewComponent;
+		}
 
-	/**
-	 * @override
-	 */
-	onRemove()
-	{
-		this.getViewTest().onRemoveCalled = true;
-	}
+		/**
+		 * @override
+		 */
+		onRegister()
+		{
+			this.getViewTest().onRegisterCalled = true;
+		}
 
-	/**
-	 * The Mediator name.
-	 *
-	 * @type {String}
-	 * @private
-	 */
-/*const*/static NAME:string = 'ViewTestMediator4';
+		/**
+		 * @override
+		 */
+		onRemove()
+		{
+			this.getViewTest().onRemoveCalled = true;
+		}
+
+		/**
+		 * The Mediator name.
+		 *
+		 * @type {String}
+		 * @private
+		 */
+	/*const*/static NAME:string = 'ViewTestMediator4';
+	}
 }

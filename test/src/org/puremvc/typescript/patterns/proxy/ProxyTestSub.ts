@@ -10,26 +10,26 @@
  * 
  * @extends puremvc.Proxy Proxy
  */
-
-/**
- * @constructor
- */
-constructor()
+class ProxyTestSub
+	extends Proxy
 {
-	Proxy.call(this);
-}
-__extends( ProxyTestSub, Proxy );
+	constructor()
+	{
+		//FIXME Necessary here ?
+		super();
+	}
 
-/**
- * A method to test if <code>Facade</code> instance of the object has
- * well been declared during its construction.
- *
- * @return {Boolean}
- * 		<code>Facade</code> instance of the object has well been declared
- * 		during its construction.
- */
-hasFacade()
-{
-	var Facade = Facade;
-	return this.facade instanceof Facade;
+	/**
+	 * A method to test if <code>Facade</code> instance of the object has
+	 * well been declared during its construction.
+	 *
+	 * @return {Boolean}
+	 *		<code>Facade</code> instance of the object has well been declared
+	 *		during its construction.
+	 */
+	hasFacade()
+	{
+		var Facade = Facade;
+		return this.facade instanceof Facade;
+	}
 }

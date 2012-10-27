@@ -13,58 +13,61 @@
 module puremvc
 {
 	"use strict";
-
-	/**
-	 * A <code>Proxy</code> subclass used by <code>ModelTest</code> testCase.
-	 *
-	 * @extends puremvc.Proxy Proxy
-	 *
-	 * @constructor
-	 */
-	constructor(){ this.initialize() }
-	__extends( ModelTestProxy, Proxy );
-
-	/**
-	 * @constructs
-	 */
-	initialize()
+	class ModelTestProxy
+		extends Proxy
 	{
-		Proxy.call( this, ModelTestProxy.NAME, '' );
+
+		/**
+		 * A <code>Proxy</code> subclass used by <code>ModelTest</code> testCase.
+		 *
+		 * @extends puremvc.Proxy Proxy
+		 *
+		 * @constructor
+		 */
+		constructor(){ this.initialize() }
+
+		/**
+		 * @constructs
+		 */
+		initialize()
+		{
+			Proxy.call( this, ModelTestProxy.NAME, '' );
+		}
+
+		/**
+		 * @override.
+		 */
+		onRegister()
+		{
+			this.setData( ModelTestProxy.ON_REGISTER_CALLED );
+		}
+
+		/**
+		 * @override.
+		 */
+		onRemove()
+		{
+			this.setData( ModelTestProxy.ON_REMOVE_CALLED );
+		}
+
+		/**
+		 * @type {String}
+		 * @constant
+		 */
+		ModelTestProxy.NAME = 'ModelTestProxy';
+
+
+		/**
+		 * @type {String}
+		 * @constant
+		 */
+		ModelTestProxy.ON_REGISTER_CALLED = 'onRegister Called';
+
+
+		/**
+		 * @type {String}
+		 * @constant
+		 */
+		ModelTestProxy.ON_REMOVE_CALLED = 'onRemove Called';
 	}
-
-	/**
-	 * @override.
-	 */
-	onRegister()
-	{
-		this.setData( ModelTestProxy.ON_REGISTER_CALLED );
-	}
-
-	/**
-	 * @override.
-	 */
-	onRemove()
-	{
-		this.setData( ModelTestProxy.ON_REMOVE_CALLED );
-	}
-
-	/**
-	 * @type {String}
-	 * @constant
-	 */
-	ModelTestProxy.NAME = 'ModelTestProxy';
-
-
-	/**
-	 * @type {String}
-	 * @constant
-	 */
-	ModelTestProxy.ON_REGISTER_CALLED = 'onRegister Called';
-
-
-	/**
-	 * @type {String}
-	 * @constant
-	 */
-	ModelTestProxy.ON_REMOVE_CALLED = 'onRemove Called';
 }

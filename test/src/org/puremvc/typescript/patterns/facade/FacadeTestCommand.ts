@@ -23,24 +23,26 @@ module puremvc
 	 *
 	 * @extends puremvc.SimpleCommand SimpleCommand
 	 */
-
-	constructor()
+	class FacadeTestCommand
+		extends SimpleCommand
 	{
-		SimpleCommand.call(this);
-	}
-	__extends( FacadeTestCommand, SimpleCommand );
+		constructor()
+		{
+			SimpleCommand.call(this);
+		}
 
-	/**
-	 * Fabricate a result by multiplying the input by 2
-	 *
-	 * @param {Notification} note
-	 * 		The Notification carrying the FacadeTestVO
-	 */
-	execute( note )
-	{
-		var vo:FacadeTestVO = note.getBody();
+		/**
+		 * Fabricate a result by multiplying the input by 2
+		 *
+		 * @param {Notification} note
+		 * 		The Notification carrying the FacadeTestVO
+		 */
+		execute( note )
+		{
+			var vo:FacadeTestVO = note.getBody();
 
-		// Fabricate a result
-		vo.result = 2 * vo.input;
+			// Fabricate a result
+			vo.result = 2 * vo.input;
+		}
 	}
 }

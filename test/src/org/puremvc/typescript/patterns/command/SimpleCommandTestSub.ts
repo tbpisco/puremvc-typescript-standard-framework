@@ -20,26 +20,28 @@ module puremvc
 	 * <code>SimpleCommandTest</code>.
 	 *
 	 * @extends puremvc.SimpleCommand SimpleCommand
-	 *
-	 * @constructor
 	 */
-	constructor()
+	class SimpleCommandTestSub
+		extends SimpleCommand
 	{
-		SimpleCommand.call(this);
-	}
-	__extends( SimpleCommandTestSub, SimpleCommand );
+		constructor()
+		{
+			//FIXME Necessary here ?
+			super();
+		}
 
-	/**
-	 * A method to test if <code>Facade</code> instance of the object has
-	 * well been declared during its construction.
-	 *
-	 * @return {Boolean}
-	 * 		<code>Facade</code> instance of the object has well been declared
-	 * 		during its construction.
-	 */
-	hasFacade()
-	{
-		var Facade = Facade;
-		return this.facade instanceof Facade;
+		/**
+		 * A method to test if <code>Facade</code> instance of the object has
+		 * well been declared during its construction.
+		 *
+		 * @return {Boolean}
+		 * 		<code>Facade</code> instance of the object has well been declared
+		 * 		during its construction.
+		 */
+		hasFacade()
+		{
+			var Facade = Facade;
+			return this.facade instanceof Facade;
+		}
 	}
 }

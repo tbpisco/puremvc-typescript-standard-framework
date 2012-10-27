@@ -19,26 +19,27 @@ module puremvc
 	 * A <code>Notifier</code> utility subclass used by <code>NotifierTest</code>.
 	 *
 	 * @extends puremvc.Notifier Notifier
-	 *
-	 * @constructor
 	 */
-	constructor()
+	class NotifierTestSub
+		extends Notifier
 	{
-		Notifier.call(this);
-	}
-	__extends( NotifierTestSub, Notifier );
+		constructor()
+		{
+			//FIXME Necessary here ?
+			super();
+		}
 
-	/**
-	 * A method to test if <code>Facade</code> instance of the object has
-	 * well been declared during its construction.
-	 *
-	 * @return {Boolean}
-	 * 		<code>Facade</code> instance of the object has well been declared
-	 * 		during its construction.
-	 */
-	hasFacade()
-	{
-		var Facade = Facade;
-		return this.facade instanceof Facade;
+		/**
+		 * A method to test if <code>Facade</code> instance of the object has
+		 * well been declared during its construction.
+		 *
+		 * @return {Boolean}
+		 * 		<code>Facade</code> instance of the object has well been declared
+		 * 		during its construction.
+		 */
+		hasFacade()
+		{
+			return this.facade instanceof Facade;
+		}
 	}
 }

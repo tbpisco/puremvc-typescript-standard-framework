@@ -22,65 +22,67 @@ module puremvc
 	 *
 	 * @extends puremvc.Mediator Mediator
 	 */
+	class ViewTestMediator3
+		extends Mediator
+		{
+		/**
+		 * @constructor
+		 *
+		 * Constructs a <code>Mediator</code> subclass instance.
+		 *
+		 * @param {Object} view
+		 * 		The view component handled by this <code>Mediator</code>.
+		 */
+		constructor( view )
+		{
+			Mediator.call( this, ViewTestMediator3.NAME, view );
+		}
 
-	/**
-	 * @constructor
-	 *
-	 * Constructs a <code>Mediator</code> subclass instance.
-	 *
-	 * @param {Object} view
-	 * 		The view component handled by this <code>Mediator</code>.
-	 */
-	constructor( view )
-	{
-		Mediator.call( this, ViewTestMediator3.NAME, view );
+		/**
+		 * Standard getter to return the view handled by the
+		 * <code>Mediator</code>.
+		 *
+		 * @return {Object}
+		 * 		The view handled by the <code>Mediator</code>.
+		 *
+		 * @private
+		 */
+		getViewTest()
+		{
+			return this.viewComponent;
+		}
+
+		/**
+		 * @override
+		 *
+		 * @return {Array}
+		 * 		The list of notifications names in which is interested the
+		 * 		<code>Mediator</code>.
+		 */
+		listNotificationInterests()
+		{
+			// be sure that the mediator has some Observers created
+			// in order to test removeMediator
+			return [ ViewTest.NOTE3 ];
+		}
+
+		/**
+		 * @override
+		 *
+		 * @param {Notification} notification
+		 * 		The notification instance to be handled.
+		 */
+		handleNotification( note )
+		{
+			this.getViewTest().lastNotification = note.getName();
+		}
+
+		/**
+		 * The Mediator name.
+		 *
+		 * @type {String}
+		 * @private
+		 */
+	/*const*/static NAME:string = 'ViewTestMediator3';
 	}
-	__extends(ViewTestMediator3,Mediator);
-
-	/**
-	 * Standard getter to return the view handled by the
-	 * <code>Mediator</code>.
-	 *
-	 * @return {Object}
-	 * 		The view handled by the <code>Mediator</code>.
-	 *
-	 * @private
-	 */
-	getViewTest()
-	{
-		return this.viewComponent;
-	}
-
-	/**
-	 * @override
-	 *
-	 * @return {Array}
-	 * 		The list of notifications names in which is interested the
-	 * 		<code>Mediator</code>.
-	 */
-	listNotificationInterests()
-	{
-		// be sure that the mediator has some Observers created
-		// in order to test removeMediator
-		return [ ViewTest.NOTE3 ];
-	}
-
-	/**
-	 * @override
-	 *
-	 * @param {Notification} notification
-	 * 		The notification instance to be handled.
-	 */
-	handleNotification( note )
-	{
-		this.getViewTest().lastNotification = note.getName();
-	}
-
-	/**
-	 * The Mediator name.
-	 *
-	 * @type {String}
-	 * @private
-	 */
-/*const*/static NAME:string = 'ViewTestMediator3';
 }

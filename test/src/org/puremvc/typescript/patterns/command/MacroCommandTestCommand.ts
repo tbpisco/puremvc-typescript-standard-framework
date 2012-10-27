@@ -25,22 +25,25 @@ module puremvc
 	 *
 	 * @extends puremvc.MacroCommand MacroCommand
 	 */
-
-	constructor()
+	class MacroCommandTestCommand
+		extends MacroCommand
 	{
-		MacroCommand.call(this);
-	}
-	__extends( MacroCommandTestCommand, MacroCommand );
 
-	/**
-	 * Initialize the MacroCommandTestCommand by adding
-	 * its 2 SubCommands.
-	 *
-	 * @override
-	 */
-	initializeMacroCommand()
-	{
-		this.addSubCommand( MacroCommandTestSub1Command );
-		this.addSubCommand( MacroCommandTestSub2Command );
+		constructor()
+		{
+			MacroCommand.call(this);
+		}
+
+		/**
+		 * Initialize the MacroCommandTestCommand by adding
+		 * its 2 SubCommands.
+		 *
+		 * @override
+		 */
+		initializeMacroCommand()
+		{
+			this.addSubCommand( MacroCommandTestSub1Command );
+			this.addSubCommand( MacroCommandTestSub2Command );
+		}
 	}
 }

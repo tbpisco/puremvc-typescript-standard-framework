@@ -21,29 +21,32 @@ module puremvc
 	 *
 	 * @extends puremvc.MacroCommand MacroCommand
 	 */
+	class MacroCommandTestSub
+		extends MacroCommand
+		{
+		/**
+		 * @constructor
+		 *
+		 * Constructs a <code>MacroCommandTestSub</code> instance.
+		 */
+		constructor()
+		{
+			//FIXME Necessary here ?
+			super();
+		}
 
-	/**
-	 * @constructor
-	 *
-	 * Constructs a <code>MacroCommandTestSub</code> instance.
-	 */
-	constructor()
-	{
-		MacroCommand.call(this);
-	}
-	__extends( MacroCommandTestSub, MacroCommand );
-
-	/**
-	 * A method to test if <code>Facade</code> instance of the object has
-	 * well been declared during its construction.
-	 *
-	 * @return {Boolean}
-	 * 		<code>Facade</code> instance of the object has well been declared
-	 * 		during its construction.
-	 */
-	hasFacade()
-	{
-		var Facade = Facade;
-		return this.facade instanceof Facade;
+		/**
+		 * A method to test if <code>Facade</code> instance of the object has
+		 * well been declared during its construction.
+		 *
+		 * @return {Boolean}
+		 * 		<code>Facade</code> instance of the object has well been declared
+		 * 		during its construction.
+		 */
+		hasFacade()
+		{
+			var Facade = Facade;
+			return this.facade instanceof Facade;
+		}
 	}
 }

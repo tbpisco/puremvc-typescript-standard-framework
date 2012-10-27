@@ -25,7 +25,6 @@ module puremvc
 	 */
 	class NotifierTestVO
 	{
-
 		/**
 		 * @constructor
 		 * Constructs a <code>NotifierTestVO</code> instance.
@@ -48,5 +47,4 @@ module puremvc
 		 */
 		result:number = null;
 	}
-
 }

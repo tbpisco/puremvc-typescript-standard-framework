@@ -20,27 +20,30 @@ module puremvc
 	 *
 	 * @extends puremvc.Mediator Mediator
 	 */
-
-	/**
-	 * @constructor
-	 */
-	constructor()
+	class MediatorTestSub
+		extends Mediator
 	{
-		Mediator.call(this);
-	}
-	__extends( MediatorTestSub, Mediator );
+		/**
+		 * @constructor
+		 */
+		constructor()
+		{
+			//FIXME Necessary here ?
+			super();
+		}
 
-	/**
-	 * A method to test if <code>Facade</code> instance of the object has
-	 * well been declared during its construction.
-	 *
-	 * @return {Boolean}
-	 * 		<code>Facade</code> instance of the object has well been declared
-	 * 		during its construction.
-	 */
-	hasFacade()
-	{
-		var Facade = Facade;
-		return this.facade instanceof Facade;
+		/**
+		 * A method to test if <code>Facade</code> instance of the object has
+		 * well been declared during its construction.
+		 *
+		 * @return {Boolean}
+		 * 		<code>Facade</code> instance of the object has well been declared
+		 * 		during its construction.
+		 */
+		hasFacade()
+		{
+			var Facade = Facade;
+			return this.facade instanceof Facade;
+		}
 	}
 }
