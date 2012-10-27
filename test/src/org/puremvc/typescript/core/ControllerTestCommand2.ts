@@ -27,7 +27,7 @@ module puremvc
 	 *
 	 * @constructor
 	 */
-	var ControllerTestCommand2 = function(){}
+	constructor(){}
 	__extends( ControllerTestCommand2, SimpleCommand );
 
 	/**

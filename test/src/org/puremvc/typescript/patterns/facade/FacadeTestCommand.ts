@@ -24,10 +24,7 @@ module puremvc
 	 * @extends puremvc.SimpleCommand SimpleCommand
 	 */
 
-	/**
-	 * @constructor
-	 */
-	var FacadeTestCommand = function()
+	constructor()
 	{
 		SimpleCommand.call(this);
 	}

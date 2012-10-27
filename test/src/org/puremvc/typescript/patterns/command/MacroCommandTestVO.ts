@@ -31,7 +31,7 @@ module puremvc
 	 * @param {Number} input
 	 * 		A random number to pass to the command.
 	 */
-	var MacroCommandTestVO = function( input )
+	constructor( input )
 	{
 		this.input = input;
 	}

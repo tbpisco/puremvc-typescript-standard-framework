@@ -27,7 +27,7 @@ module puremvc
 	 * @param {Number} input
 	 * 		The number to be fed to the <code>ControllerTestCommand</code>.
 	 */
-	var ControllerTestVO = function( input )
+	constructor( input )
 	{
 		this.input = input;
 	}

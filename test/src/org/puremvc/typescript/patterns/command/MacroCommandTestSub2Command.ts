@@ -26,7 +26,7 @@ module puremvc
 	 *
 	 * @constructor
 	 */
-	var MacroCommandTestSub2Command = function()
+	constructor()
 	{
 		SimpleCommand.call(this);
 	}

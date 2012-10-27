@@ -29,7 +29,7 @@ module puremvc
 	 * @param {Number} input
 	 * 		The number to be fed to the	<code>SimpleCommandTestCommand</code>.
 	 */
-	var SimpleCommandTestVO = function( input )
+	constructor( input )
 	{
 		SimpleCommand.call(this);
 

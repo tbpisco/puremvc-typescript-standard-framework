@@ -27,7 +27,7 @@ module puremvc
 	 *
 	 * Constructs a <code>MacroCommandTestSub</code> instance.
 	 */
-	var MacroCommandTestSub = function()
+	constructor()
 	{
 		MacroCommand.call(this);
 	}

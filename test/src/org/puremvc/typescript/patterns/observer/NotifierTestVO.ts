@@ -31,7 +31,7 @@ module puremvc
 	 * @param {Number} input
 	 * 		The number to be fed to the FacadeTestCommand
 	 */
-	var NotifierTestVO = function( input )
+	constructor( input )
 	{
 		this.input = input;
 	}

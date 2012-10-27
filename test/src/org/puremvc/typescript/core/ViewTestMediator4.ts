@@ -33,7 +33,7 @@ module puremvc
 			 * @param {Object} view
 			 * 		The view component handled by this <code>Mediator</code>.
 			 */
-	var ViewTestMediator4 = function( view )
+	constructor( view )
 	{
 		Mediator.call( this, ViewTestMediator4.NAME, view );
 	}

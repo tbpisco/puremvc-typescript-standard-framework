@@ -24,10 +24,7 @@ module puremvc
 	 * @extends puremvc.SimpleCommand SimpleCommand
 	 */
 
-	 /**
-	 * @constructor
-	 */
-	var NotifierTestCommand = function()
+	constructor()
 	{
 		SimpleCommand.call(this);
 	}

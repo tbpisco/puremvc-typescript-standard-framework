@@ -22,7 +22,7 @@ module puremvc
 	 *
 	 * @constructor
 	 */
-	var NotifierTestSub = function()
+	constructor()
 	{
 		Notifier.call(this);
 	}

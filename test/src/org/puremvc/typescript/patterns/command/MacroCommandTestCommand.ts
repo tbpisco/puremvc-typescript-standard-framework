@@ -26,10 +26,7 @@ module puremvc
 	 * @extends puremvc.MacroCommand MacroCommand
 	 */
 
-	/**
-	 * @constructor
-	 */
-	var MacroCommandTestCommand = function()
+	constructor()
 	{
 		MacroCommand.call(this);
 	}

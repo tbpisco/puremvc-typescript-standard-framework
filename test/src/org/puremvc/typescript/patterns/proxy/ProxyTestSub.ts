@@ -14,7 +14,7 @@
 /**
  * @constructor
  */
-var ProxyTestSub = function()
+constructor()
 {
 	Proxy.call(this);
 }

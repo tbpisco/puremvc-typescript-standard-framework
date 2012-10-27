@@ -21,7 +21,7 @@ module puremvc
 	 *
 	 * @constructor
 	 */
-	var ModelTestProxy = function(){ this.initialize() }
+	constructor(){ this.initialize() }
 	__extends( ModelTestProxy, Proxy );
 
 	/**

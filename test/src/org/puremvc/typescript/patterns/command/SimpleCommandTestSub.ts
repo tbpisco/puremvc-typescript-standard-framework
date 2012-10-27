@@ -23,7 +23,7 @@ module puremvc
 	 *
 	 * @constructor
 	 */
-	var SimpleCommandTestSub = function()
+	constructor()
 	{
 		SimpleCommand.call(this);
 	}

@@ -24,7 +24,7 @@ module puremvc
 	/**
 	 * @constructor
 	 */
-	var MediatorTestSub = function()
+	constructor()
 	{
 		Mediator.call(this);
 	}

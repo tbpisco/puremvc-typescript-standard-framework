@@ -5,14 +5,15 @@
 */
 
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
+
 ///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/facade/Facade.ts'/>
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
 
-NotifierTestCommand
-NotifierTestSub
-Facade
-NotifierTestVO
-
+///<reference path='NotifierTestCommand' />
+///<reference path='NotifierTestSub' />
+///<reference path='NotifierTestVO' />
 
 module puremvc
 {

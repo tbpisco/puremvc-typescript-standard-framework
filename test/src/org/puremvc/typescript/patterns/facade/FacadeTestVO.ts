@@ -29,7 +29,7 @@ module puremvc
 	 * @param {Number} input
 	 * 		The number to be fed to the FacadeTestCommand
 	 */
-	var FacadeTestVO = function( input )
+	constructor( input )
 	{
 		this.input = input;
 	}
