@@ -4,30 +4,41 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-/**
- * @classDescription
- * A SimpleCommand subclass used by ControllerTest.
- *
- * @see puremvc.ControllerTest ControllerTest
- * @see puremvc.ControllerTestVO ControllerTestVO
- *
- * @extends puremvc.SimpleCommand SimpleCommand
- * 
- * @constructor
- */
-var ControllerTestCommand = function(){}
-__extends( ControllerTestCommand, SimpleCommand );
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-/**
- * Fabricate a result by multiplying the input by 2.
- *
- * @param {Notification} note
- * 		The note carrying the ControllerTestVO
- */
-ControllerTestCommand.prototype.execute = function ( note )
+module puremvc
 {
-	var vo/*ControllerTestVO*/ = note.getBody();
+	"use strict";
 
-	// Fabricate a result
-	vo.result = 2 * vo.input;
+	import YUITest = module("YUITest");
+
+	/**
+	 * @classDescription
+	 * A SimpleCommand subclass used by ControllerTest.
+	 *
+	 * @see puremvc.ControllerTest ControllerTest
+	 * @see puremvc.ControllerTestVO ControllerTestVO
+	 *
+	 * @extends puremvc.SimpleCommand SimpleCommand
+	 *
+	 * @constructor
+	 */
+	var ControllerTestCommand = function(){}
+	__extends( ControllerTestCommand, SimpleCommand );
+
+	/**
+	 * Fabricate a result by multiplying the input by 2.
+	 *
+	 * @param {Notification} note
+	 * 		The note carrying the ControllerTestVO
+	 */
+	ControllerTestCommand.prototype.execute = function ( note )
+	{
+		var vo/*ControllerTestVO*/ = note.getBody();
+
+		// Fabricate a result
+		vo.result = 2 * vo.input;
+	}
 }

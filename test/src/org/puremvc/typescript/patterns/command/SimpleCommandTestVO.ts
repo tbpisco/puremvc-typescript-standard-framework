@@ -4,35 +4,46 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-/**
- * @classDescription
- * A utility class used by SimpleCommandTest.
- *
- * @see puremvc.SimpleCommandTest SimpleCommandTest
- * @see puremvc.SimpleCommandTestCommand SimpleCommandTestCommand
- */
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-/**
- * @constructor
- * Constructs a <code>SimpleCommandTestVO</code> instance.
- *
- * @param {Number} input
- * 		The number to be fed to the	<code>SimpleCommandTestCommand</code>.
- */
-var SimpleCommandTestVO = function( input )
+module puremvc
 {
-	SimpleCommand.call(this);
+	"use strict";
 
-	this.input = input;
+	import YUITest = module("YUITest");
+
+	/**
+	 * @classDescription
+	 * A utility class used by SimpleCommandTest.
+	 *
+	 * @see puremvc.SimpleCommandTest SimpleCommandTest
+	 * @see puremvc.SimpleCommandTestCommand SimpleCommandTestCommand
+	 */
+
+	/**
+	 * @constructor
+	 * Constructs a <code>SimpleCommandTestVO</code> instance.
+	 *
+	 * @param {Number} input
+	 * 		The number to be fed to the	<code>SimpleCommandTestCommand</code>.
+	 */
+	var SimpleCommandTestVO = function( input )
+	{
+		SimpleCommand.call(this);
+
+		this.input = input;
+	}
+	__extends( SimpleCommandTestVO, SimpleCommand );
+
+	/**
+	 * @type {Number}
+	 */
+	SimpleCommandTestVO.prototype.input = null;
+
+	/**
+	 * @type {Number}
+	 */
+	SimpleCommandTestVO.prototype.result = null;
 }
-__extends( SimpleCommandTestVO, SimpleCommand );
-	
-/**
- * @type {Number}
- */
-SimpleCommandTestVO.prototype.input = null;
-	
-/**
- * @type {Number}
- */
-SimpleCommandTestVO.prototype.result = null;

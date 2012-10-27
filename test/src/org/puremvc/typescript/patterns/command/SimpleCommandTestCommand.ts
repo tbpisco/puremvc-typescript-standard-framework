@@ -4,34 +4,45 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-/**
- * @classDescription
- * A SimpleCommand subclass used by SimpleCommandTest.
- *
- * @see puremvc.SimpleCommandTest SimpleCommandTest
- * @see puremvc.SimpleCommandTestVO SimpleCommandTestVO
- *
- * @extends puremvc.SimpleCommand SimpleCommand
- * 
- * @constructor
- */
-var SimpleCommandTestCommand = function()
-{
-	SimpleCommand.call(this);
-}
-__extends( SimpleCommandTestCommand, SimpleCommand );
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-/**
- * Fabricate a result by multiplying the input by 2
- *
- * @param {Notification} note
- * 		The <code>Notification</code> carrying the
- * 		<code>SimpleCommandTestVO</code>
- */
-SimpleCommandTestCommand.prototype.execute = function( note )
+module puremvc
 {
-	var vo/*SimpleCommandTestVO*/ = note.getBody();
+	"use strict";
 
-	// Fabricate a result
-	vo.result = 2 * vo.input;
+	import YUITest = module("YUITest");
+
+	/**
+	 * @classDescription
+	 * A SimpleCommand subclass used by SimpleCommandTest.
+	 *
+	 * @see puremvc.SimpleCommandTest SimpleCommandTest
+	 * @see puremvc.SimpleCommandTestVO SimpleCommandTestVO
+	 *
+	 * @extends puremvc.SimpleCommand SimpleCommand
+	 *
+	 * @constructor
+	 */
+	var SimpleCommandTestCommand = function()
+	{
+		SimpleCommand.call(this);
+	}
+	__extends( SimpleCommandTestCommand, SimpleCommand );
+
+	/**
+	 * Fabricate a result by multiplying the input by 2
+	 *
+	 * @param {Notification} note
+	 * 		The <code>Notification</code> carrying the
+	 * 		<code>SimpleCommandTestVO</code>
+	 */
+	SimpleCommandTestCommand.prototype.execute = function( note )
+	{
+		var vo/*SimpleCommandTestVO*/ = note.getBody();
+
+		// Fabricate a result
+		vo.result = 2 * vo.input;
+	}
 }

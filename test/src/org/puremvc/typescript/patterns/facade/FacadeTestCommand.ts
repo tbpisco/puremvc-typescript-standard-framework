@@ -4,35 +4,46 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-/**
- * @classDescription
- * A SimpleCommand subclass used by FacadeTest.
- *
- * @see puremvc.FacadeTest FacadeTest
- * @see puremvc.FacadeTestVO FacadeTestVO
- * 
- * @extends puremvc.SimpleCommand SimpleCommand
- */
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-/**
- * @constructor
- */
-var FacadeTestCommand = function()
+module puremvc
 {
-	SimpleCommand.call(this);
-}
-__extends( FacadeTestCommand, SimpleCommand );
+	"use strict";
 
-/**
- * Fabricate a result by multiplying the input by 2
- *
- * @param {Notification} note
- * 		The Notification carrying the FacadeTestVO
- */
-FacadeTestCommand.prototype.execute = function( note )
-{
-	var vo/*FacadeTestVO*/ = note.getBody();
+	import YUITest = module("YUITest");
 
-	// Fabricate a result
-	vo.result = 2 * vo.input;
+	/**
+	 * @classDescription
+	 * A SimpleCommand subclass used by FacadeTest.
+	 *
+	 * @see puremvc.FacadeTest FacadeTest
+	 * @see puremvc.FacadeTestVO FacadeTestVO
+	 *
+	 * @extends puremvc.SimpleCommand SimpleCommand
+	 */
+
+	/**
+	 * @constructor
+	 */
+	var FacadeTestCommand = function()
+	{
+		SimpleCommand.call(this);
+	}
+	__extends( FacadeTestCommand, SimpleCommand );
+
+	/**
+	 * Fabricate a result by multiplying the input by 2
+	 *
+	 * @param {Notification} note
+	 * 		The Notification carrying the FacadeTestVO
+	 */
+	FacadeTestCommand.prototype.execute = function( note )
+	{
+		var vo/*FacadeTestVO*/ = note.getBody();
+
+		// Fabricate a result
+		vo.result = 2 * vo.input;
+	}
 }

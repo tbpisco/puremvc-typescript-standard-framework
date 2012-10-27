@@ -4,35 +4,46 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-/**
- * @classDescription
- * A MacroCommand subclass used by MacroCommandTest.
- *
- * @see puremvc.MacroCommandTest MacroCommandTest
- * @see puremvc.MacroCommandTestSub1Command MacroCommandTestSub1Command
- * @see puremvc.MacroCommandTestSub2Command MacroCommandTestSub2Command
- * @see puremvc.MacroCommandTestVO MacroCommandTestVO
- * 
- * @extends puremvc.MacroCommand MacroCommand
- */
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-/**
- * @constructor
- */
-var MacroCommandTestCommand = function()
+module puremvc
 {
-	MacroCommand.call(this);
-}
-__extends( MacroCommandTestCommand, MacroCommand );
+	"use strict";
 
-/**
- * Initialize the MacroCommandTestCommand by adding
- * its 2 SubCommands.
- *
- * @override
- */
-MacroCommandTestCommand.prototype.initializeMacroCommand = function()
-{
-	this.addSubCommand( MacroCommandTestSub1Command );
-	this.addSubCommand( MacroCommandTestSub2Command );
+	import YUITest = module("YUITest");
+
+	/**
+	 * @classDescription
+	 * A MacroCommand subclass used by MacroCommandTest.
+	 *
+	 * @see puremvc.MacroCommandTest MacroCommandTest
+	 * @see puremvc.MacroCommandTestSub1Command MacroCommandTestSub1Command
+	 * @see puremvc.MacroCommandTestSub2Command MacroCommandTestSub2Command
+	 * @see puremvc.MacroCommandTestVO MacroCommandTestVO
+	 *
+	 * @extends puremvc.MacroCommand MacroCommand
+	 */
+
+	/**
+	 * @constructor
+	 */
+	var MacroCommandTestCommand = function()
+	{
+		MacroCommand.call(this);
+	}
+	__extends( MacroCommandTestCommand, MacroCommand );
+
+	/**
+	 * Initialize the MacroCommandTestCommand by adding
+	 * its 2 SubCommands.
+	 *
+	 * @override
+	 */
+	MacroCommandTestCommand.prototype.initializeMacroCommand = function()
+	{
+		this.addSubCommand( MacroCommandTestSub1Command );
+		this.addSubCommand( MacroCommandTestSub2Command );
+	}
 }

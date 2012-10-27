@@ -12,7 +12,7 @@ module puremvc
 {
 	"use strict";
 
-	import YUITest = module("YUITest")
+	import YUITest = module("YUITest");
 
 	/**
 	 * Test the PureMVC Notification class.

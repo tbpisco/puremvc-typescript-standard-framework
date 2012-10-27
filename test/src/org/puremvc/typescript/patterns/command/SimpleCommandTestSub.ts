@@ -4,31 +4,42 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-/**
- * @classDescription
- * A <code>SimpleCommand</code> utility subclass used by
- * <code>SimpleCommandTest</code>.
- * 
- * @extends puremvc.SimpleCommand SimpleCommand
- * 
- * @constructor
- */
-var SimpleCommandTestSub = function()
-{
-	SimpleCommand.call(this);
-}
-__extends( SimpleCommandTestSub, SimpleCommand );
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-/**
- * A method to test if <code>Facade</code> instance of the object has
- * well been declared during its construction.
- *
- * @return {Boolean}
- * 		<code>Facade</code> instance of the object has well been declared
- * 		during its construction.
- */
-SimpleCommandTestSub.prototype.hasFacade = function()
+module puremvc
 {
-	var Facade = Facade;
-	return this.facade instanceof Facade;
+	"use strict";
+
+	import YUITest = module("YUITest");
+
+	/**
+	 * @classDescription
+	 * A <code>SimpleCommand</code> utility subclass used by
+	 * <code>SimpleCommandTest</code>.
+	 *
+	 * @extends puremvc.SimpleCommand SimpleCommand
+	 *
+	 * @constructor
+	 */
+	var SimpleCommandTestSub = function()
+	{
+		SimpleCommand.call(this);
+	}
+	__extends( SimpleCommandTestSub, SimpleCommand );
+
+	/**
+	 * A method to test if <code>Facade</code> instance of the object has
+	 * well been declared during its construction.
+	 *
+	 * @return {Boolean}
+	 * 		<code>Facade</code> instance of the object has well been declared
+	 * 		during its construction.
+	 */
+	SimpleCommandTestSub.prototype.hasFacade = function()
+	{
+		var Facade = Facade;
+		return this.facade instanceof Facade;
+	}
 }

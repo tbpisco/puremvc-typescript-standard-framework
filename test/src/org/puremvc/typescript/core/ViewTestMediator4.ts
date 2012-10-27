@@ -4,65 +4,76 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-/**
- * @classDescription
- * A Mediator class used by ViewTest.
- * 
- * @see puremvc.ViewTest ViewTest
- *
- * @extends puremvc.Mediator Mediator
- * 
- * @constructor
- */
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-		/**
- * @constructor
- *
-		 * Constructs a <code>Mediator</code> subclass instance.
-		 * 
-		 * @param {Object} view
-		 * 		The view component handled by this <code>Mediator</code>.
-		 */
-var ViewTestMediator4 = function( view )
+module puremvc
 {
-	Mediator.call( this, ViewTestMediator4.NAME, view );
-}
-__extends(ViewTestMediator4,Mediator);
+	"use strict";
 
-/**
- * Standard getter to return the view handled by the
- * <code>Mediator</code>.
- *
- * @return {Object}
- * 		The view handled by the <code>Mediator</code>.
- *
- * @private
- */
-ViewTestMediator4.prototype.getViewTest = function()
-{
-	return this.viewComponent;
-}
+	import YUITest = module("YUITest");
 
-/**
- * @override
- */
-ViewTestMediator4.prototype.onRegister = function()
-{
-	this.getViewTest().onRegisterCalled = true;
-}
+	/**
+	 * @classDescription
+	 * A Mediator class used by ViewTest.
+	 *
+	 * @see puremvc.ViewTest ViewTest
+	 *
+	 * @extends puremvc.Mediator Mediator
+	 *
+	 * @constructor
+	 */
 
-/**
- * @override
- */
-ViewTestMediator4.prototype.onRemove = function()
-{
-	this.getViewTest().onRemoveCalled = true;
-}
+			/**
+	 * @constructor
+	 *
+			 * Constructs a <code>Mediator</code> subclass instance.
+			 *
+			 * @param {Object} view
+			 * 		The view component handled by this <code>Mediator</code>.
+			 */
+	var ViewTestMediator4 = function( view )
+	{
+		Mediator.call( this, ViewTestMediator4.NAME, view );
+	}
+	__extends(ViewTestMediator4,Mediator);
 
-/**
- * The Mediator name.
- * 
- * @type {String}
- * @private
- */
-ViewTestMediator4.NAME = 'ViewTestMediator4';
+	/**
+	 * Standard getter to return the view handled by the
+	 * <code>Mediator</code>.
+	 *
+	 * @return {Object}
+	 * 		The view handled by the <code>Mediator</code>.
+	 *
+	 * @private
+	 */
+	ViewTestMediator4.prototype.getViewTest = function()
+	{
+		return this.viewComponent;
+	}
+
+	/**
+	 * @override
+	 */
+	ViewTestMediator4.prototype.onRegister = function()
+	{
+		this.getViewTest().onRegisterCalled = true;
+	}
+
+	/**
+	 * @override
+	 */
+	ViewTestMediator4.prototype.onRemove = function()
+	{
+		this.getViewTest().onRemoveCalled = true;
+	}
+
+	/**
+	 * The Mediator name.
+	 *
+	 * @type {String}
+	 * @private
+	 */
+	ViewTestMediator4.NAME = 'ViewTestMediator4';
+}

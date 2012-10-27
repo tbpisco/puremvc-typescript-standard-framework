@@ -9,7 +9,7 @@
  * 
  * @see puremvc.Proxy Proxy
  */
-var ProxyTest = new YUITest.TestCase
+export class ProxyTest
 (
 	{	
        /**

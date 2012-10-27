@@ -4,70 +4,81 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-/**
- * @classDescription
- * A Mediator class used by ViewTest.
- * 
- * @see puremvc.ViewTest ViewTest
- *
- * @extends puremvc.Mediator Mediator
- */
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-/**
- * @constructor
- *
- * Constructs a <code>Mediator</code> subclass instance.
- *
- * @param {Object} view
- * 		The view component handled by this <code>Mediator</code>.
- */
-var ViewTestMediator5 = function( view )
+module puremvc
 {
-	Mediator.call( this, ViewTestMediator5.NAME, view );
-}
-__extends(ViewTestMediator5,Mediator);
-	
-/**
- * Standard getter to return the view handled by the
- * <code>Mediator</code>.
- *
- * @return {Object}
- * 		The view handled by the <code>Mediator</code>.
- *
- * @private
- */
-ViewTestMediator5.prototype.getViewTest = function()
-{
-	return this.viewComponent;
-}
+	"use strict";
 
-/**
- * @override
- *
- * @return {Array}
- * 		The list of notifications names in which is interested the
- * 		<code>Mediator</code>.
- */
-ViewTestMediator5.prototype.listNotificationInterests = function()
-{
-	return [ ViewTest.NOTE5 ];
-}
+	import YUITest = module("YUITest");
 
-/**
- * @override
- *
- * @param {Notification} notification
- * 		The notification instance to be handled.
- */
-ViewTestMediator5.prototype.handleNotification = function( notification )
-{
-	this.getViewTest().counter++;
-}
+	/**
+	 * @classDescription
+	 * A Mediator class used by ViewTest.
+	 *
+	 * @see puremvc.ViewTest ViewTest
+	 *
+	 * @extends puremvc.Mediator Mediator
+	 */
 
-/**
- * The Mediator name.
- * 
- * @type {String}
- * @private
- */
-ViewTestMediator5.NAME = 'ViewTestMediator5';
+	/**
+	 * @constructor
+	 *
+	 * Constructs a <code>Mediator</code> subclass instance.
+	 *
+	 * @param {Object} view
+	 * 		The view component handled by this <code>Mediator</code>.
+	 */
+	var ViewTestMediator5 = function( view )
+	{
+		Mediator.call( this, ViewTestMediator5.NAME, view );
+	}
+	__extends(ViewTestMediator5,Mediator);
+
+	/**
+	 * Standard getter to return the view handled by the
+	 * <code>Mediator</code>.
+	 *
+	 * @return {Object}
+	 * 		The view handled by the <code>Mediator</code>.
+	 *
+	 * @private
+	 */
+	ViewTestMediator5.prototype.getViewTest = function()
+	{
+		return this.viewComponent;
+	}
+
+	/**
+	 * @override
+	 *
+	 * @return {Array}
+	 * 		The list of notifications names in which is interested the
+	 * 		<code>Mediator</code>.
+	 */
+	ViewTestMediator5.prototype.listNotificationInterests = function()
+	{
+		return [ ViewTest.NOTE5 ];
+	}
+
+	/**
+	 * @override
+	 *
+	 * @param {Notification} notification
+	 * 		The notification instance to be handled.
+	 */
+	ViewTestMediator5.prototype.handleNotification = function( notification )
+	{
+		this.getViewTest().counter++;
+	}
+
+	/**
+	 * The Mediator name.
+	 *
+	 * @type {String}
+	 * @private
+	 */
+	ViewTestMediator5.NAME = 'ViewTestMediator5';
+}

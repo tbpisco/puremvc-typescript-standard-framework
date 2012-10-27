@@ -4,49 +4,60 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
-/**
- * @classDescription
- * A Notification class used by ViewTest.
- *
- * @see puremvc.ViewTest ViewTest
- * @extends puremvc.Notification Notification
- */
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-/**
- * @constructor.
- *
- * @param {String} name
- * 		Ignored and forced to NAME.
- *
- * @param {Object} body
- * 		The body of the Notification to be constructed.
- */
-var ViewTestNote =  function( name, body )
+module puremvc
 {
-	Notification.call( this, ViewTestNote.NAME, body );
-}
-__extends(	ViewTestNote, Notification );
+	"use strict";
 
-/**
- * The name of this Notification.
- * @type {String}
- */
-ViewTestNote.NAME = "ViewTestNote";
+	import YUITest = module("YUITest");
 
-/**
- * Factory method.
- *
- * This method creates new instances of the ViewTestNote class,
- * automatically setting the note name so you don't have to. Use
- * this as an alternative to the constructor.
- * 
- * @param {Object} body
- * 		The body of the Notification to be constructed.
- *
- * @return {Notification}
- *		The created <code>Notification</code>
- */
-ViewTestNote.create = function( body )	
-{
-	return new ViewTestNote( ViewTestNote.NAME, body );
+	/**
+	 * @classDescription
+	 * A Notification class used by ViewTest.
+	 *
+	 * @see puremvc.ViewTest ViewTest
+	 * @extends puremvc.Notification Notification
+	 */
+
+	/**
+	 * @constructor.
+	 *
+	 * @param {String} name
+	 * 		Ignored and forced to NAME.
+	 *
+	 * @param {Object} body
+	 * 		The body of the Notification to be constructed.
+	 */
+	var ViewTestNote =  function( name, body )
+	{
+		Notification.call( this, ViewTestNote.NAME, body );
+	}
+	__extends(	ViewTestNote, Notification );
+
+	/**
+	 * The name of this Notification.
+	 * @type {String}
+	 */
+	ViewTestNote.NAME = "ViewTestNote";
+
+	/**
+	 * Factory method.
+	 *
+	 * This method creates new instances of the ViewTestNote class,
+	 * automatically setting the note name so you don't have to. Use
+	 * this as an alternative to the constructor.
+	 *
+	 * @param {Object} body
+	 * 		The body of the Notification to be constructed.
+	 *
+	 * @return {Notification}
+	 *		The created <code>Notification</code>
+	 */
+	ViewTestNote.create = function( body )
+	{
+		return new ViewTestNote( ViewTestNote.NAME, body );
+	}
 }

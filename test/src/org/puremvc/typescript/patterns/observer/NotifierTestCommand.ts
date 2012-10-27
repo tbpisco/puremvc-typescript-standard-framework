@@ -4,6 +4,16 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 
+///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
+
+module puremvc
+{
+	"use strict";
+
+	import YUITest = module("YUITest");
+
 /**
  * @classDescription
  * A SimpleCommand subclass used by NotifierTest.
