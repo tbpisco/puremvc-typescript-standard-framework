@@ -57,6 +57,7 @@ module puremvc
 		 * @param commandClassRef
 		 * 		The constructor of the <code>ICommand</code>.
 		 */
+		//FIXME There is probably a special syntax to pass class / constructor reference or we may use at least callback: () => void if best
 		registerCommand( notificationName:string, commandClassRef:Function ):void;
 		
 		/**
