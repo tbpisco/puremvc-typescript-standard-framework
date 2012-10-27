@@ -30,7 +30,7 @@ module puremvc
 			 * @type {String}
 			 * @private
 			 */
-			name: "PureMVC SimpleCommand class Tests",
+			name:string = "PureMVC SimpleCommand class Tests";
 
 			/**
 			 * Sets up data that is needed by each test.

@@ -29,7 +29,7 @@ module puremvc
 			 * @type {String}
 			 * @private
 			 */
-			name: "PureMVC Notifier class tests",
+			name:string = "PureMVC Notifier class tests";
 
 			/**
 			 * Sets up data that is needed by each test.

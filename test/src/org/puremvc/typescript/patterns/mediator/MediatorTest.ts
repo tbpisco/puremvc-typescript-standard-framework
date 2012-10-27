@@ -29,7 +29,7 @@ module puremvc
 			 * @type {String}
 			 * @private
 			 */
-			name: "PureMVC Mediator class tests",
+			name:string = "PureMVC Mediator class tests";
 
 			/**
 			 * Sets up data that is needed by each test.

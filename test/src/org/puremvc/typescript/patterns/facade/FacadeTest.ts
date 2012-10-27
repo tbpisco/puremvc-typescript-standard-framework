@@ -30,7 +30,7 @@ module puremvc
 			 * @type {String}
 			 * @private
 			 */
-			name: "PureMVC Facade class tests",
+			name:string = "PureMVC Facade class tests";
 
 			/**
 			 * Sets up data that is needed by each test.

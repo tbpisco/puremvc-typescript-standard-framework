@@ -37,7 +37,7 @@ module puremvc
 			 * @type {String}
 			 * @private
 			 */
-			name: "PureMVC Observer class tests",
+			name:string = "PureMVC Observer class tests";
 
 			/**
 			 * Sets up data that is needed by each test.

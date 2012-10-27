@@ -19,7 +19,7 @@ export class ProxyTest
 		 * @type {String}
 		 * @private
 		 */
-        name: "PureMVC Proxy class tests",  
+        name:string = "PureMVC Proxy class tests";
 
         /**
 		 * Sets up data that is needed by each test.
