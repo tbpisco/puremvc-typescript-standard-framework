@@ -12,8 +12,6 @@ module puremvc
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-
 	/**
 	 * A <code>Proxy</code> subclass used by <code>ModelTest</code> testCase.
 	 *

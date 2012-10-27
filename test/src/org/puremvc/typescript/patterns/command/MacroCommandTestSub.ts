@@ -12,8 +12,6 @@ module puremvc
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-
 	/**
 	 * @classDescription
 	 * A <code>MacroCommand</code> utility subclass used by

@@ -12,8 +12,6 @@ module puremvc
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-
 	/**
 	 * @classDescription
 	 * A <code>Mediator</code> utility subclass used by <code>MediatorTest</code>.
@@ -21,7 +19,7 @@ module puremvc
 	 * @extends puremvc.Mediator Mediator
 	 */
 
-	 /**
+	/**
 	 * @constructor
 	 */
 	var MediatorTestSub = function()

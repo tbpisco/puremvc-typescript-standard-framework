@@ -12,8 +12,6 @@ module puremvc
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-
 	/**
 	 * @classDescription
 	 * A SimpleCommand subclass used by SimpleCommandTest.

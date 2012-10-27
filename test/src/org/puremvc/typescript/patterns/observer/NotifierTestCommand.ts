@@ -12,37 +12,36 @@ module puremvc
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
+	/**
+	 * @classDescription
+	 * A SimpleCommand subclass used by NotifierTest.
+	 *
+	 * @see puremvc.NotifierTest NotifierTest
+	 * @see puremvc.NotifierTestVO NotifierTestVO
+	 *
+	 * @extends puremvc.SimpleCommand SimpleCommand
+	 */
 
-/**
- * @classDescription
- * A SimpleCommand subclass used by NotifierTest.
- *
- * @see puremvc.NotifierTest NotifierTest
- * @see puremvc.NotifierTestVO NotifierTestVO
- * 
- * @extends puremvc.SimpleCommand SimpleCommand
- */
+	 /**
+	 * @constructor
+	 */
+	var NotifierTestCommand = function()
+	{
+		SimpleCommand.call(this);
+	}
+	__extends( NotifierTestCommand, SimpleCommand );
 
- /**
- * @constructor
- */
-var NotifierTestCommand = function()
-{
-	SimpleCommand.call(this);
-}
-__extends( NotifierTestCommand, SimpleCommand );
+	/**
+	 * Fabricate a result by multiplying the input by 2
+	 *
+	 * @param {Notification} note
+	 * 		The Notification carrying the NotifierTestVO
+	 */
+	NotifierTestCommand.prototype.execute = function( note )
+	{
+		var vo:NotifierTestVO = note.getBody();
 
-/**
- * Fabricate a result by multiplying the input by 2
- *
- * @param {Notification} note
- * 		The Notification carrying the NotifierTestVO
- */
-NotifierTestCommand.prototype.execute = function( note )
-{
-	var vo:NotifierTestVO = note.getBody();
-
-	// Fabricate a result
-	vo.result = 2 * vo.input;
+		// Fabricate a result
+		vo.result = 2 * vo.input;
+	}
 }
