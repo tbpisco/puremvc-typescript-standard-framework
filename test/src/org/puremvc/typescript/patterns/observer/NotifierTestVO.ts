@@ -23,6 +23,7 @@ module puremvc
 	 * @see puremvc.NotifierTest NotifierTest
 	 * @see puremvc.NotiferTestCommand NotifierTestCommand
 	 */
+	class
 
 	/**
 	 * @constructor

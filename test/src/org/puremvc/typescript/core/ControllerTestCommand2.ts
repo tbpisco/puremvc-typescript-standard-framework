@@ -27,24 +27,25 @@ module puremvc
 	 *
 	 * @constructor
 	 */
-	constructor(){}
-	__extends( ControllerTestCommand2, SimpleCommand );
-
-	/**
-	 * Fabricate a result by multiplying the input by 2 and adding to the
-	 * existing result.
-	 *
-	 * This tests accumulation effect that would show if the command were
-	 * executed more than once.
-	 *
-	 * @param {Notification} note
-	 * 		The note carrying the ControllerTestVO.
-	 */
-	ControllerTestCommand2.prototype.execute = function( note )
+	class ControllerTestCommand2
+		extends SimpleCommand
 	{
-		var vo:ControllerTestVO = note.getBody();
+		/**
+		 * Fabricate a result by multiplying the input by 2 and adding to the
+		 * existing result.
+		 *
+		 * This tests accumulation effect that would show if the command were
+		 * executed more than once.
+		 *
+		 * @param {Notification} note
+		 * 		The note carrying the ControllerTestVO.
+		 */
+		execute( note )
+		{
+			var vo:ControllerTestVO = note.getBody();
 
-		// Fabricate a result
-		vo.result = vo.result+(2 * vo.input);
+			// Fabricate a result
+			vo.result = vo.result+(2 * vo.input);
+		}
 	}
 }

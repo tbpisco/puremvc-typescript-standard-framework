@@ -27,20 +27,21 @@ module puremvc
 	 *
 	 * @constructor
 	 */
-	constructor(){}
-	__extends( ControllerTestCommand, SimpleCommand );
-
-	/**
-	 * Fabricate a result by multiplying the input by 2.
-	 *
-	 * @param {Notification} note
-	 * 		The note carrying the ControllerTestVO
-	 */
-	ControllerTestCommand.prototype.execute = function ( note )
+	class ControllerTestCommand
+		extends SimpleCommand
 	{
-		var vo:ControllerTestVO = note.getBody();
+		/**
+		 * Fabricate a result by multiplying the input by 2.
+		 *
+		 * @param {Notification} note
+		 * 		The note carrying the ControllerTestVO
+		 */
+		execute( note )
+		{
+			var vo:ControllerTestVO = note.getBody();
 
-		// Fabricate a result
-		vo.result = 2 * vo.input;
+			// Fabricate a result
+			vo.result = 2 * vo.input;
+		}
 	}
 }
