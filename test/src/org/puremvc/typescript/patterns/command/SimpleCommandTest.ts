@@ -70,8 +70,6 @@ var SimpleCommandTest = new YUITest.TestCase
 		 */
 		testSimpleCommandExecute: function()
 		{
-			var Notification = extract("puremvc.Notification");
-
 			// Create the VO
 			var vo/*SimpleCommandTestVO*/ = new SimpleCommandTestVO(5);
 

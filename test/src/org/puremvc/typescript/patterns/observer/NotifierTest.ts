@@ -57,8 +57,6 @@ var NotifierTest = new YUITest.TestCase
 		 */
 		testSendNotification: function()
 		{
-			var Facade = extract("puremvc.Facade");
-
 			// Create the Facade, register the FacadeTestCommand to
 			// handle 'NotifierTest' notifications
 			var facade/*Facade*/ = Facade.getInstance();

@@ -43,8 +43,6 @@ module puremvc
 		 */
 		testNameAccessors()
 		{
-			var Notification = extract("puremvc.Notification");
-
 			// Create a new Notification and use accessors to set the note name
 			var note/*Notification*/ = new Notification('TestNote');
 
@@ -63,7 +61,6 @@ module puremvc
 		 */
 		testBodyAccessors()
 		{
-			var Notification = extract("puremvc.Notification");
 
 			// Create a new Notification and use accessors to set the body
 			var note/*Notification*/ = new Notification(null);
@@ -84,8 +81,6 @@ module puremvc
 		 */
 		testConstructor()
 		{
-			var Notification = extract("puremvc.Notification");
-
 			// Create a new Notification using the Constructor to set the note name and body
 			var note/*Notification*/ = new Notification( 'TestNote', 5, 'TestNoteType' );
 
@@ -117,8 +112,6 @@ module puremvc
 		 */
 		testToString()
 		{
-			var Notification = extract("puremvc.Notification");
-
 			// Create a new Notification and use accessors to set the note name
 			var note/*Notification*/ = new Notification( 'TestNote', [1,3,5], 'TestType' );
 			var ts/*String*/ = "Notification Name: TestNote\nBody:1,3,5\nType:TestType";

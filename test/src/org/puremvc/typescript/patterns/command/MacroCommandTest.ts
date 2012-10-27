@@ -85,8 +85,6 @@ var MacroCommandTest = new YUITest.TestCase
 		 */
 		testMacroCommandExecute: function()
 		{
-			var Notification = extract("puremvc.Notification");
-
 			// Create the VO
 			var vo/*MacroCommandTestVO*/ = new MacroCommandTestVO(5);
 

@@ -69,8 +69,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testGetInstance: function()
 		{
-			var View = extract("puremvc.View");
-
 			// Test Factory Method
 			var view/*View*/ = View.getInstance();
 
@@ -110,9 +108,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testRegisterAndNotifyObserver: function()
 		{
-			var View = extract("puremvc.View");
-			var Observer = extract("puremvc.Observer");
-
 			// Get the Singleton View instance
 			var view/*View*/ = View.getInstance();
 
@@ -145,7 +140,7 @@ var ViewTest = new YUITest.TestCase
 		 * A utility method to test the notification of Observers by the view.
 		 *
 		 * @param {Notification} note
-		 * 		The note to test.
+		 *		The note to test.
 		 */
 		viewTestMethod: function( note )
 		{
@@ -159,8 +154,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testRegisterAndRetrieveMediator: function()
 		{
-			var View = extract("puremvc.View");
-
 			// Get the Singleton View instance
 			var view/*View*/ = View.getInstance();
 
@@ -188,9 +181,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testHasMediator: function()
 		{
-			var View = extract("puremvc.View");
-			var Mediator = extract("puremvc.Mediator");
-
 			// register a Mediator
 			var view/*View*/ = View.getInstance();
 
@@ -222,9 +212,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testRegisterAndRemoveMediator: function()
 		{
-			var View = extract("puremvc.View");
-			var Mediator = extract("puremvc.Mediator");
-
 			// Get the Singleton View instance
 			var view/*View*/ = View.getInstance();
 
@@ -260,8 +247,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testOnRegisterAndOnRemove: function()
 		{
-			var View = extract("puremvc.View");
-
 			// Get the Singleton View instance
 			var view/*View*/ = View.getInstance();
 
@@ -294,8 +279,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testSuccessiveRegisterAndRemoveMediator: function()
 		{
-			var View = extract("puremvc.View");
-
 			// Get the Singleton View instance
 			var view/*View*/ = View.getInstance();
 
@@ -358,9 +341,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testRemoveMediatorAndSubsequentNotify: function()
 		{
-			var View = extract("puremvc.View");
-			var Notification = extract("puremvc.Notification");
-
 			// Get the Singleton View instance
 			var view/*View*/ = View.getInstance();
 
@@ -425,9 +405,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testRemoveOneOfTwoMediatorsAndSubsequentNotify: function()
 		{
-			var View = extract("puremvc.View");
-			var Notification = extract("puremvc.Notification");
-
 			// Get the Singleton View instance
 			var view/*View*/ = View.getInstance();
 
@@ -515,8 +492,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testMediatorReregistration: function()
 		{
-			var View = extract("puremvc.View");
-			var Notification = extract("puremvc.Notification");
 
 			// Get the Singleton View instance
 			var view/*View*/ = View.getInstance();
@@ -570,9 +545,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		testModifyObserverListDuringNotification: function()
 		{
-			var View = extract("puremvc.View");
-			var Notification = extract("puremvc.Notification");
-
 			// Get the Singleton View instance
 			var view/*View*/ = View.getInstance();
 
@@ -624,7 +596,6 @@ var ViewTest = new YUITest.TestCase
 		 */
 		cleanup: function()
 		{
-			var View = extract("puremvc.View");
 
 			View.getInstance().removeMediator( ViewTestMediator.NAME );
 			View.getInstance().removeMediator( ViewTestMediator2.NAME );

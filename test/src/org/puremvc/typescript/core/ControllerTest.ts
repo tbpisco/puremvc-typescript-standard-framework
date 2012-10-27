@@ -41,8 +41,6 @@ var ControllerTest = new YUITest.TestCase
 		 */
 		testGetInstance: function()
 		{
-			var Controller = extract("puremvc.Controller");
-
 			// Test Factory Method
 			var controller/*Controller*/ = Controller.getInstance();
 
@@ -78,9 +76,6 @@ var ControllerTest = new YUITest.TestCase
 		 */
 		testRegisterAndExecuteCommand: function()
 		{
-			var Controller = extract("puremvc.Controller");
-			var Notification = extract("puremvc.Notification");
-
 			// Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes
 			var controller/*Controller*/ = Controller.getInstance();
 			controller.registerCommand( 'ControllerTest', ControllerTestCommand );
@@ -111,9 +106,6 @@ var ControllerTest = new YUITest.TestCase
 		 */
 		testRegisterAndRemoveCommand: function()
 		{
-			var Controller = extract("puremvc.Controller");
-			var Notification = extract("puremvc.Notification");
-
 			// Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes
 			var controller/*Controller*/ = Controller.getInstance();
 			controller.registerCommand( 'ControllerRemoveTest', ControllerTestCommand );
@@ -160,8 +152,6 @@ var ControllerTest = new YUITest.TestCase
 		 */
 		testHasCommand: function()
 		{
-			var Controller = extract("puremvc.Controller");
-
 			// register the ControllerTestCommand to handle 'hasCommandTest' notes
 			var controller/*Controller*/ = Controller.getInstance();
 			controller.registerCommand( 'hasCommandTest', ControllerTestCommand );
@@ -197,10 +187,6 @@ var ControllerTest = new YUITest.TestCase
 		 */
 		testReregisterAndExecuteCommand: function()
 		{
-			var Controller = extract("puremvc.Controller");
-			var View = extract("puremvc.View");
-			var Notification = extract("puremvc.Notification");
-
 			// Fetch the controller, register the ControllerTestCommand2 to handle 'ControllerTest2' notes
 			var controller/*Controller*/ = Controller.getInstance();
 			controller.registerCommand( 'ControllerTest2', ControllerTestCommand2 );

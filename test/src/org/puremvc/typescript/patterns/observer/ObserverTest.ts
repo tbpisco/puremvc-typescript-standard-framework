@@ -57,9 +57,6 @@ var ObserverTest = new YUITest.TestCase
 		 */
 		testObserverAccessors: function()
 		{
-			var Observer = extract("puremvc.Observer");
-			var Notification = extract("puremvc.Notification");
-
 			// Create observer with null args, then
 			// use accessors to set notification method and context
 			var observer/*Observer*/ = new Observer( null, null );
@@ -89,9 +86,6 @@ var ObserverTest = new YUITest.TestCase
 		 */
 		testObserverConstructor: function()
 		{
-			var Observer = extract("puremvc.Observer");
-			var Notification = extract("puremvc.Notification");
-
 			// Create observer passing in notification method and context
 			var observer/*Observer*/ = new Observer( this.observerTestMethod, this );
 
@@ -119,8 +113,6 @@ var ObserverTest = new YUITest.TestCase
 		 */
 		testCompareNotifyContext: function()
 		{
-			var Observer = extract("puremvc.Observer");
-
 			// Create observer passing in notification method and context
 			var observer/*Observer*/ = new Observer( this.observerTestMethod, this );
 

@@ -59,8 +59,6 @@ var MediatorTest = new YUITest.TestCase
 		 */
 		testNameAccessor: function()
 		{
-			var Mediator = extract("puremvc.Mediator");
-
 			// Create a new Mediator and use accessors to set the mediator name 
 			var mediator/*Mediator*/ = new Mediator();
 
@@ -78,8 +76,6 @@ var MediatorTest = new YUITest.TestCase
 		 */
 		testViewAccessor: function()
 		{
-			var Mediator = extract("puremvc.Mediator");
-
 			// Create a view object
 			var view/*Object*/ = new Object();
 
