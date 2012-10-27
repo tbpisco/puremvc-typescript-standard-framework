@@ -23,7 +23,7 @@ module puremvc
 	 * @see puremvc.NotifierTest NotifierTest
 	 * @see puremvc.NotiferTestCommand NotifierTestCommand
 	 */
-	class NotifierTestVO
+	export class NotifierTestVO
 	{
 		/**
 		 * @constructor

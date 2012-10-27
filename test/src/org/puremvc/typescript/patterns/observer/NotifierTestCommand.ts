@@ -23,7 +23,7 @@ module puremvc
 	 *
 	 * @extends puremvc.SimpleCommand SimpleCommand
 	 */
-	class NotifierTestCommand
+	export class NotifierTestCommand
 		extends SimpleCommand
 	{
 		constructor()

@@ -21,7 +21,7 @@ module puremvc
 	 * @see puremvc.FacadeTest FacadeTest
 	 * @see puremvc.FacadeTestCommand FacadeTestCommand
 	 */
-	class FacadeTestVO
+	export class FacadeTestVO
 	{
 		/**
 		 * @constructor

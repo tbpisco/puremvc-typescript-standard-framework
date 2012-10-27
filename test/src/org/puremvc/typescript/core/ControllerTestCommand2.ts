@@ -27,7 +27,7 @@ module puremvc
 	 *
 	 * @constructor
 	 */
-	class ControllerTestCommand2
+	export class ControllerTestCommand2
 		extends SimpleCommand
 	{
 		/**

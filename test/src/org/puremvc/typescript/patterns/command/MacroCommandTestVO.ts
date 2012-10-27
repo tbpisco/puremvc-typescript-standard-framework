@@ -23,7 +23,7 @@ module puremvc
 	 * @see puremvc.MacroCommandTestSub1Command MacroCommandTestSub1Command
 	 * @see puremvc.MacroCommandTestSub2Command MacroCommandTestSub2Command
 	 */
-	class MacroCommandTestVO
+	export class MacroCommandTestVO
 	{
 		/**
 		 * @constructor

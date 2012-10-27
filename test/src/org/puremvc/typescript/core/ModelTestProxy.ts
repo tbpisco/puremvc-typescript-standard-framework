@@ -13,7 +13,7 @@
 module puremvc
 {
 	"use strict";
-	class ModelTestProxy
+	export class ModelTestProxy
 		extends Proxy
 	{
 

@@ -20,7 +20,7 @@ module puremvc
 	 *
 	 * @extends puremvc.Mediator Mediator
 	 */
-	class MediatorTestSub
+	export class MediatorTestSub
 		extends Mediator
 	{
 		/**

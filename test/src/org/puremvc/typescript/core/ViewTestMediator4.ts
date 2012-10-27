@@ -24,7 +24,7 @@ module puremvc
 	 *
 	 * @constructor
 	 */
-	class ViewTestMediator4
+	export class ViewTestMediator4
 		extends Mediator
 	{
 

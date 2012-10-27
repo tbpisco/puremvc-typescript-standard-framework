@@ -20,7 +20,7 @@ module puremvc
 	 *
 	 * @extends puremvc.Notifier Notifier
 	 */
-	class NotifierTestSub
+	export class NotifierTestSub
 		extends Notifier
 	{
 		constructor()

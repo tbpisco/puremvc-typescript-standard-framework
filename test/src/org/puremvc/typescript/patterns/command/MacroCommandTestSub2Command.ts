@@ -24,7 +24,7 @@ module puremvc
 	 *
 	 * @extends puremvc.SimpleCommand SimpleCommand
 	 */
-	class MacroCommandTestSub2Command
+	export class MacroCommandTestSub2Command
 		extends SimpleCommand
 	{
 

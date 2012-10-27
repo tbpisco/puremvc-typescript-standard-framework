@@ -21,7 +21,7 @@ module puremvc
 	 * @see puremvc.SimpleCommandTest SimpleCommandTest
 	 * @see puremvc.SimpleCommandTestCommand SimpleCommandTestCommand
 	 */
-	class SimpleCommandTestVO
+	export class SimpleCommandTestVO
 		extends SimpleCommand
 	{
 		/**

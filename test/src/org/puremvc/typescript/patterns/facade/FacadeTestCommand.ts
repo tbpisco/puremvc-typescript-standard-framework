@@ -23,7 +23,7 @@ module puremvc
 	 *
 	 * @extends puremvc.SimpleCommand SimpleCommand
 	 */
-	class FacadeTestCommand
+	export class FacadeTestCommand
 		extends SimpleCommand
 	{
 		constructor()
