@@ -45,19 +45,19 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private data:Object;
+		private data:any;
 
 		/**
 		 *
 		 * Constructs a <code>Proxy</code> instance.
 		 *
-		 * @param {String} proxyName
+		 * @param proxyName
 		 * 		The name of the <code>Proxy</code> instance.
 		 *
-		 * @param {Object} data
+		 * @param data
 		 * 		An initial data object to be held by the <code>Proxy</code>.
 		 */
-		constructor( proxyName:string=null, data:Object=null )
+		constructor( proxyName:string=null, data:any=null )
 		{
 			super();
 
@@ -84,7 +84,7 @@ module puremvc
 		 * @param data
 		 * 		The data to set for the <code>Proxy></code> instance.
 		 */
-		public setData( data:Object ):void
+		public setData( data:any ):void
 		{
 			this.data = data;
 		}
@@ -95,7 +95,7 @@ module puremvc
 		 * @return
 		 * 		The data held in the <code>Proxy</code> instance.
 		 */
-		public getData():Object
+		public getData():any
 		{
 			return this.data;
 		}
@@ -121,7 +121,7 @@ module puremvc
 		/**
 		 * The default name of the <code>Proxy</code>
 		 * 
-		 * @type {String}
+		 * @type
 		 * @constant
 		 */
 		 public static NAME:string = 'Proxy';

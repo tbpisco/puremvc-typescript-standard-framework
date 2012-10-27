@@ -61,7 +61,7 @@ module puremvc
 		/**
 		 * Set the type of the <code>INotification</code>.
 		 *
-		 * @param {String} type
+		 * @param type
 		 * 		The type identifier for the notification.
 		 */
 		setType( type:string ):void;

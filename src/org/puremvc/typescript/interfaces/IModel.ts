@@ -36,10 +36,10 @@ module puremvc
 		/**
 		 * Remove an <code>IProxy</code> from the <code>Model</code>.
 		 *
-		 * @param {String} proxyName
+		 * @param proxyName
 		 *		The name of the <code>Proxy</code> instance to be removed.
 		 *
-		 * @return {IProxy}
+		 * @return
 		 *		The <code>IProxy</code> that was removed from the <code>Model</code> or an
 		 *		explicit <code>null</null> if the <code>IProxy</code> didn't exist.
 		 */

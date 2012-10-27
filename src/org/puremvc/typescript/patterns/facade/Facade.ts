@@ -377,7 +377,7 @@ module puremvc
 		 *		The type of the notification to send (optional)
 		 */
 		//TODO There's some optional parameters in there, TypeScript knows how to handle them.
-		public sendNotification( name:string, body:Object=null, type:string=null ):void
+		public sendNotification( name:string, body:any=null, type:string=null ):void
 		{
 			this.notifyObservers( new Notification( name, body, type ) );
 		}

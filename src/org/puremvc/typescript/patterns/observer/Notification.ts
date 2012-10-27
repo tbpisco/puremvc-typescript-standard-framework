@@ -58,13 +58,13 @@ module puremvc
 		/**
 		 * Constructs a <code>Notification</code> instance.
 		 *
-		 * @param {String} name
+		 * @param name
 		 * 		The name of the notification.
 		 *
-		 * @param {Object} body
-		 * 		(optional) Body data to send with the notification.
+		 * @param body
+		 * 		Body data to send with the notification.
 		 * 
-		 * @param {String} type (optional)
+		 * @param type
 		 * 		Type identifier of the notification.
 		 */
 		constructor( name:string, body:any=null, type:string=null )
@@ -110,7 +110,7 @@ module puremvc
 		/**
 		 * Set the type of the <code>Notification</code> instance.
 		 *
-		 * @param {String} type
+		 * @param type
 		 * 		The type of the <code>Notification</code> instance.
 		 */
 		public setType( type:string ):void

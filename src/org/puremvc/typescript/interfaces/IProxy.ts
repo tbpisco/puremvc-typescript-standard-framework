@@ -38,7 +38,7 @@ module puremvc
 		 * @param data
 		 * 		The data to set for the <code>IProxy></code> instance.
 		 */
-		setData( data:Object ):void;
+		setData( data:any ):void;
 
 		/**
 		 * Get the data of the <code>IProxy></code> instance.
@@ -46,7 +46,7 @@ module puremvc
 		 * @return
 		 * 		The data held in the <code>IProxy</code> instance.
 		 */
-		getData():Object;
+		getData():any;
 
 		/**
 		 * Called by the Model when the <code>IProxy</code> is registered. This method has to be

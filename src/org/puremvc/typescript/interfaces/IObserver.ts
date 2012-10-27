@@ -54,7 +54,7 @@ module puremvc
 		 * @param notifyContext
 		 * 		The notification context (this) of the interested object.
 		 */
-		setNotifyContext( notifyContext:Object ):void;
+		setNotifyContext( notifyContext:any ):void;
 		
 		/**
 		 * Notify the interested object.
@@ -74,6 +74,6 @@ module puremvc
 		 * @return
 		 * 		The object and the notification context are the same.
 		 */
-		compareNotifyContext( object:Object ):bool;
+		compareNotifyContext( object:any ):bool;
 	}
 }

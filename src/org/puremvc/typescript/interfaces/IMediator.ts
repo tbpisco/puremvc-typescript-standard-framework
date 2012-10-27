@@ -69,7 +69,7 @@ module puremvc
 		 * @return
 		 * 		The <code>Mediator</code>'s view component.
 		 */
-		getViewComponent():Object;
+		getViewComponent():any;
 
 		/**
 		 * Set the <code>IMediator</code>'s view component.
@@ -77,7 +77,7 @@ module puremvc
 		 * @param viewComponent
 		 * 		The default view component to set for this <code>Mediator</code>.
 		 */
-		setViewComponent( viewComponent:Object ):void;
+		setViewComponent( viewComponent:any ):void;
 		
 		/**
 		 * List the <code>INotification</code> names this <code>IMediator</code> is interested in

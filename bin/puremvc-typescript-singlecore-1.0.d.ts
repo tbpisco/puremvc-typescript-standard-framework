@@ -33,8 +33,8 @@ declare module "puremvc"
 	export interface IMediator
 	{
 		getMediatorName():string;
-		getViewComponent():Object;
-		setViewComponent( viewComponent:Object ):void;
+		getViewComponent():any;
+		setViewComponent( viewComponent:any ):void;
 		listNotificationInterests( ):string[];
 		handleNotification( notification:INotification ):void;
 		onRegister():void;
@@ -67,16 +67,16 @@ declare module "puremvc"
 	export interface IObserver
 	{
 		setNotifyMethod( notifyMethod:Function ):void;
-		setNotifyContext( notifyContext:Object ):void;
+		setNotifyContext( notifyContext:any ):void;
 		notifyObserver( notification:INotification ):void;
-		compareNotifyContext( object:Object ):bool;
+		compareNotifyContext( object:any ):bool;
 	}
 
 	export interface IProxy
 	{
 		getProxyName():string;
-		setData( data:Object ):void;
-		getData():Object;
+		setData( data:any ):void;
+		getData():any;
 		onRegister( ):void;
 		onRemove( ):void;
 	}
@@ -84,7 +84,7 @@ declare module "puremvc"
 	export interface IView
 	{
 		registerObserver( notificationName:string, observer:IObserver ):void;
-		removeObserver( notificationName:string, notifyContext:Object ):void;
+		removeObserver( notificationName:string, notifyContext:any ):void;
 		notifyObservers( note:INotification ):void;
 		registerMediator( mediator:IMediator ):void;
 		retrieveMediator( mediatorName:string ):IMediator;
@@ -99,7 +99,7 @@ declare module "puremvc"
         constructor ();
         public initializeView(): void;
         public registerObserver(notificationName: string, observer: IObserver): void;
-        public removeObserver(notificationName: string, notifyContext: Object): void;
+        public removeObserver(notificationName: string, notifyContext: any): void;
         public notifyObservers(notification: INotification): void;
         public registerMediator(mediator: IMediator): void;
         public retrieveMediator(mediatorName: string): IMediator;
@@ -113,14 +113,14 @@ declare module "puremvc"
     export class Observer implements IObserver
 	{
         public notify: Function;
-        public context: Object;
-        constructor (notifyMethod: Function, notifyContext: Object);
+        public context: any;
+        constructor (notifyMethod: Function, notifyContext: any);
         private getNotifyMethod(): Function;
         public setNotifyMethod(notifyMethod: Function): void;
-        private getNotifyContext(): Object;
-        public setNotifyContext(notifyContext: Object): void;
+        private getNotifyContext(): any;
+        public setNotifyContext(notifyContext: any): void;
         public notifyObserver(notification: INotification): void;
-        public compareNotifyContext(object: Object): bool;
+        public compareNotifyContext(object: any): bool;
     }
 
     export class Controller implements IController
@@ -204,11 +204,11 @@ declare module "puremvc"
     export class Mediator extends Notifier implements IMediator, INotifier
 	{
         private mediatorName: string;
-        private viewComponent: Object;
-        constructor (mediatorName?: string, viewComponent?: Object);
+        private viewComponent: any;
+        constructor (mediatorName?: string, viewComponent?: any);
         public getMediatorName(): string;
-        public getViewComponent(): Object;
-        public setViewComponent(viewComponent: Object): void;
+        public getViewComponent(): any;
+        public setViewComponent(viewComponent: any): void;
         public listNotificationInterests(): string[];
         public handleNotification(notification: INotification): void;
         public onRegister(): void;
@@ -224,7 +224,7 @@ declare module "puremvc"
         constructor (name: string, body?: any, type?: string);
         public getName(): string;
         public setBody(body: any): void;
-        public getBody(): Object;
+        public getBody(): any;
         public setType(type: string): void;
         public getType(): string;
         public toString(): string;
@@ -233,11 +233,11 @@ declare module "puremvc"
     export class Proxy extends Notifier implements IProxy, INotifier
 	{
         private proxyName: string;
-        private data: Object;
-        constructor (proxyName?: string, data?: Object);
+        private data: any;
+        constructor (proxyName?: string, data?: any);
         public getProxyName(): string;
-        public setData(data: Object): void;
-        public getData(): Object;
+        public setData(data: any): void;
+        public getData(): any;
         public onRegister(): void;
         public onRemove(): void;
         static NAME: string;

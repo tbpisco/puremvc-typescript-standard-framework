@@ -53,7 +53,7 @@ module puremvc
 		 * 		Remove the <code>IObserver</code> with this object as its
 		 *		<code>notifyContext</code>.
 		 */
-		removeObserver( notificationName:string, notifyContext:Object ):void;
+		removeObserver( notificationName:string, notifyContext:any ):void;
 
 		/**
 		 * Notify the <code>IObserver</code>s for a particular <code>INotification</code>.

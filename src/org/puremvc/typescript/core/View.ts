@@ -109,7 +109,7 @@ module puremvc
 		 * 		Remove the <code>IObserver</code> with this object as its
 		 *		<code>notifyContext</code>.
 		 */
-		public removeObserver( notificationName:string, notifyContext:Object ):void
+		public removeObserver( notificationName:string, notifyContext:any ):void
 		{
 			//The observer list for the notification under inspection
 			var observers:IObserver[] = this.observerMap[ notificationName ];

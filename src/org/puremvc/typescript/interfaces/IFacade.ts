@@ -11,7 +11,6 @@
 
 module puremvc
 {
-
 	/**
 	 * The interface definition for a PureMVC Facade.
 	 *
@@ -77,8 +76,7 @@ module puremvc
 		 * 		The name of the <code>IProxy</code> to be retrieved.
 		 *
 		 * @return
-		 * 		The <code>IProxy</code> previously registered with the given
-		 *		<code>proxyName</code>.
+		 * 		The <code>IProxy</code> previously registered with the given <code>proxyName</code>.
 		 */
 		retrieveProxy( proxyName:string ):IProxy;
 		
@@ -101,8 +99,7 @@ module puremvc
 		 *		<code>IModel</code>.
 		 *
 		 * @return
-		 * 		A <code>Proxy</code> is currently registered with the given
-		 * 		<code>proxyName</code>.
+		 * 		A <code>Proxy</code> is currently registered with the given	<code>proxyName</code>.
 		 */
 		hasProxy( proxyName:string ):bool;
 

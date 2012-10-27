@@ -62,7 +62,7 @@ module puremvc
 		 * 		The type of the notification (optional).
 		 */
 		//TODO optional
-		public sendNotification( name:string, body:Object=null, type:string=null ):void
+		public sendNotification( name:string, body:any=null, type:string=null ):void
 		{
 			this.facade.sendNotification( name, body, type );
 		}
