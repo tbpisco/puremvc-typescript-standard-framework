@@ -49,7 +49,7 @@ module puremvc
 	 *
 	 * @private
 	 */
-	ViewTestMediator6.prototype.getViewTest = function()
+	getViewTest()
 	{
 		return this.viewComponent;
 	}
@@ -61,7 +61,7 @@ module puremvc
 	 * 		The list of notifications names in which is interested the
 	 * 		<code>Mediator</code>.
 	 */
-	ViewTestMediator6.prototype.listNotificationInterests = function()
+	listNotificationInterests()
 	{
 		return [ ViewTest.NOTE6 ];
 	}
@@ -72,7 +72,7 @@ module puremvc
 	 * @param {Notification} notification
 	 * 		The notification instance to be handled.
 	 */
-	ViewTestMediator6.prototype.handleNotification = function( notification )
+	handleNotification( notification )
 	{
 		this.facade.removeMediator(this.getMediatorName());
 	}
@@ -80,7 +80,7 @@ module puremvc
 	/**
 	 * @override
 	 */
-	ViewTestMediator6.prototype.onRemove = function()
+	onRemove()
 	{
 		this.getViewTest().counter++;
 	}

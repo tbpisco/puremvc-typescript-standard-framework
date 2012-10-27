@@ -36,7 +36,7 @@ module puremvc
 	 * @param {Notification} note
 	 * 		The Notification carrying the NotifierTestVO
 	 */
-	NotifierTestCommand.prototype.execute = function( note )
+	execute( note )
 	{
 		var vo:NotifierTestVO = note.getBody();
 

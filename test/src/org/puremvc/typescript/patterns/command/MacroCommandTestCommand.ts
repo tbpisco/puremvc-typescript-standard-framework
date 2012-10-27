@@ -38,7 +38,7 @@ module puremvc
 	 *
 	 * @override
 	 */
-	MacroCommandTestCommand.prototype.initializeMacroCommand = function()
+	initializeMacroCommand()
 	{
 		this.addSubCommand( MacroCommandTestSub1Command );
 		this.addSubCommand( MacroCommandTestSub2Command );

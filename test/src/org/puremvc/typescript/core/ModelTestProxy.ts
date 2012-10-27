@@ -27,7 +27,7 @@ module puremvc
 	/**
 	 * @constructs
 	 */
-	ModelTestProxy.prototype.initialize = function()
+	initialize()
 	{
 		Proxy.call( this, ModelTestProxy.NAME, '' );
 	}
@@ -35,15 +35,15 @@ module puremvc
 	/**
 	 * @override.
 	 */
-	ModelTestProxy.prototype.onRegister = function()
+	onRegister()
 	{
 		this.setData( ModelTestProxy.ON_REGISTER_CALLED );
-	},
+	}
 
 	/**
 	 * @override.
 	 */
-	ModelTestProxy.prototype.onRemove = function()
+	onRemove()
 	{
 		this.setData( ModelTestProxy.ON_REMOVE_CALLED );
 	}

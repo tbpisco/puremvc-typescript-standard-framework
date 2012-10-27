@@ -39,7 +39,7 @@ module puremvc
 	 * 		The <code>Notification</code> carrying the
 	 * 		<code>MacroCommandTestVO</code>
 	 */
-	MacroCommandTestSub1Command.prototype.execute = function( note )
+	execute( note )
 	{
 		var vo:MacroCommandTestVO = note.getBody();
 

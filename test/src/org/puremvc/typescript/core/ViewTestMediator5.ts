@@ -46,7 +46,7 @@ module puremvc
 	 *
 	 * @private
 	 */
-	ViewTestMediator5.prototype.getViewTest = function()
+	getViewTest()
 	{
 		return this.viewComponent;
 	}
@@ -58,7 +58,7 @@ module puremvc
 	 * 		The list of notifications names in which is interested the
 	 * 		<code>Mediator</code>.
 	 */
-	ViewTestMediator5.prototype.listNotificationInterests = function()
+	listNotificationInterests()
 	{
 		return [ ViewTest.NOTE5 ];
 	}
@@ -69,7 +69,7 @@ module puremvc
 	 * @param {Notification} notification
 	 * 		The notification instance to be handled.
 	 */
-	ViewTestMediator5.prototype.handleNotification = function( notification )
+	handleNotification( notification )
 	{
 		this.getViewTest().counter++;
 	}

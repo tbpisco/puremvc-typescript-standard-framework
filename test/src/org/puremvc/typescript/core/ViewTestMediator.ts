@@ -43,7 +43,7 @@ module puremvc
 	 * 		The list of notifications names in which is interested the
 	 * 		<code>Mediator</code>.
 	 */
-	ViewTestMediator.prototype.listNotificationInterests = function()
+	listNotificationInterests()
 	{
 		// be sure that the mediator has some Observers created
 		// in order to test removeMediator

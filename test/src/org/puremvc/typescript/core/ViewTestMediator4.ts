@@ -48,7 +48,7 @@ module puremvc
 	 *
 	 * @private
 	 */
-	ViewTestMediator4.prototype.getViewTest = function()
+	getViewTest()
 	{
 		return this.viewComponent;
 	}
@@ -56,7 +56,7 @@ module puremvc
 	/**
 	 * @override
 	 */
-	ViewTestMediator4.prototype.onRegister = function()
+	onRegister()
 	{
 		this.getViewTest().onRegisterCalled = true;
 	}
@@ -64,7 +64,7 @@ module puremvc
 	/**
 	 * @override
 	 */
-	ViewTestMediator4.prototype.onRemove = function()
+	onRemove()
 	{
 		this.getViewTest().onRemoveCalled = true;
 	}

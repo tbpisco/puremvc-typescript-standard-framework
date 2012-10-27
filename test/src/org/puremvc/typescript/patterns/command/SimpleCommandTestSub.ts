@@ -37,7 +37,7 @@ module puremvc
 	 * 		<code>Facade</code> instance of the object has well been declared
 	 * 		during its construction.
 	 */
-	SimpleCommandTestSub.prototype.hasFacade = function()
+	hasFacade()
 	{
 		var Facade = Facade;
 		return this.facade instanceof Facade;

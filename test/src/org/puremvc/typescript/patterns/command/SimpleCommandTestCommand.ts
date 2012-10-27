@@ -38,7 +38,7 @@ module puremvc
 	 * 		The <code>Notification</code> carrying the
 	 * 		<code>SimpleCommandTestVO</code>
 	 */
-	SimpleCommandTestCommand.prototype.execute = function( note )
+	execute( note )
 	{
 		var vo:SimpleCommandTestVO = note.getBody();
 

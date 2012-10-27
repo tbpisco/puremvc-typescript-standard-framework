@@ -46,7 +46,7 @@ module puremvc
 	 *
 	 * @private
 	 */
-	ViewTestMediator3.prototype.getViewTest = function()
+	getViewTest()
 	{
 		return this.viewComponent;
 	}
@@ -58,7 +58,7 @@ module puremvc
 	 * 		The list of notifications names in which is interested the
 	 * 		<code>Mediator</code>.
 	 */
-	ViewTestMediator3.prototype.listNotificationInterests = function()
+	listNotificationInterests()
 	{
 		// be sure that the mediator has some Observers created
 		// in order to test removeMediator
@@ -71,7 +71,7 @@ module puremvc
 	 * @param {Notification} notification
 	 * 		The notification instance to be handled.
 	 */
-	ViewTestMediator3.prototype.handleNotification = function( note )
+	handleNotification( note )
 	{
 		this.getViewTest().lastNotification = note.getName();
 	}

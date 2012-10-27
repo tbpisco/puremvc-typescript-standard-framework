@@ -36,7 +36,7 @@ module puremvc
 	 * @param {Notification} note
 	 * 		The Notification carrying the FacadeTestVO
 	 */
-	FacadeTestCommand.prototype.execute = function( note )
+	execute( note )
 	{
 		var vo:FacadeTestVO = note.getBody();
 
