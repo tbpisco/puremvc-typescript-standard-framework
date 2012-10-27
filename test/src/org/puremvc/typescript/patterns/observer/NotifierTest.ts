@@ -20,7 +20,7 @@ module puremvc
 	 * @see puremvc.Notifier
 	 */
 	export class NotifierTest
-	(
+	{
 		{
 			/**
 			 * The name of the test case - if not provided, one is automatically

@@ -21,7 +21,7 @@ module puremvc
 	 * @see puremvc.ControllerTestCommand ControllerTestCommand
 	 */
 	export class ControllerTest
-	(
+	{
 		{
 			/**
 			 * The name of the test case - if not provided, one is automatically
@@ -238,5 +238,5 @@ module puremvc
 				);
 			}
 		}
-	);
+	}
 }

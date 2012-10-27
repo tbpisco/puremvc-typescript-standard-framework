@@ -20,7 +20,7 @@ module puremvc
 	 * @see puremvc.Mediator Mediator
 	 */
 	export class MediatorTest
-	(
+	{
 		{
 			/**
 			 * The name of the test case - if not provided, one is automatically
@@ -100,5 +100,5 @@ module puremvc
 				);
 			}
 		}
-	);
+	}
 }

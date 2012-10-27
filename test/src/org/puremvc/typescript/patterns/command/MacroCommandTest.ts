@@ -21,7 +21,7 @@ module puremvc
 	 * @see puremvc.MacroCommandTestCommand MacroCommandTestCommand
 	 */
 	export class MacroCommandTest
-	(
+	{
 		{
 			/**
 			 * The name of the test case - if not provided, one is automatically
@@ -123,5 +123,5 @@ module puremvc
 				);
 			}
 		}
-	);
+	}
 }

@@ -18,7 +18,7 @@ module puremvc
 	 * Test the PureMVC View class.
 	 */
 	export class ViewTest
-	(
+	{
 		{
 			/**
 			 * The name of the test case - if not provided, one is automatically

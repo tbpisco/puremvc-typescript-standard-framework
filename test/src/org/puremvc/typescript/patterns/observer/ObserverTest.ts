@@ -28,7 +28,7 @@ module puremvc
 	 * @see puremvc.Observer
 	 */
 	export class ObserverTest
-	(
+	{
 		{
 			/**
 			 * The name of the test case - if not provided, one is automatically
@@ -153,5 +153,5 @@ module puremvc
 				this.observerTestVar = note.getBody();
 			}
 		}
-	);
+	}
 }

@@ -21,7 +21,7 @@ module puremvc
 	 * @see puremvc.SimpleCommandTestCommand SimpleCommandTestCommand
 	 */
 	export class SimpleCommandTest
-	(
+	{
 		{
 			/**
 			 * The name of the test case - if not provided, one is automatically
@@ -101,5 +101,5 @@ module puremvc
 				);
 			}
 		}
-	);
+	}
 }

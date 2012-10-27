@@ -20,7 +20,7 @@ module puremvc
 	 * @see puremvc.Model Model
 	 */
 	export class ModelTest
-	(
+	{
 		{
 			/**
 			 * The name of the test case - if not provided, one is automatically
@@ -221,5 +221,5 @@ module puremvc
 				);
 			}
 		}
-	);
+	}
 }

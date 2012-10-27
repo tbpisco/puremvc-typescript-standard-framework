@@ -21,7 +21,7 @@ module puremvc
 	 * @see puremvc.FacadeTestCommand
 	 */
 	export class FacadeTest
-	(
+	{
 		{
 			/**
 			 * The name of the test case - if not provided, one is automatically
@@ -355,5 +355,5 @@ module puremvc
 				);
 			}
 		}
-	);
+	}
 }
