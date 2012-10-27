@@ -54,7 +54,7 @@ module puremvc
 			{
 				// Create a new subclass of Notifier and verify that its facade
 				// has well been created
-				var mediatorTestSub/*MediatorTestSub*/ = new MediatorTestSub();
+				var mediatorTestSub:MediatorTestSub = new MediatorTestSub();
 
 				// test assertions
 				YUITest.Assert.isTrue
@@ -70,7 +70,7 @@ module puremvc
 			testNameAccessor():void
 			{
 				// Create a new Mediator and use accessors to set the mediator name
-				var mediator/*Mediator*/ = new Mediator();
+				var mediator:Mediator = new Mediator();
 
 				// test assertions
 				YUITest.Assert.areEqual
@@ -87,10 +87,10 @@ module puremvc
 			testViewAccessor():void
 			{
 				// Create a view object
-				var view/*Object*/ = new Object();
+				var view:Object = new Object();
 
 				// Create a new Proxy and use accessors to set the proxy name
-				var mediator/*Mediator*/ = new Mediator( Mediator.NAME, view );
+				var mediator:Mediator = new Mediator( Mediator.NAME, view );
 
 				// test assertions
 				YUITest.Assert.isNotNull

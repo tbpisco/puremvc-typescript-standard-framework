@@ -55,7 +55,7 @@ module puremvc
 			{
 				// Create a new subclass of Notifier and verify that its facade
 				// has well been created
-				var simpleCommandTestSub/*SimpleCommandTestSub*/ = new SimpleCommandTestSub();
+				var simpleCommandTestSub:SimpleCommandTestSub = new SimpleCommandTestSub();
 
 				// test assertions
 				YUITest.Assert.isTrue
@@ -81,13 +81,13 @@ module puremvc
 			testSimpleCommandExecute():void
 			{
 				// Create the VO
-				var vo/*SimpleCommandTestVO*/ = new SimpleCommandTestVO(5);
+				var vo:SimpleCommandTestVO = new SimpleCommandTestVO(5);
 
 				// Create the Notification (note)
-				var note/*Notification*/ = new Notification( 'SimpleCommandTestNote', vo );
+				var note:Notification = new Notification( 'SimpleCommandTestNote', vo );
 
 				// Create the SimpleCommand
-				var command/*SimpleCommandTestCommand*/ = new SimpleCommandTestCommand();
+				var command:SimpleCommandTestCommand = new SimpleCommandTestCommand();
 
 				// Execute the SimpleCommand
 				command.execute(note);

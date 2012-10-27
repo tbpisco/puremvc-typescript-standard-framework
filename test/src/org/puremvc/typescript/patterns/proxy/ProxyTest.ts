@@ -44,7 +44,7 @@ export class ProxyTest
 		{
 			// Create a new subclass of Notifier and verify that its facade
 			// has well been created
-			var proxyTestSub/*ProxyTestSub*/ = new ProxyTestSub();
+			var proxyTestSub:ProxyTestSub = new ProxyTestSub();
 
 			// test assertions
 			YUITest.Assert.isTrue
@@ -62,8 +62,8 @@ export class ProxyTest
   		var Proxy = Proxy;
 
 			// Create a new Proxy using the Constructor to set the name and data
-			var proxy/*Proxy*/ = new Proxy('colors',['red', 'green', 'blue']);
-			var data/*Array*/ = proxy.getData();
+			var proxy:Proxy = new Proxy('colors',['red', 'green', 'blue']);
+			var data:Array = proxy.getData();
 
 			// test assertions
 			YUITest.Assert.isNotNull( proxy, "Expecting proxy !== null"	);
@@ -84,7 +84,7 @@ export class ProxyTest
   		var Proxy = Proxy;
 
 			// Create a new Proxy and use accessors to set the proxy name 
-			var proxy/*Proxy*/ = new Proxy('TestProxy');
+			var proxy:Proxy = new Proxy('TestProxy');
 
 			// test assertions
 			YUITest.Assert.areEqual
@@ -104,9 +104,9 @@ export class ProxyTest
   		var Proxy = Proxy;
 
 			// Create a new Proxy and use accessors to set the data
-			var proxy/*Proxy*/ = new Proxy('colors');
+			var proxy:Proxy = new Proxy('colors');
 			proxy.setData(['red', 'green', 'blue']);
-			var data/*Array*/ = proxy.getData();
+			var data:Array = proxy.getData();
 
 			// test assertions
 			YUITest.Assert.areEqual

@@ -52,7 +52,7 @@ module puremvc
 			testGetInstance():void
 			{
 				// Test Factory Method
-				var controller/*Controller*/ = Controller.getInstance();
+				var controller:Controller = Controller.getInstance();
 
 				// test assertions
 				YUITest.Assert.isNotNull
@@ -87,12 +87,12 @@ module puremvc
 			testRegisterAndExecuteCommand():void
 			{
 				// Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes
-				var controller/*Controller*/ = Controller.getInstance();
+				var controller:Controller = Controller.getInstance();
 				controller.registerCommand( 'ControllerTest', ControllerTestCommand );
 
 				// Create a 'ControllerTest' note
-				var vo/*Object*/ = new ControllerTestVO(12);
-				var note/*Notification*/ = new Notification( 'ControllerTest', vo );
+				var vo:Object = new ControllerTestVO(12);
+				var note:Notification = new Notification( 'ControllerTest', vo );
 
 				// Tell the controller to execute the Command associated with the note
 				// the ControllerTestCommand invoked will multiply the vo.input value
@@ -117,12 +117,12 @@ module puremvc
 			testRegisterAndRemoveCommand():void
 			{
 				// Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes
-				var controller/*Controller*/ = Controller.getInstance();
+				var controller:Controller = Controller.getInstance();
 				controller.registerCommand( 'ControllerRemoveTest', ControllerTestCommand );
 
 				// Create a 'ControllerTest' note
-				var vo/*Object*/ = new ControllerTestVO(12) ;
-				var note/*Notification*/ = new Notification( 'ControllerRemoveTest', vo );
+				var vo:Object = new ControllerTestVO(12) ;
+				var note:Notification = new Notification( 'ControllerRemoveTest', vo );
 
 				// Tell the controller to execute the Command associated with the note
 				// the ControllerTestCommand invoked will multiply the vo.input value
@@ -163,7 +163,7 @@ module puremvc
 			testHasCommand():void
 			{
 				// register the ControllerTestCommand to handle 'hasCommandTest' notes
-				var controller/*Controller*/ = Controller.getInstance();
+				var controller:Controller = Controller.getInstance();
 				controller.registerCommand( 'hasCommandTest', ControllerTestCommand );
 
 				// test that hasCommand returns true for hasCommandTest notifications
@@ -198,7 +198,7 @@ module puremvc
 			testReregisterAndExecuteCommand():void
 			{
 				// Fetch the controller, register the ControllerTestCommand2 to handle 'ControllerTest2' notes
-				var controller/*Controller*/ = Controller.getInstance();
+				var controller:Controller = Controller.getInstance();
 				controller.registerCommand( 'ControllerTest2', ControllerTestCommand2 );
 
 				// Remove the Command from the Controller
@@ -208,11 +208,11 @@ module puremvc
 				controller.registerCommand( 'ControllerTest2', ControllerTestCommand2 );
 
 				// Create a 'ControllerTest2' note
-				var vo/*Object*/ = new ControllerTestVO( 12 );
-				var note/*Notification*/ = new Notification( 'ControllerTest2', vo );
+				var vo:Object = new ControllerTestVO( 12 );
+				var note:Notification = new Notification( 'ControllerTest2', vo );
 
 				// retrieve a reference to the View.
-				var view/*View*/ = View.getInstance();
+				var view:View = View.getInstance();
 
 				// send the Notification
 				view.notifyObservers(note);

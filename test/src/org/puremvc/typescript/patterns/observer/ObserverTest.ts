@@ -69,7 +69,7 @@ module puremvc
 			{
 				// Create observer with null args, then
 				// use accessors to set notification method and context
-				var observer/*Observer*/ = new Observer( null, null );
+				var observer:Observer = new Observer( null, null );
 				observer.setNotifyContext(this);
 				observer.setNotifyMethod( this.observerTestMethod );
 
@@ -79,7 +79,7 @@ module puremvc
 				// successful notification will result in our local
 				// observerTestVar being set to the value we pass in
 				// on the note body.
-				var note/*Notification*/ = new Notification( 'ObserverTestNote', 10 );
+				var note:Notification = new Notification( 'ObserverTestNote', 10 );
 				observer.notifyObserver(note);
 
 				// test assertions
@@ -97,7 +97,7 @@ module puremvc
 			testObserverConstructor():void
 			{
 				// Create observer passing in notification method and context
-				var observer/*Observer*/ = new Observer( this.observerTestMethod, this );
+				var observer:Observer = new Observer( this.observerTestMethod, this );
 
 				// create a test note, setting a body value and notify
 				// the observer with it. since the observer is this class
@@ -105,7 +105,7 @@ module puremvc
 				// successful notification will result in our local
 				// observerTestVar being set to the value we pass in
 				// on the note body.
-				var note/*Notification*/ = new Notification( 'ObserverTestNote', 5 );
+				var note:Notification = new Notification( 'ObserverTestNote', 5 );
 				observer.notifyObserver(note);
 
 				// test assertions
@@ -124,9 +124,9 @@ module puremvc
 			testCompareNotifyContext():void
 			{
 				// Create observer passing in notification method and context
-				var observer/*Observer*/ = new Observer( this.observerTestMethod, this );
+				var observer:Observer = new Observer( this.observerTestMethod, this );
 
-				var negTestObj/*Object*/ = new Object();
+				var negTestObj:Object = new Object();
 
 				// test assertions
 				YUITest.Assert.isFalse

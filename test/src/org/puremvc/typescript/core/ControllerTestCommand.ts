@@ -36,7 +36,7 @@ module puremvc
 	 */
 	ControllerTestCommand.prototype.execute = function ( note )
 	{
-		var vo/*ControllerTestVO*/ = note.getBody();
+		var vo:ControllerTestVO = note.getBody();
 
 		// Fabricate a result
 		vo.result = 2 * vo.input;

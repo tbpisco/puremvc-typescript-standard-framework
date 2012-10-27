@@ -55,7 +55,7 @@ module puremvc
 			{
 				// Create a new subclass of Notifier and verify that its facade
 				// has well been created
-				var macroCommandTestSub/*MacroCommandTestSub*/ = new MacroCommandTestSub();
+				var macroCommandTestSub:MacroCommandTestSub = new MacroCommandTestSub();
 
 				// test assertions
 				YUITest.Assert.isTrue
@@ -96,13 +96,13 @@ module puremvc
 			testMacroCommandExecute():void
 			{
 				// Create the VO
-				var vo/*MacroCommandTestVO*/ = new MacroCommandTestVO(5);
+				var vo:MacroCommandTestVO = new MacroCommandTestVO(5);
 
 				// Create the Notification (note)
-				var note/*Notification*/ = new Notification( 'MacroCommandTest', vo );
+				var note:Notification = new Notification( 'MacroCommandTest', vo );
 
 				// Create the MacroCommand
-				var command/*MacroCommandTestCommand*/ = new MacroCommandTestCommand();
+				var command:MacroCommandTestCommand = new MacroCommandTestCommand();
 
 				// Execute the MacroCommand
 				command.execute(note);

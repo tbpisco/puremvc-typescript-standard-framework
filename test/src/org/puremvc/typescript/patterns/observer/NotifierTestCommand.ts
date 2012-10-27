@@ -41,7 +41,7 @@ __extends( NotifierTestCommand, SimpleCommand );
  */
 NotifierTestCommand.prototype.execute = function( note )
 {
-	var vo/*NotifierTestVO*/ = note.getBody();
+	var vo:NotifierTestVO = note.getBody();
 
 	// Fabricate a result
 	vo.result = 2 * vo.input;

@@ -47,7 +47,7 @@ module puremvc
 		testNameAccessors():void
 		{
 			// Create a new Notification and use accessors to set the note name
-			var note/*Notification*/ = new Notification('TestNote');
+			var note:Notification = new Notification('TestNote');
 
 			// test assertions
 			YUITest.Assert.areEqual
@@ -66,7 +66,7 @@ module puremvc
 		{
 
 			// Create a new Notification and use accessors to set the body
-			var note/*Notification*/ = new Notification(null);
+			var note:Notification = new Notification(null);
 			note.setBody(5);
 
 			// test assertions
@@ -85,7 +85,7 @@ module puremvc
 		testConstructor():void
 		{
 			// Create a new Notification using the Constructor to set the note name and body
-			var note/*Notification*/ = new Notification( 'TestNote', 5, 'TestNoteType' );
+			var note:Notification = new Notification( 'TestNote', 5, 'TestNoteType' );
 
 			// test assertions
 			YUITest.Assert.areEqual
@@ -116,8 +116,8 @@ module puremvc
 		testToString():void
 		{
 			// Create a new Notification and use accessors to set the note name
-			var note/*Notification*/ = new Notification( 'TestNote', [1,3,5], 'TestType' );
-			var ts/*String*/ = "Notification Name: TestNote\nBody:1,3,5\nType:TestType";
+			var note:Notification = new Notification( 'TestNote', [1,3,5], 'TestType' );
+			var ts:String = "Notification Name: TestNote\nBody:1,3,5\nType:TestType";
 
 			// test assertions
 			YUITest.Assert.areEqual

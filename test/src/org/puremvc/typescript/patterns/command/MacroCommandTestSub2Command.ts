@@ -41,7 +41,7 @@ module puremvc
 	 */
 	MacroCommandTestSub2Command.prototype.execute = function( note )
 	{
-		var vo/*MacroCommandTestVO*/ = note.getBody();
+		var vo:MacroCommandTestVO = note.getBody();
 
 		// Fabricate a result
 		vo.result2 = vo.input * vo.input;

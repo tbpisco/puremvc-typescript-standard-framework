@@ -41,7 +41,7 @@ module puremvc
 	 */
 	FacadeTestCommand.prototype.execute = function( note )
 	{
-		var vo/*FacadeTestVO*/ = note.getBody();
+		var vo:FacadeTestVO = note.getBody();
 
 		// Fabricate a result
 		vo.result = 2 * vo.input;

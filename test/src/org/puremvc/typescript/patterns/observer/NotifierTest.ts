@@ -52,7 +52,7 @@ module puremvc
 			{
 				// Create a new subclass of Notifier and verify that its facade
 				// has well been created
-				var notifierTestSub/*NotifierTestSub*/ = new NotifierTestSub();
+				var notifierTestSub:NotifierTestSub = new NotifierTestSub();
 
 				// test assertions
 				YUITest.Assert.isTrue
@@ -69,13 +69,13 @@ module puremvc
 			{
 				// Create the Facade, register the FacadeTestCommand to
 				// handle 'NotifierTest' notifications
-				var facade/*Facade*/ = Facade.getInstance();
+				var facade:Facade = Facade.getInstance();
 				facade.registerCommand( 'NotifierTestNote', NotifierTestCommand );
 
 				// Send notification. The Command associated with the event
 				// (NotifierTestCommand) will be invoked, and will multiply
 				// the vo.input value by 2 and set the result on vo.result
-				var vo/*NotifierTestVO*/ = new NotifierTestVO( 32 );
+				var vo:NotifierTestVO = new NotifierTestVO( 32 );
 				facade.sendNotification( 'NotifierTestNote', vo );
 
 				// test assertions

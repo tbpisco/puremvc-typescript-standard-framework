@@ -51,7 +51,7 @@ module puremvc
 			testGetInstance():void
 			{
 				// Test Factory Method
-				var model/*Model*/ = Model.getInstance()
+				var model:Model = Model.getInstance()
 
 				// test assertions
 				YUITest.Assert.isNotNull
@@ -79,11 +79,11 @@ module puremvc
 			testRegisterAndRetrieveProxy():void
 			{
 				// register a proxy and retrieve it.
-				var model/*Model*/ = Model.getInstance();
+				var model:Model = Model.getInstance();
 				model.registerProxy( new Proxy( 'colors', ['red', 'green', 'blue'] ) );
 
-				var proxy/*Proxy*/ = model.retrieveProxy('colors');
-				var data/*Array*/ = proxy.getData();
+				var proxy:Proxy = model.retrieveProxy('colors');
+				var data:Array = proxy.getData();
 
 				// test assertions
 				YUITest.Assert.isNotNull
@@ -133,12 +133,12 @@ module puremvc
 			testRegisterAndRemoveProxy():void
 			{
 				// register a proxy, remove it, then try to retrieve it
-				var model/*Model*/ = Model.getInstance();
-				var proxy/*Proxy*/ = new Proxy( 'sizes', ['7', '13', '21'] );
+				var model:Model = Model.getInstance();
+				var proxy:Proxy = new Proxy( 'sizes', ['7', '13', '21'] );
 				model.registerProxy( proxy );
 
 				// remove the proxy
-				var removedProxy/*Proxy*/ = model.removeProxy( 'sizes' );
+				var removedProxy:Proxy = model.removeProxy( 'sizes' );
 
 				// assert that we removed the appropriate proxy
 				YUITest.Assert.areEqual
@@ -165,8 +165,8 @@ module puremvc
 			testHasProxy():void
 			{
 				// register a proxy
-				var model/*Model*/ = Model.getInstance();
-				var proxy/*Proxy*/ = new Proxy( 'aces', [ 'clubs', 'spades', 'hearts', 'diamonds' ] );
+				var model:Model = Model.getInstance();
+				var proxy:Proxy = new Proxy( 'aces', [ 'clubs', 'spades', 'hearts', 'diamonds' ] );
 				model.registerProxy( proxy );
 
 				// assert that the model.hasProxy method returns true
@@ -195,10 +195,10 @@ module puremvc
 			testOnRegisterAndOnRemove():void
 			{
 				// Get the Singleton View instance
-				var model/*Model*/ = Model.getInstance();
+				var model:Model = Model.getInstance();
 
 				// Create and register the test mediator
-				var proxy/*Proxy*/ = new ModelTestProxy();
+				var proxy:Proxy = new ModelTestProxy();
 				model.registerProxy( proxy );
 
 				// assert that onRegister was called, and the proxy responded by setting its data accordingly
