@@ -41,19 +41,19 @@ module puremvc
 		 * The name of the notification.
 		 * @protected
 		 */
-		private name:string;
+		name:string;
 
 		/**
 		 * The body data to send with the notification.
 		 * @protected
 		 */
-		private body:any;
+		body:any;
 
 		/**
 		 * The type identifier of the notification.
 		 * @protected
 		 */
-		private type:string;
+		type:string;
 
 		/**
 		 * Constructs a <code>Notification</code> instance.

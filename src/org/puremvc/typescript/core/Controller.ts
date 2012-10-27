@@ -43,14 +43,14 @@ module puremvc
 		 *
 		 * @protected
 		 */		
-		private view:IView;
+		view:IView;
 
 		/**
 		 * Mapping of <code>Notification<code> names to <code>Command</code> constructors references.
 		 *
 		 * @protected
 		 */		
-		private commandMap:Object;
+		commandMap:Object;
 
 		/**
 		 * This <code>IController</code> implementation is a Singleton, so you should not call the
@@ -89,7 +89,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		public initializeController():void
+		initializeController():void
 		{
 			this.view = View.getInstance();
 		}
@@ -177,7 +177,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private static instance:IController;
+		static instance:IController;
 
 		/**
 		 * Error message used to indicate that a controller singleton is already constructed when
@@ -186,7 +186,7 @@ module puremvc
 		 * @protected
 		 * @constant
 		 */
-		private static SINGLETON_MSG:string = "Controller Singleton already constructed!";
+		static SINGLETON_MSG:string = "Controller Singleton already constructed!";
 		
 		/**
 		 * <code>Controller</code> Singleton Factory method.

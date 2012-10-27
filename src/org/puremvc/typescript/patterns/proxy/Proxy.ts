@@ -38,14 +38,14 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private proxyName:string;
+		proxyName:string;
 
 		/**
 		 * The name of the <code>Proxy</code>.
 		 *
 		 * @protected
 		 */
-		private data:any;
+		data:any;
 
 		/**
 		 *

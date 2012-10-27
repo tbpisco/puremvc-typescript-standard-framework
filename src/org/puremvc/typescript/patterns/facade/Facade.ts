@@ -46,21 +46,21 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private model:IModel;
+		model:IModel;
 
 		/**
 		 * Local reference to the <code>View</code> singleton.
 		 *
 		 * @protected
 		 */
-		private view:IView;
+		view:IView;
 			 
 		/**
 		 * Local reference to the <code>Controller</code> singleton.
 		 *
 		 * @protected
 		 */
-		private controller:IController;
+		controller:IController;
 
 		/**
 		 * Constructor. 
@@ -91,7 +91,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private initializeFacade():void
+		initializeFacade():void
 		{
 			this.initializeModel();
 			this.initializeController();
@@ -121,7 +121,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private initializeModel():void
+		initializeModel():void
 		{
 			if( !this.model )
 				this.model = Model.getInstance();
@@ -144,7 +144,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private initializeController():void
+		initializeController():void
 		{
 			if( !this.controller )
 				this.controller = Controller.getInstance();
@@ -171,7 +171,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private initializeView():void
+		initializeView():void
 		{
 			if( !this.view )
 				this.view = View.getInstance();
@@ -386,14 +386,14 @@ module puremvc
 		 * @constant
 		 * @protected
 		 */
-		private static SINGLETON_MSG:string = "Facade Singleton already constructed!";
+		static SINGLETON_MSG:string = "Facade Singleton already constructed!";
 
 		/**
 		 * The Singleton Facade instance.
 		 *
 		 * @protected
 		 */
-		private static instance:IFacade;
+		static instance:IFacade;
 
 		/**
 		 * Facade Singleton factory method.

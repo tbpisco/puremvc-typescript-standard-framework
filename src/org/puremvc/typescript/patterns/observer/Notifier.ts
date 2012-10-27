@@ -36,7 +36,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private facade:IFacade;
+		facade:IFacade;
 		
 		/**
 		 * Constructs a <code>Notifier</code> instance.

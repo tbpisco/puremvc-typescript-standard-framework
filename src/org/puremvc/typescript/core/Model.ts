@@ -35,7 +35,7 @@ module puremvc
 		 * HashTable of <code>IProxy</code> registered with the <code>Model</code>.
 		 * @protected
 		 */
-		private proxyMap:Object;
+		proxyMap:Object;
 
 		/**
 		 * This <code>IModel</code> implementation is a Singleton,  so you should not call the
@@ -63,7 +63,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private initializeModel():void
+		initializeModel():void
 		{
 
 		}
@@ -139,14 +139,14 @@ module puremvc
 		 * @constant
 		 * @protected
 		 */
-		 private static SINGLETON_MSG:string = "Model Singleton already constructed!";
+		 static SINGLETON_MSG:string = "Model Singleton already constructed!";
 
 		/**
 		 * Singleton instance local reference.
 		 *
 		 * @protected
 		 */
-		 private static instance:IModel;
+		 static instance:IModel;
 				
 		/**
 		 * <code>Model</code> singleton factory method.

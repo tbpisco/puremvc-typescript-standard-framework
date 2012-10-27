@@ -39,14 +39,14 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private mediatorMap:Object;
+		mediatorMap:Object;
 
 		/**
 		 * Mapping of <code>Notification</code> names to <code>Observers</code> lists.
 		 *
 		 * @protected
 		 */
-		private observerMap:Object;
+		observerMap:Object;
 
 		/**
 		 * This <code>IView</code> implementation is a Singleton, so you should not call the
@@ -273,14 +273,14 @@ module puremvc
 		 * @constant
 		 * @protected
 		 */
-		private static /*const*/ SINGLETON_MSG:string = "View Singleton already constructed!";
+		static SINGLETON_MSG:string = "View Singleton already constructed!";
 
 		/**
 		 * Singleton instance local reference.
 		 *
 		 * @protected
 		 */
-		 private static instance:IView;
+		 static instance:IView;
 
 		/**
 		 * <code>View</code> Singleton Factory method.

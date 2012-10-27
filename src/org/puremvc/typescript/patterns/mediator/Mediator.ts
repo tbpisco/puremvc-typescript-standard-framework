@@ -28,14 +28,14 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private mediatorName:string;
+		mediatorName:string;
 
 		/**
 		 * The <code>Mediator</code>'s view component.
 		 *
 		 * @protected
 		 */
-		private viewComponent:any;
+		viewComponent:any;
 
 		/**
 		 * Constructs a <code>Mediator</code> instance.

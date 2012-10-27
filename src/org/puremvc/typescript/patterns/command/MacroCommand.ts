@@ -40,7 +40,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		private subCommands:Function[];
+		subCommands:Function[];
 		
 		/**
 		 * Constructs a <code>MacroCommand</code> instance.
