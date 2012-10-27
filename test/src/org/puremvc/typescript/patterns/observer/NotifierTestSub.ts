@@ -33,11 +33,11 @@ module puremvc
 		 * A method to test if <code>Facade</code> instance of the object has
 		 * well been declared during its construction.
 		 *
-		 * @return {Boolean}
+		 * @return
 		 * 		<code>Facade</code> instance of the object has well been declared
 		 * 		during its construction.
 		 */
-		hasFacade()
+		hasFacade():boolean
 		{
 			return this.facade instanceof Facade;
 		}

@@ -56,13 +56,13 @@ module puremvc
 			counter: 0,
 
 			/**
-			 * @type {Boolean}
+			 * @type {bool}
 			 * @private
 			 */
 			onRegisterCalled: false,
 
 			/**
-			 * @type {Boolean}
+			 * @type {bool}
 			 * @private
 			 */
 			onRemoveCalled:  false,
