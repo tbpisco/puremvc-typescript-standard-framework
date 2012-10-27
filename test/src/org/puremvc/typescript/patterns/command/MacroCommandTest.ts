@@ -21,14 +21,14 @@ var MacroCommandTest = new YUITest.TestCase
 		 * @private
 		 */
 		name: "PureMVC MacroCommmand class tests",  
-	
+
 		/**
 		 * Sets up data that is needed by each test.
 		 */
 		setUp: function()
 		{
 		},
-	    
+
 		/**
 		 * Cleans up everything that was created by setUp().
 		 */
@@ -85,20 +85,20 @@ var MacroCommandTest = new YUITest.TestCase
 		 */
 		testMacroCommandExecute: function()
 		{
-   			var Notification = extract("puremvc.Notification");
+			var Notification = extract("puremvc.Notification");
 
 			// Create the VO
 			var vo/*MacroCommandTestVO*/ = new MacroCommandTestVO(5);
-			
+
 			// Create the Notification (note)
 			var note/*Notification*/ = new Notification( 'MacroCommandTest', vo );
-	
-			// Create the MacroCommand  			
+
+			// Create the MacroCommand
 			var command/*MacroCommandTestCommand*/ = new MacroCommandTestCommand();
-		
+
 			// Execute the MacroCommand
 			command.execute(note);
-		
+
 			// test assertions
 			YUITest.Assert.areEqual
 			(
@@ -106,7 +106,7 @@ var MacroCommandTest = new YUITest.TestCase
 				vo.result1,
 				"Expecting vo.result1 == 10"
 			);
-			
+
 			YUITest.Assert.areEqual
 			(
 				25,
