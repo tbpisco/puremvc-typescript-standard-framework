@@ -7,8 +7,21 @@
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
 
 ///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/IView.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/IMediator.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/IObserver.ts'/>
 
+///<reference path='../../../../../../src/org/puremvc/typescript/patterns/mediator/Mediator.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Observer.ts'/>
 ///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+
+///<reference path='ViewTestMediator.ts'/>
+///<reference path='ViewTestMediator2.ts'/>
+///<reference path='ViewTestMediator3.ts'/>
+///<reference path='ViewTestMediator4.ts'/>
+///<reference path='ViewTestMediator5.ts'/>
+///<reference path='ViewTestMediator6.ts'/>
+///<reference path='ViewTestNote.ts'/>
 
 module puremvc
 {
@@ -44,12 +57,12 @@ module puremvc
 		/**
 		 * Store the last notification name called.
 		 */
-		lastNotification:string = null;
+		lastNotification:string = "";
 
 		/**
 		 * Used by some commands to increment calls number.
 		 */
-		counter:string = 0;
+		counter:number = 0;
 
 		/**
 		 * Used by some commands to mark the onRegister method as called.
@@ -64,7 +77,7 @@ module puremvc
 		/**
 		 * A test variable that proves the viewTestMethod was invoked by the View.
 		 */
-		viewTestVar:number = null;
+		viewTestVar:number = 0;
 
 		/**
 		 * Tests the View Singleton Factory Method
@@ -114,7 +127,7 @@ module puremvc
 			var view:IView = View.getInstance();
 
 			// Create observer, passing in notification method and context
-			var observer:Observer = new Observer( this.viewTestMethod, this );
+			var observer:IObserver = new Observer( this.viewTestMethod, this );
 
 			// Register Observer's interest in a particular Notification with the View
 			view.registerObserver(ViewTestNote.NAME, observer);
@@ -126,7 +139,7 @@ module puremvc
 			// successful notification will result in our local
 			// viewTestVar being set to the value we pass in
 			// on the note body.
-			var note:Notification = ViewTestNote.create(10);
+			var note:INotification = ViewTestNote.create(10);
 			view.notifyObservers(note);
 
 			// test assertions
@@ -160,11 +173,11 @@ module puremvc
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
-			var viewTestMediator:ViewTestMediator = new ViewTestMediator( this );
+			var viewTestMediator:IMediator = new ViewTestMediator( this );
 			view.registerMediator( viewTestMediator );
 
 			// Retrieve the component
-			var mediator:Mediator = view.retrieveMediator( ViewTestMediator.NAME );
+			var mediator:IMediator = view.retrieveMediator( ViewTestMediator.NAME );
 
 			// test assertions
 			YUITest.Assert.isInstanceOf
@@ -175,7 +188,6 @@ module puremvc
 			);
 
 			this.cleanup();
-
 		}
 
 		/**
@@ -187,7 +199,7 @@ module puremvc
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
-			var mediator:Mediator = new Mediator( 'hasMediatorTest', this );
+			var mediator:IMediator = new Mediator( 'hasMediatorTest', this );
 			view.registerMediator( mediator );
 
 			// assert that the view.hasMediator method returns true
@@ -218,11 +230,11 @@ module puremvc
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
-			var mediator:Mediator = new Mediator( 'testing', this );
+			var mediator:IMediator = new Mediator( 'testing', this );
 			view.registerMediator( mediator );
 
 			// Remove the component
-			var removedMediator:Mediator = view.removeMediator( 'testing' );
+			var removedMediator:IMediator = view.removeMediator( 'testing' );
 
 			// assert that we have removed the appropriate mediator
 			YUITest.Assert.areEqual
@@ -232,12 +244,12 @@ module puremvc
 				"Expecting removedMediator.getMediatorName() == 'testing'"
 			);
 
-			var t = view.retrieveMediator( 'testing' )
+			var retrievedMediator:IMediator = view.retrieveMediator( 'testing' )
 
 			// assert that the mediator is no longer retrievable
 			YUITest.Assert.isNull
 			(
-				view.retrieveMediator( 'testing' ),
+				retrievedMediator,
 				"Expecting view.retrieveMediator( 'testing' ) === null )"
 			);
 
@@ -253,7 +265,7 @@ module puremvc
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
-			var mediator:Mediator = new ViewTestMediator4( this );
+			var mediator:IMediator = new ViewTestMediator4( this );
 			view.registerMediator( mediator );
 
 			// assert that onRegsiter was called, and the mediator responded by setting our boolean
@@ -607,31 +619,31 @@ module puremvc
 		/**
 		 * @constant
 		 */
-		private static NOTE1:string = "Notification1";
+		static NOTE1:string = "Notification1";
 
 		/**
 		 * @constant
 		 */
-		private static NOTE2:string = "Notification2";
+		static NOTE2:string = "Notification2";
 
 		/**
 		 * @constant
 		 */
-		private static NOTE3:string = "Notification3";
+		static NOTE3:string = "Notification3";
 
 		/**
 		 * @constant
 		 */
-		private static NOTE4:string = "Notification4";
+		static NOTE4:string = "Notification4";
 
 		/**
 		 * @constant
 		 */
-		private static NOTE5:string = "Notification5";
+		static NOTE5:string = "Notification5";
 
 		/**
 		 * @constant
 		 */
-		private static NOTE6:string = "Notification6";
+		static NOTE6:string = "Notification6";
 	}
 }

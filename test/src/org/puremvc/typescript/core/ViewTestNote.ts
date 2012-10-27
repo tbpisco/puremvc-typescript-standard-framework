@@ -16,14 +16,13 @@ module puremvc
 
 	/**
 	 * A Notification class used by ViewTest.
-	 *
 	 */
 	export class ViewTestNote
 		extends Notification
 		implements INotification
 	{
 		/**
-		 * @constructor.
+		 * @constructor
 		 *
 		 * @param name
 		 *		Ignored and forced to NAME.

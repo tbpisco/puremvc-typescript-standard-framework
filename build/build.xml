@@ -293,7 +293,6 @@
 		description="Compile tests from TypeScript to JavaScript"
 		depends=
 		"
-			clean.bin,
 			remove.test-js,
 			compile.test
 		"

@@ -6,9 +6,11 @@
 
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/IMediator.ts'/>
 
 ///<reference path='../../../../../../src/org/puremvc/typescript/patterns/mediator/Mediator.ts'/>
+
+///<reference path='ViewTest.ts'/>
 
 module puremvc
 {
