@@ -10,7 +10,7 @@ declare module "puremvc"
 	{
 		executeCommand( notification:INotification ):void;
 		registerCommand( notificationName:string, commandClassRef:Function ):void;
-		hasCommand( notificationName:string ):Boolean;
+		hasCommand( notificationName:string ):bool;
 		removeCommand( notificationName:string ):void;
 	}
 	export interface IFacade
@@ -18,15 +18,15 @@ declare module "puremvc"
 	{
 		registerCommand( notificationName:string, commandClassRef:Function ):void;
 		removeCommand( notificationName:string ): void;
-		hasCommand( notificationName:string ):Boolean;
+		hasCommand( notificationName:string ):bool;
 		registerProxy( proxy:IProxy ):void;
 		retrieveProxy( proxyName:string ):IProxy;
 		removeProxy( proxyName:string ):IProxy;
-		hasProxy( proxyName:string ):Boolean;
+		hasProxy( proxyName:string ):bool;
 		registerMediator( mediator:IMediator ):void;
 		retrieveMediator( mediatorName:string ):IMediator;
 		removeMediator( mediatorName:string ):IMediator;
-		hasMediator( mediatorName:string ):Boolean;
+		hasMediator( mediatorName:string ):bool;
 		notifyObservers( note:INotification ):void;
 	}
 
@@ -46,7 +46,7 @@ declare module "puremvc"
 		registerProxy( proxy:IProxy ):void;
 		removeProxy( proxyName:string ):IProxy;
 		retrieveProxy( proxyName:string ):IProxy;
-		hasProxy( proxyName:string ):Boolean;
+		hasProxy( proxyName:string ):bool;
 	}
 
 	export interface INotification
@@ -69,7 +69,7 @@ declare module "puremvc"
 		setNotifyMethod( notifyMethod:Function ):void;
 		setNotifyContext( notifyContext:Object ):void;
 		notifyObserver( notification:INotification ):void;
-		compareNotifyContext( object:Object ):Boolean;
+		compareNotifyContext( object:Object ):bool;
 	}
 
 	export interface IProxy
@@ -89,7 +89,7 @@ declare module "puremvc"
 		registerMediator( mediator:IMediator ):void;
 		retrieveMediator( mediatorName:string ):IMediator;
 		removeMediator( mediatorName:string ):IMediator;
-		hasMediator( mediatorName:string ):Boolean;
+		hasMediator( mediatorName:string ):bool;
 	}
 
     export class View implements IView
@@ -104,7 +104,7 @@ declare module "puremvc"
         public registerMediator(mediator: IMediator): void;
         public retrieveMediator(mediatorName: string): IMediator;
         public removeMediator(mediatorName: string): IMediator;
-        public hasMediator(mediatorName: string): Boolean;
+        public hasMediator(mediatorName: string): bool;
         static SINGLETON_MSG: string;
         static instance;
         static getInstance(): IView;
@@ -120,7 +120,7 @@ declare module "puremvc"
         private getNotifyContext(): Object;
         public setNotifyContext(notifyContext: Object): void;
         public notifyObserver(notification: INotification): void;
-        public compareNotifyContext(object: Object): Boolean;
+        public compareNotifyContext(object: Object): bool;
     }
 
     export class Controller implements IController
@@ -131,7 +131,7 @@ declare module "puremvc"
         public initializeController(): void;
         public executeCommand(notification: INotification): void;
         public registerCommand(notificationName: string, commandClassRef: Function): void;
-        public hasCommand(notificationName: string): Boolean;
+        public hasCommand(notificationName: string): bool;
         public removeCommand(notificationName: string): void;
         static instance;
         static SINGLETON_MSG: string;
@@ -146,7 +146,7 @@ declare module "puremvc"
         public registerProxy(proxy: IProxy): void;
         public removeProxy(proxyName: string): IProxy;
         public retrieveProxy(proxyName: string): IProxy;
-        public hasProxy(proxyName: string): Boolean;
+        public hasProxy(proxyName: string): bool;
         static SINGLETON_MSG: string;
         static instance;
         static getInstance(): IModel;
@@ -185,15 +185,15 @@ declare module "puremvc"
         private initializeView(): void;
         public registerCommand(notificationName: string, commandClassRef: Function): void;
         public removeCommand(notificationName: string): void;
-        public hasCommand(notificationName: string): Boolean;
+        public hasCommand(notificationName: string): bool;
         public registerProxy(proxy: IProxy): void;
         public retrieveProxy(proxyName: string): IProxy;
         public removeProxy(proxyName: string): IProxy;
-        public hasProxy(proxyName: string): Boolean;
+        public hasProxy(proxyName: string): bool;
         public registerMediator(mediator: IMediator): void;
         public retrieveMediator(mediatorName: string): IMediator;
         public removeMediator(mediatorName: string): IMediator;
-        public hasMediator(mediatorName: string): Boolean;
+        public hasMediator(mediatorName: string): bool;
         public notifyObservers(notification: INotification): void;
         public sendNotification(name: string, body?: any, type?: string): void;
         static SINGLETON_MSG: string;

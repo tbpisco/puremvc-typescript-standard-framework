@@ -66,6 +66,6 @@ module puremvc
 		 * @return
 		 *		A Proxy is currently registered with the given <code>proxyName</code>.
 		 */
-		hasProxy( proxyName:string ):Boolean;
+		hasProxy( proxyName:string ):bool;
 	}
 }

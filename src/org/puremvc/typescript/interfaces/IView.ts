@@ -117,6 +117,6 @@ module puremvc
 		 * @return
 		 *		A <code>Mediator</code> is registered with the given <code>mediatorName</code>.
 		 */
-		hasMediator( mediatorName:string ):Boolean;
+		hasMediator( mediatorName:string ):bool;
 	}
 }

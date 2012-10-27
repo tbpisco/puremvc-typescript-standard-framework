@@ -70,7 +70,7 @@ module puremvc
 		 * 		An <code>ICommand</code> is currently registered for the given
 		 *		<code>notificationName</code>.
 		 */
-		hasCommand( notificationName:string ):Boolean;
+		hasCommand( notificationName:string ):bool;
 
 		/**
 		 * Remove a previously registered <code>ICommand</code> to <code>INotification</code>

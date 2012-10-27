@@ -147,9 +147,9 @@ module puremvc
 		 *
 		 * @return
 		 * 		An <code>ICommand</code> is currently registered for the given
-		 *		<code>notificationName</code>.
+		 * 		<code>notificationName</code>.
 		 */
-		public hasCommand( notificationName:string ):Boolean
+		public hasCommand( notificationName:string ):bool
 		{
 			return this.commandMap[ notificationName ] != null;
 		}
