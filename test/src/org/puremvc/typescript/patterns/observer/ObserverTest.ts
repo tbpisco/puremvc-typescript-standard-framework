@@ -119,7 +119,6 @@ module puremvc
 		{
 			// Create observer passing in notification method and context
 			var observer:IObserver = new Observer( this.observerTestMethod, this );
-
 			var negTestObj:Object = new Object();
 
 			// test assertions

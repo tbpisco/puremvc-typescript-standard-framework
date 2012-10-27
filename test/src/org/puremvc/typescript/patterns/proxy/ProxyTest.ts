@@ -52,8 +52,7 @@ module puremvc
 		 */
 		testConstructorInitialization():void
 		{
-			// Create a new subclass of Notifier and verify that its facade
-			// has well been created
+			// Create a new subclass of Notifier and verify that its facade has well been created.
 			var proxyTestSub:ProxyTestSub = new ProxyTestSub();
 
 			// test assertions
