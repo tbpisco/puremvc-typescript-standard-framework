@@ -61,7 +61,7 @@ declare module "puremvc"
 
 	export interface INotifier
 	{
-		sendNotification( name:string, body:any, type:string ):void;
+		sendNotification( name:string, body?:any, type?:string ):void;
 	}
 
 	export interface IObserver
