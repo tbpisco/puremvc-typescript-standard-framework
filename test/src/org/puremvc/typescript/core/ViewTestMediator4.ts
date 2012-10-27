@@ -75,5 +75,5 @@ module puremvc
 	 * @type {String}
 	 * @private
 	 */
-	ViewTestMediator4.NAME = 'ViewTestMediator4';
+/*const*/static NAME:string = 'ViewTestMediator4';
 }

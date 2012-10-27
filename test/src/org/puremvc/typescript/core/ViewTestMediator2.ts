@@ -80,7 +80,8 @@ module puremvc
 	 * The Mediator name.
 	 *
 	 * @type {String}
+	 *
 	 * @private
 	 */
-	ViewTestMediator2.NAME = 'ViewTestMediator2';
+/*const*/static NAME:string = 'ViewTestMediator2';
 }
