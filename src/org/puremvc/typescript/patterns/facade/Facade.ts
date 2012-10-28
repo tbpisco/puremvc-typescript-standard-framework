@@ -15,7 +15,7 @@ module puremvc
 	"use strict";
 
 	/**
-	 * A singleton <code>IFacade</code> implementation.
+	 * A base singleton <code>IFacade</code> implementation.
 	 * 
 	 * In PureMVC, the <code>Facade</code> class assumes these responsibilities:
 	 *
@@ -40,31 +40,31 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		model:IModel;
+		model:IModel = null;
 
 		/**
 		 * Local reference to the <code>View</code> singleton.
 		 *
 		 * @protected
 		 */
-		view:IView;
+		view:IView = null;
 			 
 		/**
 		 * Local reference to the <code>Controller</code> singleton.
 		 *
 		 * @protected
 		 */
-		controller:IController;
+		controller:IController = null;
 
 		/**
-		 * Constructor. 
+		 * Constructs a <code>Controller</code> instance.
 		 *
 		 * This <code>IFacade</code> implementation is a singleton, so you should not call the
 		 * constructor directly, but instead call the static singleton Factory method
 		 * <code>Facade.getInstance()</code>.
 		 * 
 		 * @throws Error
-		 *		Error if an instance of this singleton has already been constructed.
+		 *		Throws an error if an instance of this singleton has already been constructed.
 		 */
 		constructor()
 		{
@@ -182,7 +182,7 @@ module puremvc
 		 * @param commandClassRef
 		 * 		A reference to the constructor of the <code>ICommand</code>.
 		 */
-		public registerCommand( notificationName:string, commandClassRef:Function ):void
+		registerCommand( notificationName:string, commandClassRef:Function ):void
 		{
 			this.controller.registerCommand( notificationName, commandClassRef );
 		}
@@ -195,7 +195,7 @@ module puremvc
 		 *		The name of the <code>INotification</code> to remove the <code>ICommand</code>
 		 *		mapping for.
 		 */
-		public removeCommand( notificationName:string ):void
+		removeCommand( notificationName:string ):void
 		{
 			this.controller.removeCommand( notificationName );
 		}
@@ -211,7 +211,7 @@ module puremvc
 		 * 		A <code>Command</code> is currently registered for the given
 		 *		<code>notificationName</code>.
 		 */
-		public hasCommand( notificationName:string ):bool
+		hasCommand( notificationName:string ):bool
 		{
 			return this.controller.hasCommand(notificationName);
 		}
@@ -222,7 +222,7 @@ module puremvc
 		 * @param proxy
 		 *		The <code>IProxy</code> to be registered with the <code>Model</code>.
 		 */
-		public registerProxy( proxy:IProxy ):void
+		registerProxy( proxy:IProxy ):void
 		{
 			this.model.registerProxy( proxy );
 		}
@@ -237,7 +237,7 @@ module puremvc
 		 * 		The <code>IProxy</code> previously registered with the given
 		 *		<code>proxyName</code>.
 		 */
-		public retrieveProxy( proxyName:string ):IProxy
+		retrieveProxy( proxyName:string ):IProxy
 		{
 			return this.model.retrieveProxy( proxyName );
 		}
@@ -251,7 +251,7 @@ module puremvc
 		 * @return
 		 *		The <code>IProxy</code> that was removed from the <code>Model</code>
 		 */
-		public removeProxy ( proxyName:string ):IProxy
+		removeProxy ( proxyName:string ):IProxy
 		{
 			var proxy:IProxy;
 			if( this.model )
@@ -268,10 +268,9 @@ module puremvc
 		 *		<code>IModel</code>.
 		 *
 		 * @return
-		 * 		A <code>Proxy</code> is currently registered with the given
-		 * 		<code>proxyName</code>.
+		 * 		A <code>Proxy</code> is currently registered with the given	<code>proxyName</code>.
 		 */
-		public hasProxy( proxyName:string ):bool
+		hasProxy( proxyName:string ):bool
 		{
 			return this.model.hasProxy( proxyName );
 		}
@@ -282,7 +281,7 @@ module puremvc
 		 * @param mediator
 		 		A reference to the <code>IMediator</code>.
 		 */
-		public registerMediator( mediator:IMediator ):void
+		registerMediator( mediator:IMediator ):void
 		{
 			if( this.view )
 				this.view.registerMediator( mediator );
@@ -298,7 +297,7 @@ module puremvc
 		 *		The <code>IMediator</code> previously registered with the given
 		 *		<code>mediatorName</code>.
 		 */
-		public retrieveMediator( mediatorName:string ):IMediator
+		retrieveMediator( mediatorName:string ):IMediator
 		{
 			return this.view.retrieveMediator( mediatorName );
 		}
@@ -312,7 +311,7 @@ module puremvc
 		 * @return
 		 *		The <code>IMediator</code> that was removed from the <code>IView</code>
 		 */
-		public removeMediator( mediatorName:string ):IMediator
+		removeMediator( mediatorName:string ):IMediator
 		{
 			var mediator:IMediator;
 			if( this.view )
@@ -331,7 +330,7 @@ module puremvc
 		 * @return
 		 * 		An <code>IMediator</code> is registered with the given <code>mediatorName</code>.
 		 */
-		public hasMediator( mediatorName:string ):bool
+		hasMediator( mediatorName:string ):bool
 		{
 			return this.view.hasMediator( mediatorName );
 		}
@@ -339,18 +338,18 @@ module puremvc
 		/**
 		 * Notify the <code>IObservers</code> for a particular <code>INotification</code>.
 		 *
+		 * This method is left public mostly for backward compatibility, and to allow you to
+		 * send custom notification classes using the <code>Facade</code>.
 		 *
-		 * This method is left public mostly for backward compatibility, and to allow you to send
-		 * custom notification classes using the facade.
 		 *
-		 * Usually you should just call sendNotification and pass the parameters, never having to
-		 * construct the notification yourself.
+		 * Usually you should just call <code>sendNotification</code> and pass the parameters,
+		 * never having to construct the <code>INotification</code> yourself.
 		 * 
 		 * @param notification
 		 * 		The <code>INotification</code> to have the <code>IView</code> notify
 		 *		<code>IObserver</code>s	of.
 		 */
-		public notifyObservers ( notification:INotification ):void
+		notifyObservers ( notification:INotification ):void
 		{
 			if( this.view )
 				this.view.notifyObservers( notification );
@@ -365,13 +364,12 @@ module puremvc
 		 *		The name of the notification to send.
 		 *
 		 * @param body
-		 *		The body of the notification to send (optional).
+		 *		The body of the notification to send.
 		 *
 		 * @param type
-		 *		The type of the notification to send (optional)
+		 *		The type of the notification to send.
 		 */
-		//TODO There's some optional parameters in there, TypeScript knows how to handle them.
-		public sendNotification( name:string, body:any=null, type:string=null ):void
+		sendNotification( name:string, body:any=null, type:string=null ):void
 		{
 			this.notifyObservers( new Notification( name, body, type ) );
 		}
@@ -383,7 +381,7 @@ module puremvc
 		static SINGLETON_MSG:string = "Facade singleton already constructed!";
 
 		/**
-		 * The singleton Facade instance.
+		 * The singleton <code>Facade</code> instance.
 		 *
 		 * @protected
 		 */
@@ -393,9 +391,9 @@ module puremvc
 		 * Facade singleton factory method.
 		 * 
 		 * @return
-		 * 		The singleton instance of the <code>Facade</code>.
+		 * 		The singleton instance of <code>Facade</code>.
 		 */
-		public static getInstance():IFacade
+		static getInstance():IFacade
 		{
 			if( !Facade.instance )
 				Facade.instance = new Facade();

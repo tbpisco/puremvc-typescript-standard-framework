@@ -1,6 +1,7 @@
 ///<reference path='../../../../../org/puremvc/typescript/interfaces/ICommand.ts'/>
 ///<reference path='../../../../../org/puremvc/typescript/interfaces/INotifier.ts'/>
 ///<reference path='../../../../../org/puremvc/typescript/interfaces/INotification.ts'/>
+
 ///<reference path='../../../../../org/puremvc/typescript/patterns/observer/Notifier.ts'/>
 
 module puremvc
@@ -27,7 +28,7 @@ module puremvc
 		 * @param notification
 		 * 		The <code>INotification</code> to handle.
 		 */
-		public execute( notification:INotification ):void
+		execute( notification:INotification ):void
 		{
 
 		}

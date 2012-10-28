@@ -33,14 +33,14 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		mediatorMap:Object;
+		mediatorMap:Object = null;
 
 		/**
 		 * Mapping of <code>Notification</code> names to <code>Observers</code> lists.
 		 *
 		 * @protected
 		 */
-		observerMap:Object;
+		observerMap:Object = null;
 
 		/**
 		 * This <code>IView</code> implementation is a singleton, so you should not call the
@@ -62,12 +62,12 @@ module puremvc
 		}
 		
 		/**
-		 * Initialize the singleton View instance.
+		 * Initialize the singleton <code>View</code> instance.
 		 * 
 		 * Called automatically by the constructor. This is the opportunity to initialize the
 		 * singleton instance in a subclass without overriding the constructor.
 		 */
-		public initializeView():void
+		initializeView():void
 		{
 
 		}
@@ -83,7 +83,7 @@ module puremvc
 		 * @param observer
 		 * 		The <code>IObserver</code> to register.
 		 */
-		public registerObserver( notificationName:string, observer:IObserver ):void
+		registerObserver( notificationName:string, observer:IObserver ):void
 		{
 			var observers:IObserver[] = this.observerMap[ notificationName ];
 			if( observers )
@@ -103,7 +103,7 @@ module puremvc
 		 * 		Remove the <code>IObserver</code> with this object as its
 		 *		<code>notifyContext</code>.
 		 */
-		public removeObserver( notificationName:string, notifyContext:any ):void
+		removeObserver( notificationName:string, notifyContext:any ):void
 		{
 			//The observer list for the notification under inspection
 			var observers:IObserver[] = this.observerMap[ notificationName ];
@@ -138,7 +138,7 @@ module puremvc
 		 * @param notification
 		 * 		The <code>INotification</code> to notify <code>IObserver</code>s of.
 		 */
-		public notifyObservers( notification:INotification ):void
+		notifyObservers( notification:INotification ):void
 		{
 			var notificationName:string = notification.getName();
 	
@@ -171,9 +171,10 @@ module puremvc
 		 * @param mediator
 		 * 		A reference to an <code>IMediator</code> implementation instance.
 		 */
-		public registerMediator( mediator:IMediator ):void
+		registerMediator( mediator:IMediator ):void
 		{
 			var name:string = mediator.getMediatorName();
+
 			//Do not allow re-registration (you must removeMediator first).
 			if( this.mediatorMap[ name ] )
 				return;
@@ -183,8 +184,8 @@ module puremvc
 			
 			//Get Notification interests, if any.
 			var interests:string[] = mediator.listNotificationInterests();
-			var len/*Number*/ = interests.length;
-			if( len )
+			var len:Number = interests.length;
+			if( len>0 )
 			{
 				//Create Observer referencing this mediator's handlNotification method.
 				var observer:IObserver = new Observer( mediator.handleNotification, mediator );
@@ -208,7 +209,7 @@ module puremvc
 		 * 		The <code>IMediator</code> instance previously registered with the given
 		 *		<code>mediatorName</code> or an explicit <code>null</code> if it doesn't exists.
 		 */
-		public retrieveMediator( mediatorName:string ):IMediator
+		retrieveMediator( mediatorName:string ):IMediator
 		{
 			//Return a strict null when the mediator doesn't exist
 			return this.mediatorMap[ mediatorName ] || null;
@@ -224,29 +225,28 @@ module puremvc
 		 *		The <code>IMediator</code> that was removed from the <code>View</code> or a
 		 *		strict <code>null</null> if the <code>Mediator</code> didn't exist.
 		 */
-		public removeMediator( mediatorName:string ):IMediator
+		removeMediator( mediatorName:string ):IMediator
 		{
 			// Retrieve the named mediator
 			var mediator:IMediator = this.mediatorMap[ mediatorName ];
 			if( !mediator )
 				return null;
 
-				//Get Notification interests, if any.
-				var interests:string[] = mediator.listNotificationInterests();
-				
-				//For every notification this mediator is interested in...
-				var i:number = interests.length;
-				while( i-- ) 
-					this.removeObserver( interests[i], mediator );
-				
-				// remove the mediator from the map		
-				delete this.mediatorMap[ mediatorName ];
-	
-				//Alert the mediator that it has been removed
-				mediator.onRemove();
+			//Get Notification interests, if any.
+			var interests:string[] = mediator.listNotificationInterests();
 
-				return mediator;
+			//For every notification this mediator is interested in...
+			var i:number = interests.length;
+			while( i-- )
+				this.removeObserver( interests[i], mediator );
 
+			// remove the mediator from the map
+			delete this.mediatorMap[ mediatorName ];
+
+			//Alert the mediator that it has been removed
+			mediator.onRemove();
+
+			return mediator;
 		}
 		
 		/**
@@ -258,7 +258,7 @@ module puremvc
 		 * @return
 		 *		A <code>Mediator</code> is registered with the given <code>mediatorName</code>.
 		 */
-		public hasMediator( mediatorName:string ):bool
+		hasMediator( mediatorName:string ):bool
 		{
 			return this.mediatorMap[ mediatorName ] != null;
 		}
@@ -270,7 +270,7 @@ module puremvc
 		static SINGLETON_MSG:string = "View singleton already constructed!";
 
 		/**
-		 * singleton instance local reference.
+		 * Singleton instance local reference.
 		 *
 		 * @protected
 		 */
@@ -280,9 +280,9 @@ module puremvc
 		 * <code>View</code> singleton Factory method.
 		 * 
 		 * @return
-		 * 		The singleton instance of the <code>View</code>.
+		 *		The singleton instance of <code>View</code>.
 		 */
-		public static getInstance():IView
+		static getInstance():IView
 		{
 			if( !View.instance )
 				View.instance = new View();

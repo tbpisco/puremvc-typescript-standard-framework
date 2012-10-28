@@ -1,5 +1,6 @@
 ///<reference path='../../../../../org/puremvc/typescript/interfaces/INotifier.ts'/>
 ///<reference path='../../../../../org/puremvc/typescript/interfaces/IFacade.ts'/>
+
 ///<reference path='../../../../../org/puremvc/typescript/patterns/facade/Facade.ts'/>
 
 module puremvc
@@ -30,8 +31,8 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		facade:IFacade;
-		
+		facade:IFacade = null;
+
 		/**
 		 * Constructs a <code>Notifier</code> instance.
 		 */
@@ -50,13 +51,12 @@ module puremvc
 		 * 		The name of the notification to send.
 		 * 
 		 * @param body
-		 * 		The body of the notification (optional).
+		 * 		The body of the notification.
 		 *
 		 * @param type
-		 * 		The type of the notification (optional).
+		 * 		The type of the notification.
 		 */
-		//TODO optional
-		public sendNotification( name:string, body:any=null, type:string=null ):void
+		sendNotification( name:string, body:any=null, type:string=null ):void
 		{
 			this.facade.sendNotification( name, body, type );
 		}

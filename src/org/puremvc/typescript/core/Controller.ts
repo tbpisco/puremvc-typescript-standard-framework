@@ -9,6 +9,8 @@ module puremvc
 	"use strict";
 
 	/**
+	 * The base <code>Controller</code> class for PureMVC.
+	 *
 	 * A singleton <code>IController</code> implementation.
 	 *
 	 * In PureMVC, the <code>Controller</code> class follows the 'Command and Controller' strategy,
@@ -37,16 +39,19 @@ module puremvc
 		 *
 		 * @protected
 		 */		
-		view:IView;
+		view:IView = null;
 
 		/**
 		 * Mapping of <code>Notification<code> names to <code>Command</code> constructors references.
 		 *
 		 * @protected
 		 */		
-		commandMap:Object;
+		commandMap:Object = null;
 
 		/**
+		/**
+		 * Constructs a <code>Controller</code> instance.
+		 *
 		 * This <code>IController</code> implementation is a singleton, so you should not call the
 		 * constructor directly, but instead call the static singleton Factory method
 		 * <code>Controller.getInstance()</code>.
@@ -75,7 +80,7 @@ module puremvc
 		 * 
 		 * <pre>
 		 *		// ensure that the Controller is talking to my IView implementation
-		 *		public initializeController():void
+		 *		initializeController():void
 		 *		{
 		 *			this.view = MyView.getInstance();
 		 *		}
@@ -95,7 +100,7 @@ module puremvc
 		 * @param notification
 		 * 		The <code>INotification</code> the command will receive as parameter.
 		 */
-		public executeCommand( notification:INotification ):void
+		executeCommand( notification:INotification ):void
 		{
 			//TODO Identify if here *any* is the right choice instead of Function ( won't compile if set to Function because it is not newable on new commandClassRef )
 			var commandClassRef:any = this.commandMap[ notification.getName() ];
@@ -124,7 +129,7 @@ module puremvc
 		 * @param commandClassRef
 		 * 		The constructor of the <code>ICommand</code>.
 		 */
-		public registerCommand( notificationName:string, commandClassRef:Function ):void
+		registerCommand( notificationName:string, commandClassRef:Function ):void
 		{
 			if( !this.commandMap[ notificationName ] )
 				this.view.registerObserver( notificationName, new Observer( this.executeCommand, this ) );
@@ -143,7 +148,7 @@ module puremvc
 		 * 		An <code>ICommand</code> is currently registered for the given
 		 * 		<code>notificationName</code>.
 		 */
-		public hasCommand( notificationName:string ):bool
+		hasCommand( notificationName:string ):bool
 		{
 			return this.commandMap[ notificationName ] != null;
 		}
@@ -156,7 +161,7 @@ module puremvc
 		 * 		The name of the <code>INotification</code> to remove the <code>ICommand</code>
 		 * 		mapping for.
 		 */
-		public removeCommand( notificationName:string ):void
+		removeCommand( notificationName:string ):void
 		{
 			// if the Command is registered...
 			if( this.hasCommand( notificationName ) )
@@ -167,7 +172,7 @@ module puremvc
 		}
 
 		/**
-		 * singleton instance local reference.
+		 * Singleton instance local reference.
 		 *
 		 * @protected
 		 */
@@ -186,9 +191,9 @@ module puremvc
 		 * <code>Controller</code> singleton Factory method.
 		 * 
 		 * @return
-		 * 		The singleton instance of the <code>Controller</code>
+		 * 		The singleton instance of <code>Controller</code>
 		 */
-		public static getInstance():IController
+		static getInstance():IController
 		{
 			if( !Controller.instance )
 				Controller.instance = new Controller();

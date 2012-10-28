@@ -6,7 +6,7 @@ module puremvc
 	"use strict";
 	
 	/**
-	 * The <code>Model</code> class for PureMVC.
+	 * The base <code>Model</code> class for PureMVC.
 	 *
 	 * A singleton <code>IModel</code> implementation.
 	 *
@@ -29,10 +29,10 @@ module puremvc
 		 * HashTable of <code>IProxy</code> registered with the <code>Model</code>.
 		 * @protected
 		 */
-		proxyMap:Object;
+		proxyMap:Object = null;
 
 		/**
-		 * This <code>IModel</code> implementation is a singleton,  so you should not call the
+		 * This <code>IModel</code> implementation is a singleton, so you should not call the
 		 * constructor directly, but instead call the static singleton Factory method
 		 * <code>Model.getInstance()</code>.
 		 * 
@@ -68,7 +68,7 @@ module puremvc
 		 * @param proxy
 		 *		An <code>IProxy</code> to be held by the <code>Model</code>.
 		 */
-		public registerProxy( proxy:IProxy ):void
+		registerProxy( proxy:IProxy ):void
 		{
 			this.proxyMap[ proxy.getProxyName() ] = proxy;
 			proxy.onRegister();
@@ -84,7 +84,7 @@ module puremvc
 		 *		The <code>IProxy</code> that was removed from the <code>Model</code> or an
 		 *		explicit <code>null</null> if the <code>IProxy</code> didn't exist.
 		 */
-		public removeProxy( proxyName:string ):IProxy
+		removeProxy( proxyName:string ):IProxy
 		{
 			var proxy:IProxy = this.proxyMap[ proxyName ];
 			if( proxy )
@@ -106,7 +106,7 @@ module puremvc
 		 *		The <code>IProxy</code> instance previously registered with the given
 		 *		<code>proxyName</code> or an explicit <code>null</code> if it doesn't exists.
 		 */
-		public retrieveProxy( proxyName:string ):IProxy
+		retrieveProxy( proxyName:string ):IProxy
 		{
 				//Return a strict null when the proxy doesn't exist
 				return this.proxyMap[proxyName] || null;
@@ -121,7 +121,7 @@ module puremvc
 		 * @return
 		 *		A Proxy is currently registered with the given <code>proxyName</code>.
 		 */
-		public hasProxy( proxyName:string ):bool
+		hasProxy( proxyName:string ):bool
 		{
 			return this.proxyMap[ proxyName ] != null;
 		}
@@ -146,9 +146,9 @@ module puremvc
 		 * <code>Model</code> singleton factory method.
 		 * 
 		 * @return
-		 * 		The singleton instance of the <code>Model</code>.
+		 * 		The singleton instance of <code>Model</code>.
 		 */
-		public static getInstance():IModel
+		static getInstance():IModel
 		{
 			if( !Model.instance )
 				Model.instance = new Model();
