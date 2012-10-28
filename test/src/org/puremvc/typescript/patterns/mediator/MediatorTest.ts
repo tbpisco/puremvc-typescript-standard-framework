@@ -31,20 +31,6 @@ module puremvc
 		name:string = "PureMVC Mediator class tests";
 
 		/**
-		 * Sets up data that is needed by each test.
-		 */
-		setUp():void
-		{
-		}
-
-		/**
-		 * Cleans up everything that was created by setUp().
-		 */
-		tearDown():void
-		{
-		}
-
-		/**
 		 * Tests if constructing the Mediator also call its super by testing for the existence of
 		 * its <code>Notifier</code> superclass facade instance.
 		 */

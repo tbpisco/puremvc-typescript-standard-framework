@@ -18,7 +18,6 @@ module puremvc
 	export class NotifierTestVO
 	{
 		/**
-		 * @constructor
 		 * Constructs a <code>NotifierTestVO</code> instance.
 		 *
 		 * @param input

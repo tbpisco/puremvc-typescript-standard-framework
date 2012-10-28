@@ -35,20 +35,6 @@ module puremvc
 		name:string = "PureMVC Controller class tests";
 
 		/**
-		 * Sets up data that is needed by each test.
-		 */
-		setUp():void
-		{
-		}
-
-		/**
-		 * Cleans up everything that was created by setUp().
-		 */
-		tearDown():void
-		{
-		}
-
-		/**
 		 * Tests the Controller Singleton Factory Method
 		 */
 		testGetInstance():void

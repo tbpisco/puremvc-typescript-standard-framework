@@ -41,20 +41,6 @@ module puremvc
 		name:string = "PureMVC View class tests";
 
 		/**
-		 * Sets up data that is needed by each test.
-		 */
-		setUp():void
-		{
-		}
-
-		/**
-		 * Cleans up everything that was created by setUp().
-		 */
-		tearDown():void
-		{
-		}
-
-		/**
 		 * Store the last notification name called.
 		 */
 		lastNotification:string = "";

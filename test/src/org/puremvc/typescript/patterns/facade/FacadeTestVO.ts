@@ -16,7 +16,6 @@ module puremvc
 	export class FacadeTestVO
 	{
 		/**
-		 * @constructor
 		 * Constructs a <code>FacadeTestVo</code> instance.
 		 *
 		 * @param input

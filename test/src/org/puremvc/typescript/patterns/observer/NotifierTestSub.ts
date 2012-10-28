@@ -23,12 +23,12 @@ module puremvc
 		implements INotifier
 	{
 		/**
-		 * A method to test if <code>Facade</code> instance of the object has
-		 * well been declared during its construction.
+		 * A method to test if <code>Facade</code> instance of the object has well been declared
+		 * during its construction.
 		 *
 		 * @return
-		 * 		<code>Facade</code> instance of the object has well been declared
-		 * 		during its construction.
+		 * 		<code>Facade</code> instance of the object has well been declared during its
+		 * 		construction.
 		 */
 		hasFacade():bool
 		{

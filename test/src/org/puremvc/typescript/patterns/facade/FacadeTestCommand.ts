@@ -26,10 +26,10 @@ module puremvc
 		implements ICommand
 	{
 		/**
-		 * Fabricate a result by multiplying the input by 2
+		 * Fabricate a result by multiplying the input by 2.
 		 *
 		 * @param note
-		 * 		The Notification carrying the FacadeTestVO
+		 * 		The Notification carrying the FacadeTestVO.
 		 */
 		execute( note:INotification )
 		{

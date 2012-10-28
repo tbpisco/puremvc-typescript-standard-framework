@@ -16,7 +16,7 @@ module puremvc
 	export class ControllerTestVO
 	{
 		/**
-		 * @constructor
+		 * Constructs a <code>ControllerTestVO</code> instance.
 		 *
 		 * @param input
 		 *		The number to be fed to the <code>ControllerTestCommand</code>.

@@ -22,7 +22,7 @@ module puremvc
 		implements INotification
 	{
 		/**
-		 * @constructor
+		 * Constructs a <code>Notification</code> subclass instance.
 		 *
 		 * @param name
 		 *		Ignored and forced to NAME.

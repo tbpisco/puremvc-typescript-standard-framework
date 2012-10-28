@@ -22,7 +22,6 @@ module puremvc
 		implements IMediator
 	{
 		/**
-		 * @constructor
 		 * Constructs a <code>Mediator</code> subclass instance.
 		 *
 		 * @param view

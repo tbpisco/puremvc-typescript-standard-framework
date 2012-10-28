@@ -21,13 +21,9 @@ module puremvc
 		extends Proxy
 		implements IProxy
 	{
-
 		/**
-		 * A <code>Proxy</code> subclass used by <code>ModelTest</code> testCase.
-		 *
-		 * @extends puremvc.Proxy Proxy
-		 *
-		 * @constructor
+		 * Constructs a <code>ModelTestProxy</code> instance passing super its default name and
+		 * an empty string initializer.
 		 */
 		constructor()
 		{

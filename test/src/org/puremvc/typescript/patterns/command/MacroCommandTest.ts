@@ -35,20 +35,6 @@ module puremvc
 		name:string = "PureMVC MacroCommmand class tests";
 
 		/**
-		 * Sets up data that is needed by each test.
-		 */
-		setUp():void
-		{
-		}
-
-		/**
-		 * Cleans up everything that was created by setUp().
-		 */
-		tearDown():void
-		{
-		}
-
-		/**
 		 * Tests if constructing the <code>MacroCommand</code> also call its super by testing for
 		 * the existence of its <code>Notifier</code> superclass facade instance.
 		 */

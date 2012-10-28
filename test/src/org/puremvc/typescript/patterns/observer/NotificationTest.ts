@@ -29,20 +29,6 @@ module puremvc
 		name:string = "PureMVC Notification class tests";
 
 		/**
-		 * Sets up data that is needed by each test.
-		 */
-		setUp():void
-		{
-		}
-
-		/**
-		 * Cleans up everything that was created by setUp().
-		 */
-		tearDown():void
-		{
-		}
-
-		/**
 		 * Tests setting and getting the name using Notification class accessor methods.
 		 */
 		testNameAccessors():void

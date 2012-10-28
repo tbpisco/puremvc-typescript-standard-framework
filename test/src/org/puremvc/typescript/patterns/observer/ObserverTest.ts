@@ -36,20 +36,6 @@ module puremvc
 		name:string = "PureMVC Observer class tests";
 
 		/**
-		 * Sets up data that is needed by each test.
-		 */
-		setUp():void
-		{
-		}
-
-		/**
-		 * Cleans up everything that was created by setUp().
-		 */
-		tearDown():void
-		{
-		}
-
-		/**
 		 * A test variable that proves the notify method was executed with 'this' as its execution
 		 * context.
 		 */

@@ -22,7 +22,6 @@ module puremvc
 
 	/**
 	 * Test the PureMVC Proxy class.
-	 *
 	 */
 	export class ProxyTest
 	{
@@ -31,20 +30,6 @@ module puremvc
 		 * YUITest framework.
 		 */
 		name:string = "PureMVC Proxy class tests";
-
-		/**
-		 * Sets up data that is needed by each test.
-		 */
-		setUp():void
-		{
-		}
-
-		/**
-		 * Cleans up everything that was created by setUp().
-		 */
-		tearDown():void
-		{
-		}
 
 		/**
 		 * Tests if constructing the Proxy also call its super by testing for the existence of its

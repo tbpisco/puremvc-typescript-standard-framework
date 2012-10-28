@@ -16,7 +16,6 @@ module puremvc
 	export class MacroCommandTestVO
 	{
 		/**
-		 * @constructor
 		 * Constructs a <code>MacroCommandTestVO</code> instance.
 		 *
 		 * @param input

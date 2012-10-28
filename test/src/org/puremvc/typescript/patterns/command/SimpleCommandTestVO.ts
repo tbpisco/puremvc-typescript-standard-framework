@@ -20,7 +20,6 @@ module puremvc
 	export class SimpleCommandTestVO
 	{
 		/**
-		 * @constructor
 		 * Constructs a <code>SimpleCommandTestVO</code> instance.
 		 *
 		 * @param input

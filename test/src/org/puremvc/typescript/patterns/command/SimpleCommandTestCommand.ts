@@ -20,7 +20,6 @@ module puremvc
 	/**
 	 * A SimpleCommand subclass used by SimpleCommandTest.
 	 */
-
 	export class SimpleCommandTestCommand
 		extends SimpleCommand
 		implements ICommand

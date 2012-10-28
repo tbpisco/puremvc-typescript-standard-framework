@@ -27,11 +27,10 @@ module puremvc
 		implements ICommand
 	{
 		/**
-		 * Fabricate a result by multiplying the input by 2 and adding to the
-		 * existing result.
+		 * Fabricate a result by multiplying the input by 2 and adding to the existing result.
 		 *
-		 * This tests accumulation effect that would show if the command were
-		 * executed more than once.
+		 * This tests accumulation effect that would show if the command were executed more than
+		 * once.
 		 *
 		 * @param note
 		 * 		The note carrying the ControllerTestVO.
