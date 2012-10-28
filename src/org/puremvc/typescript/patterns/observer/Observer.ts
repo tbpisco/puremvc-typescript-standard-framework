@@ -1,8 +1,6 @@
-/*
- PureMVC TypeScript by Frederic Saunier <frederic.saunier@puremvc.org>
- PureMVC - Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 License
-*/
+///<reference path='../../../../../org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='../../../../../org/puremvc/typescript/interfaces/IObserver.ts'/>
+
 module puremvc
 {
 	"use strict";
