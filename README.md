@@ -1,4 +1,4 @@
-## [PureMVC](http://puremvc.github.com/) [TypeScript](https://github.com/PureMVC/puremvc-ruby-standard-framework/wiki) Standard Framework
+## [PureMVC](http://puremvc.github.com/) Standard Framework for [TypeScript](https://github.com/PureMVC/puremvc-typescript-standard-framework/wiki)
 
 These are sources, unit tests and minified library for PureMVC Standard Framework for TypeScript.
 
