@@ -32,12 +32,12 @@ module puremvc
 		proxyMap:Object;
 
 		/**
-		 * This <code>IModel</code> implementation is a Singleton,  so you should not call the
-		 * constructor directly, but instead call the static Singleton Factory method
+		 * This <code>IModel</code> implementation is a singleton,  so you should not call the
+		 * constructor directly, but instead call the static singleton Factory method
 		 * <code>Model.getInstance()</code>.
 		 * 
 		 * @throws Error
-		 * 		Error if Singleton instance has already been constructed.
+		 * 		Error if singleton instance has already been constructed.
 		 */
 		constructor()
 		{
@@ -50,10 +50,10 @@ module puremvc
 		}
 		
 		/**
-		 * Initialize the Singleton <code>Model</code> instance.
+		 * Initialize the singleton <code>Model</code> instance.
 		 *
 		 * Called automatically by the constructor, this is the opportunity to initialize the
-		 * Singleton instance in a subclass without overriding the constructor.
+		 * singleton instance in a subclass without overriding the constructor.
 		 *
 		 * @protected
 		 */
@@ -133,10 +133,10 @@ module puremvc
 		 * @constant
 		 * @protected
 		 */
-		 static SINGLETON_MSG:string = "Model Singleton already constructed!";
+		 static SINGLETON_MSG:string = "Model singleton already constructed!";
 
 		/**
-		 * Singleton instance local reference.
+		 * singleton instance local reference.
 		 *
 		 * @protected
 		 */

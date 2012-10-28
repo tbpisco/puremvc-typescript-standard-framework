@@ -70,7 +70,7 @@ var puremvc;
             }
         };
         Controller.instance = null;
-        Controller.SINGLETON_MSG = "Controller Singleton already constructed!";
+        Controller.SINGLETON_MSG = "Controller singleton already constructed!";
         Controller.getInstance = function getInstance() {
             if(!Controller.instance) {
                 Controller.instance = new Controller();
@@ -115,7 +115,7 @@ var puremvc;
         Model.prototype.hasProxy = function (proxyName) {
             return this.proxyMap[proxyName] != null;
         };
-        Model.SINGLETON_MSG = "Model Singleton already constructed!";
+        Model.SINGLETON_MSG = "Model singleton already constructed!";
         Model.instance = null;
         Model.getInstance = function getInstance() {
             if(!Model.instance) {
@@ -217,7 +217,7 @@ var puremvc;
         View.prototype.hasMediator = function (mediatorName) {
             return this.mediatorMap[mediatorName] != null;
         };
-        View.SINGLETON_MSG = "View Singleton already constructed!";
+        View.SINGLETON_MSG = "View singleton already constructed!";
         View.instance = null;
         View.getInstance = function getInstance() {
             if(!View.instance) {
@@ -351,7 +351,7 @@ var puremvc;
             if (typeof type === "undefined") { type = null; }
             this.notifyObservers(new puremvc.Notification(name, body, type));
         };
-        Facade.SINGLETON_MSG = "Facade Singleton already constructed!";
+        Facade.SINGLETON_MSG = "Facade singleton already constructed!";
         Facade.instance = null;
         Facade.getInstance = function getInstance() {
             if(!Facade.instance) {

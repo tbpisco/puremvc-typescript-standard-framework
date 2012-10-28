@@ -59,8 +59,8 @@ module puremvc
 		/**
 		 * Constructor. 
 		 *
-		 * This <code>IFacade</code> implementation is a Singleton, so you should not call the
-		 * constructor directly, but instead call the static Singleton Factory method
+		 * This <code>IFacade</code> implementation is a singleton, so you should not call the
+		 * constructor directly, but instead call the static singleton Factory method
 		 * <code>Facade.getInstance()</code>.
 		 * 
 		 * @throws Error
@@ -77,7 +77,7 @@ module puremvc
 
 		/**
 		 * Called automatically by the constructor.
-		 * Initialize the Singleton <code>Facade</code> instance.
+		 * Initialize the singleton <code>Facade</code> instance.
 		 *
 		 * Override in your subclass to do any subclass specific initializations. Be sure to
 		 * extend the <code>Facade</code> with the methods and properties on your implementation
@@ -380,17 +380,17 @@ module puremvc
 		 * @constant
 		 * @protected
 		 */
-		static SINGLETON_MSG:string = "Facade Singleton already constructed!";
+		static SINGLETON_MSG:string = "Facade singleton already constructed!";
 
 		/**
-		 * The Singleton Facade instance.
+		 * The singleton Facade instance.
 		 *
 		 * @protected
 		 */
 		static instance:IFacade;
 
 		/**
-		 * Facade Singleton factory method.
+		 * Facade singleton factory method.
 		 * 
 		 * @return
 		 * 		The singleton instance of the <code>Facade</code>.

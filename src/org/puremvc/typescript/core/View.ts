@@ -43,8 +43,8 @@ module puremvc
 		observerMap:Object;
 
 		/**
-		 * This <code>IView</code> implementation is a Singleton, so you should not call the
-		 * constructor directly, but instead call the static Singleton Factory method
+		 * This <code>IView</code> implementation is a singleton, so you should not call the
+		 * constructor directly, but instead call the static singleton Factory method
 		 * <code>View.getInstance()</code>.
 		 * 
 		 * @throws Error
@@ -62,7 +62,7 @@ module puremvc
 		}
 		
 		/**
-		 * Initialize the Singleton View instance.
+		 * Initialize the singleton View instance.
 		 * 
 		 * Called automatically by the constructor. This is the opportunity to initialize the
 		 * singleton instance in a subclass without overriding the constructor.
@@ -267,17 +267,17 @@ module puremvc
 		 * @constant
 		 * @protected
 		 */
-		static SINGLETON_MSG:string = "View Singleton already constructed!";
+		static SINGLETON_MSG:string = "View singleton already constructed!";
 
 		/**
-		 * Singleton instance local reference.
+		 * singleton instance local reference.
 		 *
 		 * @protected
 		 */
 		 static instance:IView;
 
 		/**
-		 * <code>View</code> Singleton Factory method.
+		 * <code>View</code> singleton Factory method.
 		 * 
 		 * @return
 		 * 		The singleton instance of the <code>View</code>.

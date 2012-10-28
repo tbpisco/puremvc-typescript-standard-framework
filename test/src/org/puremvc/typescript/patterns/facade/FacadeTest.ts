@@ -31,7 +31,7 @@ module puremvc
 		name:string = "PureMVC Facade class tests";
 
 		/**
-		 * Tests the Facade Singleton Factory Method
+		 * Tests the Facade singleton Factory Method
 		 */
 		testGetInstance():void
 		{
@@ -56,7 +56,7 @@ module puremvc
 		/**
 		 * Tests Command registration and execution via the Facade.
 		 *
-		 * This test gets the Singleton Facade instance and registers the FacadeTestCommand class to
+		 * This test gets the singleton Facade instance and registers the FacadeTestCommand class to
 		 * handle 'FacadeTest' Notifications.
 		 *
 		 * It then sends a notification using the Facade. Success is determined by evaluating a
@@ -91,7 +91,7 @@ module puremvc
 		/**
 		 * Tests Command removal via the Facade.
 		 *
-		 * This test gets the Singleton Facade instance and registers the FacadeTestCommand class to
+		 * This test gets the singleton Facade instance and registers the FacadeTestCommand class to
 		 * handle 'FacadeTest' Notifcations. Then it removes the command.
 		 *
 		 * It then sends a Notification using the Facade. Success is determined by evaluating a

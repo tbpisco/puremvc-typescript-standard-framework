@@ -60,7 +60,7 @@ module puremvc
 		viewTestVar:number = 0;
 
 		/**
-		 * Tests the View Singleton Factory Method
+		 * Tests the View singleton Factory Method
 		 */
 		testGetInstance():void
 		{
@@ -103,7 +103,7 @@ module puremvc
 		 */
 		testRegisterAndNotifyObserver():void
 		{
-			// Get the Singleton View instance
+			// Get the singleton View instance
 			var view:IView = View.getInstance();
 
 			// Create observer, passing in notification method and context
@@ -149,7 +149,7 @@ module puremvc
 		 */
 		testRegisterAndRetrieveMediator():void
 		{
-			// Get the Singleton View instance
+			// Get the singleton View instance
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
@@ -206,7 +206,7 @@ module puremvc
 		 */
 		testRegisterAndRemoveMediator():void
 		{
-			// Get the Singleton View instance
+			// Get the singleton View instance
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
@@ -241,7 +241,7 @@ module puremvc
 		 */
 		testOnRegisterAndOnRemove():void
 		{
-			// Get the Singleton View instance
+			// Get the singleton View instance
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
@@ -273,7 +273,7 @@ module puremvc
 		 */
 		testSuccessiveRegisterAndRemoveMediator():void
 		{
-			// Get the Singleton View instance
+			// Get the singleton View instance
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator,
@@ -335,7 +335,7 @@ module puremvc
 		 */
 		testRemoveMediatorAndSubsequentNotify():void
 		{
-			// Get the Singleton View instance
+			// Get the singleton View instance
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator to be removed.
@@ -399,7 +399,7 @@ module puremvc
 		 */
 		testRemoveOneOfTwoMediatorsAndSubsequentNotify():void
 		{
-			// Get the Singleton View instance
+			// Get the singleton View instance
 			var view:IView = View.getInstance();
 
 			// Create and register that responds to notifications 1 and 2
@@ -487,7 +487,7 @@ module puremvc
 		testMediatorReregistration():void
 		{
 
-			// Get the Singleton View instance
+			// Get the singleton View instance
 			var view:IView = View.getInstance();
 
 			// Create and register that responds to notification 5
@@ -539,7 +539,7 @@ module puremvc
 		 */
 		testModifyObserverListDuringNotification():void
 		{
-			// Get the Singleton View instance
+			// Get the singleton View instance
 			var view:IView = View.getInstance();
 
 			// Create and register several mediator instances that respond to notification 6

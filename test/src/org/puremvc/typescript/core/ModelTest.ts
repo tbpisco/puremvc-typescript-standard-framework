@@ -26,7 +26,7 @@ module puremvc
 		name:string = "PureMVC Model class tests";
 
 		/**
-		 * Tests the Model Singleton Factory Method.
+		 * Tests the Model singleton Factory Method.
 		 */
 		testGetInstance():void
 		{
@@ -174,7 +174,7 @@ module puremvc
 		 */
 		testOnRegisterAndOnRemove():void
 		{
-			// Get the Singleton View instance
+			// Get the singleton View instance
 			var model:IModel = Model.getInstance();
 
 			// Create and register the test mediator

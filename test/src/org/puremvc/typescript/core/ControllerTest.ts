@@ -29,7 +29,7 @@ module puremvc
 		name:string = "PureMVC Controller class tests";
 
 		/**
-		 * Tests the Controller Singleton Factory Method
+		 * Tests the Controller singleton Factory Method
 		 */
 		testGetInstance():void
 		{
@@ -55,7 +55,7 @@ module puremvc
 		 * Tests Command registration and execution.
 		 *
 		 *
-		 * This test gets the Singleton Controller instance
+		 * This test gets the singleton Controller instance
 		 * and registers the ControllerTestCommand class
 		 * to handle 'ControllerTest' Notifications.
 		 *

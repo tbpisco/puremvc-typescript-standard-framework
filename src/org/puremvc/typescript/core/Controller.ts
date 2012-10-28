@@ -9,7 +9,7 @@ module puremvc
 	"use strict";
 
 	/**
-	 * A Singleton <code>IController</code> implementation.
+	 * A singleton <code>IController</code> implementation.
 	 *
 	 * In PureMVC, the <code>Controller</code> class follows the 'Command and Controller' strategy,
 	 * and assumes these responsibilities:
@@ -47,8 +47,8 @@ module puremvc
 		commandMap:Object;
 
 		/**
-		 * This <code>IController</code> implementation is a Singleton, so you should not call the
-		 * constructor directly, but instead call the static Singleton Factory method
+		 * This <code>IController</code> implementation is a singleton, so you should not call the
+		 * constructor directly, but instead call the static singleton Factory method
 		 * <code>Controller.getInstance()</code>.
 		 * 
 		 * @throws Error
@@ -65,7 +65,7 @@ module puremvc
 		}
 
 		/**
-		 * Initialize the Singleton <code>Controller</code> instance.
+		 * Initialize the singleton <code>Controller</code> instance.
 		 * 
 		 * Called automatically by the constructor.
 		 * 
@@ -167,7 +167,7 @@ module puremvc
 		}
 
 		/**
-		 * Singleton instance local reference.
+		 * singleton instance local reference.
 		 *
 		 * @protected
 		 */
@@ -180,10 +180,10 @@ module puremvc
 		 * @protected
 		 * @constant
 		 */
-		static SINGLETON_MSG:string = "Controller Singleton already constructed!";
+		static SINGLETON_MSG:string = "Controller singleton already constructed!";
 		
 		/**
-		 * <code>Controller</code> Singleton Factory method.
+		 * <code>Controller</code> singleton Factory method.
 		 * 
 		 * @return
 		 * 		The singleton instance of the <code>Controller</code>
