@@ -53,9 +53,10 @@
 			<local name="nolib.arg"/>
 			<local name="target.arg"/>
 			<local name="typescript.file.list"/>
-			<local name="tsc.compile.file"/>
+			<local name="tsc.compile.file.path"/>
+			<local name="tsc.compile.file.content"/>
 
-			<property name="tsc.compile.file" value="@{src}compile.list" />
+			<property name="tsc.compile.file.path" value="@{src}compile.list" />
 
 			<!-- Optional arguments are not written to compile file when attributes not set -->
 			<condition property="out.arg" value="" else='${line.separator}--out "@{out}"'>
@@ -96,20 +97,22 @@
 
 			</pathconvert>
 
+			<property name="tsc.compile.file.content" value="${typescript.file.list}${out.arg}${module.arg}${comments.arg}${declarations.arg}${nolib.arg}${target.arg}" />
 
 			<!-- Write to the file -->
-			<echo message="Writing tsc command line arguments to : ${tsc.compile.file}" />
-			<echo file="${tsc.compile.file}" message="${typescript.file.list}${out.arg}${module.arg}${comments.arg}${declarations.arg}${nolib.arg}${target.arg}" append="false" />
+			<echo message="Writing tsc command line arguments to : ${tsc.compile.file.path}" />
+			<echo message="${tsc.compile.file.content}" />
+			<echo file="${tsc.compile.file.path}" message="${tsc.compile.file.content}" append="false" />
 
 			<!-- Compile using the generated compile file -->
-			<echo message="Calling ${typescript.compiler.path} with ${tsc.compile.file}" />
+			<echo message="Calling ${typescript.compiler.path} with ${tsc.compile.file.path}" />
 			<exec dir="@{src}" executable="${typescript.compiler.path}">
-				<arg value="@${tsc.compile.file}"/>
+				<arg value="@${tsc.compile.file.path}"/>
 			</exec>
 
 			<!-- Finally delete the compile file -->
-			<echo message="${tsc.compile.file} deleted" />
-			<delete file="${tsc.compile.file}" />
+			<echo message="${tsc.compile.file.path} deleted" />
+			<delete file="${tsc.compile.file.path}" />
 
 		</sequential>
 
@@ -163,8 +166,9 @@
 			Because the TypeScript compiler doesn't know how to output a specific file to a specific
 			path. We let it output JavaScript compiled files beside TypeScript files. As the
 			TypeScript files must be removed at the end of the operation, it's better to work on a
-			copy of the source files for obvious reasons. The generated directory will also be used
-			to debug plain JavaScript files stored in their respective class path.
+			copy of both source files and test sources files for obvious reasons. The generated
+			directory will also be used to debug plain JavaScript files stored in their respective
+			class path.
 
 			Ant can fix the problem using <apply /> and <redirector /> but it is way too slow
 			because it process each file independently in a tsc call for each file.
@@ -284,15 +288,15 @@
 			clean.bin,
 			remove.src-js,
 			compile.src,
-			compress
+			compress,
+			remove.src-js
 		"
 	/>
 
 	<target
 		name="build.test"
 		description="Compile tests from TypeScript to JavaScript"
-		depends=
-		"
+		depends="
 			remove.test-js,
 			compile.test
 		"
@@ -301,8 +305,7 @@
 	<target
 		name="build.all"
 		description="Compile TypeScript to JavaScript, concatenate JavaScript and minify sets of JavaScript files"
-		depends=
-		"
+		depends="
 			build.src,
 			build.test
 		"
