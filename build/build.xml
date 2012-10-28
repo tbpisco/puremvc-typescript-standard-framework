@@ -131,6 +131,7 @@
 			out="${release-file-path}"
 			module="amd"
 			target="ES5"
+			declarations="${declarations-file-path}"
 		/>
 
 		<antcall target="clean.src" />
