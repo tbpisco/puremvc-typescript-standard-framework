@@ -32,8 +32,7 @@ module puremvc
 		}
 
 		/**
-		 * Standard getter to return the view handled by the
-		 * <code>Mediator</code>.
+		 * Standard getter to return the view handled by the <code>Mediator</code>.
 		 *
 		 * @return
 		 * 		The view handled by the <code>Mediator</code>.

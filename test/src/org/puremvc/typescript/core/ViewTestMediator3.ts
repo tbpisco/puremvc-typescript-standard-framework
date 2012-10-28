@@ -29,8 +29,7 @@ module puremvc
 		}
 
 		/**
-		 * Standard getter to return the view handled by the
-		 * <code>Mediator</code>.
+		 * Standard getter to return the view handled by the <code>Mediator</code>.
 		 *
 		 * @return
 		 * 		The view handled by the <code>Mediator</code>.
@@ -44,13 +43,11 @@ module puremvc
 		 * @override
 		 *
 		 * @return
-		 * 		The list of notifications names in which is interested the
-		 * 		<code>Mediator</code>.
+		 * 		The list of notifications names in which is interested the <code>Mediator</code>.
 		 */
 		listNotificationInterests():string[]
 		{
-			// be sure that the mediator has some Observers created
-			// in order to test removeMediator
+			// Be sure that the mediator has some Observers created in order to test removeMediator.
 			return [ ViewTest.NOTE3 ];
 		}
 

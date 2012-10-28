@@ -169,13 +169,10 @@ module puremvc
 		/**
 		 * Tests Removing and Reregistering a Command
 		 *
-		 * Tests that when a Command is re-registered that it isn't fired twice.
-		 * This involves, minimally, registration with the controller but
-		 * notification via the View, rather than direct execution of
-		 * the Controller's executeCommand method as is done above in
-		 * testRegisterAndRemove. The bug under test was fixed in AS3 Standard
-		 * Version 2.0.2. If you run the unit tests with 2.0.1 this
-		 * test will fail.
+		 * Tests that when a Command is re-registered that it isn't fired twice. This involves,
+		 * minimally, registration with the controller but notification via the View, rather than
+		 * direct execution of the Controller's executeCommand method as is done above in
+		 * testRegisterAndRemove.
 		 */
 		testReregisterAndExecuteCommand():void
 		{

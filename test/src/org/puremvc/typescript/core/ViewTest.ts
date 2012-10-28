@@ -544,8 +544,7 @@ module puremvc
 
 			// Create and register several mediator instances that respond to notification 6
 			// by removing themselves, which will cause the observer list for that notification
-			// to change. versions prior to Standard Version 2.0.4 will see every other mediator
-			// fails to be notified.
+			// to change.
 			view.registerMediator( new ViewTestMediator6( ViewTestMediator6.NAME+"/1", this ) );
 			view.registerMediator( new ViewTestMediator6( ViewTestMediator6.NAME+"/2", this ) );
 			view.registerMediator( new ViewTestMediator6( ViewTestMediator6.NAME+"/3", this ) );
