@@ -134,8 +134,6 @@
 			declarations="${declarations-file-path}"
 		/>
 
-		<antcall target="clean.src" />
-
 	</target>
 
 	<target name="compile.test" description="Compile unit tests sources files from TypeScript to JavaScript">
@@ -147,8 +145,6 @@
 			module="amd"
 			target="ES5"
 		/>
-
-		<antcall target="clean.test" />
 
 	</target>
 
@@ -243,8 +239,8 @@
 		"
 			clean.src.bin,
 			compile.src,
-			compress,
-			clean.src
+			clean.src,
+			compress
 		"
 	/>
 
