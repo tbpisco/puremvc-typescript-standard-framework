@@ -3,6 +3,8 @@ var puremvc;
     "use strict";
     var Observer = (function () {
         function Observer(notifyMethod, notifyContext) {
+            this.notify = null;
+            this.context = null;
             this.setNotifyMethod(notifyMethod);
             this.setNotifyContext(notifyContext);
         }
@@ -19,9 +21,7 @@ var puremvc;
             this.context = notifyContext;
         };
         Observer.prototype.notifyObserver = function (notification) {
-            this.getNotifyMethod().apply(this.getNotifyContext(), [
-                notification
-            ]);
+            this.getNotifyMethod().call(this.getNotifyContext(), notification);
         };
         Observer.prototype.compareNotifyContext = function (object) {
             return object === this.context;
@@ -36,6 +36,8 @@ var puremvc;
     "use strict";
     var Controller = (function () {
         function Controller() {
+            this.view = null;
+            this.commandMap = null;
             if(Controller.instance) {
                 throw Error(Controller.SINGLETON_MSG);
             }
@@ -87,6 +89,7 @@ var puremvc;
     "use strict";
     var Model = (function () {
         function Model() {
+            this.proxyMap = null;
             if(Model.instance) {
                 throw Error(Model.SINGLETON_MSG);
             }
@@ -133,6 +136,8 @@ var puremvc;
     "use strict";
     var View = (function () {
         function View() {
+            this.mediatorMap = null;
+            this.observerMap = null;
             if(View.instance) {
                 throw Error(View.SINGLETON_MSG);
             }
@@ -189,7 +194,7 @@ var puremvc;
             this.mediatorMap[name] = mediator;
             var interests = mediator.listNotificationInterests();
             var len = interests.length;
-            if(len) {
+            if(len > 0) {
                 var observer = new puremvc.Observer(mediator.handleNotification, mediator);
                 for(var i = 0; i < len; i++) {
                     this.registerObserver(interests[i], observer);
@@ -237,6 +242,9 @@ var puremvc;
         function Notification(name, body, type) {
             if (typeof body === "undefined") { body = null; }
             if (typeof type === "undefined") { type = null; }
+            this.name = null;
+            this.body = null;
+            this.type = null;
             this.name = name;
             this.body = body;
             this.type = type;
@@ -272,6 +280,9 @@ var puremvc;
     "use strict";
     var Facade = (function () {
         function Facade() {
+            this.model = null;
+            this.view = null;
+            this.controller = null;
             if(Facade.instance) {
                 throw Error(Facade.SINGLETON_MSG);
             }
@@ -369,6 +380,7 @@ var puremvc;
     "use strict";
     var Notifier = (function () {
         function Notifier() {
+            this.facade = null;
             this.facade = puremvc.Facade.getInstance();
         }
         Notifier.prototype.sendNotification = function (name, body, type) {
@@ -393,6 +405,7 @@ var puremvc;
         __extends(MacroCommand, _super);
         function MacroCommand() {
                 _super.call(this);
+            this.subCommands = null;
             this.subCommands = new Array();
             this.initializeMacroCommand();
         }
@@ -441,6 +454,8 @@ var puremvc;
             if (typeof mediatorName === "undefined") { mediatorName = null; }
             if (typeof viewComponent === "undefined") { viewComponent = null; }
                 _super.call(this);
+            this.mediatorName = null;
+            this.viewComponent = null;
             this.mediatorName = (mediatorName != null) ? mediatorName : Mediator.NAME;
             this.viewComponent = viewComponent;
         }
@@ -477,6 +492,8 @@ var puremvc;
             if (typeof proxyName === "undefined") { proxyName = null; }
             if (typeof data === "undefined") { data = null; }
                 _super.call(this);
+            this.proxyName = null;
+            this.data = null;
             this.proxyName = (proxyName != null) ? proxyName : Proxy.NAME;
             if(data != null) {
                 this.setData(data);
@@ -495,7 +512,7 @@ var puremvc;
         };
         Proxy.prototype.onRemove = function () {
         };
-        Proxy.NAME = 'Proxy';
+        Proxy.NAME = "Proxy";
         return Proxy;
     })(puremvc.Notifier);
     puremvc.Proxy = Proxy;    
