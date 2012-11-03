@@ -130,15 +130,20 @@
 		<attribute name="out" />
 		<attribute name="module" />
 
-		<attribute name="imports1" default=""/>
-		<attribute name="imports2" default="" />
+		<attribute name="imports" default=""/>
 
 		<sequential>
 
 			<local name="file.content"/>
 
+			<replaceregexp file="@{in}"
+				match="^"
+				replace="        "
+				byline="true"
+			/>
+
 			<loadfile property="file.content" srcFile="@{in}"/>
-			<echo file="@{in}">if( typeof define === "function" )${line.separator}	define( "@{module}", [@{imports1}], function(@{imports2}){${line.separator}${file.content}${line.separator}	return @{module};${line.separator}});</echo>
+			<echo file="@{in}">if( typeof define === "function" )${line.separator}{${line.separator}	define( "@{module}", [@{imports}], function(@{imports})${line.separator}	{${line.separator}${file.content}${line.separator}		return puremvc;${line.separator}	});${line.separator}}</echo>
 
 		</sequential>
 
@@ -185,8 +190,7 @@
 			in="${unit-test-file-path}"
 			out="${unit-test-file-path}"
 			module="test"
-			imports1="'YUITest','puremvc'"
-			imports2="YUITest,puremvc"
+			imports="YUITest puremvc"
 		/>
 
 	</target>
