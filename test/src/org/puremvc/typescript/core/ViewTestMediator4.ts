@@ -11,7 +11,7 @@ module test
 	 * A Mediator class used by ViewTest.
 	 */
 	export class ViewTestMediator4
-		extends Mediator
+		extends puremvc.Mediator
 		implements puremvc.IMediator
 	{
 		/**

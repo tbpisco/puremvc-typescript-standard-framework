@@ -46,7 +46,7 @@ module test
 		testNameAccessor():void
 		{
 			// Create a new Mediator and use accessors to set the mediator name
-			var mediator:puremvc.IMediator = new Mediator();
+			var mediator:puremvc.IMediator = new puremvc.Mediator();
 
 			// test assertions
 			YUITest.Assert.areEqual
@@ -66,7 +66,7 @@ module test
 			var view:Object = new Object();
 
 			// Create a new Proxy and use accessors to set the proxy name
-			var mediator:puremvc.IMediator = new Mediator( Mediator.NAME, view );
+			var mediator:puremvc.IMediator = new puremvc.Mediator( puremvc.Mediator.NAME, view );
 
 			// test assertions
 			YUITest.Assert.isNotNull

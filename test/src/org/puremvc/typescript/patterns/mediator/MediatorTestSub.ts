@@ -9,7 +9,7 @@ module test
 	 * A <code>Mediator</code> utility subclass used by <code>MediatorTest</code>.
 	 */
 	export class MediatorTestSub
-		extends Mediator
+		extends puremvc.Mediator
 		implements puremvc.IMediator
 	{
 		/**

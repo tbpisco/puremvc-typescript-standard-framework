@@ -172,7 +172,7 @@ module test
 			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register the test mediator
-			var mediator:puremvc.IMediator = new Mediator( 'hasMediatorTest', this );
+			var mediator:puremvc.IMediator = new puremvc.Mediator( 'hasMediatorTest', this );
 			view.registerMediator( mediator );
 
 			// assert that the view.hasMediator method returns true
@@ -203,7 +203,7 @@ module test
 			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register the test mediator
-			var mediator:puremvc.IMediator = new Mediator( 'testing', this );
+			var mediator:puremvc.IMediator = new puremvc.Mediator( 'testing', this );
 			view.registerMediator( mediator );
 
 			// Remove the component

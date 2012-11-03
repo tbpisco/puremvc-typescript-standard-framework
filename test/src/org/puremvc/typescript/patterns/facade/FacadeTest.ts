@@ -217,7 +217,7 @@ module test
 		{
 			// register a mediator, remove it, then try to retrieve it
 			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
-			facade.registerMediator( new Mediator( Mediator.NAME, new Object() ) );
+			facade.registerMediator( new Mediator( puremvc.Mediator.NAME, new Object() ) );
 
 			// retrieve the mediator
 			YUITest.Assert.isNotNull
@@ -227,12 +227,12 @@ module test
 			);
 
 			// remove the mediator
-			var removedMediator:puremvc.IMediator = facade.removeMediator(Mediator.NAME);
+			var removedMediator:puremvc.IMediator = facade.removeMediator(puremvc.Mediator.NAME);
 
 			// assert that we have removed the appropriate mediator
 			YUITest.Assert.areEqual
 			(
-				Mediator.NAME,
+				puremvc.Mediator.NAME,
 				removedMediator ? removedMediator.getMediatorName() : null,
 				"Expecting removedMediator.getMediatorName() == Mediator.NAME"
 			);
@@ -240,7 +240,7 @@ module test
 			// assert that the mediator is no longer retrievable
 			YUITest.Assert.isNull
 			(
-				facade.retrieveMediator( Mediator.NAME ),
+				facade.retrieveMediator( puremvc.Mediator.NAME ),
 				"Expecting facade.retrieveMediator( Mediator.NAME ) === null )"
 			);
 		}
@@ -270,7 +270,7 @@ module test
 		{
 			// register a Mediator
 			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
-			facade.registerMediator( new Mediator( 'facadeHasMediatorTest', new Object() ) );
+			facade.registerMediator( new puremvc.Mediator( 'facadeHasMediatorTest', new Object() ) );
 
 			// assert that the facade.hasMediator method returns true
 			// for that mediator name

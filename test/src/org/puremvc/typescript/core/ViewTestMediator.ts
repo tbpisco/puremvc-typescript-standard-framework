@@ -9,7 +9,7 @@ module test
 	 * A Mediator class used by ViewTest.
 	 */
 	export class ViewTestMediator
-		extends Mediator
+		extends puremvc.Mediator
 		implements puremvc.IMediator
 	{
 		/**
