@@ -1,4 +1,5 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
+///<reference path='../../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 module test
 {

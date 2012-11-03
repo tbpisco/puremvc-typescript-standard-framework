@@ -170,7 +170,6 @@
 		<TypeScriptRecurse
 			src="${test.src.dir}"
 			out="${unit-test-file-path}"
-			module="amd"
 			target="ES5"
 		/>
 
