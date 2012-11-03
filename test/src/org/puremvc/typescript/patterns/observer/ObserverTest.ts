@@ -40,7 +40,7 @@ module test
 			 * Create observer with null args, then use accessors to set notification method and
 			 * context.
 			 */
-			var observer:IObserver = new Observer( null, null );
+			var observer:puremvc.IObserver = new puremvc.Observer( null, null );
 			observer.setNotifyContext(this);
 			observer.setNotifyMethod( this.observerTestMethod );
 
@@ -68,7 +68,7 @@ module test
 		testObserverConstructor():void
 		{
 			// Create observer passing in notification method and context.
-			var observer:IObserver = new Observer( this.observerTestMethod, this );
+			var observer:puremvc.IObserver = new puremvc.Observer( this.observerTestMethod, this );
 
 			/*
 			 * Create a test note, setting a body value and notify the observer with it. since the
@@ -94,7 +94,7 @@ module test
 		testCompareNotifyContext():void
 		{
 			// Create observer passing in notification method and context
-			var observer:IObserver = new Observer( this.observerTestMethod, this );
+			var observer:puremvc.IObserver = new puremvc.Observer( this.observerTestMethod, this );
 			var negTestObj:Object = new Object();
 
 			// test assertions

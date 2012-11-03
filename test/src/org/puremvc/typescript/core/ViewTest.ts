@@ -100,7 +100,7 @@ module test
 			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create observer, passing in notification method and context
-			var observer:IObserver = new Observer( this.viewTestMethod, this );
+			var observer:puremvc.IObserver = new puremvc.Observer( this.viewTestMethod, this );
 
 			// Register Observer's interest in a particular Notification with the View
 			view.registerObserver(ViewTestNote.NAME, observer);

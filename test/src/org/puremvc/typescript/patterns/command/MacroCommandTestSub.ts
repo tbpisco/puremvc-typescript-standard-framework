@@ -9,7 +9,7 @@ module test
 	 * A <code>MacroCommand</code> utility subclass used by <code>MacroCommandTest</code>.
 	 */
 	export class MacroCommandTestSub
-		extends MacroCommand
+		extends puremvc.MacroCommand
 		implements puremvc.ICommand
 	{
 		/**
