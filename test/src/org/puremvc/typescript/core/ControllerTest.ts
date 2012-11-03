@@ -160,10 +160,10 @@ module test
 		/**
 		 * Tests Removing and Reregistering a Command
 		 *
-		 * Tests that when a Command is re-registered that it isn't fired twice. This involves,
-		 * minimally, registration with the controller but notification via the View, rather than
-		 * direct execution of the Controller's executeCommand method as is done above in
-		 * testRegisterAndRemove.
+		 * Tests that when a command is re-registered that it isn't fired twice. This involves,
+		 * minimally, registration with the controller but notification via the <code>View</code>,
+		 * rather than direct execution of the <code>Controller</code>'s executeCommand method as is
+		 * done above in <code>testRegisterAndRemove</code>.
 		 */
 		testReregisterAndExecuteCommand():void
 		{
@@ -182,7 +182,7 @@ module test
 			var note:puremvc.INotification = new puremvc.Notification( 'ControllerTest2', vo );
 
 			// retrieve a reference to the View.
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// send the Notification
 			view.notifyObservers(note);

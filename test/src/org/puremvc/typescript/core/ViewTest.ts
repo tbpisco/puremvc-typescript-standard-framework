@@ -58,7 +58,7 @@ module test
 		testGetInstance():void
 		{
 			// Test Factory Method
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// test assertions
 			YUITest.Assert.isNotNull
@@ -69,7 +69,7 @@ module test
 
 			YUITest.Assert.isInstanceOf
 			(
-				View,
+				puremvc.View,
 				view,
 				"Expecting instance implements View"
 			);
@@ -97,7 +97,7 @@ module test
 		testRegisterAndNotifyObserver():void
 		{
 			// Get the singleton View instance
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create observer, passing in notification method and context
 			var observer:IObserver = new Observer( this.viewTestMethod, this );
@@ -143,7 +143,7 @@ module test
 		testRegisterAndRetrieveMediator():void
 		{
 			// Get the singleton View instance
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register the test mediator
 			var viewTestMediator:puremvc.IMediator = new ViewTestMediator( this );
@@ -169,7 +169,7 @@ module test
 		testHasMediator():void
 		{
 			// register a Mediator
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register the test mediator
 			var mediator:puremvc.IMediator = new Mediator( 'hasMediatorTest', this );
@@ -200,7 +200,7 @@ module test
 		testRegisterAndRemoveMediator():void
 		{
 			// Get the singleton View instance
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register the test mediator
 			var mediator:puremvc.IMediator = new Mediator( 'testing', this );
@@ -235,7 +235,7 @@ module test
 		testOnRegisterAndOnRemove():void
 		{
 			// Get the singleton View instance
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register the test mediator
 			var mediator:puremvc.IMediator = new ViewTestMediator4( this );
@@ -267,7 +267,7 @@ module test
 		testSuccessiveRegisterAndRemoveMediator():void
 		{
 			// Get the singleton View instance
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register the test mediator,
 			// but not so we have a reference to it
@@ -329,7 +329,7 @@ module test
 		testRemoveMediatorAndSubsequentNotify():void
 		{
 			// Get the singleton View instance
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register the test mediator to be removed.
 			view.registerMediator( new ViewTestMediator2( this ) );
@@ -393,7 +393,7 @@ module test
 		testRemoveOneOfTwoMediatorsAndSubsequentNotify():void
 		{
 			// Get the singleton View instance
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register that responds to notifications 1 and 2
 			view.registerMediator( new ViewTestMediator2( this ) );
@@ -481,7 +481,7 @@ module test
 		{
 
 			// Get the singleton View instance
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register that responds to notification 5
 			view.registerMediator( new ViewTestMediator5( this ) );
@@ -533,7 +533,7 @@ module test
 		testModifyObserverListDuringNotification():void
 		{
 			// Get the singleton View instance
-			var view:IView = View.getInstance();
+			var view:puremvc.IView = puremvc.View.getInstance();
 
 			// Create and register several mediator instances that respond to notification 6
 			// by removing themselves, which will cause the observer list for that notification
