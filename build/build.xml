@@ -130,7 +130,8 @@
 		<attribute name="out" />
 		<attribute name="module" />
 
-		<attribute name="imports" default=""/>
+		<attribute name="paths" default=""/>
+		<attribute name="params" default=""/>
 
 		<sequential>
 
@@ -143,7 +144,7 @@
 			/>
 
 			<loadfile property="file.content" srcFile="@{in}"/>
-			<echo file="@{in}">if( typeof define === "function" )${line.separator}{${line.separator}	define( "@{module}", [@{imports}], function(@{imports})${line.separator}	{${line.separator}${file.content}${line.separator}		return puremvc;${line.separator}	});${line.separator}}</echo>
+			<echo file="@{in}">if( typeof define === "function" )${line.separator}{${line.separator}	define( "@{module}", [@{paths}], function(@{params})${line.separator}	{${line.separator}${file.content}${line.separator}		return @{module};${line.separator}	});${line.separator}}</echo>
 
 		</sequential>
 
@@ -190,7 +191,8 @@
 			in="${unit-test-file-path}"
 			out="${unit-test-file-path}"
 			module="test"
-			imports="YUITest puremvc"
+			paths="'YUITest','puremvc'"
+			params="YUITest,puremvc"
 		/>
 
 	</target>
