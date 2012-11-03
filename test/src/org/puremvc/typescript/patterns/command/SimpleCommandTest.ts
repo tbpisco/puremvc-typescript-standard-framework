@@ -57,7 +57,7 @@ module test
 			var vo:SimpleCommandTestVO = new SimpleCommandTestVO(5);
 
 			// Create the Notification (note)
-			var note:puremvc.INotification = new Notification( 'SimpleCommandTestNote', vo );
+			var note:puremvc.INotification = new puremvc.Notification( 'SimpleCommandTestNote', vo );
 
 			// Create the SimpleCommand
 			var command:puremvc.ICommand = new SimpleCommandTestCommand();

@@ -130,7 +130,7 @@ module test
 		 * @param note
 		 *		The note to test.
 		 */
-		viewTestMethod( note:Notification )
+		viewTestMethod( note:INotification )
 		{
 			// set the local viewTestVar to the number on the event payload
 			this.viewTestVar = note.getBody();
@@ -335,7 +335,7 @@ module test
 			view.registerMediator( new ViewTestMediator2( this ) );
 
 			// test that notifications work
-			view.notifyObservers( new Notification(ViewTest.NOTE1) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE1) );
 			YUITest.Assert.areEqual
 			(
 				ViewTest.NOTE1,
@@ -343,7 +343,7 @@ module test
 				"Expecting lastNotification == NOTE1"
 			);
 
-			view.notifyObservers( new Notification(ViewTest.NOTE2) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE2) );
 			YUITest.Assert.areEqual
 			(
 				ViewTest.NOTE2,
@@ -366,7 +366,7 @@ module test
 			// on this component, and ViewTestMediator)
 			this.lastNotification = null;
 
-			view.notifyObservers( new Notification(ViewTest.NOTE1) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE1) );
 			YUITest.Assert.areNotEqual
 			(
 				ViewTest.NOTE1,
@@ -374,7 +374,7 @@ module test
 				"Expecting lastNotification != NOTE1"
 			);
 
-			view.notifyObservers( new Notification(ViewTest.NOTE2) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE2) );
 			YUITest.Assert.areNotEqual
 			(
 				ViewTest.NOTE2,
@@ -402,7 +402,7 @@ module test
 			view.registerMediator( new ViewTestMediator3( this ) );
 
 			// test that all notifications work
-			view.notifyObservers( new Notification(ViewTest.NOTE1) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE1) );
 			YUITest.Assert.areEqual
 			(
 				ViewTest.NOTE1,
@@ -410,7 +410,7 @@ module test
 				"Expecting lastNotification == NOTE1"
 			);
 
-			view.notifyObservers( new Notification(ViewTest.NOTE2) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE2) );
 			YUITest.Assert.areEqual
 			(
 				ViewTest.NOTE2,
@@ -418,7 +418,7 @@ module test
 				"Expecting lastNotification == NOTE2"
 			);
 
-			view.notifyObservers( new Notification(ViewTest.NOTE3) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE3) );
 			YUITest.Assert.areEqual
 			(
 				ViewTest.NOTE3,
@@ -440,7 +440,7 @@ module test
 			// for notifications 1 and 2, but still work for 3
 			this.lastNotification = null;
 
-			view.notifyObservers( new Notification(ViewTest.NOTE1) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE1) );
 			YUITest.Assert.areNotEqual
 			(
 				ViewTest.NOTE1,
@@ -448,7 +448,7 @@ module test
 				"Expecting lastNotification != NOTE1"
 			);
 
-			view.notifyObservers( new Notification(ViewTest.NOTE2) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE2) );
 			YUITest.Assert.areNotEqual
 			(
 				ViewTest.NOTE2,
@@ -456,7 +456,7 @@ module test
 				"Expecting lastNotification != NOTE2"
 			);
 
-			view.notifyObservers( new Notification(ViewTest.NOTE3) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE3) );
 			YUITest.Assert.areEqual
 			(
 				ViewTest.NOTE3,
@@ -491,7 +491,7 @@ module test
 
 			// test that the counter is only incremented once (mediator 5's response)
 			this.counter=0;
-			view.notifyObservers( new Notification(ViewTest.NOTE5) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE5) );
 			YUITest.Assert.areEqual
 			(
 				1,
@@ -511,7 +511,7 @@ module test
 
 			// test that the counter is no longer incremented
 			this.counter=0;
-			view.notifyObservers( new Notification(ViewTest.NOTE5) );
+			view.notifyObservers( new puremvc.Notification(ViewTest.NOTE5) );
 			YUITest.Assert.areEqual
 			(
 				0,
@@ -553,7 +553,7 @@ module test
 			// send the notification. each of the above mediators will respond by removing
 			// themselves and incrementing the counter by 1. This should leave us with a
 			// count of 8, since 8 mediators will respond.
-			view.notifyObservers( new Notification( ViewTest.NOTE6 ) );
+			view.notifyObservers( new puremvc.Notification( ViewTest.NOTE6 ) );
 
 			// verify the count is correct
 			YUITest.Assert.areEqual
@@ -565,7 +565,7 @@ module test
 
 			// clear the counter
 			this.counter=0;
-			view.notifyObservers( new Notification( ViewTest.NOTE6 ) );
+			view.notifyObservers( new puremvc.Notification( ViewTest.NOTE6 ) );
 
 			// verify the count is 0
 			YUITest.Assert.areEqual

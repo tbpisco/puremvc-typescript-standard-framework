@@ -50,7 +50,7 @@ module test
 			 * successful notification will result in our local observerTestVar being set to the
 			 * value we pass in on the note body.
 			 */
-			var note:puremvc.INotification = new Notification( 'ObserverTestNote', 10 );
+			var note:puremvc.INotification = new puremvc.Notification( 'ObserverTestNote', 10 );
 			observer.notifyObserver(note);
 
 			// test assertions
@@ -76,7 +76,7 @@ module test
 			 * notification will result in our local observerTestVar being set to the value we pass
 			 * in on the note body.
 			 */
-			var note:puremvc.INotification = new Notification( 'ObserverTestNote', 5 );
+			var note:puremvc.INotification = new puremvc.Notification( 'ObserverTestNote', 5 );
 			observer.notifyObserver(note);
 
 			// test assertions

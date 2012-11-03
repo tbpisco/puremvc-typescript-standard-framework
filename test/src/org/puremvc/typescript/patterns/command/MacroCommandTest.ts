@@ -70,7 +70,7 @@ module test
 			var vo:MacroCommandTestVO = new MacroCommandTestVO(5);
 
 			// Create the Notification (note)
-			var note:puremvc.INotification = new Notification( 'MacroCommandTest', vo );
+			var note:puremvc.INotification = new puremvc.Notification( 'MacroCommandTest', vo );
 
 			// Create the MacroCommand
 			var command:puremvc.ICommand = new MacroCommandTestCommand();

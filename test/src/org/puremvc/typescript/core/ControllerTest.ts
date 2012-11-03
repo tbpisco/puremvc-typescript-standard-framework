@@ -65,7 +65,7 @@ module test
 
 			// Create a 'ControllerTest' note
 			var vo:ControllerTestVO = new ControllerTestVO(12);
-			var note:Notification = new Notification( 'ControllerTest', vo );
+			var note:puremvc.INotification = new puremvc.Notification( 'ControllerTest', vo );
 
 			// Tell the controller to execute the Command associated with the note
 			// the ControllerTestCommand invoked will multiply the vo.input value
@@ -95,7 +95,7 @@ module test
 
 			// Create a 'ControllerTest' note
 			var vo:ControllerTestVO = new ControllerTestVO(12) ;
-			var note:Notification = new Notification( 'ControllerRemoveTest', vo );
+			var note:puremvc.INotification = new puremvc.Notification( 'ControllerRemoveTest', vo );
 
 			// Tell the controller to execute the Command associated with the note
 			// the ControllerTestCommand invoked will multiply the vo.input value
@@ -179,7 +179,7 @@ module test
 
 			// Create a 'ControllerTest2' note
 			var vo:ControllerTestVO = new ControllerTestVO( 12 );
-			var note:Notification = new Notification( 'ControllerTest2', vo );
+			var note:puremvc.INotification = new puremvc.Notification( 'ControllerTest2', vo );
 
 			// retrieve a reference to the View.
 			var view:IView = View.getInstance();

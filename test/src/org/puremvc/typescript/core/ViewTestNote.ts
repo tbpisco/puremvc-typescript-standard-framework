@@ -9,7 +9,7 @@ module test
 	 * A Notification class used by ViewTest.
 	 */
 	export class ViewTestNote
-		extends Notification
+		extends puremvc.Notification
 		implements puremvc.INotification
 	{
 		/**
