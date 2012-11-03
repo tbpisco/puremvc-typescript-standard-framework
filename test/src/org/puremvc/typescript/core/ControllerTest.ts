@@ -24,12 +24,12 @@ module test
 		name:string = "PureMVC Controller class tests";
 
 		/**
-		 * Tests the Controller singleton Factory Method
+		 * Tests the <code>Controller</code> singleton Factory Method
 		 */
 		testGetInstance():void
 		{
 			// Test Factory Method
-			var controller:IController = Controller.getInstance();
+			var controller:puremvc.IController = puremvc.Controller.getInstance();
 
 			// test assertions
 			YUITest.Assert.isNotNull
@@ -40,7 +40,7 @@ module test
 
 			YUITest.Assert.isInstanceOf
 			(
-				Controller,
+				puremvc.Controller,
 				controller,
 				"Expecting instance extends Controller"
 			);
@@ -50,21 +50,17 @@ module test
 		 * Tests Command registration and execution.
 		 *
 		 *
-		 * This test gets the singleton Controller instance
-		 * and registers the ControllerTestCommand class
-		 * to handle 'ControllerTest' Notifications.
+		 * This test gets the singleton Controller instance and registers the ControllerTestCommand
+		 * class to handle 'ControllerTest' Notifications.
 		 *
-		 *
-		 * It then constructs such a Notification and tells the
-		 * Controller to execute the associated Command.
-		 * Success is determined by evaluating a property
-		 * on an object passed to the Command, which will
-		 * be modified when the Command executes.
+		 * It then constructs such a Notification and tells the Controller to execute the associated
+		 * Command. Success is determined by evaluating a property on an object passed to the
+		 * Command, which will be modified when the Command executes.
 		 */
 		testRegisterAndExecuteCommand():void
 		{
 			// Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes
-			var controller:IController = Controller.getInstance();
+			var controller:puremvc.IController = puremvc.Controller.getInstance();
 			controller.registerCommand( 'ControllerTest', ControllerTestCommand );
 
 			// Create a 'ControllerTest' note
@@ -88,13 +84,13 @@ module test
 		/**
 		 * Tests Command registration and removal.
 		 *
-		 * Tests that once a Command is registered and verified
-		 * working, it can be removed from the Controller.
+		 * Tests that once a Command is registered and verified working, it can be removed from the
+		 * Controller.
 		 */
 		testRegisterAndRemoveCommand():void
 		{
 			// Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes
-			var controller:IController = Controller.getInstance();
+			var controller:puremvc.IController = puremvc.Controller.getInstance();
 			controller.registerCommand( 'ControllerRemoveTest', ControllerTestCommand );
 
 			// Create a 'ControllerTest' note
@@ -140,7 +136,7 @@ module test
 		testHasCommand():void
 		{
 			// register the ControllerTestCommand to handle 'hasCommandTest' notes
-			var controller:IController = Controller.getInstance();
+			var controller:puremvc.IController = puremvc.Controller.getInstance();
 			controller.registerCommand( 'hasCommandTest', ControllerTestCommand );
 
 			// test that hasCommand returns true for hasCommandTest notifications
@@ -172,7 +168,7 @@ module test
 		testReregisterAndExecuteCommand():void
 		{
 			// Fetch the controller, register the ControllerTestCommand2 to handle 'ControllerTest2' notes
-			var controller:IController = Controller.getInstance();
+			var controller:puremvc.IController = puremvc.Controller.getInstance();
 			controller.registerCommand( 'ControllerTest2', ControllerTestCommand2 );
 
 			// Remove the Command from the Controller

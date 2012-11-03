@@ -46,7 +46,7 @@ module test
 		{
 			// Create the Facade, register the FacadeTestCommand to
 			// handle 'NotifierTest' notifications
-			var facade:IFacade = Facade.getInstance();
+			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerCommand( 'NotifierTestNote', NotifierTestCommand );
 
 			// Send notification. The Command associated with the event

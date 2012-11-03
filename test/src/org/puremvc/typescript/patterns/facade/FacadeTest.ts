@@ -27,7 +27,7 @@ module test
 		testGetInstance():void
 		{
 			// Test Factory Method
-			var facade:IFacade = Facade.getInstance();
+			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 
 			// test assertions
 			YUITest.Assert.isNotUndefined
@@ -38,7 +38,7 @@ module test
 
 			YUITest.Assert.isInstanceOf
 			(
-				Facade,
+				puremvc.Facade,
 				facade,
 				"Expecting instance is instance of Facade"
 			);
@@ -60,7 +60,7 @@ module test
 			 * Create the Facade, register the FacadeTestCommand to handle 'FacadeTest'
 			 * notifications.
 			 */
-			var facade:IFacade = Facade.getInstance();
+			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerCommand( 'FacadeTestNote', FacadeTestCommand );
 
 			/*
@@ -93,7 +93,7 @@ module test
 		{
 			// Create the Facade, register the FacadeTestCommand to
 			// handle 'FacadeTest' events
-			var facade:IFacade = Facade.getInstance();
+			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerCommand( 'FacadeTestNote', FacadeTestCommand );
 			facade.removeCommand( 'FacadeTestNote' );
 
@@ -122,7 +122,7 @@ module test
 		testRegisterAndRetrieveProxy():void
 		{
 			// register a proxy and retrieve it.
-			var facade:IFacade = Facade.getInstance();
+			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerProxy( new Proxy( 'colors', ['red', 'green', 'blue'] ) );
 
 			var proxy:IProxy = facade.retrieveProxy( 'colors' );
@@ -185,7 +185,7 @@ module test
 		testRegisterAndRemoveProxy():void
 		{
 			// register a proxy, remove it, then try to retrieve it
-			var facade:IFacade = Facade.getInstance();
+			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			var proxy:IProxy = new Proxy( 'sizes', ['7', '13', '21'] );
 			facade.registerProxy( proxy );
 
@@ -215,7 +215,7 @@ module test
 		testRegisterRetrieveAndRemoveMediator():void
 		{
 			// register a mediator, remove it, then try to retrieve it
-			var facade:IFacade = Facade.getInstance();
+			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerMediator( new Mediator( Mediator.NAME, new Object() ) );
 
 			// retrieve the mediator
@@ -250,7 +250,7 @@ module test
 		testHasProxy():void
 		{
 			// register a Proxy
-			var facade:IFacade = Facade.getInstance();
+			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerProxy( new Proxy( 'hasProxyTest', [1,2,3] ) );
 
 			// assert that the model.hasProxy method returns true
@@ -268,7 +268,7 @@ module test
 		testHasMediator():void
 		{
 			// register a Mediator
-			var facade:IFacade = Facade.getInstance();
+			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerMediator( new Mediator( 'facadeHasMediatorTest', new Object() ) );
 
 			// assert that the facade.hasMediator method returns true
@@ -296,7 +296,7 @@ module test
 		testHasCommand():void
 		{
 			// register the ControllerTestCommand to handle 'hasCommandTest' notes
-			var facade:IFacade = Facade.getInstance();
+			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerCommand( 'facadeHasCommandTest', FacadeTestCommand );
 
 			// test that hasCommand returns true for hasCommandTest notifications
