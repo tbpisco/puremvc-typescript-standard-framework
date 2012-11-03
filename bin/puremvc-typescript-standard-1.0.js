@@ -1,3 +1,5 @@
+if( typeof define === "function" )
+	define( "puremvc", [], function(){
 var puremvc;
 (function (puremvc) {
     "use strict";
@@ -518,3 +520,6 @@ var puremvc;
     puremvc.Proxy = Proxy;    
 })(puremvc || (puremvc = {}));
 
+
+	return puremvc;
+});
