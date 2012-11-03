@@ -27,6 +27,7 @@ module puremvc
 	{
 		/**
 		 * HashTable of <code>IProxy</code> registered with the <code>Model</code>.
+		 *
 		 * @protected
 		 */
 		proxyMap:Object = null;
