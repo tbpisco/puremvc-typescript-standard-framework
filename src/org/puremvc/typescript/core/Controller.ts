@@ -3,6 +3,7 @@
 ///<reference path='../../../../org/puremvc/typescript/interfaces/INotification.ts'/>
 ///<reference path='../../../../org/puremvc/typescript/interfaces/ICommand.ts'/>
 ///<reference path='../../../../org/puremvc/typescript/patterns/observer/Observer.ts'/>
+///<reference path='../../../../org/puremvc/typescript/core/View.ts'/>
 
 module puremvc
 {
