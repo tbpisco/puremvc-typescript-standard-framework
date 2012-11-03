@@ -7,9 +7,6 @@ module test
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-	import puremvc = module("puremvc");
-
 	/**
 	 * Test the PureMVC Proxy class.
 	 */
@@ -64,7 +61,7 @@ module test
 		testNameAccessor():void
 		{
 			// Create a new Proxy and use accessors to set the proxy name
-			var proxy:puremvc.IProxy = new Proxy('TestProxy');
+			var proxy:puremvc.IProxy = new puremvc.Proxy('TestProxy');
 
 			// test assertions
 			YUITest.Assert.areEqual

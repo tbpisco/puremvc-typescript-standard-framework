@@ -13,9 +13,6 @@ module test
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-	import puremvc = module("puremvc");
-
 	/**
 	 * Test the PureMVC View class.
 	 */
@@ -130,7 +127,7 @@ module test
 		 * @param note
 		 *		The note to test.
 		 */
-		viewTestMethod( note:INotification )
+		viewTestMethod( note:puremvc.INotification )
 		{
 			// set the local viewTestVar to the number on the event payload
 			this.viewTestVar = note.getBody();
@@ -583,9 +580,9 @@ module test
 		cleanup()
 		{
 
-			View.getInstance().removeMediator( ViewTestMediator.NAME );
-			View.getInstance().removeMediator( ViewTestMediator2.NAME );
-			View.getInstance().removeMediator( ViewTestMediator3.NAME );
+			puremvc.View.getInstance().removeMediator( ViewTestMediator.NAME );
+			puremvc.View.getInstance().removeMediator( ViewTestMediator2.NAME );
+			puremvc.View.getInstance().removeMediator( ViewTestMediator3.NAME );
 		}
 
 		/**

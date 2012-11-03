@@ -5,9 +5,6 @@ module test
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-	import puremvc = module("puremvc");
-
 	/**
 	 * A <code>Proxy</code> utility subclass used by <code>ProxyTest</code>.
 	 */

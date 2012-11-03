@@ -1,4 +1,4 @@
-module puremvc
+declare module puremvc
 {
 	export interface ICommand
 	{

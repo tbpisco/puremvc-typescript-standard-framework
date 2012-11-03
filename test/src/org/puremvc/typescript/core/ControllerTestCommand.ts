@@ -7,9 +7,6 @@ module test
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-	import puremvc = module("puremvc");
-
 	/**
 	 * A <code>SimpleCommand</code> subclass used by <code>ControllerTest</code>.
 	 */

@@ -7,9 +7,6 @@ module test
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-	import puremvc = module("puremvc");
-
 	/**
 	 * Test the PureMVC Model class.
 	 */
@@ -27,7 +24,7 @@ module test
 		testGetInstance():void
 		{
 			// Test Factory Method
-			var model:puremvc.IModel = Model.getInstance()
+			var model:puremvc.IModel = puremvc.Model.getInstance()
 
 			// test assertions
 			YUITest.Assert.isNotNull
@@ -38,7 +35,7 @@ module test
 
 			YUITest.Assert.isInstanceOf
 			(
-				Model,
+				puremvc.Model,
 				model,
 				"Expecting instance extends Model"
 			);
@@ -55,7 +52,7 @@ module test
 		testRegisterAndRetrieveProxy():void
 		{
 			// register a proxy and retrieve it.
-			var model:puremvc.IModel = Model.getInstance();
+			var model:puremvc.IModel = puremvc.Model.getInstance();
 			model.registerProxy( new puremvc.Proxy( 'colors', ['red', 'green', 'blue'] ) );
 
 			var proxy:puremvc.IProxy = model.retrieveProxy('colors');
@@ -109,7 +106,7 @@ module test
 		testRegisterAndRemoveProxy():void
 		{
 			// register a proxy, remove it, then try to retrieve it
-			var model:puremvc.IModel = Model.getInstance();
+			var model:puremvc.IModel = puremvc.Model.getInstance();
 			var proxy:puremvc.IProxy = new puremvc.Proxy( 'sizes', ['7', '13', '21'] );
 			model.registerProxy( proxy );
 
@@ -141,7 +138,7 @@ module test
 		testHasProxy():void
 		{
 			// register a proxy
-			var model:puremvc.IModel = Model.getInstance();
+			var model:puremvc.IModel = puremvc.Model.getInstance();
 			var proxy:puremvc.IProxy = new puremvc.Proxy( 'aces', [ 'clubs', 'spades', 'hearts', 'diamonds' ] );
 			model.registerProxy( proxy );
 
@@ -171,7 +168,7 @@ module test
 		testOnRegisterAndOnRemove():void
 		{
 			// Get the singleton View instance
-			var model:puremvc.IModel = Model.getInstance();
+			var model:puremvc.IModel = puremvc.Model.getInstance();
 
 			// Create and register the test mediator
 			var proxy:puremvc.IProxy = new ModelTestProxy();

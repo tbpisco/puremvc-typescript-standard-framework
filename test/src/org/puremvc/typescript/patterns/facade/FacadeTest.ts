@@ -8,9 +8,6 @@ module test
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-	import puremvc = module("puremvc");
-
 	/**
 	 * Test the PureMVC Facade class.
 	 */
@@ -124,7 +121,7 @@ module test
 		{
 			// register a proxy and retrieve it.
 			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
-			facade.registerProxy( new Proxy( 'colors', ['red', 'green', 'blue'] ) );
+			facade.registerProxy( new puremvc.Proxy( 'colors', ['red', 'green', 'blue'] ) );
 
 			var proxy:puremvc.IProxy = facade.retrieveProxy( 'colors' );
 
@@ -217,17 +214,17 @@ module test
 		{
 			// register a mediator, remove it, then try to retrieve it
 			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
-			facade.registerMediator( new Mediator( puremvc.Mediator.NAME, new Object() ) );
+			facade.registerMediator( new puremvc.Mediator( puremvc.Mediator.NAME, new Object() ) );
 
 			// retrieve the mediator
 			YUITest.Assert.isNotNull
 			(
-				facade.retrieveMediator( Mediator.NAME ),
+				facade.retrieveMediator( puremvc.Mediator.NAME ),
 				"Expecting facade.retrieveMediator( Mediator.NAME ) !== null"
 			);
 
 			// remove the mediator
-			var removedMediator:puremvc.IMediator = facade.removeMediator(puremvc.Mediator.NAME);
+			var removedMediator:puremvc.IMediator = facade.removeMediator( puremvc.Mediator.NAME );
 
 			// assert that we have removed the appropriate mediator
 			YUITest.Assert.areEqual

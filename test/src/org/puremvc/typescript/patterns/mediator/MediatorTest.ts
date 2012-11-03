@@ -7,9 +7,6 @@ module test
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-	import puremvc = module("puremvc");
-
 	/**
 	 * Test the PureMVC Mediator class.
 	 */
@@ -51,7 +48,7 @@ module test
 			// test assertions
 			YUITest.Assert.areEqual
 			(
-				Mediator.NAME,
+				puremvc.Mediator.NAME,
 				mediator.getMediatorName(),
 				"Expecting mediator.getMediatorName() == Mediator.NAME"
 			);

@@ -7,9 +7,6 @@ module test
 {
 	"use strict";
 
-	import YUITest = module("YUITest");
-	import puremvc = module("puremvc");
-
 	/**
 	 * A puremvc.SimpleCommand subclass used by ControllerTest.
 	 */
@@ -28,7 +25,7 @@ module test
 		 */
 		execute( note:puremvc.INotification )
 		{
-			var vo:ControllerTestVO = note.getBody();
+			var vo:test.ControllerTestVO = note.getBody();
 
 			// Fabricate a result
 			vo.result = vo.result+(2 * vo.input);

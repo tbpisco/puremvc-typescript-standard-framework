@@ -9,8 +9,8 @@ module test
 	 * A <code>Notifier</code> utility subclass used by <code>NotifierTest</code>.
 	 */
 	export class NotifierTestSub
-		extends Notifier
-		implements INotifier
+		extends puremvc.Notifier
+		implements puremvc.INotifier
 	{
 		/**
 		 * A method to test if <code>Facade</code> instance of the object has well been declared
