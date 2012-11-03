@@ -12,6 +12,7 @@ declare module puremvc
 		hasCommand( notificationName:string ):bool;
 		removeCommand( notificationName:string ):void;
 	}
+
 	export interface IFacade
 		extends INotifier
 	{
