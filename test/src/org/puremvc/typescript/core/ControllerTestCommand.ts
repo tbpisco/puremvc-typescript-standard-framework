@@ -1,24 +1,21 @@
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/command/SimpleCommand.ts'/>
+///<reference path='../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 ///<reference path='ControllerTestVO.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
 	import YUITest = module("YUITest");
+	import puremvc = module("puremvc");
 
 	/**
-	 * A SimpleCommand subclass used by ControllerTest.
+	 * A <code>SimpleCommand</code> subclass used by <code>ControllerTest</code>.
 	 */
 	export class ControllerTestCommand
-		extends SimpleCommand
-		implements ICommand
+		extends puremvc.SimpleCommand
+		implements puremvc.ICommand
 	{
 		/**
 		 * Fabricate a result by multiplying the input by 2.
@@ -26,7 +23,7 @@ module puremvc
 		 * @param note
 		 * 		The note carrying the ControllerTestVO
 		 */
-		execute( note:INotification )
+		execute( note:puremvc.INotification )
 		{
 			var vo:ControllerTestVO = note.getBody();
 

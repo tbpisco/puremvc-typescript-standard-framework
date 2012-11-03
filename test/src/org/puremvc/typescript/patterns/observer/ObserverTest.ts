@@ -1,16 +1,11 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IObserver.ts'/>
-
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Observer.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-
-module puremvc
+module test
 {
 	"use strict";
 
 	import YUITest = module("YUITest");
+	import puremvc = module("puremvc");
 
 	/**
 	 * Tests PureMVC Observer class.
@@ -54,7 +49,7 @@ module puremvc
 			 * successful notification will result in our local observerTestVar being set to the
 			 * value we pass in on the note body.
 			 */
-			var note:INotification = new Notification( 'ObserverTestNote', 10 );
+			var note:puremvc.INotification = new Notification( 'ObserverTestNote', 10 );
 			observer.notifyObserver(note);
 
 			// test assertions
@@ -80,7 +75,7 @@ module puremvc
 			 * notification will result in our local observerTestVar being set to the value we pass
 			 * in on the note body.
 			 */
-			var note:INotification = new Notification( 'ObserverTestNote', 5 );
+			var note:puremvc.INotification = new Notification( 'ObserverTestNote', 5 );
 			observer.notifyObserver(note);
 
 			// test assertions
@@ -118,7 +113,7 @@ module puremvc
 		/**
 		 * A function that is used as the observer notification method.
 		 */
-		private observerTestMethod( note:INotification ):void
+		private observerTestMethod( note:puremvc.INotification ):void
 		{
 			this.observerTestVar = note.getBody();
 		}

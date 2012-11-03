@@ -1,14 +1,11 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/MacroCommand.ts'/>
 
 ///<reference path='MacroCommandTestSub1Command.ts'/>
 ///<reference path='MacroCommandTestSub2Command.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
@@ -16,8 +13,8 @@ module puremvc
 	 * A MacroCommand subclass used by MacroCommandTest.
 	 */
 	export class MacroCommandTestCommand
-		extends MacroCommand
-		implements ICommand
+		extends puremvc.MacroCommand
+		implements puremvc.ICommand
 	{
 		/**
 		 * Initialize the MacroCommandTestCommand by adding

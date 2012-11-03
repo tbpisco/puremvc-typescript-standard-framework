@@ -1,13 +1,5 @@
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/IView.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/IMediator.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/IObserver.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/mediator/Mediator.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Observer.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
+///<reference path='../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 ///<reference path='ViewTestMediator.ts'/>
 ///<reference path='ViewTestMediator2.ts'/>
@@ -17,11 +9,12 @@
 ///<reference path='ViewTestMediator6.ts'/>
 ///<reference path='ViewTestNote.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
 	import YUITest = module("YUITest");
+	import puremvc = module("puremvc");
 
 	/**
 	 * Test the PureMVC View class.
@@ -119,7 +112,7 @@ module puremvc
 			// successful notification will result in our local
 			// viewTestVar being set to the value we pass in
 			// on the note body.
-			var note:INotification = ViewTestNote.create(10);
+			var note:puremvc.INotification = ViewTestNote.create(10);
 			view.notifyObservers(note);
 
 			// test assertions
@@ -153,11 +146,11 @@ module puremvc
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
-			var viewTestMediator:IMediator = new ViewTestMediator( this );
+			var viewTestMediator:puremvc.IMediator = new ViewTestMediator( this );
 			view.registerMediator( viewTestMediator );
 
 			// Retrieve the component
-			var mediator:IMediator = view.retrieveMediator( ViewTestMediator.NAME );
+			var mediator:puremvc.IMediator = view.retrieveMediator( ViewTestMediator.NAME );
 
 			// test assertions
 			YUITest.Assert.isInstanceOf
@@ -179,7 +172,7 @@ module puremvc
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
-			var mediator:IMediator = new Mediator( 'hasMediatorTest', this );
+			var mediator:puremvc.IMediator = new Mediator( 'hasMediatorTest', this );
 			view.registerMediator( mediator );
 
 			// assert that the view.hasMediator method returns true
@@ -210,11 +203,11 @@ module puremvc
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
-			var mediator:IMediator = new Mediator( 'testing', this );
+			var mediator:puremvc.IMediator = new Mediator( 'testing', this );
 			view.registerMediator( mediator );
 
 			// Remove the component
-			var removedMediator:IMediator = view.removeMediator( 'testing' );
+			var removedMediator:puremvc.IMediator = view.removeMediator( 'testing' );
 
 			// assert that we have removed the appropriate mediator
 			YUITest.Assert.areEqual
@@ -224,7 +217,7 @@ module puremvc
 				"Expecting removedMediator.getMediatorName() == 'testing'"
 			);
 
-			var retrievedMediator:IMediator = view.retrieveMediator( 'testing' )
+			var retrievedMediator:puremvc.IMediator = view.retrieveMediator( 'testing' )
 
 			// assert that the mediator is no longer retrievable
 			YUITest.Assert.isNull
@@ -245,7 +238,7 @@ module puremvc
 			var view:IView = View.getInstance();
 
 			// Create and register the test mediator
-			var mediator:IMediator = new ViewTestMediator4( this );
+			var mediator:puremvc.IMediator = new ViewTestMediator4( this );
 			view.registerMediator( mediator );
 
 			// assert that onRegsiter was called, and the mediator responded by setting our boolean

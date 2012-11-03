@@ -1,11 +1,8 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-
 ///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/MacroCommand.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
@@ -14,7 +11,7 @@ module puremvc
 	 */
 	export class MacroCommandTestSub
 		extends MacroCommand
-		implements ICommand
+		implements puremvc.ICommand
 	{
 		/**
 		 * A method to test if <code>Facade</code> instance of the object has

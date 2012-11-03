@@ -1,20 +1,15 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IFacade.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/facade/Facade.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-
 ///<reference path='NotifierTestCommand' />
 ///<reference path='NotifierTestSub' />
 ///<reference path='NotifierTestVO' />
 
-module puremvc
+module test
 {
 	"use strict";
 
 	import YUITest = module("YUITest");
+	import puremvc = module("puremvc");
 
 	/**
 	 * Test the PureMVC Notifier class.

@@ -1,22 +1,18 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
+///<reference path='puremvc.SimpleCommandTestCommand.ts'/>
+///<reference path='puremvc.SimpleCommandTestVO.ts'/>
+///<reference path='puremvc.SimpleCommandTestSub.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-
-///<reference path='SimpleCommandTestCommand.ts'/>
-///<reference path='SimpleCommandTestVO.ts'/>
-///<reference path='SimpleCommandTestSub.ts'/>
-
-module puremvc
+module test
 {
 	"use strict";
 
 	import YUITest = module("YUITest");
+	import puremvc = module("puremvc");
 
 	/**
-	 * Test the PureMVC SimpleCommand class.
+	 * Test the PureMVC <code>SimpleCommand</code> class.
 	 */
 	export class SimpleCommandTest
 	{
@@ -60,10 +56,10 @@ module puremvc
 			var vo:SimpleCommandTestVO = new SimpleCommandTestVO(5);
 
 			// Create the Notification (note)
-			var note:INotification = new Notification( 'SimpleCommandTestNote', vo );
+			var note:puremvc.INotification = new Notification( 'SimpleCommandTestNote', vo );
 
 			// Create the SimpleCommand
-			var command:ICommand = new SimpleCommandTestCommand();
+			var command:puremvc.ICommand = new SimpleCommandTestCommand();
 
 			// Execute the SimpleCommand
 			command.execute(note);

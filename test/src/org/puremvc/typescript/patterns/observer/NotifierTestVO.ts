@@ -1,10 +1,11 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
 	import YUITest = module("YUITest");
+	import puremvc = module("puremvc");
 
 	/**
 	 * A utility class used by NotifierTest.

@@ -1,23 +1,14 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IFacade.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IMediator.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/IProxy.ts'/>
-
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/facade/Facade.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/mediator/Mediator.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/proxy/Proxy.ts'/>
-
 ///<reference path='FacadeTestCommand.ts'/>
 ///<reference path='FacadeTestVO.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
 	import YUITest = module("YUITest");
+	import puremvc = module("puremvc");
 
 	/**
 	 * Test the PureMVC Facade class.
@@ -235,7 +226,7 @@ module puremvc
 			);
 
 			// remove the mediator
-			var removedMediator:IMediator = facade.removeMediator(Mediator.NAME);
+			var removedMediator:puremvc.IMediator = facade.removeMediator(Mediator.NAME);
 
 			// assert that we have removed the appropriate mediator
 			YUITest.Assert.areEqual

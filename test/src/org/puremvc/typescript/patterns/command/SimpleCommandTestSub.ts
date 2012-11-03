@@ -1,12 +1,10 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/SimpleCommand.ts'/>
 
 ///<reference path='SimpleCommandTestVO.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
@@ -14,8 +12,8 @@ module puremvc
 	 * A <code>SimpleCommand</code> utility subclass used by <code>SimpleCommandTest</code>.
 	 */
 	export class SimpleCommandTestSub
-		extends SimpleCommand
-		implements ICommand
+		extends puremvc.SimpleCommand
+		implements puremvc.ICommand
 	{
 		/**
 		 * A method to test if <code>Facade</code> instance of the object has well been declared

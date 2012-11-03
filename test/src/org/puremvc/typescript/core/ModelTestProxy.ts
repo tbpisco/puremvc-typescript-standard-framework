@@ -1,10 +1,7 @@
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
+///<reference path='../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/IProxy.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/proxy/Proxy.ts'/>
-
-module puremvc
+module test
 {
 	"use strict";
 

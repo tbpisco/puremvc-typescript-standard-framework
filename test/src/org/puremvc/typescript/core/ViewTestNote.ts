@@ -1,10 +1,7 @@
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
+///<reference path='../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-
-module puremvc
+module test
 {
 	"use strict";
 
@@ -13,7 +10,7 @@ module puremvc
 	 */
 	export class ViewTestNote
 		extends Notification
-		implements INotification
+		implements puremvc.INotification
 	{
 		/**
 		 * Constructs a <code>Notification</code> subclass instance.
@@ -47,7 +44,7 @@ module puremvc
 		 * @return
 		 *		The created <code>Notification</code>
 		 */
-		static create( body:any ):INotification
+		static create( body:any ):puremvc.INotification
 		{
 			return new ViewTestNote( ViewTestNote.NAME, body );
 		}

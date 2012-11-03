@@ -1,21 +1,16 @@
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/core/Controller.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/core/View.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/command/SimpleCommand.ts'/>
+///<reference path='../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 ///<reference path='ControllerTestVO.ts'/>
 ///<reference path='ControllerTestCommand2.ts'/>
 ///<reference path='ControllerTestCommand.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
 	import YUITest = module("YUITest");
+	import puremvc = module("puremvc");
 
 	/**
 	 * Test the PureMVC Controller class.

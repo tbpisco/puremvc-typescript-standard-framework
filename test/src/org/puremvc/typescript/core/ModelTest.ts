@@ -1,18 +1,14 @@
 ///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/interfaces/IModel.ts'/>
-
-///<reference path='../../../../../../src/org/puremvc/typescript/core/Model.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-///<reference path='../../../../../../src/org/puremvc/typescript/patterns/proxy/Proxy.ts'/>
+///<reference path='../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 ///<reference path='ModelTestProxy.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
 	import YUITest = module("YUITest");
+	import puremvc = module("puremvc");
 
 	/**
 	 * Test the PureMVC Model class.
@@ -31,7 +27,7 @@ module puremvc
 		testGetInstance():void
 		{
 			// Test Factory Method
-			var model:IModel = Model.getInstance()
+			var model:puremvc.IModel = Model.getInstance()
 
 			// test assertions
 			YUITest.Assert.isNotNull
@@ -59,7 +55,7 @@ module puremvc
 		testRegisterAndRetrieveProxy():void
 		{
 			// register a proxy and retrieve it.
-			var model:IModel = Model.getInstance();
+			var model:puremvc.IModel = Model.getInstance();
 			model.registerProxy( new Proxy( 'colors', ['red', 'green', 'blue'] ) );
 
 			var proxy:IProxy = model.retrieveProxy('colors');
@@ -113,7 +109,7 @@ module puremvc
 		testRegisterAndRemoveProxy():void
 		{
 			// register a proxy, remove it, then try to retrieve it
-			var model:IModel = Model.getInstance();
+			var model:puremvc.IModel = Model.getInstance();
 			var proxy:IProxy = new Proxy( 'sizes', ['7', '13', '21'] );
 			model.registerProxy( proxy );
 
@@ -145,7 +141,7 @@ module puremvc
 		testHasProxy():void
 		{
 			// register a proxy
-			var model:IModel = Model.getInstance();
+			var model:puremvc.IModel = Model.getInstance();
 			var proxy:IProxy = new Proxy( 'aces', [ 'clubs', 'spades', 'hearts', 'diamonds' ] );
 			model.registerProxy( proxy );
 
@@ -175,7 +171,7 @@ module puremvc
 		testOnRegisterAndOnRemove():void
 		{
 			// Get the singleton View instance
-			var model:IModel = Model.getInstance();
+			var model:puremvc.IModel = Model.getInstance();
 
 			// Create and register the test mediator
 			var proxy:IProxy = new ModelTestProxy();

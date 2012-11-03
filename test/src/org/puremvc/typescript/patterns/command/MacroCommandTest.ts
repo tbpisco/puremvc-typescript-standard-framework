@@ -1,20 +1,15 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/SimpleCommand.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-
 ///<reference path='MacroCommandTestSub.ts'/>
 ///<reference path='MacroCommandTestCommand.ts'/>
 ///<reference path='MacroCommandTestVO.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
 	import YUITest = module("YUITest");
+	import puremvc = module("puremvc");
 
 	/**
 	 * Test the PureMVC MacroCommmand class.
@@ -74,10 +69,10 @@ module puremvc
 			var vo:MacroCommandTestVO = new MacroCommandTestVO(5);
 
 			// Create the Notification (note)
-			var note:INotification = new Notification( 'MacroCommandTest', vo );
+			var note:puremvc.INotification = new Notification( 'MacroCommandTest', vo );
 
 			// Create the MacroCommand
-			var command:ICommand = new MacroCommandTestCommand();
+			var command:puremvc.ICommand = new MacroCommandTestCommand();
 
 			// Execute the MacroCommand
 			command.execute(note);

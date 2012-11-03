@@ -1,23 +1,17 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/ICommand.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/interfaces/INotification.ts'/>
-
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/observer/Notification.ts'/>
-///<reference path='../../../../../../../src/org/puremvc/typescript/patterns/command/SimpleCommand.ts'/>
-
 ///<reference path='MacroCommandTestVO.ts'/>
 
-module puremvc
+module test
 {
 	"use strict";
 
 	/**
-	 * A SimpleCommand subclass used by MacroCommandTestCommand.
+	 * A <code>SimpleCommand</code> subclass used by <code>MacroCommandTestCommand</code>.
 	 */
 	export class MacroCommandTestSub2Command
-		extends SimpleCommand
-		implements ICommand
+		extends puremvc.SimpleCommand
+		implements puremvc.ICommand
 	{
 		/**
 		 * Fabricate a result by multiplying the input by 2
@@ -25,7 +19,7 @@ module puremvc
 		 * @param note
 		 * 		The <code>Notification</code> carrying the <code>MacroCommandTestVO</code>
 		 */
-		execute( note:INotification )
+		execute( note:puremvc.INotification )
 		{
 			var vo:MacroCommandTestVO = note.getBody();
 
