@@ -126,11 +126,11 @@ module test
 			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerProxy( new Proxy( 'colors', ['red', 'green', 'blue'] ) );
 
-			var proxy:IProxy = facade.retrieveProxy( 'colors' );
+			var proxy:puremvc.IProxy = facade.retrieveProxy( 'colors' );
 
 			YUITest.Assert.isInstanceOf
 			(
-				Proxy,
+				puremvc.Proxy,
 				proxy,
 				"Expecting proxy is Proxy"
 			);
@@ -187,11 +187,11 @@ module test
 		{
 			// register a proxy, remove it, then try to retrieve it
 			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
-			var proxy:IProxy = new Proxy( 'sizes', ['7', '13', '21'] );
+			var proxy:puremvc.IProxy = new puremvc.Proxy( 'sizes', ['7', '13', '21'] );
 			facade.registerProxy( proxy );
 
 			// remove the proxy
-			var removedProxy:IProxy = facade.removeProxy('sizes');
+			var removedProxy:puremvc.IProxy = facade.removeProxy('sizes');
 
 			// test assertions
 
@@ -252,7 +252,7 @@ module test
 		{
 			// register a Proxy
 			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
-			facade.registerProxy( new Proxy( 'hasProxyTest', [1,2,3] ) );
+			facade.registerProxy( new puremvc.Proxy( 'hasProxyTest', [1,2,3] ) );
 
 			// assert that the model.hasProxy method returns true
 			// for that proxy name

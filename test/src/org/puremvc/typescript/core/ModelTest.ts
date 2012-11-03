@@ -56,10 +56,10 @@ module test
 		{
 			// register a proxy and retrieve it.
 			var model:puremvc.IModel = Model.getInstance();
-			model.registerProxy( new Proxy( 'colors', ['red', 'green', 'blue'] ) );
+			model.registerProxy( new puremvc.Proxy( 'colors', ['red', 'green', 'blue'] ) );
 
-			var proxy:IProxy = model.retrieveProxy('colors');
-			var data:string[] = <string[]> proxy.getData();
+			var proxy:puremvc.IProxy = model.retrieveProxy('colors');
+			var data:string[] = <string[]> /*</>*/ proxy.getData();
 
 			// test assertions
 			YUITest.Assert.isNotNull
@@ -110,11 +110,11 @@ module test
 		{
 			// register a proxy, remove it, then try to retrieve it
 			var model:puremvc.IModel = Model.getInstance();
-			var proxy:IProxy = new Proxy( 'sizes', ['7', '13', '21'] );
+			var proxy:puremvc.IProxy = new puremvc.Proxy( 'sizes', ['7', '13', '21'] );
 			model.registerProxy( proxy );
 
 			// remove the proxy
-			var removedProxy:IProxy = model.removeProxy( 'sizes' );
+			var removedProxy:puremvc.IProxy = model.removeProxy( 'sizes' );
 
 			// assert that we removed the appropriate proxy
 			YUITest.Assert.areEqual
@@ -142,7 +142,7 @@ module test
 		{
 			// register a proxy
 			var model:puremvc.IModel = Model.getInstance();
-			var proxy:IProxy = new Proxy( 'aces', [ 'clubs', 'spades', 'hearts', 'diamonds' ] );
+			var proxy:puremvc.IProxy = new puremvc.Proxy( 'aces', [ 'clubs', 'spades', 'hearts', 'diamonds' ] );
 			model.registerProxy( proxy );
 
 			// assert that the model.hasProxy method returns true
@@ -174,7 +174,7 @@ module test
 			var model:puremvc.IModel = Model.getInstance();
 
 			// Create and register the test mediator
-			var proxy:IProxy = new ModelTestProxy();
+			var proxy:puremvc.IProxy = new ModelTestProxy();
 			model.registerProxy( proxy );
 
 			// assert that onRegister was called, and the proxy responded by setting its data accordingly

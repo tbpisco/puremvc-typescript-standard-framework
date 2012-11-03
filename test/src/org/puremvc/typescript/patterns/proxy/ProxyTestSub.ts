@@ -12,8 +12,8 @@ module test
 	 * A <code>Proxy</code> utility subclass used by <code>ProxyTest</code>.
 	 */
 	export class ProxyTestSub
-		extends Proxy
-		implements IProxy
+		extends puremvc.Proxy
+		implements puremvc.IProxy
 	{
 		/**
 		 * A method to test if <code>Facade</code> instance of the object has well been declared

@@ -44,8 +44,8 @@ module test
 		testConstructor():void
 		{
 			// Create a new Proxy using the Constructor to set the name and data
-			var proxy:IProxy = new Proxy('colors',['red', 'green', 'blue']);
-			var data:string[] = <string[]> proxy.getData();
+			var proxy:puremvc.IProxy = new puremvc.Proxy('colors',['red', 'green', 'blue']);
+			var data:string[] = <string[]>/*</>*/ proxy.getData();
 
 			// test assertions
 			YUITest.Assert.isNotNull( proxy, "Expecting proxy !== null"	);
@@ -64,7 +64,7 @@ module test
 		testNameAccessor():void
 		{
 			// Create a new Proxy and use accessors to set the proxy name
-			var proxy:IProxy = new Proxy('TestProxy');
+			var proxy:puremvc.IProxy = new Proxy('TestProxy');
 
 			// test assertions
 			YUITest.Assert.areEqual
@@ -82,9 +82,9 @@ module test
 		testDataAccessors():void
 		{
 			// Create a new Proxy and use accessors to set the data
-			var proxy:IProxy = new Proxy('colors');
+			var proxy:puremvc.IProxy = new puremvc.Proxy('colors');
 			proxy.setData(['red', 'green', 'blue']);
-			var data:string[] = <string[]> proxy.getData();
+			var data:string[] = <string[]>/*</>*/ proxy.getData();
 
 			// test assertions
 			YUITest.Assert.areEqual

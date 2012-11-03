@@ -9,8 +9,8 @@ module test
 	 * A <code>Proxy</code> subclass used by <code>ModelTest</code> testCase.
 	 */
 	export class ModelTestProxy
-		extends Proxy
-		implements IProxy
+		extends puremvc.Proxy
+		implements puremvc.IProxy
 	{
 		/**
 		 * Constructs a <code>ModelTestProxy</code> instance passing super its default name and
