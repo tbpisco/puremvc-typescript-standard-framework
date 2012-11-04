@@ -1,4 +1,4 @@
-///<reference path='../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
+///<reference path='../../../../../../bin/puremvc-typescript-standard-1.0.d.ts'/>
 
 module test
 {
