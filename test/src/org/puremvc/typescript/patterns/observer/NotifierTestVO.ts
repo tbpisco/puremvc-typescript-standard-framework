@@ -1,12 +1,9 @@
-///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
-///<reference path='../../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
-
 module test
 {
 	"use strict";
 
 	/**
-	 * A utility class used by NotifierTest.
+	 * A utility class used by <code>NotifierTest</code>.
 	 */
 	export class NotifierTestVO
 	{

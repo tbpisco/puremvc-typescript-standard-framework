@@ -12,6 +12,24 @@ module puremvc {
     }
 }
 module puremvc {
+    export class View implements IView {
+        public mediatorMap: Object;
+        public observerMap: Object;
+        constructor ();
+        public initializeView(): void;
+        public registerObserver(notificationName: string, observer: IObserver): void;
+        public removeObserver(notificationName: string, notifyContext: any): void;
+        public notifyObservers(notification: INotification): void;
+        public registerMediator(mediator: IMediator): void;
+        public retrieveMediator(mediatorName: string): IMediator;
+        public removeMediator(mediatorName: string): IMediator;
+        public hasMediator(mediatorName: string): bool;
+        static SINGLETON_MSG: string;
+        static instance: IView;
+        static getInstance(): IView;
+    }
+}
+module puremvc {
     export class Controller implements IController {
         public view: IView;
         public commandMap: Object;
@@ -38,24 +56,6 @@ module puremvc {
         static SINGLETON_MSG: string;
         static instance: IModel;
         static getInstance(): IModel;
-    }
-}
-module puremvc {
-    export class View implements IView {
-        public mediatorMap: Object;
-        public observerMap: Object;
-        constructor ();
-        public initializeView(): void;
-        public registerObserver(notificationName: string, observer: IObserver): void;
-        public removeObserver(notificationName: string, notifyContext: any): void;
-        public notifyObservers(notification: INotification): void;
-        public registerMediator(mediator: IMediator): void;
-        public retrieveMediator(mediatorName: string): IMediator;
-        public removeMediator(mediatorName: string): IMediator;
-        public hasMediator(mediatorName: string): bool;
-        static SINGLETON_MSG: string;
-        static instance: IView;
-        static getInstance(): IView;
     }
 }
 module puremvc {

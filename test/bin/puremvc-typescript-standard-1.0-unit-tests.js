@@ -241,8 +241,8 @@ if( typeof define === "function" )
                         test.ViewTest.NOTE2
                     ];
                 };
-                ViewTestMediator2.prototype.handleNotification = function (note) {
-                    this.getViewTest().lastNotification = note.getName();
+                ViewTestMediator2.prototype.handleNotification = function (notification) {
+                    this.getViewTest().lastNotification = notification.getName();
                 };
                 ViewTestMediator2.NAME = 'ViewTestMediator2';
                 return ViewTestMediator2;
@@ -266,8 +266,8 @@ if( typeof define === "function" )
                         test.ViewTest.NOTE3
                     ];
                 };
-                ViewTestMediator3.prototype.handleNotification = function (note) {
-                    this.getViewTest().lastNotification = note.getName();
+                ViewTestMediator3.prototype.handleNotification = function (notification) {
+                    this.getViewTest().lastNotification = notification.getName();
                 };
                 ViewTestMediator3.NAME = 'ViewTestMediator3';
                 return ViewTestMediator3;
@@ -393,8 +393,8 @@ if( typeof define === "function" )
                     view.notifyObservers(note);
                     YUITest.Assert.areEqual(10, this.viewTestVar, "Expecting viewTestVar = 10");
                 };
-                ViewTest.prototype.viewTestMethod = function (note) {
-                    this.viewTestVar = note.getBody();
+                ViewTest.prototype.viewTestMethod = function (notification) {
+                    this.viewTestVar = notification.getBody();
                 };
                 ViewTest.prototype.testRegisterAndRetrieveMediator = function () {
                     var view = puremvc.View.getInstance();
@@ -402,7 +402,6 @@ if( typeof define === "function" )
                     view.registerMediator(viewTestMediator);
                     var mediator = view.retrieveMediator(test.ViewTestMediator.NAME);
                     YUITest.Assert.isInstanceOf(test.ViewTestMediator, mediator, "Expecting comp is ViewTestMediator");
-                    this.cleanup();
                 };
                 ViewTest.prototype.testHasMediator = function () {
                     var view = puremvc.View.getInstance();
@@ -420,7 +419,6 @@ if( typeof define === "function" )
                     YUITest.Assert.areEqual('testing', removedMediator.getMediatorName(), "Expecting removedMediator.getMediatorName() == 'testing'");
                     var retrievedMediator = view.retrieveMediator('testing');
                     YUITest.Assert.isNull(retrievedMediator, "Expecting view.retrieveMediator( 'testing' ) === null )");
-                    this.cleanup();
                 };
                 ViewTest.prototype.testOnRegisterAndOnRemove = function () {
                     var view = puremvc.View.getInstance();
@@ -429,7 +427,6 @@ if( typeof define === "function" )
                     YUITest.Assert.isTrue(this.onRegisterCalled, "Expecting onRegisterCalled === true");
                     view.removeMediator(test.ViewTestMediator4.NAME);
                     YUITest.Assert.isTrue(this.onRemoveCalled, "Expecting onRemoveCalled === true");
-                    this.cleanup();
                 };
                 ViewTest.prototype.testSuccessiveRegisterAndRemoveMediator = function () {
                     var view = puremvc.View.getInstance();
@@ -442,7 +439,6 @@ if( typeof define === "function" )
                     YUITest.Assert.isInstanceOf(test.ViewTestMediator, view.retrieveMediator(test.ViewTestMediator.NAME), "Expecting view.retrieveMediator( ViewTestMediator.NAME ) is ViewTestMediator");
                     view.removeMediator(test.ViewTestMediator.NAME);
                     YUITest.Assert.isNull(view.retrieveMediator(test.ViewTestMediator.NAME), "Expecting view.retrieveMediator( ViewTestMediator.NAME ) === null");
-                    this.cleanup();
                 };
                 ViewTest.prototype.testRemoveMediatorAndSubsequentNotify = function () {
                     var view = puremvc.View.getInstance();
@@ -458,7 +454,6 @@ if( typeof define === "function" )
                     YUITest.Assert.areNotEqual(ViewTest.NOTE1, this.lastNotification, "Expecting lastNotification != NOTE1");
                     view.notifyObservers(new puremvc.Notification(ViewTest.NOTE2));
                     YUITest.Assert.areNotEqual(ViewTest.NOTE2, this.lastNotification, "Expecting lastNotification != NOTE2");
-                    this.cleanup();
                 };
                 ViewTest.prototype.testRemoveOneOfTwoMediatorsAndSubsequentNotify = function () {
                     var view = puremvc.View.getInstance();
@@ -479,7 +474,6 @@ if( typeof define === "function" )
                     YUITest.Assert.areNotEqual(ViewTest.NOTE2, this.lastNotification, "Expecting lastNotification != NOTE2");
                     view.notifyObservers(new puremvc.Notification(ViewTest.NOTE3));
                     YUITest.Assert.areEqual(ViewTest.NOTE3, this.lastNotification, "Expecting lastNotification == NOTE3");
-                    this.cleanup();
                 };
                 ViewTest.prototype.testMediatorReregistration = function () {
                     var view = puremvc.View.getInstance();
@@ -510,11 +504,6 @@ if( typeof define === "function" )
                     this.counter = 0;
                     view.notifyObservers(new puremvc.Notification(ViewTest.NOTE6));
                     YUITest.Assert.areEqual(0, this.counter, "Expecting counter == 0");
-                };
-                ViewTest.prototype.cleanup = function () {
-                    puremvc.View.getInstance().removeMediator(test.ViewTestMediator.NAME);
-                    puremvc.View.getInstance().removeMediator(test.ViewTestMediator2.NAME);
-                    puremvc.View.getInstance().removeMediator(test.ViewTestMediator3.NAME);
                 };
                 ViewTest.NOTE1 = "Notification1";
                 ViewTest.NOTE2 = "Notification2";
@@ -586,8 +575,8 @@ if( typeof define === "function" )
                     _super.apply(this, arguments);
         
                 }
-                MacroCommandTestSub2Command.prototype.execute = function (note) {
-                    var vo = note.getBody();
+                MacroCommandTestSub2Command.prototype.execute = function (notification) {
+                    var vo = notification.getBody();
                     vo.result2 = vo.input * vo.input;
                 };
                 return MacroCommandTestSub2Command;
@@ -640,29 +629,6 @@ if( typeof define === "function" )
         var test;
         (function (test) {
             "use strict";
-            var SimpleCommandTest = (function () {
-                function SimpleCommandTest() {
-                    this.name = "PureMVC SimpleCommand class Tests";
-                }
-                SimpleCommandTest.prototype.testConstructor = function () {
-                    var simpleCommandTestSub = new test.SimpleCommandTestSub();
-                    YUITest.Assert.isTrue(simpleCommandTestSub.hasFacade(), "Expecting simpleCommandTestSub.hasFacade() === true");
-                };
-                SimpleCommandTest.prototype.testSimpleCommandExecute = function () {
-                    var vo = new test.SimpleCommandTestVO(5);
-                    var note = new puremvc.Notification('SimpleCommandTestNote', vo);
-                    var command = new test.SimpleCommandTestCommand();
-                    command.execute(note);
-                    YUITest.Assert.areEqual(10, vo.result, "Expecting vo.result == 10");
-                };
-                return SimpleCommandTest;
-            })();
-            test.SimpleCommandTest = SimpleCommandTest;    
-        })(test || (test = {}));
-        
-        var test;
-        (function (test) {
-            "use strict";
             var SimpleCommandTestVO = (function () {
                 function SimpleCommandTestVO(input) {
                     this.input = null;
@@ -683,8 +649,8 @@ if( typeof define === "function" )
                     _super.apply(this, arguments);
         
                 }
-                SimpleCommandTestCommand.prototype.execute = function (note) {
-                    var vo = note.getBody();
+                SimpleCommandTestCommand.prototype.execute = function (notification) {
+                    var vo = notification.getBody();
                     vo.result = 2 * vo.input;
                 };
                 return SimpleCommandTestCommand;
@@ -712,6 +678,29 @@ if( typeof define === "function" )
         var test;
         (function (test) {
             "use strict";
+            var SimpleCommandTest = (function () {
+                function SimpleCommandTest() {
+                    this.name = "PureMVC SimpleCommand class Tests";
+                }
+                SimpleCommandTest.prototype.testConstructor = function () {
+                    var simpleCommandTestSub = new test.SimpleCommandTestSub();
+                    YUITest.Assert.isTrue(simpleCommandTestSub.hasFacade(), "Expecting simpleCommandTestSub.hasFacade() === true");
+                };
+                SimpleCommandTest.prototype.testSimpleCommandExecute = function () {
+                    var vo = new test.SimpleCommandTestVO(5);
+                    var note = new puremvc.Notification('SimpleCommandTestNote', vo);
+                    var command = new test.SimpleCommandTestCommand();
+                    command.execute(note);
+                    YUITest.Assert.areEqual(10, vo.result, "Expecting vo.result == 10");
+                };
+                return SimpleCommandTest;
+            })();
+            test.SimpleCommandTest = SimpleCommandTest;    
+        })(test || (test = {}));
+        
+        var test;
+        (function (test) {
+            "use strict";
             var FacadeTestVO = (function () {
                 function FacadeTestVO(input) {
                     this.input = null;
@@ -732,8 +721,8 @@ if( typeof define === "function" )
                     _super.apply(this, arguments);
         
                 }
-                FacadeTestCommand.prototype.execute = function (note) {
-                    var vo = note.getBody();
+                FacadeTestCommand.prototype.execute = function (notification) {
+                    var vo = notification.getBody();
                     vo.result = 2 * vo.input;
                 };
                 return FacadeTestCommand;
@@ -801,7 +790,7 @@ if( typeof define === "function" )
                 FacadeTest.prototype.testRegisterRetrieveAndRemoveMediator = function () {
                     var facade = puremvc.Facade.getInstance();
                     facade.registerMediator(new puremvc.Mediator(puremvc.Mediator.NAME, new Object()));
-                    YUITest.Assert.isNotNull(facade.retrieveMediator(puremvc.Mediator.NAME), "Expecting facade.retrieveMediator( Mediator.NAME ) !== null");
+                    YUITest.Assert.isNotNull(facade.retrieveMediator(puremvc.Mediator.NAME), "Expecting facade.retrieveMediator( puremvc.Mediator.NAME ) !== null");
                     var removedMediator = facade.removeMediator(puremvc.Mediator.NAME);
                     YUITest.Assert.areEqual(puremvc.Mediator.NAME, removedMediator ? removedMediator.getMediatorName() : null, "Expecting removedMediator.getMediatorName() == Mediator.NAME");
                     YUITest.Assert.isNull(facade.retrieveMediator(puremvc.Mediator.NAME), "Expecting facade.retrieveMediator( Mediator.NAME ) === null )");
@@ -905,7 +894,7 @@ if( typeof define === "function" )
                         5
                     ], 'TestType');
                     var ts = "Notification Name: TestNote\nBody:1,3,5\nType:TestType";
-                    YUITest.Assert.areEqual(ts, note.toString(), "Expecting note.testToString():void == '" + ts + "'");
+                    YUITest.Assert.areEqual(ts, note.toString(), "Expecting note.testToString() == '" + ts + "'");
                 };
                 return NotificationTest;
             })();
@@ -935,8 +924,8 @@ if( typeof define === "function" )
                     _super.apply(this, arguments);
         
                 }
-                NotifierTestCommand.prototype.execute = function (note) {
-                    var vo = note.getBody();
+                NotifierTestCommand.prototype.execute = function (notification) {
+                    var vo = notification.getBody();
                     vo.result = 2 * vo.input;
                 };
                 return NotifierTestCommand;
@@ -1012,8 +1001,8 @@ if( typeof define === "function" )
                     YUITest.Assert.isFalse(observer.compareNotifyContext(negTestObj), "Expecting observer.compareNotifyContext(negTestObj) === false");
                     YUITest.Assert.isTrue(observer.compareNotifyContext(this), "Expecting observer.compareNotifyContext(this) === true");
                 };
-                ObserverTest.prototype.observerTestMethod = function (note) {
-                    this.observerTestVar = note.getBody();
+                ObserverTest.prototype.observerTestMethod = function (notification) {
+                    this.observerTestVar = notification.getBody();
                 };
                 return ObserverTest;
             })();

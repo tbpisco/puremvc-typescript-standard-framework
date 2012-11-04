@@ -124,13 +124,13 @@ module test
 		/**
 		 * A utility method to test the notification of Observers by the view.
 		 *
-		 * @param note
+		 * @param notification
 		 *		The note to test.
 		 */
-		viewTestMethod( note:puremvc.INotification )
+		viewTestMethod( notification:puremvc.INotification )
 		{
 			// set the local viewTestVar to the number on the event payload
-			this.viewTestVar = note.getBody();
+			this.viewTestVar = notification.getBody();
 		}
 
 		/**
@@ -156,8 +156,6 @@ module test
 				mediator,
 				"Expecting comp is ViewTestMediator"
 			);
-
-			this.cleanup();
 		}
 
 		/**
@@ -222,8 +220,6 @@ module test
 				retrievedMediator,
 				"Expecting view.retrieveMediator( 'testing' ) === null )"
 			);
-
-			this.cleanup();
 		}
 
 		/**
@@ -254,8 +250,6 @@ module test
 				this.onRemoveCalled,
 				"Expecting onRemoveCalled === true"
 			);
-
-			this.cleanup();
 		}
 
 		/**
@@ -314,8 +308,6 @@ module test
 				view.retrieveMediator( ViewTestMediator.NAME ),
 				"Expecting view.retrieveMediator( ViewTestMediator.NAME ) === null"
 			);
-
-			this.cleanup();
 		}
 
 		/**
@@ -378,8 +370,6 @@ module test
 				this.lastNotification,
 				"Expecting lastNotification != NOTE2"
 			);
-
-			this.cleanup();
 		}
 
 		/**
@@ -460,8 +450,6 @@ module test
 				this.lastNotification,
 				"Expecting lastNotification == NOTE3"
 			);
-
-			this.cleanup();
 		}
 
 		/**
@@ -571,18 +559,6 @@ module test
 				this.counter,
 				"Expecting counter == 0"
 			);
-
-		}
-
-		/**
-		 * @private
-		 */
-		cleanup()
-		{
-
-			puremvc.View.getInstance().removeMediator( ViewTestMediator.NAME );
-			puremvc.View.getInstance().removeMediator( ViewTestMediator2.NAME );
-			puremvc.View.getInstance().removeMediator( ViewTestMediator3.NAME );
 		}
 
 		/**

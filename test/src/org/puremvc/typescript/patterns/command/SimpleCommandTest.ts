@@ -1,9 +1,9 @@
 ///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 ///<reference path='../../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
-///<reference path='puremvc.SimpleCommandTestCommand.ts'/>
-///<reference path='puremvc.SimpleCommandTestVO.ts'/>
-///<reference path='puremvc.SimpleCommandTestSub.ts'/>
+///<reference path='SimpleCommandTestCommand.ts'/>
+///<reference path='SimpleCommandTestVO.ts'/>
+///<reference path='SimpleCommandTestSub.ts'/>
 
 module test
 {

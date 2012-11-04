@@ -89,8 +89,7 @@ module test
 		 */
 		testRegisterAndRemoveCommandAndSendNotification():void
 		{
-			// Create the Facade, register the FacadeTestCommand to
-			// handle 'FacadeTest' events
+			// Create the Facade, register the FacadeTestCommand to handle 'FacadeTest' events.
 			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerCommand( 'FacadeTestNote', FacadeTestCommand );
 			facade.removeCommand( 'FacadeTestNote' );
@@ -119,7 +118,7 @@ module test
 		 */
 		testRegisterAndRetrieveProxy():void
 		{
-			// register a proxy and retrieve it.
+			// Register a proxy and retrieve it.
 			var facade:puremvc.IFacade = puremvc.Facade.getInstance();
 			facade.registerProxy( new puremvc.Proxy( 'colors', ['red', 'green', 'blue'] ) );
 
@@ -220,7 +219,7 @@ module test
 			YUITest.Assert.isNotNull
 			(
 				facade.retrieveMediator( puremvc.Mediator.NAME ),
-				"Expecting facade.retrieveMediator( Mediator.NAME ) !== null"
+				"Expecting facade.retrieveMediator( puremvc.Mediator.NAME ) !== null"
 			);
 
 			// remove the mediator

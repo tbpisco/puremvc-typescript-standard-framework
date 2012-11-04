@@ -1,4 +1,3 @@
-///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 ///<reference path='../../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 ///<reference path='MacroCommandTestVO.ts'/>
@@ -17,12 +16,12 @@ module test
 		/**
 		 * Fabricate a result by multiplying the input by 2
 		 *
-		 * @param note
-		 * 		The <code>Notification</code> carrying the <code>MacroCommandTestVO</code>
+		 * @param notification
+		 * 		The <code>Notification</code> carrying the <code>MacroCommandTestVO</code>.
 		 */
-		execute( note:puremvc.INotification )
+		execute( notification:puremvc.INotification )
 		{
-			var vo:MacroCommandTestVO = note.getBody();
+			var vo:MacroCommandTestVO = notification.getBody();
 
 			// Fabricate a result
 			vo.result2 = vo.input * vo.input;

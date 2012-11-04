@@ -1,4 +1,3 @@
-///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
 ///<reference path='../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 module test
@@ -6,7 +5,7 @@ module test
 	"use strict";
 
 	/**
-	 * A Notification class used by ViewTest.
+	 * A <code>INotification</code> implementor used by <code>ViewTest</code>.
 	 */
 	export class ViewTestNote
 		extends puremvc.Notification

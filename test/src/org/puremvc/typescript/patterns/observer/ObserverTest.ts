@@ -110,10 +110,14 @@ module test
 
 		/**
 		 * A function that is used as the observer notification method.
+		 *
+		 * @param notification
+		 *		The <code>Notification</code> used to test that <code>Observer</code> is well
+		 *		notified.
 		 */
-		private observerTestMethod( note:puremvc.INotification ):void
+		private observerTestMethod( notification:puremvc.INotification ):void
 		{
-			this.observerTestVar = note.getBody();
+			this.observerTestVar = notification.getBody();
 		}
 	}
 }

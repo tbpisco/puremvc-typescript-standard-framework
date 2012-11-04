@@ -1,4 +1,3 @@
-///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 ///<reference path='../../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 ///<reference path='MacroCommandTestVO.ts'/>
@@ -8,18 +7,17 @@ module test
 	"use strict";
 
 	/**
-	 * A puremvc.SimpleCommand subclass used by MacroCommandTestCommand.
+	 * A <code>SimpleCommand</code> subclass used by <code>MacroCommandTestCommand</code>.
 	 */
 	export class MacroCommandTestSub1Command
 		extends puremvc.SimpleCommand
 		implements puremvc.ICommand
 	{
 		/**
-		 * Fabricate a result by multiplying the input by 2
+		 * Fabricate a result by multiplying the input by 2.
 		 *
 		 * @param note
-		 * 		The <code>Notification</code> carrying the
-		 * 		<code>MacroCommandTestVO</code>
+		 * 		The <code>Notification</code> carrying the <code>MacroCommandTestVO</code>.
 		 */
 		execute( note:puremvc.INotification )
 		{

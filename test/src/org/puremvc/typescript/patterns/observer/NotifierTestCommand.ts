@@ -1,4 +1,3 @@
-///<reference path='../../../../../../../test/lib/YUITest.d.ts'/>
 ///<reference path='../../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 ///<reference path='NotifierTestVO.ts'/>
@@ -8,7 +7,7 @@ module test
 	"use strict";
 
 	/**
-	 * A puremvc.SimpleCommand subclass used by NotifierTest.
+	 * A <code>SimpleCommand</code> subclass used by <code>NotifierTest</code>.
 	 */
 	export class NotifierTestCommand
 		extends puremvc.SimpleCommand
@@ -17,12 +16,12 @@ module test
 		/**
 		 * Fabricate a result by multiplying the input by 2
 		 *
-		 * @param note
+		 * @param notification
 		 * 		The Notification carrying the NotifierTestVO
 		 */
-		execute( note:puremvc.INotification )
+		execute( notification:puremvc.INotification )
 		{
-			var vo:NotifierTestVO = note.getBody();
+			var vo:NotifierTestVO = notification.getBody();
 
 			// Fabricate a result
 			vo.result = 2 * vo.input;

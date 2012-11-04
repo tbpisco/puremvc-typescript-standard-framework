@@ -1,4 +1,3 @@
-///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
 ///<reference path='../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 ///<reference path='ControllerTestVO.ts'/>
@@ -8,7 +7,7 @@ module test
 	"use strict";
 
 	/**
-	 * A puremvc.SimpleCommand subclass used by ControllerTest.
+	 * A SimpleCommand subclass used by ControllerTest.
 	 */
 	export class ControllerTestCommand2
 		extends puremvc.SimpleCommand
@@ -25,7 +24,7 @@ module test
 		 */
 		execute( note:puremvc.INotification )
 		{
-			var vo:test.ControllerTestVO = note.getBody();
+			var vo:ControllerTestVO = note.getBody();
 
 			// Fabricate a result
 			vo.result = vo.result+(2 * vo.input);

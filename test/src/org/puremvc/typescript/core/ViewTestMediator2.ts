@@ -1,4 +1,3 @@
-///<reference path='../../../../../../test/lib/YUITest.d.ts'/>
 ///<reference path='../../../../../../test/lib/puremvc-typescript-standard-1.0.d.ts'/>
 
 ///<reference path='ViewTest.ts'/>
@@ -52,12 +51,12 @@ module test
 		/**
 		 * @override
 		 *
-		 * @param note
+		 * @param notification
 		 * 		The notification instance to be handled.
 		 */
-		handleNotification( note:puremvc.INotification )
+		handleNotification( notification:puremvc.INotification )
 		{
-			this.getViewTest().lastNotification = note.getName();
+			this.getViewTest().lastNotification = notification.getName();
 		}
 
 		/**
