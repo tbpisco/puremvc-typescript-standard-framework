@@ -159,11 +159,11 @@
 	<target name="compile.src" description="Compile sources files from TypeScript to JavaScript">
 
 		<!-- Compile a single JavaScript file in the bin dir for release -->
+		<!-- declarations="${declarations-file-path}" -->
 		<TypeScriptRecurse
 			src="${src.dir}"
 			out="${release-file-path}"
 			target="ES5"
-			declarations="${declarations-file-path}"
 			module="amd"
 		/>
 		

@@ -19,12 +19,12 @@ module test
 		 * This tests accumulation effect that would show if the command were executed more than
 		 * once.
 		 *
-		 * @param note
+		 * @param notification
 		 * 		The note carrying the ControllerTestVO.
 		 */
-		execute( note:puremvc.INotification )
+		execute( notification:puremvc.INotification )
 		{
-			var vo:ControllerTestVO = note.getBody();
+			var vo:ControllerTestVO = notification.getBody();
 
 			// Fabricate a result
 			vo.result = vo.result+(2 * vo.input);

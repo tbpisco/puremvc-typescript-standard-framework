@@ -30,8 +30,8 @@ if( typeof define === "function" )
                     _super.apply(this, arguments);
         
                 }
-                ControllerTestCommand2.prototype.execute = function (note) {
-                    var vo = note.getBody();
+                ControllerTestCommand2.prototype.execute = function (notification) {
+                    var vo = notification.getBody();
                     vo.result = vo.result + (2 * vo.input);
                 };
                 return ControllerTestCommand2;
@@ -48,8 +48,8 @@ if( typeof define === "function" )
                     _super.apply(this, arguments);
         
                 }
-                ControllerTestCommand.prototype.execute = function (note) {
-                    var vo = note.getBody();
+                ControllerTestCommand.prototype.execute = function (notification) {
+                    var vo = notification.getBody();
                     vo.result = 2 * vo.input;
                 };
                 return ControllerTestCommand;

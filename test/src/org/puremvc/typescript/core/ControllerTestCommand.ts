@@ -16,12 +16,12 @@ module test
 		/**
 		 * Fabricate a result by multiplying the input by 2.
 		 *
-		 * @param note
+		 * @param notification
 		 * 		The note carrying the ControllerTestVO
 		 */
-		execute( note:puremvc.INotification )
+		execute( notification:puremvc.INotification )
 		{
-			var vo:ControllerTestVO = note.getBody();
+			var vo:ControllerTestVO = notification.getBody();
 
 			// Fabricate a result
 			vo.result = 2 * vo.input;
