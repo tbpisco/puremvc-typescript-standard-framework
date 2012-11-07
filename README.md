@@ -5,7 +5,8 @@ These are sources, unit tests and minified library for PureMVC Standard Framewor
 ## Status
 Development - [Version 1.0](https://github.com/PureMVC/puremvc-typescript-standard-framework/blob/master/VERSION)
 
-Considered as «development» while the TypeScript language specification is not finalized.
+Will probably stay tagged as development while TypeScript language specification is not finalized,
+but remember that any TypeScript PureMVC project will output ready for production JavaScript.
 
 ## Platforms / Technologies
 * [TypeScript](http://www.typescriptlang.org/)
