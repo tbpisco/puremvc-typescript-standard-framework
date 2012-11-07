@@ -11,4 +11,4 @@ Author: Frederic Saunier <frederic.saunier@puremvc.org>
 language specification is not official.
 
 This port, is inspired originally from PureMVC Standard Framework for AS3 port by Cliff Hall but was
-converted both from PureMVC AS3 Multicore port and PureMVC JavaScript Standard for Objs Unit Tests.
+converted both from PureMVC AS3 Standard port and PureMVC JavaScript Standard for Objs Unit Tests.
