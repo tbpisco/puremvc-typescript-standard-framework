@@ -6,7 +6,7 @@ Unit Tests are included in this repository.
 * [Discussion](http://forums.puremvc.org/index.php?board=112.0)
 
 ## Demos
-* [Demo: Employee Admin](https://github.com/PureMVC/puremvc-typescript-demo-employeeadmin/wiki)
+* [Employee Admin](https://github.com/PureMVC/puremvc-typescript-demo-employeeadmin/wiki)
 
 ## Status
 Development - [Version 1.0](https://github.com/PureMVC/puremvc-typescript-standard-framework/blob/master/VERSION)
