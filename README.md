@@ -1,12 +1,14 @@
 ## [PureMVC](http://puremvc.github.com/) Standard Framework for [TypeScript](https://github.com/PureMVC/puremvc-typescript-standard-framework/wiki)
+PureMVC is a lightweight framework for creating applications based upon the classic [Model-View-Controller](http://en.wikipedia.org/wiki/Model-view-controller) design meta-pattern. This is a TypeScript port of the [AS3 reference implementation of the Standard Version](https://github.com/PureMVC/puremvc-as3-standard-framework/wiki). It does not support modular programming since it uses [Singleton](http://en.wikipedia.org/wiki/Singleton_pattern)s as Core actors rather than the [Multiton](http://en.wikipedia.org/wiki/Multiton)s used in the [MultiCore Version](https://github.com/PureMVC/puremvc-typescript-multicore-framework/wiki/).
 
-These are sources, unit tests and minified library for PureMVC Standard Framework for TypeScript.
+Unit Tests are included in this repository.
+
+## Demos
+* [Demo: Employee Admin](https://github.com/PureMVC/puremvc-typescript-demo-employeeadmin/wiki)
 
 ## Status
 Development - [Version 1.0](https://github.com/PureMVC/puremvc-typescript-standard-framework/blob/master/VERSION)
-
-Will probably stay tagged as development while TypeScript language specification is not finalized,
-but remember that any TypeScript PureMVC project will output ready for production JavaScript.
+* Fully unit-tested and demoed, but in 'Development' status since the TypeScript language specification is not finalized. 
 
 ## Platforms / Technologies
 * [TypeScript](http://www.typescriptlang.org/)
