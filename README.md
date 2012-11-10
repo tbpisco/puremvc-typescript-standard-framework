@@ -3,6 +3,8 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 
 Unit Tests are included in this repository.
 
+* [Discussion](http://forums.puremvc.org/index.php?board=112.0)
+
 ## Demos
 * [Demo: Employee Admin](https://github.com/PureMVC/puremvc-typescript-demo-employeeadmin/wiki)
 
