@@ -8,8 +8,7 @@ Unit Tests are included in this repository.
 * [Demo: Employee Admin](https://github.com/PureMVC/puremvc-typescript-demo-employeeadmin/wiki)
 
 ## Status
-Development - [Version 1.0](https://github.com/PureMVC/puremvc-typescript-standard-framework/blob/master/VERSION)
-* Fully unit-tested and demoed, but in 'Development' status since the TypeScript language specification is not finalized. 
+Production- [Version 1.0](https://github.com/PureMVC/puremvc-typescript-standard-framework/blob/master/VERSION)
 
 ## Platforms / Technologies
 * [TypeScript](http://www.typescriptlang.org/)
