@@ -1,0 +1,34 @@
+{
+  "name": "puremvc-typescript-standard-framework",
+  "version": "1.0.0",
+  "description": "PureMVC Standard Framework for TypeScript",
+  "main": "bin/puremvc-typescript-standard-1.0.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test/bin/puremvc-typescript-standard-1.0-unit-tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://tbpisco@github.com/tbpisco/puremvc-typescript-standard-framework"
+  },
+  "keywords": [
+    "puremvc",
+    "javascript",
+    "typescript"
+  ],
+  "author": {
+    "name": "Frederic Saunier",
+    "email": "frederic.saunier@puremvc.org"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tbpisco/puremvc-typescript-standard-framework/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbpisco/puremvc-typescript-standard-framework.git"
+  },
+  "homepage": "https://github.com/tbpisco/puremvc-typescript-standard-framework#readme"
+}
